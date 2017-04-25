@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingBottom="3dip">
+    <View
+        android:layout_width="match_parent"
+        android:id="@+id/top_space"
+        android:visibility="gone"
+        android:layout_height="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="11dip"
+        android:paddingRight="5dip" >
+
+         <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/item_icon"
+                android:layout_width="90dip"
+                android:layout_height="70dip" />
+
+        <TextView
+            android:id="@+id/item_name"
+            style="@style/text_16_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="6dip"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="2"/>
+
+        <LinearLayout
+            style="@style/wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="15dip"
+            android:paddingTop="15dip" >
+
+            <TextView
+                android:id="@+id/item_price"
+                style="@style/text_16_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/item_sum"
+                style="@style/text_16_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="x1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/add_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="5dip"
+        android:paddingTop="5dip" >
+
+        <ImageView
+            android:id="@+id/img_add"
+            android:layout_width="93.33dip"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="@color/grey" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:id="@+id/bottom_space"
+        android:visibility="gone"
+        android:layout_height="10dp"/>
+</LinearLayout>

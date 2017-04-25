@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_f0eff5"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_insurance_header" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@color/orange_fc911f"
+        android:drawableLeft="@drawable/icon_guarantee_tip"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:text="此保障服务仅限购机当日购买！"
+        android:textColor="@color/white"
+        android:textSize="10sp" />
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:listSelector="@color/transparent"
+        android:scrollbars="none"
+        android:scrollingCache="false"
+        android:visibility="gone" />
+
+
+    <com.zxly.o2o.view.LoadingView
+        android:id="@+id/view_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/img_insurance_logo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_insurance_youbao" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#4d000000" />
+
+        <TextView
+            android:id="@+id/txt_insurance_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="9dp"
+            android:layout_marginLeft="16dp"
+            android:text="碎碎柚宝"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/txt_insurance_introduction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15.5dp"
+            android:lineSpacingExtra="12dp"
+            android:text="为意外跌落、意外碰撞、意外挤压导致的内外屏碎裂，提供一次或多次有限额的保修产品屏幕更换服务。"
+            android:textColor="@color/gray_a7a7a7"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/btn_intro_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="22dp"
+            android:text="详情>"
+            android:textColor="@color/blue_30aee3"
+            android:textSize="10sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_e6e6e6" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="38.5dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:text="保障时间"
+            android:textColor="@color/gray_a7a7a7"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txt_insurance_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="90dp"
+            android:text="1年"
+            android:textColor="@color/black_373737"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@color/gray_e6e6e6" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="38.5dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:text="理赔次数"
+            android:textColor="@color/gray_a7a7a7"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txt_insurance_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="90dp"
+            android:text="1次"
+            android:textColor="@color/black_373737"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@color/gray_e6e6e6" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="38.5dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:text="支付金额"
+            android:textColor="@color/gray_a7a7a7"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="90dp"
+            android:text="￥"
+            android:textColor="@color/black_373737"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txt_insurance_price"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="105dp"
+            android:text="88"
+            android:textColor="@color/red_ff0000"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txt_insurance_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/txt_insurance_price"
+            android:text="(手机价格0-3000)"
+            android:textColor="@color/gray_a7a7a7"
+            android:textSize="9sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="82dp"
+            android:layout_marginRight="12dp"
+            android:background="@color/gray_e6e6e6" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="38.5dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="90dp"
+            android:text="￥"
+            android:textColor="@color/black_373737"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txt_insurance_price_high"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="105dp"
+            android:text="1188"
+            android:textColor="@color/red_ff0000"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txt_insurance_range_high"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/txt_insurance_price_high"
+            android:text="(手机价格3000-8000)"
+            android:textColor="@color/gray_a7a7a7"
+            android:textSize="9sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_e6e6e6" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/btn_buy"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="12.5dp"
+        android:layout_marginRight="12.5dp"
+        android:layout_marginTop="44.5dp"
+        android:background="@drawable/btn_common_selector"
+        android:gravity="center"
+        android:text="我要买"
+        android:textColor="@color/white"
+        android:textSize="16sp" />-->
+
+
+</LinearLayout>

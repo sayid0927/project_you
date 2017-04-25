@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+              android:layout_width = "match_parent"
+              android:layout_height = "match_parent"
+              android:orientation = "horizontal">
+
+    <ImageView
+        android:id="@+id/taocan_icon"
+        android:layout_width = "wrap_content"
+        android:layout_height = "match_parent"
+        android:contentDescription="@null"
+        android:scaleType="fitStart"
+        android:visibility="gone"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/taocan"/>
+
+    <com.zxly.o2o.view.MListView
+        android:id = "@+id/listview"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:cacheColorHint = "#00000000"
+        android:dividerHeight = "0dip"
+        android:fadingEdge = "none"
+        android:clickable="false"
+        android:longClickable="false"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        android:descendantFocusability="blocksDescendants"
+        android:listSelector = "@color/transparent"
+        android:paddingLeft = "8dp"
+        android:scrollbars = "none"
+        android:scrollingCache = "false"/>
+
+</LinearLayout>

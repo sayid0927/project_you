@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/img_top"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="12dp"
+            android:layout_marginLeft="20.5dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/gray_dfdfdf" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/icon_trail_red" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/img_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="20.5dp"
+            android:background="@color/gray_dfdfdf" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:background="@drawable/icon_trail_normal" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:text="2016-2-30 9:20"
+        android:textColor="@color/gray_888888"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/txt_content"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/txt_time"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="先准备好行囊吧！方，还是先准备好行囊备好行囊备好行囊备好行囊吧！先准备好行囊吧！方，还是先准备好行囊吧！先准备好行囊吧！方，还是先准备好行囊吧！"
+        android:textColor="@color/gray_666666"
+        android:textSize="14sp" />
+
+
+</RelativeLayout>

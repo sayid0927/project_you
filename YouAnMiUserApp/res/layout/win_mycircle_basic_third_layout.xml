@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+                android:layout_width = "match_parent"
+                android:layout_height = "match_parent"
+                android:background = "@drawable/app_white_bg"
+                android:orientation = "vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/layout_title_article"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id = "@+id/mycircle_third_top_title"
+        android:layout_width = "match_parent"
+        android:layout_height = "@dimen/title_height"
+        android:layout_centerHorizontal = "true"
+        android:background = "#ff5f19"
+        android:gravity = "center"
+        android:textColor = "@color/white"
+        android:textSize = "18sp"/>
+
+    <Button
+        android:id = "@+id/mycircle_third_top_title_publish_btn"
+        android:layout_width = "70dp"
+        android:layout_height = "30dp"
+        android:layout_alignParentRight = "true"
+        android:layout_marginRight = "10dp"
+        android:layout_marginTop = "7dp"
+        android:background = "@color/transparent"
+        android:text = "@string/publish_btn"
+        android:textColor = "@color/white"
+        android:visibility="gone"
+        android:textSize = "@dimen/nomal_text"/>
+
+    <LinearLayout
+        android:id = "@+id/mycircle_third_article_detail_top_title"
+        android:layout_width = "wrap_content"
+        android:layout_height = "@dimen/title_height"
+        android:layout_alignParentRight = "true"
+        android:gravity = "center"
+        android:background = "@color/transparent"
+        android:visibility = "gone"
+        android:orientation = "horizontal">
+
+        <ImageButton
+            android:id = "@+id/mycircle_third_top_title_collect_btn"
+            android:layout_width = "@dimen/title_height"
+            android:layout_height = "@dimen/title_height"
+            android:background = "@color/transparent"
+            android:src = "@drawable/bt_collect_selector"/>
+
+        <ImageButton
+            android:id = "@+id/mycircle_third_top_title_share_btn"
+            android:layout_width = "@dimen/title_height"
+            android:layout_height = "@dimen/title_height"
+            android:background = "@color/transparent"
+            android:src = "@drawable/big_share_btn_selector"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id = "@+id/mycircle_third_title_back_icon"
+        android:layout_width = "@dimen/title_height"
+        android:layout_height = "@dimen/title_height"
+        android:contentDescription = "@null"
+        android:background = "@color/transparent"
+        android:scaleType = "center"
+        android:src = "@drawable/ease_back"/>
+        <TextView
+            android:layout_below="@+id/mycircle_third_title_back_icon"
+            android:layout_width = "match_parent"
+            android:layout_height = "0.5dp"
+            android:background = "@color/grey"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/layout_title_article"
+        android:id = "@+id/mycircle_third_root_layout"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:background = "@color/transparent"
+        />
+
+    <ImageView
+        android:id="@+id/btn_up_to_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="80dp"
+        android:visibility="gone"
+        android:src="@drawable/up_tofirst"/>
+
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.zxly.o2o.view.MyFlipperView
+    android:id = "@+id/list_layout"
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:background = "#eeeeee">
+
+    <include
+        layout = "@layout/flipper_layout"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"/>
+
+    <com.zxly.o2o.pullrefresh.PullToRefreshListView
+        android:id = "@+id/pull_to_refreshlistview"
+        xmlns:ptr = "http://schemas.android.com/apk/res-auto"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:background = "@drawable/app_white_bg"
+        android:paddingBottom="10dp"
+        android:cacheColorHint = "#00000000"
+        android:divider = "@color/gray_eeeeee"
+        android:dividerHeight = "0dp"
+        android:descendantFocusability="blocksDescendants"
+        android:fadingEdge = "none"
+        android:focusableInTouchMode = "false"
+        android:listSelector = "@color/white"
+        android:scrollbars = "none"
+        android:scrollingCache = "false"
+        ptr:ptrAnimationStyle = "flip"/>
+
+</com.zxly.o2o.view.MyFlipperView>

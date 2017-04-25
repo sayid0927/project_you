@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@color/orange_ff5f19">
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:maxLength="18"
+            android:text="推广"
+            android:textColor="@color/white"
+            android:textSize="@dimen/main_tab_title_text_size" />
+
+        <TextView
+            android:id="@+id/btn_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:paddingRight="13dp"
+            android:paddingLeft="10dp"
+            android:text="任务指标"/>
+
+
+    </RelativeLayout>
+
+
+    <com.zxly.o2o.view.MPagerSlidingTab
+        android:id = "@+id/tabs"
+        android:layout_below="@+id/layout_title"
+        android:layout_width = "match_parent"
+        android:layout_height = "40dp"
+        android:background = "@color/white"/>
+
+
+    <View
+        android:id="@+id/line_top"
+        android:layout_width="match_parent"
+        android:layout_height
+            ="0.5dp"
+        android:layout_below="@+id/tabs"
+        android:background="@color/gray_dcdcdc"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id = "@+id/pager"
+        android:layout_below="@+id/line_top"
+        android:background="@color/gray_eeeeee"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"/>
+
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_status"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_f0eff5"
+    android:visibility="visible"
+    android:orientation="vertical">
+
+    <!--<include layout="@layout/layout_insurance_header" />-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="198.5dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/img_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="81.5dp"
+            android:layout_marginTop="73.5dp"
+            android:background="@drawable/icon_insurance_reject" />
+
+        <TextView
+            android:id="@+id/txt_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="76dp"
+            android:layout_toRightOf="@+id/img_result"
+            android:text="已被业务员拒单！"
+            android:textColor="@color/gray_545657"
+            android:textSize="20sp" />
+
+        <!--<TextView
+            android:id="@+id/txt_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="81.5dp"
+            android:layout_marginTop="73.5dp"
+            android:drawableLeft="@drawable/icon_insurance_reject"
+            android:drawablePadding="14dp"
+            android:gravity="center_vertical"
+            android:text="已被业务员拒单！"
+            android:textColor="@color/gray_545657"
+            android:textSize="20sp" />-->
+
+        <TextView
+            android:id="@+id/txt_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_result"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="12dp"
+            android:text="您提交的申请不合要求，或业务员未能为您补充资料。"
+            android:textColor="@color/gray_999999"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_d4d4d4" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/btn_ok"
+        android:layout_width="100dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="22.5dp"
+        android:background="@drawable/bg_insurance_reject"
+        android:gravity="center"
+        android:text="知道了"
+        android:textColor="@color/orange_ff5f19"
+        android:textSize="16sp" />
+
+</LinearLayout>

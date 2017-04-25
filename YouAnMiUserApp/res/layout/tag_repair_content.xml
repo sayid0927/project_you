@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="115dp">
+    <View
+        android:id="@+id/line_top"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/grey" />
+    <ImageView
+        android:id="@+id/image_repair_erweima"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_below="@+id/line_top"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="3dp" />
+
+    <TextView
+        android:id="@+id/btn_delay_repair"
+        style="@style/text_15_orange"
+        android:layout_width="85.5dp"
+        android:layout_height="30dp"
+        android:layout_toRightOf="@+id/image_repair_erweima"
+        android:layout_above="@+id/saoyisao"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_repair"
+        android:gravity="center"
+        android:text="全部保单" />
+
+    <TextView
+        android:id="@+id/saoyisao"
+        style="@style/text_15_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/image_repair_erweima"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="26dp"
+        android:text="扫一扫，查看我的保单信息" />
+
+</RelativeLayout>

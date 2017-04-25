@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.zxly.o2o.view.MyFlipperView
+    android:id = "@+id/list_layout"
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:background = "#EFEFEF">
+
+    <include
+        layout = "@layout/flipper_layout"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"/>
+
+    <ExpandableListView
+        android:id="@+id/elv_contact_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:drawSelectorOnTop="false"
+        android:fastScrollEnabled="true"
+        android:divider="#f6f6f6"
+        android:dividerHeight="0.5dp"
+        android:childDivider="#f6f6f6"
+        android:groupIndicator="@null"/>
+
+</com.zxly.o2o.view.MyFlipperView>

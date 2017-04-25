@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:paddingBottom="12.5dp" >
+    <RelativeLayout
+        android:layout_width="match_parent" android:background="#FA6A2B"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content" android:background="@drawable/bg_ljsy"
+            android:layout_height="wrap_content"  android:layout_alignParentRight="true"/>
+        <TextView
+            android:layout_width="wrap_content"  android:drawableLeft="@drawable/ljsy" android:layout_marginTop="10dp"
+            android:layout_height="wrap_content" android:layout_marginLeft="12dp" android:id="@+id/txt_ljsy_lable"
+            android:text=" 累计收益"  style="@style/text_14_white"/>
+        <TextView
+            android:layout_width="wrap_content" android:id="@+id/txt_total_yield" android:textSize="50sp" android:layout_below="@id/txt_ljsy_lable"
+            android:layout_height="wrap_content" android:textColor="@color/white"
+            android:layout_marginTop="10dp" android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content" android:background="@drawable/btn_symx_selector" android:textSize="14sp"
+            android:layout_height="wrap_content"  android:layout_below="@id/txt_total_yield" android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" android:textColor="@color/white" android:text="  收益明细  " android:gravity="center"
+            android:id="@+id/btn_symx"/>
+        <View
+            android:layout_width="match_parent" android:layout_below="@id/btn_symx"
+            android:layout_height="0.3dp" android:id="@+id/line" android:background="@drawable/dotted_line"
+            android:layout_marginTop="10dp" android:layout_marginLeft="15dp" android:layout_marginRight="15dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"  android:layout_marginLeft="11dp"
+            android:layout_height="32dp" android:textSize="13sp" android:textColor="@color/white"
+            android:id="@+id/txt_cur_yield"  android:layout_below="@id/line" android:gravity="center_vertical"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/btn_llcz"
+            android:layout_width="match_parent"
+            android:layout_height="72.5dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_llcz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/icon_llcz" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_llcz"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:text="流量充值"
+                android:textColor="#71bcf9"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0.5dip"
+            android:layout_height="match_parent"
+            android:background="@color/grey" />
+
+        <RelativeLayout
+            android:id="@+id/btn_ybgl"
+            android:layout_width="match_parent"
+            android:layout_height="72.5dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_ybgl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/icon_ybgl" />
+
+            <TextView
+                android:id="@+id/txt_yanbao_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/img_ybgl"
+                android:layout_alignTop="@+id/img_ybgl"
+                android:layout_marginRight="-3dp"
+                android:layout_marginTop="-6dp"
+                android:background="@drawable/em_red_circle"
+                android:gravity="center"
+                android:text="22"
+                android:textColor="@color/white"
+                android:textSize="9dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_ybgl"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:text="延保管理"
+                android:textColor="#00c6bc"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0.5dip"
+            android:layout_height="match_parent"
+            android:background="@color/grey" />
+
+        <RelativeLayout
+            android:id="@+id/btn_zyj"
+            android:layout_width="match_parent"
+            android:layout_height="72.5dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_zyj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/icon_zyj" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_zyj"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:text="赚佣金"
+                android:textColor="#ffba00"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent" android:id="@+id/lin_msg_top"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+    <LinearLayout
+        android:layout_width="match_parent" android:paddingLeft="12dp" android:id="@+id/btn_msg"
+        android:layout_height="35dp" android:gravity="center_vertical"   android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content" android:drawableLeft="@drawable/horn"
+            android:layout_height="wrap_content" android:text=" 系统消息：" android:textSize="12sp" android:textColor="#333333"/>
+        <com.zxly.o2o.view.VerticalRollingTextView
+            android:layout_width="match_parent" android:id="@+id/txt_sysMsg" android:text="邀请客户享受到店优惠！" android:layout_weight="1"
+            android:layout_height="wrap_content"  android:textSize="12sp" android:textColor="#333333" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent" android:layout_height="10dp" android:background="@color/gray_eeeeee" android:id="@+id/line_msg_buttom"  android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="match_parent" android:layout_marginTop="14dp"  style="@style/text_14_black"
+        android:layout_height="wrap_content" android:drawableLeft="@drawable/pic_left" android:text="  赚钱攻略 "/>
+</LinearLayout>

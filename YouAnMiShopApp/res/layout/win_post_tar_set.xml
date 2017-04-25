@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" android:background="@color/app_bg" android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="37dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#666666" android:textSize="16sp"
+                android:text="文章推广"/>
+            <View
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                />
+            <EditText
+                android:layout_width="182dp"
+                android:layout_height="36dp"
+                android:id="@+id/edit_art_gen_tar"
+                android:inputType="number"
+                android:maxLength="7"
+                android:gravity="center"
+                android:background="@drawable/edit_gb"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:textColor="#666666" android:textSize="16sp"
+                android:text="次/月"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textColor="#999999" android:textSize="12sp"
+            android:text="(当月文章推广链接的被点击次数不少于所设定的值)"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:layout_height="37dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#666666" android:textSize="16sp"
+                android:text="商品推广"
+                />
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_sel1"
+                android:src="@drawable/checkbox1_selector"/>
+
+            <EditText
+                android:layout_width="182dp"
+                android:layout_height="36dp"
+                android:id="@+id/edit_pro_gen_tar"
+                android:inputType="number"
+                android:maxLength="7"
+                android:gravity="center"
+                android:background="@drawable/edit_gb"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#666666" android:textSize="16sp"
+                android:layout_marginLeft="3dp"
+                android:text="次/月"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textColor="#999999" android:textSize="12sp"
+            android:text="(当月商品推广链接的被点击次数不少于所设定的值)"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_height="37dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#666666" android:textSize="16sp"
+                android:visibility="invisible"
+                android:text="商品推广"
+                />
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_sel2"
+                android:src="@drawable/checkbox1_selector"/>
+
+            <EditText
+                android:layout_width="182dp"
+                android:layout_height="36dp"
+                android:id="@+id/edit_pro_buy_tar"
+                android:inputType="number"
+                android:gravity="center"
+                android:maxLength="7"
+                android:background="@drawable/edit_gb"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#666666" android:textSize="16sp"
+                android:layout_marginLeft="3dp"
+                android:text="件/月"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textColor="#999999" android:textSize="12sp"
+            android:text="(当月推广商品的交易成功数不少于所设定的值)"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="17dp"
+            android:layout_height="37dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#666666" android:textSize="16sp"
+                android:text="APP推广"
+                />
+            <View
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                />
+
+            <EditText
+                android:layout_width="182dp"
+                android:layout_height="36dp"
+                android:id="@+id/edit_shop_gen_tar"
+                android:maxLength="7"
+                android:inputType="number"
+                android:gravity="center"
+                android:background="@drawable/edit_gb"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#666666" android:textSize="16sp"
+                android:layout_marginLeft="3dp"
+                android:text="次/月"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textColor="#999999" android:textSize="12sp"
+            android:text="(当月下载安装本店APP的次数不少于所设定的值)"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:textColor="#666666" android:textSize="12sp"
+            android:drawableLeft="@drawable/danxuan1"
+            android:gravity="center_vertical"
+            android:text="    以上指标使用与下个月的设置"
+            android:id="@+id/cbx_agree"/>
+
+
+    </LinearLayout>
+</ScrollView>
+

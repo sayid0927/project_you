@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+     >
+
+
+    <ImageView
+        android:id="@+id/img_CommissionStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:scaleType="center"
+        android:layout_marginLeft="12dip"
+        android:layout_marginRight="10dip"
+        android:src="@drawable/icon_daishouru"/>
+
+
+    <TextView
+        android:id="@+id/txt_orderNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/txt_commission"
+        android:layout_toRightOf="@+id/img_CommissionStatus"
+        android:paddingRight="10dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_marginTop="18dp"
+        android:textSize="14sp"
+        android:textColor="@color/black_333333"
+        android:layout_marginBottom="5dp"
+        android:text="订单编号 : 1122334455"/>
+
+    <TextView
+        android:id="@+id/txt_commissionToArriveTime"
+        android:layout_toRightOf="@+id/img_CommissionStatus"
+
+        android:layout_below="@+id/txt_orderNo"
+        android:textSize="14sp"
+        android:textColor="@color/gray_999999"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="预计到账时间 : 2015-02-15"/>
+
+
+    <TextView
+        android:id="@+id/txt_commission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#449900"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="11dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5dp"
+        android:text="+ 40.00"/>
+
+    <ImageView
+        android:id="@+id/img_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txt_commission"
+        android:visibility="visible"
+        android:src="@drawable/huadiao"
+        android:layout_marginRight="11dp"
+        android:layout_marginTop="7dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5dp" />
+
+    <TextView
+        android:id="@+id/txt_commissionStatus"
+        android:layout_width="40dp"
+        android:layout_height="15dp"
+        android:gravity="center"
+        android:textSize="10sp"
+        android:textColor="#707070"
+        android:background="#f8f7f1"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:layout_below="@+id/txt_commission"
+        android:text="待收入"/>
+
+</RelativeLayout>

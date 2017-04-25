@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+    <ImageView style="@style/wrap_content" android:background="@drawable/biaozhu"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textSize="12sp" android:textColor="#666666" android:text="货到付款" android:maxLength="6"
+         android:layout_marginLeft="4dip" android:id="@+id/item_name" android:lines="1" android:ellipsize="end"/>
+</LinearLayout>

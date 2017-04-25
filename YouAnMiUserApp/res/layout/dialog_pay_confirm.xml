@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bargain_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:paddingLeft="15dp"
+        android:gravity="center_vertical"
+        android:text="支付"
+        android:textColor="@color/gray_333333"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/gray_dcdcdc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="支付金额："
+            android:textColor="@color/gray_333333"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/txt_pay_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="￥--"
+            android:textColor="@color/gray_333333"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edit_pay_input"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="88dp"
+        android:background="@drawable/personal_dialog_text_bg"
+        android:hint="请输入支付密码"
+        android:inputType="textPassword"
+        android:maxLength="20"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textColor="@color/gray_333333"
+        android:textColorHint="@color/gray_999999"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/btn_password_forget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/edit_pay_input"
+        android:layout_marginTop="10dp"
+        android:text="忘记密码"
+        android:textColor="@color/gray_999999"
+        android:textSize="14sp" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/btn_password_forget"
+        android:background="@color/gray_dcdcdc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/line"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_pay_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/personal_setting_normal_selector"
+            android:text="取消"
+            android:textColor="@color/blue_007aff"
+            android:textSize="17sp" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_dcdcdc" />
+
+        <Button
+            android:id="@+id/btn_pay_done"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/personal_setting_normal_selector"
+            android:text="确定"
+            android:textColor="@color/blue_007aff"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_eeeeee"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:background="@color/gray_eeeeee"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginTop="15dp"
+                    android:text="手机品牌"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txt_phone_brand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="88dp"
+                    android:layout_marginTop="15dp"
+                    android:text="魅族MX5"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginTop="40dp"
+                    android:text="手机IMEI"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txt_phone_imei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="88dp"
+                    android:layout_marginTop="40dp"
+                    android:text="08931874598173"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txt_install_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginTop="65dp"
+                    android:text="2016-08-23 19:07 安装"
+                    android:textColor="@color/gray_999999"
+                    android:textSize="13sp" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/gray_d4d4d4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/gray_d4d4d4" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/view_remark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/white">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/gray_d4d4d4" />
+
+                <LinearLayout
+                    android:id="@+id/btn_remark_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="11dp"
+                        android:text="备注信息"
+                        android:textColor="@color/gray_999999"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/img_remark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/arrow_up" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/view_remark_now"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_below="@+id/btn_remark_info"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="18dp"
+                        android:text="您还没有对粉丝添加任何备注哦，立即"
+                        android:textColor="@color/gray_333333"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/btn_remark_now"
+                        android:layout_width="82dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/btn_submit_normal"
+                        android:gravity="center"
+                        android:text="写备注"
+                        android:textColor="@color/orange_ff5f19" />
+
+
+                </RelativeLayout>
+
+                <com.zxly.o2o.view.MListView
+                    android:id="@+id/list_remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/btn_remark_info"
+                    android:background="@color/transparent"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@color/transparent"
+                    android:fadingEdge="none"
+                    android:fastScrollEnabled="false"
+                    android:footerDividersEnabled="false"
+                    android:headerDividersEnabled="false"
+                    android:listSelector="#00000000"
+                    android:scrollbars="none"
+                    android:scrollingCache="false" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/gray_d4d4d4" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/view_spend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/white">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/gray_d4d4d4" />
+
+                <LinearLayout
+                    android:id="@+id/btn_spend"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="11dp"
+                        android:text="消费轨迹"
+                        android:textColor="@color/gray_999999"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/img_spend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/arrow_up" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/view_spend_now"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/btn_spend"
+                    android:paddingLeft="11dp"
+                    android:text="粉丝还没注册呢，点击推送引导注册!"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+
+                <com.zxly.o2o.view.MListView
+                    android:id="@+id/list_spend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btn_spend"
+                    android:background="@color/transparent"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@color/transparent"
+                    android:fadingEdge="none"
+                    android:fastScrollEnabled="false"
+                    android:footerDividersEnabled="false"
+                    android:headerDividersEnabled="false"
+                    android:listSelector="#00000000"
+                    android:scrollbars="none"
+                    android:scrollingCache="false" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/gray_d4d4d4" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/view_behavior"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/white">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/gray_d4d4d4" />
+
+
+                <LinearLayout
+                    android:id="@+id/btn_behavior"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="11dp"
+                        android:text="行为轨迹"
+                        android:textColor="@color/gray_999999"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/img_behavior"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/arrow_up" />
+
+                </LinearLayout>
+
+
+                <com.zxly.o2o.view.MListView
+                    android:id="@+id/list_behavior"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/btn_behavior"
+                    android:background="@color/transparent"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@color/transparent"
+                    android:fadingEdge="none"
+                    android:fastScrollEnabled="false"
+                    android:footerDividersEnabled="false"
+                    android:headerDividersEnabled="false"
+                    android:listSelector="#00000000"
+                    android:scrollbars="none"
+                    android:scrollingCache="false" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/gray_d4d4d4" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/btn_remark"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/btn2_selector"
+            android:gravity="center"
+            android:text="写备注"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+</RelativeLayout>

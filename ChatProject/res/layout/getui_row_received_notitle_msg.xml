@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:id="@+id/bubble"
+              android:paddingTop="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="@dimen/margin_chat_activity"
+        android:background="@color/btn_white_normal"
+        android:paddingBottom="10dp">
+        <RelativeLayout
+            android:id="@+id/msg_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_white_normal">
+            <com.easemob.easeui.widget.VolleyImageView
+                android:layout_width="65dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/iv_pic"
+                android:visibility="gone"
+                android:layout_height="65dp"/>
+
+            <TextView
+                android:id="@+id/tv_sys_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/iv_pic"
+                android:gravity="left|center"
+                android:maxLines="2"
+                android:text="这是标题啊这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这"
+                android:ellipsize="end"
+                android:textColor="#333333"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_content"
+                style="@style/chat_text_name_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_sys_title"
+                android:layout_toRightOf="@+id/iv_pic"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="left|center"
+                android:lineSpacingExtra="1dp"
+                android:textColor="#333333"
+                android:maxLines="1"
+                android:visibility="gone"
+                android:text="是内容"
+                android:ellipsize="end"
+                android:textScaleX="1"
+                android:textSize="15sp"
+                />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/msg_content"
+            android:layout_margin="10dp"
+            android:background="#4f999999"/>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/msg_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#999999"
+            android:textSize="13sp"/>
+        <TextView
+            android:id="@+id/tv_goto_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/msg_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:text="查看详情>>"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

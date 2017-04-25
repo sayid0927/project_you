@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:paddingLeft="11dip"
+        android:paddingRight="11dip"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/order_item_store_name"
+            style="@style/text_16_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/mendian_turn"
+            android:ellipsize="end"
+            android:lines="1" />
+              <View android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/order_item_order_status"
+            style="@style/text_16_orange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+
+    <com.zxly.o2o.view.MListView
+        android:id="@+id/lv_succed_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F8F8F8"
+        android:cacheColorHint="#00000000"
+        android:dividerHeight="0dip"
+        android:fadingEdge="none"
+        android:listSelector="@color/transparent"
+        android:paddingLeft="6dip"
+        android:paddingRight="6dip"
+        android:scrollbars="none"
+        android:scrollingCache="false" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:paddingRight="8dip"
+        android:gravity="center_vertical|right" >
+
+        <TextView
+            style="@style/text_18_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单合计：" />
+
+        <TextView
+            android:id="@+id/order_all_price"
+            style="@style/text_20_orange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥6500" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+
+    <LinearLayout
+        style="@style/wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginBottom="5dip"
+        android:paddingRight="8dip"
+        android:layout_marginTop="5dip" >
+
+        <TextView
+            android:id="@+id/btn_finish"
+            style="@style/text_18_white"
+            android:layout_width="100dip"
+            android:layout_height="40dip"
+            android:background="@drawable/bt_publish_selector"
+            android:gravity="center"
+            android:text="确认收货"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/btn1"
+            style="@style/text_16_black"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:layout_marginLeft="10dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:background="@drawable/black_frame"
+            android:gravity="center"
+            android:text="取消订单 " />
+    </LinearLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+
+</LinearLayout>

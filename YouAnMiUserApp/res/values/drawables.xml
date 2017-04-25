@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="Cambridge_blue" type="drawable">#7BCAFC</item>
+    <item name="grey_black" type="drawable">#B7B7B7</item>
+    <item name="yellow" type="drawable">#FFDA4D</item>
+    <item name="purplish_red" type="drawable">#FF4D71</item>
+    <item name="orange" type="drawable">#FF944D</item>
+    <item name="blue" type="drawable">#1C79E3</item>
+    <item name="ltgray" type="drawable">#fff4f4f4</item>
+    <item name="ltyellow" type="drawable">#fffff4db</item>
+    <item name="black" type="drawable">#ff000000</item>
+    <item name="white" type="drawable">#ffffff</item>
+    <item name="grey" type="drawable">#cccccc</item>
+    <item name="darkgrey" type="drawable">#888888</item>
+    <item name="red" type="drawable">#C1272D</item>
+    <item name="transparent" type="drawable">#00000000</item>
+    <item name="widget_edit_block_bg_normal" type="drawable">@android:color/transparent</item>
+    <item name="transparent_background" type="drawable">#99000000</item>
+    <item name="list_background" type="drawable">#fff4f4f4</item>
+    <item name="namcard_picker_bkg_normal" type="drawable">#ff272727</item>
+    <item name="namcard_picker_bkg_hover" type="drawable">#ff333333</item>
+    <item name="green" type="drawable">#7fd926</item>
+    <item name="zhixiao_normal" type="drawable">#0AC2E6</item>
+    <item name="zhixiao_press" type="drawable">#0FA7C6</item>
+    <item name="ershou_normal" type="drawable">#2DC0A4</item>
+    <item name="ershou_press" type="drawable">#2CA68E</item>
+     <item name="orange_normal" type="drawable">#ff5f19</item>
+    <item name="orange_press" type="drawable">#ee5917</item>
+
+    <item name="yellow_normal" type="drawable">#FE9402</item>
+    <item name="yellow_press" type="drawable">#ec8a02</item>
+
+    <item name="black_normal" type="drawable">#323135</item>
+    <item name="black_press" type="drawable">#29282b</item>
+
+    <item name="red_normal" type="drawable">#DD2727</item>
+    <item name="red_press" type="drawable">#a33332</item>
+
+
+
+</resources>

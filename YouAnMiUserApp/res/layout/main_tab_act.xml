@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:red="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray_eeeeee"
+              android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/main_act_tabcontent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_dcdcdc"/>
+
+    <com.zxly.o2o.view.FlowRadioGroup
+        android:id="@+id/main_act_radio_group"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/app_white_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/btn_homePage"
+            style="@style/main_tab_bottom"
+            android:drawableTop="@drawable/btn_homepage_selector"
+            android:text="首页"/>
+
+        <!--<RadioButton
+            android:id="@+id/btn_circlePage"
+            style="@style/main_tab_bottom"
+            android:drawableTop="@drawable/btn_circlepage_selector"
+            android:text="圈子"/>-->
+
+        <RadioButton
+            android:id="@+id/btn_discoveryPage"
+            style="@style/main_tab_bottom"
+            android:drawableTop="@drawable/btn_discoverypage_selector"
+
+            android:text="逛店"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/btn_messagePage"
+                style="@style/main_tab_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:drawableTop="@drawable/btn_messagepage_selector"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="消息"/>
+
+            <com.zxly.o2o.view.RedPoint
+                android:id="@+id/view_redPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-30dp"
+                android:layout_marginTop="3dp"
+                red:redIsShowText="true"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:layout_toRightOf="@+id/btn_messagePage"
+                android:background="@drawable/ease_unread_count_bg"
+
+                />
+        </RelativeLayout>
+
+
+        <RadioButton
+            android:id="@+id/btn_persionnalPage"
+            style="@style/main_tab_bottom"
+            android:drawableTop="@drawable/button_wo_selector"
+            android:text="我"/>
+
+    </com.zxly.o2o.view.FlowRadioGroup>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"/>
+
+</LinearLayout>

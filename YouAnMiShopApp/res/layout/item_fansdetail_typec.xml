@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:background="@color/white"
+              android:id="@+id/layout_container"
+              android:layout_height="wrap_content">
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/layout_tag"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="7dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+        <com.zxly.o2o.view.TagLayout
+            android:id="@+id/layout_tag_typec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/notag_layout"
+        android:visibility="gone"
+        android:layout_marginBottom="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/gray_333333"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_centerVertical="true"
+            android:text="您还没对这位粉丝添加任何备注哦，立即备注吧。"/>
+
+    </RelativeLayout>
+</FrameLayout>

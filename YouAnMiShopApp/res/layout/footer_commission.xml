@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/app_white_bg"
+      android:orientation="vertical" android:paddingBottom="15dp">
+    <View android:layout_width="match_parent" android:layout_height="0.5dp"  android:background="@color/grey" />
+    <TextView style="@style/wrap_content" android:textColor="@color/gray_999999" android:textSize="13sp" android:layout_marginTop="10dp"
+        android:id="@+id/txt_serialNumber" android:layout_marginLeft="12dp"/>
+    <TextView style="@style/wrap_content"  android:textSize="13sp" android:textColor="@color/gray_999999"
+        android:id="@+id/txt_makeAccount"  android:layout_marginTop="7.5dp" android:layout_marginLeft="12dp"/>
+    <TextView style="@style/wrap_content" android:textColor="@color/gray_999999" android:textSize="13sp"
+        android:id="@+id/txt_orderNumber"  android:layout_marginTop="7.5dp" android:layout_marginLeft="12dp"/>
+    <TextView style="@style/wrap_content" android:textColor="@color/gray_999999" android:textSize="13sp"
+        android:id="@+id/txt_orderTime"  android:layout_marginTop="7.5dp" android:layout_marginLeft="12dp"/>
+</LinearLayout>

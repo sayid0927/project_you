@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/app_white_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/title"
+    android:layout_width = "fill_parent"
+    android:layout_height = "@dimen/title_height"
+    android:background = "@color/white">
+
+
+    <ImageView
+        android:id = "@+id/tag_title_btn_back"
+        android:layout_width = "wrap_content"
+        android:layout_height = "match_parent"
+        android:paddingLeft = "10dp"
+        android:paddingRight = "40dp"
+        android:scaleType = "center"
+        android:src = "@drawable/back_normal"/>
+
+
+    <TextView
+        android:id = "@+id/txt_title"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text = "全部商品"
+        android:textColor = "@color/dark_grey"
+        android:textSize = "@dimen/main_tab_title_text_size"/>
+
+        <ImageView
+            android:id="@+id/btn_top_message"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:src="@drawable/talk_to_cs_selector"
+            android:background="@drawable/bt_light_grey_selector" />
+
+    <View
+        android:layout_width = "match_parent"
+        android:layout_height = "0.7dp"
+        android:layout_gravity = "bottom"
+        android:background = "@color/grey"/>
+</RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/spi_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:gravity="center_vertical" >
+
+        <com.zxly.o2o.view.SpinnerView
+            android:id="@+id/turn_type"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.zxly.o2o.view.SpinnerView
+            android:id="@+id/turn_brand"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.zxly.o2o.view.SpinnerView
+            android:id="@+id/turn_sort"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <com.zxly.o2o.pullrefresh.PullToRefreshGridView
+        android:id="@+id/goods_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/spi_layout"
+        android:horizontalSpacing="10dip"
+        android:verticalSpacing="10dip"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginBottom="10dip"
+        android:cacheColorHint="#00000000"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:numColumns="2"
+        android:listSelector="@color/transparent"
+        android:scrollbars="none"
+        android:scrollingCache="false"
+        ptr:ptrAnimationStyle="flip" />
+
+    <com.zxly.o2o.view.LoadingView
+        android:id="@+id/view_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/spi_layout" />
+
+    <FrameLayout
+        android:id="@+id/spinner_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/spi_layout"
+        android:background="#50000000"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:layout_below="@id/spi_layout"
+        android:background="@color/grey" />
+
+</RelativeLayout>

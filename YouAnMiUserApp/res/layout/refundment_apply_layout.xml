@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
+                                  android:layout_width = "match_parent"
+                                  android:layout_height = "match_parent"
+                                  android:background = "@color/transparent"
+                                  android:paddingBottom = "30dp"
+                                  android:scrollbars = "none">
+
+    <LinearLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:orientation = "vertical">
+
+        <TextView
+            android:layout_width = "match_parent"
+            android:layout_height = "40dp"
+            android:background = "@color/light_grey_bg"
+            android:gravity = "bottom"
+            android:paddingBottom = "5dp"
+            android:text = "   *退款类型"
+            android:textColor = "@color/crop__button_text"/>
+
+        <TextView
+            android:id = "@+id/refundment_type"
+            android:layout_width = "match_parent"
+            android:layout_height = "50dp"
+            android:background = "@color/white"
+            android:gravity = "center_vertical"
+            android:paddingLeft = "20dp"
+            android:text = "仅退款"
+            android:textColor = "@color/light_grey"/>
+
+        <TextView
+            android:layout_width = "match_parent"
+            android:layout_height = "40dp"
+            android:background = "@color/light_grey_bg"
+            android:gravity = "bottom"
+            android:paddingBottom = "5dp"
+            android:text = "   *选择退款原因"
+            android:textColor = "@color/crop__button_text"/>
+
+        <Spinner
+            android:id = "@+id/refundment_reason_spinner"
+            android:layout_width = "match_parent"
+            android:layout_height = "50dp"
+            android:background = "@color/white"
+            android:paddingLeft = "10dp"
+            android:scrollbars = "none"/>
+
+        <ImageView
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_gravity = "right"
+            android:layout_marginRight = "10dp"
+            android:layout_marginTop = "-30dp"
+            android:src = "@drawable/turn_pull1"/>
+
+        <TextView
+            android:id="@+id/refund_limit_price"
+            android:layout_width = "match_parent"
+            android:layout_height = "40dp"
+            android:layout_marginTop = "25dp"
+            android:background = "@color/light_grey_bg"
+            android:gravity = "bottom"
+            android:paddingBottom = "5dp"
+            android:text = "   *退款金额 最多"
+            android:textColor = "@color/crop__button_text"/>
+
+        <EditText
+            android:id = "@+id/refundment_sum_edit"
+            android:layout_width = "match_parent"
+            android:layout_height = "50dp"
+            android:background = "@color/white"
+            android:paddingLeft = "15dp"
+            android:paddingRight = "10dp"
+            android:singleLine = "true"
+            android:textColor = "@color/dark_grey"
+            android:inputType = "numberDecimal"/>
+
+        <TextView
+            android:layout_width = "match_parent"
+            android:layout_height = "40dp"
+            android:background = "@color/light_grey_bg"
+            android:gravity = "bottom"
+            android:paddingBottom = "5dp"
+            android:text = "   *退款备注"
+            android:textColor = "@color/crop__button_text"/>
+
+        <EditText
+            android:id = "@+id/refundment_remark_edit"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:background = "@color/white"
+            android:gravity = "top"
+            android:maxLength = "200"
+            android:paddingBottom = "60dp"
+            android:paddingLeft = "20dp"
+            android:paddingRight = "20dp"
+            android:paddingTop = "10dp"
+            android:textColor = "@color/dark_grey"/>
+
+        <TextView
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:background = "@color/white"
+            android:gravity = "right"
+            android:paddingBottom = "10dp"
+            android:paddingRight = "10dp"
+            android:text = "200"
+            android:textColor = "@color/light_grey"/>
+
+        <RelativeLayout
+            android:id="@+id/refundment_camera_layout"
+            android:layout_width = "wrap_content"
+            android:layout_height = "70dp"
+            android:visibility="gone"
+            android:layout_marginTop = "20dp">
+
+            <ImageView
+                android:layout_width = "match_parent"
+                android:layout_height = "0.5dp"
+                android:layout_alignParentTop = "true"
+                android:background = "@color/grey"
+                android:contentDescription = "@null"/>
+
+            <Button
+                android:id = "@+id/get_refundment_pic_btn"
+                android:layout_width = "40dp"
+                android:layout_height = "40dp"
+                android:layout_centerVertical = "true"
+                android:layout_marginLeft = "10dp"
+                android:background = "@drawable/select_pic_btn_selector"/>
+
+
+            <GridView
+                android:id = "@+id/refundment_pic_gridview"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_centerVertical = "true"
+                android:layout_marginRight = "10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf = "@+id/get_refundment_pic_btn"
+                android:gravity = "center_vertical"
+                android:horizontalSpacing = "10dp"
+                android:numColumns = "5"
+                android:clickable="false"
+                android:descendantFocusability="afterDescendants"
+                android:scrollbars = "none"
+                android:stackFromBottom = "true"/>
+
+            <ImageView
+                android:layout_width = "match_parent"
+                android:layout_height = "0.5dp"
+                android:layout_alignParentBottom = "true"
+                android:background = "@color/grey"/>
+        </RelativeLayout>
+
+
+        <Button
+            android:id = "@+id/submit_btn"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginLeft = "20dp"
+            android:layout_marginRight = "20dp"
+            android:layout_marginTop = "30dp"
+            android:background = "@drawable/btn_orange_selector"
+            android:text = "提交申请"
+            android:textColor = "@color/white"/>
+    </LinearLayout>
+</ScrollView>

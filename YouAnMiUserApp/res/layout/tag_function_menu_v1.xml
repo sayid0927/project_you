@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="98dp"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/tag_nice_activity_optimize_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/youhua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/you" />
+
+            <TextView
+                style="@style/text_10_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/youhua"
+                android:layout_alignTop="@+id/youhua"
+                android:layout_marginRight="-10dp"
+                android:layout_marginTop="-3dp"
+                android:background="@drawable/circle"
+                android:gravity="center"
+                android:text="77"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/text_13_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/youhua"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="手机优化" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_mobile_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bt_light_grey_selector">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="73dip"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="3dp"
+                android:drawableTop="@drawable/shouye_liuliang_normal"
+                android:gravity="center"
+                android:text="流量充值"
+                android:textColor="@color/color_666666"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tag_nice_activity_activitys_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/hui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/hui" />
+
+            <TextView
+                android:id="@+id/activity_product_count"
+                style="@style/text_10_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/hui"
+                android:layout_alignTop="@+id/hui"
+                android:layout_marginRight="-10dp"
+                android:layout_marginTop="-3dp"
+                android:background="@drawable/circle"
+                android:gravity="center"
+                android:text="14"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/text_13_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hui"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="活动" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tag_nice_activity_tickets_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/quanzi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/quan" />
+
+            <TextView
+                style="@style/text_10_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/quanzi"
+                android:layout_alignTop="@+id/quanzi"
+                android:layout_marginRight="-10dp"
+                android:layout_marginTop="-3dp"
+                android:background="@drawable/circle"
+                android:gravity="center"
+                android:text="76"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/text_13_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/quanzi"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="本地圈子" />
+        </RelativeLayout>
+    </LinearLayout>
+        <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_below="@+id/expandable_repair_view"
+        android:background="@drawable/bot_line" />
+
+</LinearLayout>

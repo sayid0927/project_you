@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@drawable/app_white_bg">
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/orange_ff5f19">
+
+        <ImageView
+            android:id = "@+id/btn_back"
+            android:layout_width = "wrap_content"
+            android:layout_height = "match_parent"
+            android:paddingLeft = "10dp"
+            android:paddingRight = "40dp"
+            android:scaleType = "center"
+            android:src = "@drawable/fanhui"/>
+        <TextView
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_gravity = "center"
+            android:text="优惠领取统计"
+            android:textColor = "@color/white"
+            android:layout_centerInParent="true"
+            android:textSize = "@dimen/main_tab_title_text_size"/>
+    </RelativeLayout>
+    <com.zxly.o2o.view.LoadingView
+        android:id="@+id/view_loading"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="match_parent" />
+    <com.zxly.o2o.pullrefresh.PullToRefreshListView
+        android:id="@+id/listview"
+        android:layout_below="@id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/transparent"
+        android:dividerHeight="10dp"
+        android:paddingLeft="9dp"
+        android:paddingRight="9dp"
+        android:fadingEdge="none"
+        android:listSelector="@color/transparent"
+        android:scrollbars="none"
+        android:scrollingCache="false"
+        ptr:ptrAnimationStyle="flip" />
+</LinearLayout>

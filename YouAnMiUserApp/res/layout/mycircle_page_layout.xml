@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id = "@+id/tag_title_title_name"
+        android:layout_width = "match_parent"
+        android:layout_height = "@dimen/title_height"
+        android:layout_gravity = "center"
+        android:text = "圈子"
+        android:gravity="center"
+        android:textColor = "@color/white"
+        android:background="@color/orange_ff5f19"
+        android:textSize = "@dimen/main_tab_title_text_size"/>
+    <View
+        android:layout_width = "match_parent"
+        android:layout_height = "0.7dp"
+        android:layout_gravity = "bottom"
+        android:background = "@color/grey"/>
+
+    <include
+        layout="@layout/pull_to_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

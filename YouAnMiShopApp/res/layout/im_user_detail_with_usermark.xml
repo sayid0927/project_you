@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.easemob.easeui.widget.OverScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                          android:layout_width="match_parent"
+                                          android:layout_height="match_parent"
+                                          android:background="#f5f5f5">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+
+        <Button
+            android:id="@+id/btn_send_message"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/signature_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/ease_btn_yellow_selector"
+            android:gravity="center"
+            android:text="发消息"
+            android:textColor="#ffffff"
+            android:textSize="15sp"/>
+
+        <RelativeLayout
+            android:id="@+id/head_layout"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@color/white"
+            >
+
+
+            <com.easemob.easeui.widget.shapeimageview.PorterShapeImageView
+                android:id="@+id/head_image"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="63dp"
+                android:layout_height="63dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ease_default_avatar"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                app:siShape="@drawable/ease_shape_bigrounded_rectangle"
+                app:siSquare="true"/>
+
+            <ImageView
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/head_image"
+                android:src="@drawable/ease_women_icon"/>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/gender"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#000000"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/name_below"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/name"
+                    android:layout_marginLeft="10dp"
+                    android:lineSpacingExtra="2dp"
+                    android:textSize="12sp"/>
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/mark_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/head_layout"
+            android:layout_marginTop="10dp"
+            android:background="#ffffff">
+
+            <TextView
+                android:id="@+id/mark"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/set_mark_tag"
+                android:drawableRight="@drawable/turn_to_right"
+                android:gravity="center_vertical"
+                android:minHeight="49dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:lineSpacingExtra="3dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/black_000000"/>
+
+            <TextView
+                android:id="@+id/set_mark_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:text="设置备注"
+                android:textColor="#666666"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/gray_dcdcdc"/>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/personal_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_below="@+id/mark_layout"
+            android:layout_marginTop="10dp"
+            android:background="#ffffff">
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/personal_simple_info"
+                android:textColor="@color/black_000000"/>
+
+            <TextView
+                android:id="@+id/birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/location"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black_000000"/>
+
+            <TextView
+                android:id="@+id/personal_simple_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:text="基本资料"
+                android:textColor="#666666"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/gray_dcdcdc"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/signature_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/personal_info_layout"
+            android:background="#ffffff">
+
+            <TextView
+                android:id="@+id/signature"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/signature_tag"
+                android:gravity="center_vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:lineSpacingExtra="3dp"
+                android:textColor="@color/black_000000"/>
+
+            <TextView
+                android:id="@+id/signature_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:text="个性签名"
+                android:textColor="#666666"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/gray_dcdcdc"/>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</com.easemob.easeui.widget.OverScrollView>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:background = "@color/transparent">
+
+    <TextView
+        android:id = "@+id/no_review"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "暂无评论"
+        android:textSize = "18sp"
+        android:layout_marginTop = "28dp"
+        android:layout_centerInParent = "true"
+        android:drawablePadding = "10dp"
+        android:gravity = "bottom"
+        android:background = "@color/transparent"
+        android:drawableLeft = "@drawable/loading_empty"
+        android:textColor = "@color/grey"
+        android:clickable = "false"
+        android:visibility = "invisible"/>
+
+</RelativeLayout>

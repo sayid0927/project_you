@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/app_white_bg"
+    android:orientation="vertical" >
+
+    <View
+        android:id="@+id/line_top"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:layout_marginTop="17dp"
+        android:paddingRight="5dip" >
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/item_icon"
+            android:layout_width="90dip"
+            android:layout_height="70dip" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="6dip"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/item_name"
+                style="@style/text_16_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2" />
+
+            <TextView
+                android:id="@+id/txt_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#999999"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="15dip">
+
+            <TextView
+                android:id="@+id/item_price"
+                style="@style/text_16_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/item_sum"
+                style="@style/text_16_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"  android:textColor="#999999" android:textSize="15sp" android:id="@+id/txt_state"
+        android:layout_height="wrap_content" android:background="@drawable/tuikuan_bnt_normal" android:visibility="gone"
+        android:padding="5dp" android:layout_gravity="right" android:text="退款成功" android:layout_marginBottom="10dp"/>
+
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+
+</LinearLayout>

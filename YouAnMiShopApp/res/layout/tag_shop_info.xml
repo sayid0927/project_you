@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white" >
+
+    <TextView
+        android:id="@+id/shop_info"
+        android:layout_width="wrap_content"
+        android:layout_height="40dip"
+        android:layout_marginLeft="10dip"
+        android:gravity="center"
+        android:text="店铺概况"
+        android:textColor="@color/black_000000"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/btn_more"
+        android:layout_width="wrap_content"
+        android:layout_height="40dip"
+        android:src="@drawable/turn_right_small"
+        android:paddingLeft="60dip"
+        android:paddingRight="5dip"
+        android:layout_alignParentRight="true"
+        android:scaleType="center"
+        android:layout_marginRight="10dip"/>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="0.7dip"
+        android:layout_below="@+id/shop_info"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@color/grey" />
+
+    <com.zxly.o2o.view.MGridView
+        android:id="@+id/gridview"
+        android:layout_below="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="0.7dip"
+        android:background="#e9e6e6"
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="16dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:listSelector="@color/transparent"
+        android:numColumns="3"
+        android:verticalSpacing="0.7dip" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dip"
+        android:layout_marginTop="8dip"
+        android:layout_below="@+id/gridview"
+        android:background="@color/grey_f6f6f6"/>
+</RelativeLayout>

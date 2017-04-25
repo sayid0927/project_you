@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="@color/white"
+              android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="117dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="15dp"
+            android:text="基本资料:"
+            android:textColor="@color/gray_333333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txt_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/gray_333333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="40dp"
+            android:text="手机号:"
+            android:textColor="@color/gray_333333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txt_phone_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="40dp"
+            android:maxLength="11"
+            android:textColor="#3f90e8"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_send_message"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_width="80dp"
+            android:layout_height="23dp"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="14sp"
+            android:layout_marginRight="11.5dp"
+            android:text="发短信"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_submit_normal"/>
+
+        <TextView
+            android:id="@+id/txt_phone_brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:text="手机品牌:"
+            android:layout_marginLeft="11dp"
+            android:textColor="@color/gray_333333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txt_phone_brandinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="65dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginRight="11.5dp"
+            android:textColor="@color/gray_333333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txt_install_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="90dp"
+            android:text="2016-06-30"
+            android:textColor="@color/gray_999999"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/txt_install_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txt_install_time"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="90dp"
+            android:text="线下录入"
+            android:textColor="@color/gray_999999"
+            android:textSize="13sp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/gray_d4d4d4" />
+
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+                android:layout_width = "match_parent"
+                android:layout_height = "match_parent"
+                android:gravity = "center_horizontal"
+                android:background="@color/c_grey_e4e4e4e4"
+                android:paddingTop = "20dp">
+
+    <Button
+        android:id = "@+id/dialog_btn_left"
+        android:layout_width = "120dp"
+        android:layout_height = "wrap_content"
+        android:layout_marginLeft = "40dp"
+        android:drawablePadding = "10dp"
+        android:drawableTop = "@drawable/big_collect_btn_selector"
+        android:padding = "20dp"
+        android:text = "取消收藏"
+        android:background="@drawable/bt_select_pic_selector"
+        android:textColor = "@color/dark_grey"/>
+
+    <Button
+        android:id = "@+id/dialog_btn_right"
+        android:layout_width = "120dp"
+        android:layout_height = "wrap_content"
+        android:layout_alignParentRight = "true"
+        android:layout_marginRight = "40dp"
+        android:drawablePadding = "10dp"
+        android:drawableTop = "@drawable/big_share_btn_selector"
+        android:padding = "20dp"
+        android:text = "分享"
+        android:background="@drawable/bt_select_pic_selector"
+        android:textColor = "@color/dark_grey"/>
+
+    <Button
+        android:id = "@+id/dialog_btn_bottom"
+        android:layout_width = "match_parent"
+        android:layout_height = "55dp"
+        android:layout_below = "@+id/dialog_btn_left"
+        android:layout_marginTop = "20dp"
+        android:text = "@string/crop__cancel"
+        android:background="@drawable/bt_select_pic_selector"
+        android:textColor = "@color/c_red_C1272D"
+        android:textSize = "22sp"/>
+
+</RelativeLayout>

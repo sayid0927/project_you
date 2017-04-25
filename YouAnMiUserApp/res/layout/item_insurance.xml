@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="229.5dp"
+    android:background="@color/gray_f0eff5"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="9.5dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@color/white">
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/img_insurance_local"
+            android:layout_width="match_parent"
+            android:layout_height="157.5dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="12.5dp"
+            android:layout_marginRight="12.5dp"
+            android:layout_marginTop="11dp" />
+
+        <ImageView
+            android:id="@+id/img_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/img_insurance_local"
+            android:layout_alignTop="@+id/img_insurance_local"
+            android:layout_marginLeft="12.5dp"
+            android:layout_marginRight="13.5dp"
+            android:background="@drawable/icon_limit_new" />
+
+        <TextView
+            android:id="@+id/txt_insurance_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_insurance_local"
+            android:layout_marginLeft="12.5dp"
+            android:layout_marginRight="12.5dp"
+            android:layout_marginTop="7dp"
+            android:singleLine="true"
+            android:textColor="@color/black_373737"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txt_insurance_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_insurance_title"
+            android:layout_marginLeft="12.5dp"
+            android:layout_marginRight="12.5dp"
+            android:singleLine="true"
+            android:textColor="@color/gray_a7a7a7"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/gray_d4d4d4" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_d4d4d4" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

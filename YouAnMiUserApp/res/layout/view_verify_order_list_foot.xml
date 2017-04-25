@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dip"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="10dip" >
+
+        <TextView
+            style="@style/text_16_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="配送方式" />
+
+        <TextView
+            style="@style/wrap_content"
+            android:layout_marginLeft="10dip"
+            android:drawableLeft="@drawable/checkbox_style"
+            android:gravity="center_vertical"
+            android:text="  到店自取"
+            android:id="@+id/cbox_trade1"
+            android:textColor="@color/checkbox_textcolor_selector"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            style="@style/wrap_content"
+            android:drawableLeft="@drawable/checkbox_style"
+            android:gravity="center_vertical"
+            android:text="  送货上门"
+            android:visibility="gone"
+             android:id="@+id/cbox_trade2"
+            android:textColor="@color/checkbox_textcolor_selector"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dip"
+        android:paddingLeft="5dip"
+        android:id="@+id/shsm_layout"
+        android:visibility="invisible"
+        android:paddingRight="5dip" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dip"
+            android:layout_marginTop="7dip"
+            android:background="@drawable/line_black_rect"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                android:gravity="center_vertical"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="运费"
+                    android:textColor="#999999"
+                    android:textSize="15sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    style="@style/text_14_black" android:id="@+id/txt_freight"
+                    android:layout_marginLeft="35dip"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:background="@color/grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dip"
+                 android:gravity="center_vertical"
+                android:paddingRight="10dip"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="收货信息"
+                    android:textColor="#999999"
+                    android:textSize="15sp" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:layout_weight="1"  android:orientation="vertical"
+                     android:layout_marginLeft="5dip"
+                    android:id="@+id/btn_delivery_address" android:gravity="center_vertical">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:id="@+id/txt_buyer_info"  style="@style/text_14_black" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:id="@+id/txt_buyer_address" android:textSize="14sp"
+                       android:ellipsize="end"  android:textColor="#666666"	android:maxLines="2"
+                     />
+                </LinearLayout>
+                <ImageView style="@style/wrap_content" android:background="@drawable/quanzi_turn"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_arrow"
+            style="@style/wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="38dip"
+            android:background="@drawable/duihuakuang" />
+    </FrameLayout>
+
+</LinearLayout>

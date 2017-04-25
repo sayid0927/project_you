@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ptr="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+                android:id="@+id/ll_con"
+              android:background="@color/white">
+    <include
+        android:id="@+id/layout_title"
+        layout="@layout/common_header"/>
+
+    <FrameLayout
+        android:layout_below="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.zxly.o2o.pullrefresh.PullToRefreshExpandableListView
+            android:layout_below="@+id/layout_notice"
+            android:id="@+id/expand_listview"
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:dividerHeight="0dp"
+            android:childDivider="@color/grey"
+            android:fadingEdge="none"
+            android:listSelector="@color/transparent"
+            android:scrollbars="none"
+            android:background="#f0eff5"
+            android:scrollingCache="false"
+            ptr:ptrAnimationStyle="flip"
+            />
+        <LinearLayout
+            android:id="@+id/stick_head"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="47dp">
+            <RelativeLayout
+                android:background="@color/white"
+                android:id="@+id/layout_title"
+                android:layout_width="match_parent"
+                android:layout_height="46.5dp">
+                <TextView
+                    android:layout_marginLeft="11dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/txt_stickgroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="备注信息"
+                    android:textSize="15sp"
+                    android:textColor="@color/gray_999999"/>
+                <ImageView
+                    android:id="@+id/icon_arrow"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/txt_stickgroup"
+                    android:layout_width="9dp"
+                    android:layout_height="5dp"
+                    android:layout_marginLeft="8dp"
+                    android:background="@drawable/turn_up_small"/>
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#f0eff5"
+                />
+        </LinearLayout>
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/btn_remark"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/btn2_selector"
+            android:gravity="center"
+            android:text="写备注"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+</LinearLayout>

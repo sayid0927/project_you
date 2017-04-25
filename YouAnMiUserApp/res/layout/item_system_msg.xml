@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zxly.o2o.view.SwipeLayout xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    swipe:leftEdgeSwipeOffset="0dp"
+    swipe:rightEdgeSwipeOffset="0dp" >
+
+    <LinearLayout
+        android:id="@+id/btn_del"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:background="#FF1700"
+        android:gravity="center" >
+
+        <TextView
+            style="@style/text_18_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="删除" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="7dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="146dp"
+            android:background="@drawable/personal_system_msg_bg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/label_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="14dp"
+                android:text="促销推送"
+                android:textColor="#666666"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="14dp"
+                android:text="21分钟前"
+                android:textColor="#666666"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_type"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:singleLine="true"
+                android:text="以小博大见真章 飞马/iphone6拍照对比"
+                android:textColor="#000000"
+                android:textSize="17dp" />
+
+            <TextView
+                android:id="@+id/details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_type"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="56dp"
+                android:maxLines="2"
+                android:text="2014年华硕的XenFOne系列机箱以出色的性价比和良好的做工，品质赢得了市场的认可。"
+                android:textColor="#999999"
+                android:textSize="15dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</com.zxly.o2o.view.SwipeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_white_bg"
+    android:gravity="center_vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <TextView
+        android:id="@+id/commision_list_item_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:lineSpacingExtra="10dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/commision_list_item_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="17dp"
+        android:singleLine="true"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/commision_list_item_right_bottom"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/commision_list_item_right"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/c_grey_e1e0e0"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/c_grey_848484"
+        android:textSize="12sp" />
+
+</RelativeLayout>

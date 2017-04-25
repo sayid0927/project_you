@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/header_view"
+    android:layout_width="match_parent"
+    android:layout_height="221dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_d4d4d4" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/img_insurance_local"
+            android:layout_width="match_parent"
+            android:layout_height="157.5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="12.5dp"
+            android:layout_marginRight="12.5dp"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/bg_insurance_device" />
+
+        <TextView
+            android:id="@+id/txt_insurance_local"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_insurance_local"
+            android:layout_marginLeft="12.5dp"
+            android:layout_marginTop="7dp"
+            android:text="本机保单"
+            android:textColor="@color/black_373737"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_insurance_local"
+            android:layout_marginLeft="12.5dp"
+            android:layout_marginTop="1dp"
+            android:text="本机的电子保修单，可凭此单保修"
+            android:textColor="@color/gray_a7a7a7"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_d4d4d4" />
+
+</LinearLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:paddingLeft="12dp" android:paddingRight="12dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/checkbox"
+            style="@style/wrap_content"
+            android:clickable="false"
+            android:background="@drawable/checkbox_style"
+            />
+
+        <TextView
+            android:layout_width="30dp" android:background="@color/orange_ff5f19"
+            android:layout_height="15dp" android:textColor="@color/white" android:gravity="center"
+            android:text="套餐" android:textSize="11sp" android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content" android:layout_marginLeft="18dp"
+            android:layout_height="wrap_content"  android:textSize="14sp" android:text="￥15210.00"/>
+
+
+        </LinearLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+
+     <com.zxly.o2o.view.MListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#00000000"
+        android:paddingLeft="42dp"
+        android:dividerHeight="0dip"
+        android:fadingEdge="none"
+        android:listSelector="@color/transparent"
+        android:scrollbars="none"
+        android:scrollingCache="false" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="39.5dp"
+        android:paddingLeft="10dp" android:paddingRight="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_subtract"
+            android:background="@drawable/button_product_subtract_selector"/>
+        <TextView
+            style="@style/text_18_black" android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:id="@+id/txt_buy_sum"
+            android:background="@drawable/middle"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_add"
+            android:background="@drawable/button_product_add_selector"/>
+        <View
+            android:layout_width="match_parent" android:layout_weight="1"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="63dp" android:layout_height="30dp"
+            android:id="@+id/txt_del" style="@style/text_16_white"
+            android:background="@drawable/button_orange"
+            android:text="删除" android:gravity="center"
+          />
+    </LinearLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+
+</LinearLayout>

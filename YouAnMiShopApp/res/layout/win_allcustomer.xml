@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/app_bg"
+                android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/orange_ff5f19">
+
+
+        <TextView
+            android:id="@+id/txt_title"
+            style="@style/text_18_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp"
+            android:text=""
+            />
+
+        <TextView
+            android:id="@+id/btn_tuiguang"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="12dp"
+            android:gravity="bottom"
+            android:paddingRight="11dp"
+            android:text=" 找客"
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+    </RelativeLayout>
+
+    <include
+        android:layout_below="@+id/view_title"
+        android:id="@+id/layout_search"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        layout="@layout/common_search"/>
+
+    <com.easemob.easeui.widget.viewpagerindicator.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_below="@+id/layout_search"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"/>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/tabs"
+        android:background="@color/grey"/>
+
+    <com.zxly.o2o.view.FixedViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line"/>
+    <RelativeLayout
+        android:layout_below="@+id/view_title"
+        android:id="@+id/layout_nodata_all"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/win_empty_menbers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/view_title"
+        android:id="@+id/layout_nodata_admin"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/win_empty_fans"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/view_title"
+        android:id="@+id/layout_nodata_salesman"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/win_empty_salesman"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

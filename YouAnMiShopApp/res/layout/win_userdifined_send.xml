@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+              android:background="#f0eff5"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+<!--自定义推送内容-->
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/layout_input"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white">
+
+        <EditText
+            android:id="@+id/edit_user_sendcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="top"
+            android:hint="输入您想推送的文字内容"
+            android:maxLength="500"
+            android:paddingBottom="30dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/gray_333333"
+            android:textColorHint="@color/gray_999999"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txt_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="0/500"
+            android:textColor="@color/gray_999999"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_nitice"
+        android:layout_below="@+id/layout_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择需要推送的图片"
+        android:textSize="14sp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="17.5dp"
+        android:textColor="@color/gray_333333"
+        />
+
+    <com.zxly.o2o.view.MGridView
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:id="@+id/choose_pic_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nitice"
+        android:cacheColorHint="#00000000"
+        android:layout_marginTop="12.5dp"
+        android:clickable="false"
+        android:descendantFocusability="afterDescendants"
+        android:gravity="center_vertical"
+        android:horizontalSpacing="10dp"
+        android:numColumns="3"
+        android:paddingBottom="10dp"
+        android:scrollbars="none"
+        android:verticalSpacing="10dp" />
+
+
+    </RelativeLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center"
+        android:background="@color/white">
+
+    <TextView
+        android:id="@+id/btn_send"
+        android:layout_width="326.5dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/btn2_selector"
+        android:gravity="center"
+        android:text="推送"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>
+    <com.zxly.o2o.view.LoadingView
+        android:id="@+id/view_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

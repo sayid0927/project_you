@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="80dip"
+    android:layout_height="30dp"
+    android:orientation="vertical" >
+    
+    <TextView android:layout_width="80dip" android:layout_height="30dp" android:background="@drawable/huise_bg"
+        style="@style/text_16_black"  android:gravity="center" android:id="@+id/txt_combo_name"/>
+</LinearLayout>

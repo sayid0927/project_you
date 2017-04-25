@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/article_detail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="5dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"/>
+
+    <View
+        android:id="@+id/title_bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/article_detail_title"
+        android:layout_marginTop="6dp"
+        android:background="#e6e6e6"/>
+
+   <com.easemob.chatuidemo.widget.MyWebView
+        android:id="@+id/article_detail_maimcontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_bottom_line"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:fadingEdge="none"
+        android:scrollbars="none"
+        android:scrollingCache="false"/>
+
+    <TextView
+        android:id="@+id/reply_refresh_btn"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/article_detail_maimcontent"
+        android:background="@drawable/jingcaipinglun"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="全部评论"
+        android:textColor="@color/white"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/re_amount"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/article_detail_maimcontent"
+        android:background="@color/transparent"
+        android:gravity="bottom"
+        android:layout_marginRight="10dp"
+        android:singleLine="true"
+        android:textColor="@color/light_grey"
+        android:textSize="14sp"/>
+
+</RelativeLayout>

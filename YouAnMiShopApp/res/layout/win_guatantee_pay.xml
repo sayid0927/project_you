@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_eeeeee">
+
+
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/label_success"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green_3fb837"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="42dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:drawablePadding="12dp"
+            android:drawableLeft="@drawable/baozhangzhong"
+            android:text="提交成功"/>
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/label_success"
+            android:background="@color/gray_dcdcdc"/>
+
+
+        <TextView
+            android:id="@+id/txt_pay_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_333333"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="19dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/line1"
+            android:textSize="14sp"
+            android:drawablePadding="12dp"
+            android:text=""/>
+
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/txt_pay_info"
+            android:background="@color/gray_dcdcdc"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/layout_top"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/btn_user_pay"
+            android:layout_width="150dp"
+            android:layout_height="44dp"
+            android:textColor="@color/orange_ff5f19"
+            android:background="@drawable/btn5selector"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:layout_marginRight="29dp"
+            android:text="用户自己支付"/>
+
+        <TextView
+            android:id="@+id/btn_help_pay"
+            android:layout_toRightOf="@+id/btn_user_pay"
+            android:layout_width="150dp"
+            android:layout_height="44dp"
+            android:textColor="@color/white"
+            android:background="@drawable/btn2_selector"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="代支付"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

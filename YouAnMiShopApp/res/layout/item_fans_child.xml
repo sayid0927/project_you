@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:id="@+id/container"
+                android:background="@color/white">
+    <View
+        android:id="@+id/top_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_dcdcdc"
+        android:layout_alignParentTop="true"
+        />
+    <ImageView
+        android:id="@+id/img_notice"
+        android:visibility="visible"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dimen_12dp"
+        android:background="@drawable/icon_new_redpoint"/>
+
+    <com.zxly.o2o.view.CircleImageView
+        android:id="@+id/img_user_head"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_toRightOf="@+id/img_notice"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="9dp"
+        app:border_color="@color/white"
+        android:src="@drawable/default_head_big"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/img_user_head"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="9dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_imei"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:textColor="@color/gray_333333"
+            />
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/fans_name"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/gray_333333"
+            />
+
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:id="@+id/layout_willingbuy"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/fans_name"
+            android:layout_marginLeft="9dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/star_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_lightstar"/>
+
+            <ImageView
+                android:id="@+id/star_second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/icon_lightstar"/>
+
+            <ImageView
+                android:id="@+id/star_third"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/icon_darkstar"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_phone_brand"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="215dp"
+        android:textSize="14sp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/gray_333333"
+        android:text=""/>
+
+    <LinearLayout
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:id="@+id/layout_focus"
+        android:layout_height="match_parent">
+    <ImageView
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="13dp"
+        android:id="@+id/img_guanzhu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_has_look"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_dcdcdc"
+        android:layout_marginLeft="12dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="14dp"/>
+</RelativeLayout>

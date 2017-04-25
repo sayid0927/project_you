@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/app_white_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="9.5dp"
+        android:paddingTop="9.5dp"
+        android:paddingLeft="12dip"
+        android:paddingRight="12dip">
+
+        <TextView
+            android:id="@+id/checkbox"
+            style="@style/wrap_content"
+            android:clickable="false"
+            android:background="@drawable/checkbox_style" />
+
+
+        <com.android.volley.toolbox.NetworkImageView  android:layout_marginLeft="9.5dp"
+            android:layout_width="92dp" android:background="@drawable/line_black_rect"
+            android:layout_height="86dp" android:id="@+id/img_product_icon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip" android:paddingTop="10dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/txt_name"
+                    style="@style/text_13_black"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:lines="2" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/txt_price"
+                        style="@style/text_13_black"
+                        android:lines="1" android:ellipsize="end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/txt_pref_price"
+                        style="@style/wrap_content"
+                        android:layout_marginTop="3dip"
+                        android:textColor="@color/light_grey"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_prop_sel"
+                android:textSize="13sp"
+                android:textColor="@color/orange_ff5f19"
+                android:layout_width="110dp"
+                android:layout_height="28dip"
+                android:background="@drawable/chongdianbao"
+                android:drawableRight="@drawable/turn_pull1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:paddingRight="5dp"
+                android:text="选择商品属性 " />
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@color/grey" />
+</LinearLayout>

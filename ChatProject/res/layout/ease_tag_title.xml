@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+             android:layout_width = "fill_parent"
+             android:layout_height = "50dp"
+             android:background = "#ff5f19">
+
+
+    <ImageView
+        android:id = "@+id/tag_title_btn_back"
+        android:layout_width = "wrap_content"
+        android:layout_height = "match_parent"
+        android:paddingLeft = "15dp"
+        android:paddingRight = "40dp"
+        android:scaleType = "center"
+        android:src = "@drawable/ease_back"/>
+
+
+    <TextView
+        android:id = "@+id/tag_title_title_name"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_gravity = "center"
+        android:maxLength="10"
+        android:textColor = "#ffffff"
+        android:textSize = "17sp"/>
+
+    <TextView
+        android:id = "@+id/tag_title_right"
+        android:layout_width = "wrap_content"
+        android:layout_height = "match_parent"
+        android:paddingRight="10dp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_gravity = "right"
+        android:textColor = "#ffffff"
+        android:textSize = "14sp"/>
+
+
+</FrameLayout>

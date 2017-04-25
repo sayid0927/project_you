@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="89.5dip"
+        android:background="@drawable/sub_red_bg"
+        android:gravity="center"
+         >
+
+        <ImageView
+            android:layout_width="66.66dip"
+            android:layout_height="72dip"
+            android:background="@drawable/yuyuechenggong" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="15dip"
+            android:paddingTop="3dip" >
+
+            <TextView
+                android:id="@+id/txt_buy_state"
+                style="@style/wrap_content"
+                android:textColor="#FFE97E"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_order_id"
+                style="@style/text_12_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dip"
+                 />
+
+            <TextView
+                android:id="@+id/txt_order_time"
+                style="@style/text_12_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+    </LinearLayout>
+<include layout="@layout/view_verify_order_list_header"/>
+</LinearLayout>

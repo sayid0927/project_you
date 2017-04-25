@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/gray_eeeeee">
+    <LinearLayout
+        android:layout_width="match_parent" android:paddingTop="21dp" android:paddingBottom="18dp" android:paddingLeft="14dp"
+        android:layout_height="wrap_content" android:background="@drawable/app_white_bg" android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content" android:textColor="@color/orange_ff5f19" android:textSize="30sp"
+            android:layout_height="wrap_content" android:id="@+id/txt_money" />
+        <TextView
+            android:layout_width="wrap_content" android:textColor="@color/grey_666666" android:textSize="12sp" android:layout_marginTop="12dp"
+            android:layout_height="wrap_content" android:id="@+id/txt_dz_time" />
+    </LinearLayout>
+    <View android:layout_width="match_parent" android:layout_height="0.5dp"  android:background="@color/grey"/>
+    <View android:layout_width="match_parent" android:layout_height="0.5dp"  android:background="@color/grey" android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="match_parent"  style="@style/text_14_black" android:gravity="center_vertical" android:background="@drawable/app_white_bg"
+        android:layout_height="39.5dp" android:drawableLeft="@drawable/pic_left" android:id="@+id/txt_tabName" android:text="  订单商品 "/>
+    <View android:layout_width="match_parent" android:layout_height="0.5dp"  android:background="@color/grey" />
+</LinearLayout>

@@ -1,0 +1,26 @@
+.s-function-list{
+    background-color: #fff;
+    padding-top:1.4rem;
+}
+.s-function-list ul{
+    overflow: hidden;
+}
+.s-function-list ul .s-function-row{
+    color: #333333;
+    text-align: center;
+    width: 25%;
+    float: left;
+    margin-bottom: 1.4rem;
+}
+.s-function-list ul .s-function-row img{
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+}
+.s-function-list ul .s-function-row h1{
+    font-size: 1.1rem;
+    height: auto;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}

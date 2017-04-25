@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_eeeeee"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:background="@color/gray_eeeeee"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/txt_id_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:text="姓名"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/txt_id_head"
+                    android:layout_toRightOf="@+id/txt_id_head"
+                    android:text="*"
+                    android:textColor="@color/red" />
+
+                <EditText
+                    android:id="@+id/edit_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="98dp"
+                    android:background="#00000000"
+                    android:hint="请输入姓名"
+                    android:inputType="text"
+                    android:maxLength="5"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_333333"
+                    android:textColorHint="@color/gray_999999"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/gray_d4d4d4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/gray_d4d4d4" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:text="性别"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+                <RadioGroup
+                    android:id="@+id/radio_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="98dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/select_man"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:button="@drawable/checkbox_selector"
+                        android:checked="true"
+                        android:paddingLeft="10dp"
+                        android:text="男"
+                        android:textColor="@color/gray_333333"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/select_woman"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:button="@drawable/checkbox_selector"
+                        android:paddingLeft="10dp"
+                        android:text="女"
+                        android:textColor="@color/gray_333333"
+                        android:textSize="14sp" />
+
+                </RadioGroup>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/gray_d4d4d4" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/txt_phone_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:text="手机号"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/txt_phone_head"
+                    android:layout_toRightOf="@+id/txt_phone_head"
+                    android:text="*"
+                    android:textColor="@color/red" />
+
+                <EditText
+                    android:id="@+id/edit_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="98dp"
+                    android:background="#00000000"
+                    android:hint="请输入手机号"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_333333"
+                    android:textColorHint="@color/gray_999999"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/gray_d4d4d4" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:text="品牌型号"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edit_phone_brand"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="98dp"
+                    android:background="#00000000"
+                    android:hint="请输入品牌型号"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_333333"
+                    android:textColorHint="@color/gray_999999"
+                    android:textSize="13sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/gray_d4d4d4" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/gray_d4d4d4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:text="购买意向"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+                <CheckBox
+                    android:id="@+id/cbx_star1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="98dp"
+                    android:button="@drawable/checkbox_star_big"
+                    android:checked="false" />
+
+                <CheckBox
+                    android:id="@+id/cbx_star2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toRightOf="@+id/cbx_star1"
+                    android:button="@drawable/checkbox_star_big"
+                    android:checked="false" />
+
+                <CheckBox
+                    android:id="@+id/cbx_star3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toRightOf="@+id/cbx_star2"
+                    android:button="@drawable/checkbox_star_big"
+                    android:checked="false" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/gray_d4d4d4" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:id="@+id/labels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="11dp"
+                        android:layout_marginTop="12dp"
+                        android:text="标签"
+                        android:textColor="@color/gray_333333"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <com.zxly.o2o.view.FlowTagLayout
+                    android:id="@+id/flowlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/labels"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="8dp"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/view_manage"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/gray_dcdcdc" />
+
+                <CheckBox
+                    android:id="@+id/cbx_shopping"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:button="@drawable/checkbox_style"
+                    android:checked="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="到店购买"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/gray_dcdcdc" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/view_product_name"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:text="商品名称"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edit_product_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="98dp"
+                    android:background="#00000000"
+                    android:hint="请输入购买的商品名称"
+                    android:maxLength="9"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_333333"
+                    android:textColorHint="@color/gray_999999"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/gray_d4d4d4" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/view_product_price"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:text="商品价格"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edit_product_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="98dp"
+                    android:background="#00000000"
+                    android:hint="请输入购买的商品价格"
+                    android:maxLength="40"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_333333"
+                    android:textColorHint="@color/gray_999999"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/gray_d4d4d4" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginTop="15dp">
+
+                <EditText
+                    android:id="@+id/edit_user_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_phone"
+                    android:gravity="top"
+                    android:hint="请描述一下用户的情况，方便后期跟进哦。"
+                    android:maxLength="50"
+                    android:paddingBottom="30dp"
+                    android:paddingLeft="11dp"
+                    android:paddingRight="11dp"
+                    android:paddingTop="10dp"
+                    android:textColor="@color/gray_333333"
+                    android:textColorHint="@color/gray_999999"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txt_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="0/50"
+                    android:textColor="@color/gray_999999"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

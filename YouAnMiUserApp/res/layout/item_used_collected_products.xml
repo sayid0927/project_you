@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:background = "#FFFFFF"
+                android:orientation = "vertical"
+                android:paddingLeft = "5dip">
+
+    <LinearLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:orientation = "vertical">
+
+
+        <View
+            android:layout_width = "fill_parent"
+            android:layout_height = "0.5dip"
+            android:background = "@color/grey"/>
+
+        <LinearLayout
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginBottom = "10dip"
+            android:layout_marginTop = "10dip">
+
+            <FrameLayout
+                android:id = "@+id/icon_layout"
+                android:layout_width = "80dip"
+                android:layout_height = "60dip">
+
+                <com.android.volley.toolbox.NetworkImageView
+                    android:id = "@+id/img_item"
+                    android:layout_width = "match_parent"
+                    android:layout_height = "match_parent"
+                    android:layout_gravity = "center"/>
+
+                <TextView
+                    android:id = "@+id/img_plot_flag"
+                    android:layout_width = "match_parent"
+                    android:layout_height = "20dp"
+                    android:layout_gravity = "bottom"
+                    android:background = "@color/c_gold_e5711f"
+                    android:gravity = "center"
+                    android:text = "门店担保"
+                    android:textColor = "@color/white"
+                    android:textSize = "12sp"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id = "@+id/lin_layout"
+                android:layout_width = "match_parent"
+                android:layout_height = "60dip"
+                android:layout_marginLeft = "5dip"
+                android:orientation = "vertical">
+
+                <TextView
+                    android:id = "@+id/txt_name"
+                    style = "@style/text_15_black"
+                    android:layout_width = "fill_parent"
+                    android:layout_height = "wrap_content"
+                    android:ellipsize = "end"
+                    android:lines = "1"/>
+
+
+                <TextView
+                    android:id = "@+id/txt_price"
+                    style = "@style/text_16_orange"
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "wrap_content"/>
+
+                <LinearLayout style = "@style/wrap_content">
+
+                    <TextView
+                        android:id = "@+id/txt_address"
+                        android:layout_width = "80dp"
+                        android:layout_height = "wrap_content"
+                        android:layout_weight = "1"
+                        android:ellipsize = "end"
+                        android:lines = "1"
+                        android:textColor = "@color/darkgray"
+                        android:textSize = "12sp"/>
+
+                    <TextView
+                        android:id = "@+id/txt_time"
+                        style = "@style/text_10_white"
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:layout_marginLeft = "15dp"
+                        android:gravity = "center"
+                        android:paddingBottom = "2dp"
+                        android:paddingLeft = "8dip"
+                        android:paddingRight = "6dip"
+                        android:paddingTop = "2dp"
+                        android:textColor = "@color/black"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id = "@+id/line_bottom"
+            android:layout_width = "fill_parent"
+            android:layout_height = "0.5dip"
+            android:layout_below = "@id/lin_layout"
+            android:background = "@color/grey"
+            android:visibility = "gone"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id = "@+id/btn_del"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_alignParentRight = "true"
+        android:layout_marginRight = "10dp"
+        android:layout_marginTop = "30dp"
+        android:background = "@drawable/circle_more_btn_selector"/>
+
+</RelativeLayout>

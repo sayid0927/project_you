@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="6dp"
+    android:background="@color/white">
+
+
+    <TextView
+        android:id="@+id/label_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="6dp"
+        android:text="合计： "
+        android:textColor="@color/gray_666666"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:id="@+id/txt_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/label_price"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="12dp"
+        android:layout_toRightOf="@+id/label_price"
+        android:text="￥77000"
+        android:textColor="@color/orange_ff5f19"
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/txt_userInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/label_price"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="7dp"
+
+        android:text="王小二 ( 13555555555 )"
+        android:textColor="@color/gray_999999"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:id="@+id/txt_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_userInfo"
+        android:layout_below="@+id/txt_userInfo"
+        android:layout_marginTop="2dp"
+        android:width="310dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="福田区车公庙天安数码城创新科技广场一期B栋608"
+        android:textColor="@color/gray_999999"
+        android:textSize="12sp" />
+
+
+
+    <TextView
+        android:id="@+id/txt_takeNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_userInfo"
+        android:layout_below="@+id/txt_address"
+        android:layout_marginTop="12dp"
+        android:text="提货码 : XDS8VVRRSS458"
+        android:textColor="@color/gray_666666"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:id="@+id/btn_call"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txt_address"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/call_normal"
+        android:gravity="center_vertical"
+        android:paddingLeft="58.5dp"
+        android:layout_marginRight="10dp"
+        android:maxLines="1"
+        android:text="电话"
+        android:textColor="@color/orange_ff5f19"
+        android:textSize="12sp" />
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0.8dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:background="@color/gray_dcdcdc" />-->
+
+
+</RelativeLayout>

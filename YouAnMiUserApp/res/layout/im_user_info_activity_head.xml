@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@drawable/im_user_detail_user_banner"/>
+
+
+    <com.easemob.easeui.widget.shapeimageview.PorterShapeImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/head_image"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ease_default_avatar"
+        app:siShape="@drawable/ease_shape_bigrounded_rectangle"
+        app:siSquare="true"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:paddingLeft="50dp"
+        android:src="@drawable/ease_man_icon"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/head_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textColor="#ff5f19"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/name_below"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="12sp"/>
+
+    <Button
+        android:id="@+id/btn_send_message"
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/name_below"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="发消息"
+        android:background="@drawable/ease_btn_yellow_selector"
+        android:textColor="#ffffff"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/signature"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/btn_send_message"
+        android:paddingLeft="10dp"
+        android:background="#66361b0b"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:text="个性签名:这个人很懒，还没有个性签名"
+        android:textColor="#ffffff"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/whos_topic"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_marginBottom="1dp"
+        android:layout_below="@+id/signature"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="他的发帖"
+        android:textColor="#ff5f19"/>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/signature"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48.5dp"
+        android:background="#ff5f19"/>
+
+
+</RelativeLayout>

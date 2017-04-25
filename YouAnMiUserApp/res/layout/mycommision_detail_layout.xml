@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+              android:layout_width = "match_parent"
+              android:layout_height = "match_parent"
+    android:background = "@color/white"
+              android:orientation = "vertical">
+
+    <TextView
+        android:id="@+id/txt_commison"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="20dp"
+       android:gravity="center_vertical"
+        android:background = "@color/white"/>
+    <TextView
+        android:id="@+id/txt_daozhang_time"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:background = "@color/white"/>
+
+    <ImageView
+        android:layout_width = "match_parent"
+        android:layout_height = "10dp"
+        android:layout_marginTop="10dp"
+        android:background = "@color/light_grey_bg"/>
+
+
+
+        <TextView
+            android:id = "@+id/content_top_text"
+            android:layout_width = "match_parent"
+            android:layout_height = "40dp"
+            android:background = "@color/white"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/dark_grey"
+            android:text = "佣金订单"/>
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:cacheColorHint="#00000000"
+            android:layout_marginTop="-0.2dp"
+            android:divider="@color/transparent"
+            android:paddingLeft="10dp"
+            android:dividerHeight="0dp"
+            android:fadingEdge="none"
+            android:listSelector="@color/transparent"
+            android:background="@color/white"
+            android:scrollbars="none"
+            android:scrollingCache="false" />
+
+    <ImageView
+        android:layout_width = "match_parent"
+        android:layout_height = "0.5dp"
+        android:background = "@color/grey"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:paddingTop="15dp" android:paddingBottom="15dp"
+        android:paddingRight="10dp" android:paddingLeft="10dp">
+        <TextView
+            android:id = "@+id/content_bottom_left_text"
+            android:layout_width = "wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_grey"
+            android:textSize="16sp"
+            android:text = "已付总额: "/>
+
+
+        <TextView
+            android:id = "@+id/txt_total_price"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:layout_below = "@+id/product_content_layout"
+            android:textSize="16sp"
+            android:textColor="@color/c_red_C1272D"
+            android:gravity = "right|center_vertical"
+           />
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width = "match_parent"
+        android:layout_height = "0.5dp"
+        android:background = "@color/grey"/>
+
+
+    <TextView
+        android:id = "@+id/bottom_text"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:background = "@color/white"
+        android:lineSpacingExtra = "10dp"
+        android:textColor="@color/light_grey"
+        android:paddingLeft = "10dp"
+        android:paddingTop = "10dp"/>
+</LinearLayout>

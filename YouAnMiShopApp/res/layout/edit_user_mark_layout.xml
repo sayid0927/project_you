@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f5f5f5"
+                android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/orange_ff5f19"
+        android:gravity="center"
+        android:text="备注"
+        android:textColor="#ffffff"
+        android:textSize="18sp"/>
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:contentDescription="@null"
+        android:scaleType="center"
+        android:src="@drawable/ease_back"/>
+
+    <TextView
+        android:id="@+id/btn_save_mark"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="保存"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+
+
+    <com.easemob.easeui.widget.OverScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        >
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/mark_tag"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/transparent"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:text="备注名"
+                android:textColor="#666666"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/mark_tag"
+                android:background="#999999"/>
+
+            <EditText
+                android:id="@+id/mark_edit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/mark_tag"
+                android:layout_marginTop="0.5dp"
+                android:background="@color/white"
+                android:maxLength="13"
+                android:paddingLeft="15dp"
+                android:textColor="#000000"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/mark_edit"
+                android:background="#999999"/>
+
+            <TextView
+                android:id="@+id/desc_tag"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/mark_edit"
+                android:background="@color/transparent"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:text="描述"
+                android:textColor="#666666"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/desc_tag"
+                android:background="#999999"/>
+
+            <EditText
+                android:id="@+id/desc_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/desc_tag"
+                android:layout_marginTop="0.5dp"
+                android:background="@color/white"
+                android:gravity="top"
+                android:hint="请输入联系人描述信息"
+                android:lineSpacingExtra="3dp"
+                android:maxLength="401"
+                android:minHeight="200dp"
+                android:padding="15dp"
+                android:textColor="#000000"
+                android:textColorHint="#999999"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/desc_edit"
+                android:background="#999999"/>
+        </RelativeLayout>
+
+    </com.easemob.easeui.widget.OverScrollView>
+
+
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dip"
+    android:background="@color/orange_ff5f19">
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
+        android:maxLength="18"
+        android:text="蓝天手机店"
+        android:textColor="@color/white"
+        android:textSize="@dimen/main_tab_title_text_size" />
+
+    <ImageView
+        android:id="@+id/btn_message"
+
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/btn_shopCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/message"/>
+
+
+    <ImageView
+        android:id="@+id/btn_shopCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="17dip"
+        android:layout_marginLeft="10dip"
+        android:src="@drawable/shopcart"/>
+
+</RelativeLayout>

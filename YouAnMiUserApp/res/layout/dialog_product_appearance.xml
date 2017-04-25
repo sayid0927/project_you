@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_dialog_appearance"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_grey_bg" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:text="新旧度"
+        style="@style/text_15_orange" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/title"
+        android:layout_height="0.5dp"
+        android:background="@color/grey" />
+    
+    <ListView 
+        android:id="@+id/product_appearance_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        android:background="@color/transparent"
+        android:divider="@color/grey"
+        android:fadingEdge="none"
+        android:listSelector="@color/transparent"
+        android:scrollbars="none"
+        android:scrollingCache="false"
+        android:cacheColorHint="#00000000"/>
+    <View
+        android:id="@+id/line_bot"
+        android:layout_below="@+id/product_appearance_list"
+        android:layout_width="match_parent"
+        android:layout_marginTop="-4dp"
+        android:layout_height="0.5dp"
+        android:background="@color/grey" />
+</RelativeLayout>

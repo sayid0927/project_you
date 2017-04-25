@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/tag_nice_choice_limittime_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/tag_nice_choice_limittime_buy_icon"
+            android:layout_width="87.8dip"
+            android:layout_height="66dip"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/product_shouji" />
+
+        <TextView
+            android:id="@+id/tag_nice_choice_limittime_buy_item_price"
+            style="@style/text_14_orange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-5dp"
+            android:text="$1999" />
+
+        <TextView
+            android:id="@+id/tag_nice_choice_limittime_buy_item_name"
+            style="@style/text_13_black"
+            android:layout_marginBottom="-5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="小米4核手机" />
+
+        <include
+            android:id="@+id/tag_nice_choice_limittime_time_double"
+            layout="@layout/time_layout_style1_black" />
+    </LinearLayout>
+
+</RelativeLayout>

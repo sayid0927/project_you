@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+    android:id="@+id/forum_community_detail_listitem_belowblock"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="10dp">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
+
+
+        <com.easemob.easeui.widget.shapeimageview.PorterShapeImageView
+            android:id="@+id/forum_community_detail_user_photo"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="@dimen/user_photo_small"
+            android:layout_height="@dimen/user_photo_small"
+            android:scaleType="fitXY"
+            android:src="@drawable/head_photo_default"
+            app:siShape="@drawable/ease_shape_rounded_rectangle"
+            app:siSquare="true"/>
+
+
+        <TextView
+            android:id="@+id/forum_community_detail_user"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/user_photo_small"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/forum_community_detail_user_photo"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/forum_community_detail_user_below_text"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/user_photo_small"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_layout"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/qz_hh_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/forum_community_detail_listitem_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:lineSpacingExtra="3dp"
+            android:padding="10dp"
+            android:textColor="@color/gray_333333"
+            android:textScaleX="1.0"
+            android:textSize="@dimen/nomal_text"/>
+
+        <TextView
+            android:id="@+id/forum_community_detail_listitem_callwho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fde9e2"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/gray_666666"
+            android:textSize="@dimen/nomal_text"/>
+
+
+        <TextView
+            android:id="@+id/reply_up_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="50dp"
+            android:drawableLeft="@drawable/bt_zan_small_selector"
+            android:drawablePadding="5dp"
+            android:text="0"
+            android:padding="10dp"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="15sp"/>
+
+
+
+        <TextView
+            android:id="@+id/reply_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="-42dp"
+            android:text="回 复"
+            android:padding="10dp"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="15sp"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/operate_text_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-40dp"
+        android:layout_below="@+id/content_layout"
+        android:layout_marginRight="60dp"
+        android:layout_alignParentRight="true"
+        android:text="+ 1"
+        android:textSize="12sp"
+        android:textColor="@color/red"
+        android:visibility="invisible" />
+
+</RelativeLayout>

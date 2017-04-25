@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ptr="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white">
+
+    <include
+        android:id="@+id/layout_title"
+        layout="@layout/common_header"/>
+    <!--搜索布局块-->
+    <LinearLayout
+        android:layout_below="@+id/layout_title"
+        android:id="@+id/layout_tag"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <include
+            android:id="@+id/layout_search"
+            layout="@layout/common_search"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"/>
+        <LinearLayout
+            android:layout_width="47dp"
+            android:background="@color/gray_f0eff6"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/btn_search"
+                android:layout_toRightOf="@+id/layout_search"
+                android:layout_width="match_parent"
+                android:text="搜索"
+                android:textColor="@color/orange_ff5f19"
+                android:textSize="14sp"
+                android:layout_marginLeft="2dp"
+                android:gravity="center|left"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/layout_tag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="18dp">
+
+        <!--listview块-->
+        <com.zxly.o2o.pullrefresh.PullToRefreshListView
+            android:visibility="visible"
+            android:id="@+id/win_activity_goods_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="@color/transparent"
+            android:dividerHeight="0dp"
+            android:fadingEdge="none"
+            android:fastScrollEnabled="false"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:listSelector="#00000000"
+            android:paddingBottom="2dp"
+            android:smoothScrollbar="true"
+            ptr:ptrAnimationStyle="flip" />
+        <!--粉丝 会员 筛选点击块-->
+        <RelativeLayout
+            android:id="@+id/tag_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true">
+                <TextView
+                    android:id="@+id/tag_fans_search"
+                    android:layout_width="70dp"
+                    android:layout_height="25dp"
+                    android:text="粉丝"
+                    android:textSize="12sp"
+                    android:textColor="@color/color_000a14"
+                    android:gravity="center"
+                    android:background="@drawable/btn_tag_selector"/>
+                <TextView
+                    android:id="@+id/tag_menber_search"
+                    android:layout_width="70dp"
+                    android:layout_height="25dp"
+                    android:text="会员"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="@dimen/dimen_12dp"
+                    android:textColor="@color/color_000a14"
+                    android:gravity="center"
+                    android:background="@drawable/btn_tag_selector"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!--数据显示状态块-->
+    <com.zxly.o2o.view.LoadingView
+        android:visibility="visible"
+        android:id="@+id/view_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

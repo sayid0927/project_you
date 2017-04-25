@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white" >
+
+    <TextView
+        android:id="@+id/text"
+        style="@style/text_15_black"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/content_title_height"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:text="手机保修剩余 " />
+
+    <TextView
+        android:id="@+id/text_remain_time"
+        style="@style/text_15_orange"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/content_title_height"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@+id/text"
+        android:layout_alignBottom="@+id/text"
+        android:text="0" />
+
+    <TextView
+        style="@style/text_15_black"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/content_title_height"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@+id/text_remain_time"
+        android:layout_alignBottom="@+id/text_remain_time"
+        android:text=" 天" />
+
+
+
+        <ImageView
+             android:id="@+id/btn_expand_view"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/content_title_height"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="80dp"
+            android:src="@drawable/up" />
+
+    <!-- 内容部分 -->
+
+    <com.zxly.o2o.view.ExpandView
+        android:id="@+id/expandable_repair_view"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/text"
+        android:layout_height="115dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_below="@+id/expandable_repair_view"
+        android:background="@drawable/bot_line" />
+
+</RelativeLayout>

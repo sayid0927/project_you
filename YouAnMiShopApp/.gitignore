@@ -1,0 +1,14 @@
+/.svn
+/bin
+/build
+/local.properties
+/YouAnMiShopApp_JY.iml
+/.gradle
+/.idea
+/shop_app_jy.iml
+/.classpath
+/hs_err_pid6984.log
+/*.log
+/.project
+/YouAnMiShopApp_YanBao.iml
+/YouAnMiShopApp.iml

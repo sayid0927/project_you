@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent" >
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/img_banner" android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        />
+    <TextView
+        android:layout_width="match_parent" android:layout_marginTop="10dp" android:layout_marginLeft="7.5dp" android:id="@+id/txt_article_title"
+        android:layout_height="wrap_content" android:textSize="17sp"  android:textColor="@color/gray_333333" android:layout_marginRight="7.5dp" />
+    <TextView
+        android:layout_width="wrap_content" android:layout_marginTop="7.5dp" android:textSize="15sp" android:textColor="@color/gray_666666"
+        android:layout_height="wrap_content" android:layout_marginLeft="7.5dp"  android:layout_marginRight="7.5dp" android:id="@+id/txt_content"
+        android:lineSpacingExtra="4dp" android:lineSpacingMultiplier="1"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip" android:layout_marginTop="10dp"
+        android:background="@color/grey" />
+    <View
+        android:layout_width="match_parent" android:background="@color/gray_eeeeee"
+        android:layout_height="10dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+    <LinearLayout
+        android:layout_width="match_parent" android:orientation="vertical"
+        android:layout_height="wrap_content" android:layout_marginBottom="10dp" >
+        <LinearLayout
+            android:layout_width="wrap_content" android:layout_gravity="center"
+            android:layout_height="wrap_content" android:layout_marginTop="15dp" >
+            <TextView
+                android:layout_width="wrap_content" android:id="@+id/btn_zan" android:drawableLeft="@drawable/btn_zan_selector"
+                android:layout_height="wrap_content" android:textSize="12sp" android:textColor="@color/orange_ff5f19"   android:clickable="false"/>
+
+            <TextView
+                android:layout_width="wrap_content" android:id="@+id/btn_share"  android:drawableLeft="@drawable/btn_share_selector"
+                android:layout_height="wrap_content" android:textSize="12sp" android:textColor="@color/orange_ff5f19" android:layout_marginLeft="32dp"/>
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent" android:layout_marginTop="15dp" android:paddingLeft="15dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"  android:gravity="center_vertical" >
+                <com.zxly.o2o.view.HorizontalListView
+                    android:id="@+id/hListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"
+                    android:paddingRight="15dp"
+                    android:src="@drawable/quanzi_turn"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="32dp" android:id="@+id/view_like"/>
+        </FrameLayout>
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+
+
+
+</LinearLayout>

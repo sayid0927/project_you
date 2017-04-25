@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white" >
+
+    <FrameLayout
+        android:id="@+id/bg_top"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/gray_eeeeee">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="@color/gray_dcdcdc"
+            android:layout_gravity="bottom"/>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_below="@id/bg_top"
+        android:layout_width="match_parent"
+        android:layout_height="40dip">
+
+        <ImageView
+            android:id="@+id/img_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="5dip"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_song"/>
+
+        <TextView
+            android:id="@+id/txt_orderNo"
+            android:textSize="14sp"
+            android:textColor="@color/gray_666666"
+            android:layout_toRightOf="@id/img_type"
+            android:layout_marginRight="10dip"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dip"
+            android:text="订单号 : 123963963"/>
+
+
+
+        <TextView
+            android:id="@+id/txt_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:textSize="15sp"
+            android:textColor="@color/orange_ff5f19"
+            android:text="待发货"/>
+
+
+    </RelativeLayout>
+
+
+
+    <com.zxly.o2o.view.MListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_top"
+        android:cacheColorHint="#00000000"
+        android:background="@color/transparent"
+        android:divider="@color/transparent"
+        android:dividerHeight="5dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="#00000000"
+        android:scrollbars="none"
+        android:scrollingCache="false" />
+
+
+    <ViewStub
+        android:id="@+id/layout_bot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listView"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_below="@+id/layout_bot"
+        android:background="@color/gray_dcdcdc"/>
+
+
+</RelativeLayout>

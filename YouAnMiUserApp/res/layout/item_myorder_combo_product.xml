@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/image_taocan_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="13dip"
+        android:background="@drawable/taocan" />
+
+    <com.zxly.o2o.view.MListView
+        android:id="@id/list_order_combo_product"
+        android:layout_width="match_parent"
+        android:layout_marginTop="1dip"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_taocan_icon"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/transparent"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="#00000000"
+        android:scrollbars="none"
+        android:scrollingCache="false" />
+
+    <RelativeLayout
+        android:id="@+id/layout_refund"
+        android:layout_width="match_parent"
+        android:layout_height="48.5dip"
+        android:layout_below="@+id/list_order_combo_product"
+        android:visibility="visible" >
+
+            <View 
+        android:id="@+id/lineRefund"   
+        android:layout_width="match_parent"
+        android:layout_height="0.7dip"
+        android:layout_marginLeft="40dip"
+        android:visibility="visible"
+        android:background="@color/grey"/>
+        
+        <TextView
+            android:id="@id/text_refund_reside_time"
+            android:textSize="12sp"
+            android:textColor="@color/orange_ff5f19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:text="退款剩余时间 x天" />
+
+        <TextView
+            android:id="@id/btn_refund_status"
+            android:textSize="15sp"
+            android:textColor="@color/orange_ff5f19"
+            android:layout_width="73dip"
+            android:layout_height="28.5dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/btn_repair"
+            android:gravity="center"
+            android:text="退款" />
+    </RelativeLayout>
+    
+<!--     <View  -->
+<!--         android:id="@+id/lineRefund"    -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="0.7dip" -->
+<!--         android:layout_below="@id/list_order_combo_product" -->
+<!--         android:layout_alignLeft="@id/list_order_combo_product" -->
+<!--         android:layout_marginBottom="1dp" -->
+<!--         android:layout_marginLeft="10dip" -->
+<!--         android:visibility="visible" -->
+<!--         android:background="@color/grey"/> -->
+    
+    <View
+        android:id="@+id/line_bot"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginBottom="1dp"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:background="@color/grey"/>
+
+</RelativeLayout>

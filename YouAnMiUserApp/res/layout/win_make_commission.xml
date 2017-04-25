@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gray_eeeeee"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@color/orange_ff5f19">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:maxLength="18"
+            android:text="赚佣金"
+            android:textColor="@color/white"
+            android:textSize="@dimen/main_tab_title_text_size" />
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:paddingLeft="16dip"
+            android:paddingRight="40dip"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/fanhui"/>
+
+
+        <TextView
+            android:id="@+id/btn_commissionRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:paddingRight="13dp"
+            android:paddingLeft="10dp"
+            android:text="佣金记录"/>
+
+    </RelativeLayout>
+
+    <com.zxly.o2o.pullrefresh.PullToRefreshGridView
+        android:id="@+id/gridView"
+        android:layout_below="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:cacheColorHint="#00000000"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:numColumns="2"
+        android:listSelector="@color/transparent"
+        android:scrollbars="none"
+        android:scrollingCache="false"
+        ptr:ptrAnimationStyle="flip" />
+
+    <com.zxly.o2o.view.LoadingView
+        android:id="@+id/view_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <ImageView
+        android:id="@+id/btn_upToFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:visibility="gone"
+        android:src="@drawable/up_tofirst"
+        android:padding="10dp"/>
+
+
+    <RelativeLayout
+        android:id="@+id/view_promotionInit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#f0000000">
+
+
+        <ImageView
+            android:id="@+id/bg_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/promotion_init1"/>
+        
+        <TextView
+            android:layout_width="143dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_promotion_small"
+            android:gravity="center"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="18sp"
+            android:layout_below="@+id/bg_top"
+            android:layout_alignLeft="@+id/bg_top"
+            android:layout_marginTop="8dp"
+            android:text="推广"/>
+
+
+        <TextView
+            android:id="@+id/btn_make_money"
+            android:layout_width="198dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_promotion_big"
+            android:gravity="center"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="19sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="45dp"
+            android:text="开始赚钱"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

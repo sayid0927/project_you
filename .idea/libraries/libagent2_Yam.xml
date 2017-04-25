@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libagent2_Yam">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/YouAnMiUserApp/libs/libagent2_Yam.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

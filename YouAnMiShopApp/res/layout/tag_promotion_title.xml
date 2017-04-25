@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+    <TextView
+        android:id="@+id/shop_info"
+        android:layout_width="wrap_content"
+        android:layout_height="42dip"
+        android:layout_marginLeft="10dip"
+        android:gravity="center"
+        android:text="推广中心"
+        android:textColor="@color/black_000000"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/btn_promotion_setting"
+        android:layout_width="98dip"
+        android:layout_height="28dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="7dip"
+        android:background="@drawable/btn1_normal"
+        android:gravity="center"
+        android:text="设置推广指标"
+        android:visibility="gone"
+        android:textColor="@color/red_da251c"
+        android:textSize="13sp"/>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="0.7dip"
+        android:layout_below="@+id/shop_info"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@color/grey"/>
+
+</RelativeLayout>

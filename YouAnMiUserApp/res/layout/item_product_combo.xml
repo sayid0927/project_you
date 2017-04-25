@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F3F3F3"
+    android:orientation="vertical"
+    android:paddingBottom="3dip"
+    android:paddingLeft="5dip" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="5dip" >
+
+        <LinearLayout
+            android:layout_width="93.33dip"
+            android:layout_height="93.33dip"
+            android:background="#ebebeb"
+            android:gravity="center" >
+
+            <com.android.volley.toolbox.NetworkImageView 
+                android:id="@+id/item_icon"
+                android:layout_width="54.66dip"
+                android:layout_height="84.66dip"
+                 />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+             android:gravity="center_vertical" android:orientation="vertical">
+            <TextView android:id="@+id/txt_price" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/text_18_orange" android:text="￥6500"/>
+             <TextView
+            android:id="@+id/item_name"
+            style="@style/text_16_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="6dip"
+            android:maxLines="2"
+            android:ellipsize="end"
+            />
+        </LinearLayout>
+       
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:id="@+id/add_layout"
+        android:paddingTop="5dip" android:paddingBottom="5dip" >
+
+        <ImageView
+            android:id="@+id/img_add"
+            android:layout_width="93.33dip"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add" />
+        <View android:layout_width="match_parent" android:layout_height="1dip" 
+            android:layout_marginLeft="6dip" android:background="@color/grey"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bargain_bg" >
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dip"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="请确认商品无误后再确认收货 "
+        android:textColor="#333333"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/edit_pay_input"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/personal_dialog_text_bg"
+        android:hint="请输入柚安米支付密码"
+        android:singleLine="true"
+        android:maxLength="20"
+        android:paddingLeft="10dp"
+        android:inputType="textPassword"
+        android:textColor="#333333"
+        android:textColorHint="#cccccc"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/btn_password_forget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/edit_pay_input"
+        android:layout_below="@+id/edit_pay_input"
+        android:layout_marginTop="12dp"
+        android:text="忘记密码"
+        android:textColor="#999999"
+        android:textSize="14dp" />
+
+    <View
+        android:layout_width="55dp"
+        android:layout_height="1dp"
+        android:layout_alignRight="@+id/btn_password_forget"
+        android:layout_below="@+id/btn_password_forget"
+        android:background="@color/grey" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/btn_password_forget"
+        android:layout_marginTop="15dp"
+        android:background="@color/grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/line"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_pay_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/personal_setting_normal_selector"
+            android:text="取消"
+            android:textColor="@color/black"
+            android:textSize="16dp" >
+        </Button>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey" />
+
+        <Button
+            android:id="@+id/btn_pay_done"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/personal_setting_normal_selector"
+            android:text="确定"
+            android:textColor="@color/black"
+            android:textSize="16dp" >
+        </Button>
+    </LinearLayout>
+
+</RelativeLayout>

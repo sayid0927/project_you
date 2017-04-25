@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+    <FrameLayout android:layout_width="99dip" android:layout_height="80dip">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/img_item" android:layout_gravity="center_horizontal"/>
+        <ImageView style="@style/wrap_content" android:id="@+id/img_plot_flag" android:layout_gravity="right"/>
+    </FrameLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"
+        android:paddingTop="5dip" android:paddingBottom="5dip" android:paddingLeft="5dip">
+        <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1"
+            android:id="@+id/txt_desc" style="@style/text_16_black" android:text="实体店销售正品二手苹果系列，质量有保证"/>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                 style="@style/text_16_orange" android:id="@+id/txt_price" android:text="￥6500"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" 
+                style="@style/text_15_grey" android:id="@+id/txt_low_price"  android:layout_toRightOf="@id/txt_price" 
+                android:layout_marginLeft="10dip" android:layout_alignBottom="@id/txt_price"/>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

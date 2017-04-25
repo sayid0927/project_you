@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zxly.o2o.view.ShakeAnimation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/need_shake_layout"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:background="@color/transparent"
+    android:clickable="true"
+   >
+
+    <ImageView
+        android:id="@+id/pic_select_btn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/transparent"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/bt_upload_pic_btn_selector" />
+
+    <ImageView
+        android:id="@+id/forum_publish_pic_clean_btn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/get_pic_cancel_btn_selector"
+        android:contentDescription="@null"
+        android:visibility="gone" />
+</com.zxly.o2o.view.ShakeAnimation>

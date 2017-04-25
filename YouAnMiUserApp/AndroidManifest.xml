@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zxly.o2o.o2o_user"
+    android:versionCode="20520"
+    android:versionName="2.5.20">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <!-- 个推SDK权限配置开始 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 开机广播 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- iBeancon功能与个推3.0电子围栏功能所需要的权限为非必需的可选择权限，可以选择性配置，以便使用个推3.0电子围栏功能 -->;
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <!-- 个推3.0电子围栏功能所需权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 浮动通知权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- 自定义权限 -->
+    <uses-permission android:name="getui.permission.GetuiService.com.zxly.o2o.o2o_user" />
+
+
+
+    <!--替换为第三方应用的包名-->
+    <permission
+        android:name="getui.permission.GetuiService.com.zxly.o2o.o2o_user"
+        android:protectionLevel="normal" >
+    </permission><!--替换为第三方应用的包名-->
+    <!-- 个推SDK权限配置结束 -->
+
+    <application
+        android:name="com.zxly.o2o.controller.AppController"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.zxly.o2o.activity.LaunchAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="yam"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.LoginAct"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.MyCircleSecondAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.DiscoverInfoAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.zxly.o2o.activity.MakecommissionAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.CommissionRecordAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.zxly.o2o.activity.DiscountProductAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.ProductInfoAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.zxly.o2o.activity.ProductInfoAct"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.HomeAct"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.zxly.o2o.activity.MAINPAGE_USER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.MyCircleThirdAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            >
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.StorePictureBrowseAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.zxly.o2o.activity.ComboSelAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTitleTheme">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.ShopCartAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.MobileDataAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.CommonQuestionAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.SettingAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.SecurityCenterAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.VerifyMobileAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.VerifyIdentityAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.BankcardManageAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.cropView.CropImageActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.SettingAddressAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.SelectAddressAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.SettingAddressAddAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.SettingAddressAreaAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.SettingAddressVillageAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.ToStorePrivilegeAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.AssureComboAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.RenewAddAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.RenewListAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.RenewDetailAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.RenewSuccessAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.DiscountListAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.DiscountDetailAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.zxly.o2o.activity.DiscountDetailAct"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.InsuranceListAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.InsuranceAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.zxly.o2o.activity.InsuranceAct" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.InsuranceClauseAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PersonalSystemMsgAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PersonalSystemMsgDetailAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.H5DetailAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PersonalChangePasswordAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.TouchImageViewAct"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.GalleryViewPagerAct"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.AlbumActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTitleTheme">
+        </activity>
+        <activity
+            android:name="com.shyz.downloadutil.DownLoadListAct"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.shyz.downloadutil.DownLoadTaskActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.RefundmentDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTitleTheme">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.RefundmentListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTitleTheme">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.RefundmentApplyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTitleTheme"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+            android:name="com.zxly.o2o.activity.MyCommisionDetailAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTitleTheme">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.MyCommisionListAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTitleTheme">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.ProductParameAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTitleTheme"/>
+        <activity
+            android:name="com.zxly.o2o.activity.PayAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PayMyAccountAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PayAccountRecordAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PayTakeoutAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PayAddBankcardAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PayAddBankcardInfoAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PayBankInfoAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PayBranchBankAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PayIdentityCheckAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PaySupportedBanksAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PaySuccessAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PayFailAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PayFlowResultAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PersonalAboutUsAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.FeedbackAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.AffirmOrderAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PromotionBindAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PromotionDetailAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PersonalHomepageAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.PersonalShopDescAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.RechargeRecordAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent"/>
+
+        <activity
+            android:name="com.zxly.o2o.activity.ForumGuideAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+
+
+        <!-- 自定义的contextmenu -->
+        <!-- 自定义的alertdialog -->
+
+        <!-- 聊天页面 -->
+
+        <!-- 系统聊天页面 -->
+
+        <!-- 系统消息详情页面 -->
+        <activity
+            android:name="com.zxly.o2o.activity.UserTopicAct"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.UserCollectedAct"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.MyArticleAct"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.ShopArticleAct"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.zxly.o2o.activity.LikeAndCollectHistoryAct"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+
+
+        <activity
+            android:name="com.zxly.o2o.activity.ForumAllListAct"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTitleTheme"
+            >
+        </activity>
+
+        <activity
+            android:name="com.zxly.o2o.activity.WebViewAct"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.GetuiUserH5DetailAct"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+
+        <activity
+            android:name="com.zxly.o2o.activity.ArticlePlatformVipAct"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            >
+        </activity>
+
+        <activity
+            android:name="com.zxly.o2o.activity.ShopHotArticleAct"
+            android:launchMode="singleTop"
+
+            android:screenOrientation="portrait"
+            >
+        </activity>
+
+        <!--点赞&分享列表界面-->
+        <activity
+            android:name="com.zxly.o2o.activity.TopicShareAndCollectMembersAct"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTitleTheme"
+            >
+        </activity>
+
+        <!-- LLYT SDK START -->
+        <activity
+            android:name="com.yintong.secure.activity.BaseActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+
+        <service android:name="com.yintong.secure.service.PayService">
+        </service>
+        <!-- LLYT SDK END -->
+        <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+        </activity>
+        <!-- alipay sdk end -->
+
+        <receiver android:name="com.zxly.o2o.service.AppInstallReceiver"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.zxly.o2o.service.RunHeatbeatService">
+            <intent-filter>
+                <action android:name="com.zxly.o2o.service.RunHeatbeatService"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.zxly.o2o.service.PullMessageService">
+            <intent-filter>
+                <action android:name="com.zxly.o2o.service.PullMessageService"/>
+            </intent-filter>
+        </service>
+
+
+        <service
+            android:name="com.dx.libagent2.Agent2Yam"
+            android:exported="false" />
+
+        <meta-data
+            android:name="SN"
+            android:value=""/>\
+
+        <meta-data
+            android:name="H5_VERSION_CODE"
+            android:value="40"/>
+
+        <meta-data
+            android:name="H5_STYLE_ID"
+            android:value="5"/>
+
+        <meta-data
+            android:name="SHOP_ID"
+            android:value="1"/>
+
+        <meta-data
+            android:name="VERSION_CODE"
+            android:value="-1"/>
+
+        <meta-data
+            android:name="promotionCode"
+            android:value="@string/promotionCode"/>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="55233641fd98c5eb7d0001ca"/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="YouAnMi"/>
+
+        <activity
+            android:name="com.zxly.o2o.activity.MyOrderAct"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.zxly.o2o.activity.MyOrderInfoAct"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.zxly.o2o.activity.MyOrderInfoAct"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zxly.o2o.activity.SearchProductAct"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.zxly.o2o.activity.SearchArticleAct"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.zxly.o2o.activity.ActivityProductAct"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.zxly.o2o.activity.UserGuideAct"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.zxly.o2o.activity.BigturntableAct"
+            android:screenOrientation="portrait"/>
+
+
+        <activity
+            android:name="com.zxly.o2o.activity.IMUserDetailInfoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.zxly.o2o.activity.IMUserDetailInfoActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent1104939243"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.zxly.o2o.activity.ShowDefineGetuiAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.zxly.o2o.activity.ShowDefineGetuiAct"/>
+            </intent-filter>
+        </activity>
+
+
+        <receiver
+            android:name="com.zxly.o2o.util.MyDeviceAdmin"
+            android:label="@string/dianzi_baodan_pingzheng"
+            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 个推SDK配置开始 -->
+        <!-- 配置SDK核心服务 -->
+        <service
+            android:name="com.igexin.sdk.PushService"
+            android:exported="true"
+            android:label="NotificationCenter"
+            android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.service.message" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.igexin.sdk.PushServiceUser"
+            android:exported="true"
+            android:label="NotificationCenterUser" />
+
+        <receiver android:name="com.igexin.sdk.PushReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="com.igexin.sdk.action.refreshls" />
+                <!-- 以下三项为可选的action声明，可大大提高service存活率和消息到达速度 -->
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.igexin.sdk.PushManagerReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.pushmanager" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.zxly.o2o.service.NotificationReceiver"
+            >
+            <intent-filter>
+                <action android:name="com.zxly.o2o.service.NotificationReceiver"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.zxly.o2o.service.NoticeMsgClickService">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"></category>
+                <action android:name="com.zxly.o2o.service.NoticeMsgClickService"/>
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.igexin.sdk.PushActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:process=":pushservice"
+            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.igexin.sdk.GActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:process=":pushservice"
+            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <service
+            android:name="com.igexin.download.DownloadService"
+            android:process=":pushservice" />
+        <receiver android:name="com.igexin.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <provider
+            android:name="com.igexin.download.DownloadProvider"
+            android:authorities="downloads.com.zxly.o2o.o2o_user"
+            android:exported="true"
+            android:process=":pushservice" />
+        <!-- 个推SDK配置结束 -->
+        <!-- 配置个推的第三方参数属性 -->
+        <!-- 测试环境:  1. appId:	`NMBSlg6juV7UqgxKk8rln2`
+                            2. appKey:	`0iGraf70Rz6PEMYYTdp5w8`
+                            3. appSecret:	`eit9BDDNLQ8PcHaYJLANQ7`
+
+              预发布环境：1. appId:	`Xt1m7D57Xq5RRiFUn5JvH1`
+                            2. appKey:	`WE3A14vb9Y6jUvsK5LFpQ6`
+                            3. appSecret:	`fDipi1xoEN8ZpG1nMgcK29`
+
+              正式环境:  1. appId:	`wzByOittuRAOHlzTYG7ko4`
+                            2. appKey:	`xRsox4G746A6L5HgGF0ax2`
+                            3. appSecret:	`E4EN3zMEWV8HzUnzdzAlG1`-->
+        <meta-data
+            android:name="PUSH_APPID"
+            android:value="wzByOittuRAOHlzTYG7ko4" /> <!-- 替换为第三方应用的APPID -->
+        <meta-data
+            android:name="PUSH_APPKEY"
+            android:value="xRsox4G746A6L5HgGF0ax2" /> <!-- 替换为第三方应用的APPKEY -->
+        <meta-data
+            android:name="PUSH_APPSECRET"
+            android:value="E4EN3zMEWV8HzUnzdzAlG1" /> <!-- 替换为第三方应用的APPSECRET -->
+
+        <!-- 配置个推第三方Receiver -->
+        <receiver
+            android:name="com.zxly.o2o.service.GetuiPushReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.wzByOittuRAOHlzTYG7ko4" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.zxly.o2o.service.BootBroadcastReceiver" >
+            <intent-filter >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

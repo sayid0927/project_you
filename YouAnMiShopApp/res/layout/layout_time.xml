@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+
+    <RelativeLayout
+        android:id="@+id/shop_info"
+        android:layout_width="match_parent"
+        android:background="#f8f7f1"
+        android:layout_height="62dp">
+
+        <TextView
+            android:id="@+id/txt_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/btn_pre_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="21dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="60dp"
+            android:paddingRight="30dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/turn_time_left"
+            />
+
+        <ImageView
+            android:id="@+id/btn_next_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="21dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/turn_time_right"
+            />
+
+
+    </RelativeLayout>
+
+    <com.zxly.o2o.view.MGridView
+        android:id="@+id/gridview"
+        android:background="#f8f7f1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:verticalSpacing="18dp"
+ android:listSelector="@color/transparent"
+        android:numColumns="4"></com.zxly.o2o.view.MGridView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:background="#f8f7f1"/>
+</LinearLayout>

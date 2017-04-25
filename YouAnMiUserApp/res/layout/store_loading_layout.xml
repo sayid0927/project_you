@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:paddingLeft = "35dip"
+                android:paddingRight = "35dip"
+                android:paddingTop = "20dip"
+                android:paddingBottom = "20dip"
+                android:layout_gravity = "center"
+                android:background = "@drawable/loading_bg">
+
+    <com.zxly.o2o.view.StoreLoadingImageView
+        android:id = "@+id/loading_image"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_centerHorizontal = "true"
+        android:background="@color/transparent"
+        android:src = "@drawable/loading_big"/>
+
+    <TextView
+        android:id = "@+id/loading_text"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_below = "@id/loading_image"
+        android:gravity = "center"
+        android:background="@color/transparent"
+        android:textColor = "@color/white"
+        android:layout_marginTop="10dp"
+        android:text = "请稍后"/>
+
+</RelativeLayout>

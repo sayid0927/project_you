@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/txt_type_name"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="15dp"
+        android:text="APP 安装量"
+        android:textColor="@color/light_grey"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/txt_count"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@+id/txt_type_name"
+        android:gravity="center_vertical"
+        android:text="15"
+        android:textColor="@color/light_grey"
+        android:textSize="14dp" />
+
+    <!--<com.zxly.o2o.view.RedPoint
+        android:id="@+id/img_tips"
+        android:layout_width="10dip"
+        android:layout_height="10dip"
+        android:layout_toRightOf="@+id/txt_count"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:background="@drawable/xiaoxi" />-->
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:layout_below="@+id/txt_type_name"
+        android:background="@color/grey" />
+
+</RelativeLayout>

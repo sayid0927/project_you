@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:ptr="http://schemas.android.com/apk/res-auto"
+                android:background="@drawable/app_white_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    <com.easemob.easeui.widget.viewpagerindicator.CirclePageIndicator
+        android:id="@+id/indicator"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_alignParentBottom="true"
+        ptr:mRadius="3dip"
+        ptr:mPageColor="#b3ffffff"
+        ptr:mFillColor="#ffffff"
+        ptr:mItemMargin="10dp"
+        android:layout_marginBottom="15dip"
+        />
+</RelativeLayout>

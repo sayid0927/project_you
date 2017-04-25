@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white" >
+
+    <TextView
+        android:id="@+id/textView1"
+        style="@style/text_15_black"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:text="精品文章 " />
+
+    <ImageView
+        android:id="@+id/tag_article_more"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="40dp"
+        android:src="@drawable/mendian_turn" />
+
+    <TextView
+        android:id="@+id/tag_article_userguide_btn"
+        style="@style/text_12_light_grey"
+        android:layout_width="62.5dp"
+        android:layout_height="19.5dp"
+        android:layout_below="@+id/tag_article_more"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="4.5dp"
+        android:background="@drawable/xinjibaoyang"
+        android:gravity="center"
+        android:text="新手必看" />
+
+    <TextView
+        android:id="@+id/tag_article_phone_takecare_btn"
+        style="@style/text_12_light_grey"
+        android:layout_width="62.5dp"
+        android:layout_height="19.5dp"
+        android:layout_toRightOf="@+id/tag_article_userguide_btn"
+        android:layout_alignBottom="@+id/tag_article_userguide_btn"
+        android:layout_marginRight="4.5dp"
+        android:background="@drawable/xinjibaoyang"
+        android:gravity="center"
+        android:text="手机保养" />
+
+    <TextView
+        android:id="@+id/tag_article_function_btn"
+        style="@style/text_12_light_grey"
+        android:layout_width="62.5dp"
+        android:layout_height="19.5dp"
+        android:layout_toRightOf="@+id/tag_article_phone_takecare_btn"
+        android:layout_alignBottom="@+id/tag_article_phone_takecare_btn"
+        android:layout_marginRight="4.5dp"
+        android:background="@drawable/xinjibaoyang"
+        android:gravity="center"
+        android:text="本店热文" />
+
+    <TextView
+        android:id="@+id/tag_article_communicate_btn"
+        style="@style/text_12_light_grey"
+        android:layout_width="62.5dp"
+        android:layout_height="19.5dp"
+        android:layout_toRightOf="@+id/tag_article_function_btn"
+        android:layout_alignBottom="@+id/tag_article_function_btn"
+        android:background="@drawable/xinjibaoyang"
+        android:gravity="center"
+        android:text="论坛交流" />
+
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="9dp"
+        android:layout_below="@+id/tag_article_function_btn"
+        android:background="@color/grey" />
+     <com.zxly.o2o.view.MListView
+        android:id="@+id/tag_article_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        android:cacheColorHint="#00000000"
+        android:divider="#19000000"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="#00000000"
+        android:smoothScrollbar="true" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_below="@+id/tag_article_content"
+        android:background="@drawable/bot_line" />
+</RelativeLayout>

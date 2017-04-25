@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/view_left_day"
+        android:layout_width="62dp"
+        android:layout_height="22dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/bg_renew_day">
+
+        <TextView
+            android:id="@+id/txt_left_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingBottom="2dp"
+            android:drawableLeft="@drawable/icon_renew_item"
+            android:drawablePadding="2dp"
+            android:text="200天"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_effect_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:text="生效日：2015-12-09"
+        android:textColor="@color/gray_999999"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txt_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/view_left_day"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="10dp"
+        android:text="2590.00"
+        android:textColor="@color/gray_999999"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/txt_product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_left_day"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_toLeftOf="@+id/txt_price"
+        android:singleLine="true"
+        android:text="iphone 6s 4Giphone 6s"
+        android:textColor="@color/gray_333333"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/txt_price"
+        android:background="@color/gray_dcdcdc" />
+
+    <View
+        android:id="@+id/view_top_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/gray_dcdcdc" />
+
+</RelativeLayout>

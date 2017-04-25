@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_checking"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_f0eff5"
+    android:visibility="gone"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="194.5dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/txt_checking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="102dp"
+            android:layout_marginTop="67.5dp"
+            android:drawableLeft="@drawable/icon_insurance_pending"
+            android:drawablePadding="14dp"
+            android:gravity="center_vertical"
+            android:text="正在办理......"
+            android:textColor="@color/yellow_f8b500"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txt_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_checking"
+            android:layout_marginLeft="104.5dp"
+            android:layout_marginTop="16dp"
+            android:text="业务员正在为您办理，请稍候"
+            android:textColor="@color/gray_999999"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/txt_info"
+            android:layout_marginTop="62.5dp"
+            android:background="@color/gray_d4d4d4" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/btn_cancel"
+        android:layout_width="66.5dp"
+        android:layout_height="29dp"
+        android:background="@drawable/bg_insurance_cancel"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="35dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="取消办理"
+        android:textColor="@color/orange_ff5f19"
+        android:textSize="12sp" />
+
+
+</RelativeLayout>

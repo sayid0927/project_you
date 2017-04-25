@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\libs\universal-image-loader_1.9.3.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a7f294767fa897607f7c9d560ac07e35229176f1">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\2\universal-image-loader_1.9.3_afbebd781d4399a5f27b2c352f639032886b2d93\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\libs\alipaySDK-20150818.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6dde19fc34adb03c637b17fdaa754e0c02cf75a0">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\2\alipaySDK-20150818_9e5f015baa2e431f3b81bad9fe17ce3b9a008bd2\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\bolts-android-1.2.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8c56fb7bc156dfdf9ac10775e445cbc72a2e55c6">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\bolts-android-1.2.0_39eff274ec87fe703dd651dbea3e5dcd8e2940ca\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\libs\zxing.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e88c14e6e7daa0fa65172a62b54ee6a16ff4162d">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\2\zxing_14b6a56ebfd8ac6e29eaa3d1a1d336f77800d91d\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="12d766442fc32094b65cdcc69589fd80f2a433dc">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_c3bf1212dfcced0583f2eabce223128a31d0e1a2\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\Parse-1.9.4.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="9113d6c5d3c07e240a00cf4d67452ad167ccc721">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\Parse-1.9.4_db737031d498e57e977b812492a4a6b1ea5d81bf\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-multidex-1.0.1_9ef85938c4a34c067f163d4c56e757b6424ab85b\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\libs\umeng-analytics-v5.4.2.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="75ef4894b1489017838dc57dbe9a5782ab12c427">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\2\umeng-analytics-v5.4.2_d3b3c54f78429a2b89c4f36089d5e96ab5eafcc8\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\libs\open_sdk_r5043.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="fbc2fb9bce736c4b6d9146b932c4bf7a473f5786">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\2\open_sdk_r5043_736670a51827e10f58d6de89e669bd9688fe8fe9\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\gson-1.7.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="106f5c2d94cade7178079ba4bdd1b86bdda96e37">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\gson-1.7.1_d09e762862665dedfef890698afaebf149a29437\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\httpclient-4.3.5.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="37c17bf21d465c0f30c225a30d9d3b2ca0d5bbf0">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\httpclient-4.3.5_fa5ed30fa4c39773a40c236c540ef7ed940a4792\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\easemobchat_2.2.3.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="0f63d8431322e9921a784e1da8aa6da77c007a0f">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\easemobchat_2.2.3_96c5cbb6ae7b6be23fa316dadaa3dedf0c255590\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\GetuiSDK2.9.0.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="31fdedc3443d1c86cf513f04a08790aa8b852fc3">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\GetuiSDK2.9.0.0_69bd6801dc74b7343a73e89d8eea7a6ef90f1e23\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\libs\commons-io-2.4.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\2\commons-io-2.4_88352170145715d3267ebeb42b3ca21659885ec7\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\libs\xutils.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d862ea8be0c78c72be9a434db1f8efc41ead6006">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\2\xutils_20d0326ddf29940f87d811ebe87d6532b16cfec2\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\libs\libammsdk.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="47f4993168154fa73377d7470b9f6887d48a8023">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\2\libammsdk_2ed9b89c3733a01c3082c8ad42679d1668b015a2\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\volley.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="327a54884c5e1c27fc63963e3158f91ee3ccd44b">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\volley_1110bca9033d35e08a5f693fd98708a035e5c978\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="810ea9c6cc2b1a428df089adea61920702953179">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\internal_impl-22.2.0_e1310d1f7adfe0a9d0fb419b71fabe4e79950902\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\picasso-2.4.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6eebc06ef76286a6c136cf5b8c5fe883646cc987">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\picasso-2.4.0_2b820caaf1b8dfaf630bc5ba64fe1904a46bcb7b\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\locSDK_6.13.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b9306d7b6384f40f4c7775948e52e24b7f4fe61c">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\locSDK_6.13_b94c25c3b3fd40362f14f13fd2eadd3db531b045\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="319b247dbca8b40720daa0b08c722b21c6bfed9b">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\ChatProject-unspecified-jars_4866fecb668cac6cbf3a1dbd2d1702853fb031c6\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\baidumapapi_v3_2_0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="095fad0cca32af0b88fd488bbf076034f0620df5">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\baidumapapi_v3_2_0_4945067dcebb6715d5ac02eb2866e55e6944e20a\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ee5a4073622239b976ac840298d5409b75a80f73">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_ad5fd4a188ef39c6c0a398476e86642ead69e0c8\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\build\intermediates\exploded-aar\project_YW\ChatProject\unspecified\jars\libs\nine_library.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="09e948db8d18da60b13bdd21568b4b9553fc1a5b">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\8\nine_library_b4574c99d5709c577cb38e1a7a77e1ba9c0cfc7f\classes.dex" />
+    </item>
+    <item
+        jar="E:\project_YW\YouAnMiUserApp\libs\securepay-lib.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="1052a4dbf6e71c8a2c69dca3761f57e7580175b2">
+        <dex dex="E:\project_YW\YouAnMiUserApp\build\intermediates\transforms\dex\debug\folders\1000\2\securepay-lib_8948295d4770f63b0bff337de2d0203254a362bf\classes.dex" />
+    </item>
+
+</items>

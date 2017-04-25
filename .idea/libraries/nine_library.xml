@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="nine_library">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ChatProject/libs/nine_library.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

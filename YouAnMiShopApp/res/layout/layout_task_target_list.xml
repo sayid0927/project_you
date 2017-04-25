@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    xmlns:vrtv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_eeeeee">
+
+    <include layout="@layout/common_header"/>
+
+    <LinearLayout
+        android:id="@+id/btn_promotion_notice"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/orange_fc911f"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_speaker" />
+
+        <com.zxly.o2o.view.VerticalRollingTextView
+            android:id="@+id/txt_promotion_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            vrtv:vrSize="10sp"
+            vrtv:vrColor="@color/white"
+            vrtv:vrHighlightColor="@color/yellow_ffea59"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_time"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/btn_promotion_notice"
+        android:background="#f8f7f1">
+
+        <TextView
+            android:id="@+id/btn_pre_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="上个月"
+            android:textColor="@color/gray_333333"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/btn_cur_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="11dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="2015年11月"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/btn_next_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="下个月"
+            android:textColor="@color/grey_aaaaaa"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/img_turn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_cur_date"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-10dp"
+            android:src="@drawable/btn_turn_normal" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_dcdcdc" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_taskDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_time"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/icon_zhibiao"
+        android:drawablePadding="4dp"
+        android:gravity="center_vertical"
+        android:text="本月指标"
+        android:textColor="@color/gray_999999"
+        android:textSize="12sp" />
+
+    <View
+        android:id="@+id/view_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_alignParentBottom="true" />
+
+    <TextView
+        android:id="@+id/txt_promotion_tips"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_above="@+id/view_bottom"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/bg_phone"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="任务还没达标？！赶紧点击对应指标去推广吧"
+        android:textColor="@color/gray_333333"
+        android:textSize="12sp"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/view_task_guide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8e000000"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            android:lineSpacingExtra="5dp"
+            android:text="您还没开始做任务呢，\n点击对应指标直接去推广吧！\n推广获取会员可以赚长期分成的哟！"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <com.zxly.o2o.pullrefresh.PullToRefreshListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/txt_taskDate"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/transparent"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="#00000000"
+        android:smoothScrollbar="true"
+        ptr:ptrAnimationStyle="flip" />
+
+
+    <com.zxly.o2o.view.LoadingView
+        android:id="@+id/view_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+
+    <com.zxly.o2o.view.ExpandView
+        android:id="@+id/view_time"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout_time"
+        android:background="@color/half_transparent"
+        android:visibility="gone">
+
+    </com.zxly.o2o.view.ExpandView>
+
+
+</RelativeLayout>

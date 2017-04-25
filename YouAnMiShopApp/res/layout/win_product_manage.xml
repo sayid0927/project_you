@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@drawable/title_bg"
+        android:paddingRight="10dip" >
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:contentDescription="@null"
+            android:background="@color/transparent"
+            android:scaleType="center"
+            android:src="@drawable/btn_back_selector" />
+
+        <TextView
+            style="@style/text_18_black"
+            android:layout_width="wrap_content"
+            android:id="@+id/txt_title"
+            android:text="商品管理"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            />
+    </FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"/>
+
+    <TextView
+        android:layout_width="match_parent" android:gravity="center_vertical" android:id="@+id/btn_product_commission"
+        android:paddingRight="13dp" android:paddingLeft="13dp" android:text="商品佣金"
+        android:layout_height="50dp" android:textColor="#6A6F78" android:textSize="16dp" android:drawableRight="@drawable/img_turn"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"/>
+   <!-- <TextView
+        android:layout_width="match_parent" android:gravity="center_vertical" android:id="@+id/btn_product_brand"
+        android:paddingRight="13dp" android:paddingLeft="13dp" android:text="商品品牌"
+        android:layout_height="50dp" android:textColor="#6A6F78" android:textSize="16dp" android:drawableRight="@drawable/img_turn"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"/>
+    <TextView
+        android:layout_width="match_parent" android:gravity="center_vertical" android:id="@+id/btn_product_type"
+        android:paddingRight="13dp" android:paddingLeft="13dp" android:text="商品类型"
+        android:layout_height="50dp" android:textColor="#6A6F78" android:textSize="16dp" android:drawableRight="@drawable/img_turn"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"/>
+    <TextView
+        android:layout_width="match_parent" android:gravity="center_vertical" android:id="@+id/btn_product_label"
+        android:paddingRight="13dp" android:paddingLeft="13dp" android:text="商品标签"
+        android:layout_height="50dp" android:textColor="#6A6F78" android:textSize="16dp" android:drawableRight="@drawable/img_turn"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"/>
+    <TextView
+        android:layout_width="match_parent" android:gravity="center_vertical" android:id="@+id/btn_cxhd"
+        android:paddingRight="13dp" android:paddingLeft="13dp" android:text="促销活动"
+        android:layout_height="50dp" android:textColor="#6A6F78" android:textSize="16dp" android:drawableRight="@drawable/img_turn"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"/>
+    <TextView
+        android:layout_width="match_parent" android:gravity="center_vertical" android:id="@+id/btn_jf_manage"
+        android:paddingRight="13dp" android:paddingLeft="13dp" android:text="积分管理"
+        android:layout_height="50dp" android:textColor="#6A6F78" android:textSize="16dp" android:drawableRight="@drawable/img_turn"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"/>
+    <TextView
+        android:layout_width="match_parent" android:gravity="center_vertical" android:id="@+id/btn_freight_manage"
+        android:paddingRight="13dp" android:paddingLeft="13dp" android:text="运费管理"
+        android:layout_height="50dp" android:textColor="#6A6F78" android:textSize="16dp" android:drawableRight="@drawable/img_turn"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"/>
+    <TextView
+        android:layout_width="match_parent" android:gravity="center_vertical" android:id="@+id/btn_yj_manage"
+        android:paddingRight="13dp" android:paddingLeft="13dp" android:text="议价管理"
+        android:layout_height="50dp" android:textColor="#6A6F78" android:textSize="16dp" android:drawableRight="@drawable/img_turn"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"/>
+    <TextView
+        android:layout_width="match_parent" android:gravity="center_vertical" android:id="@+id/btn_price_show"
+        android:paddingRight="13dp" android:paddingLeft="13dp" android:text="价格显示"
+        android:layout_height="50dp" android:textColor="#6A6F78" android:textSize="16dp" android:drawableRight="@drawable/img_turn"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey"/>-->
+
+</LinearLayout>

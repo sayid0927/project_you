@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
+
+        <ImageView
+            android:id="@+id/user_photo_defaul"
+            android:layout_width="@dimen/user_photo_small"
+            android:layout_height="@dimen/user_photo_small"
+            android:contentDescription="@null"
+            android:background="@color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/luntan_photo" />
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/my_topics_reply_item_user_photo"
+            android:layout_width="@dimen/user_photo_small"
+            android:layout_height="@dimen/user_photo_small"
+            android:background="@color/transparent"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/luntan_photo" />
+
+        <ImageView
+            android:layout_width="@dimen/user_photo_small"
+            android:layout_height="@dimen/user_photo_small"
+            android:background="@drawable/luntan_photo_empty"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/my_topics_reply_item_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/my_topics_reply_item_user_photo"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:singleLine="true"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/my_topics_reply_item_user_below_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/my_topics_reply_item_user"
+            android:layout_toRightOf="@+id/my_topics_reply_item_user_photo"
+            android:paddingLeft="5dp"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/my_topics_reply_item_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/my_topics_reply_icon"
+        android:layout_width="100dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:background="@color/transparent"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_launcher"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="#efefef"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/my_topics_reply_item_content_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:background="@color/transparent"
+            android:contentDescription="@null"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/my_topics_reply_from_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:maxLines="2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/my_topics_reply_item_up_tip"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/dianzan_normal"
+            android:drawablePadding="3dp"
+            android:singleLine="true"
+            android:textColor="@color/orange2"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/my_topics_reply_item_reply_tip"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:drawablePadding="3dp"
+            android:singleLine="true"
+            android:drawableLeft="@drawable/liuyan"
+            android:textColor="@color/orange2"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

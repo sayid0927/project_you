@@ -1,0 +1,414 @@
+<resources>
+
+    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme" />
+
+    <style name="AppTitleTheme" parent="android:Theme.Holo.Light">
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <!-- 选择生日对话框样式 -->
+    <style name="BirthDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!-- 统一定义弹出框样式 -->
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.3</item>
+    </style>
+
+    <!-- mainTab 样式 -->
+    <style name="main_tab_bottom">
+        <item name="android:textSize">@dimen/bottom_tab_font_size</item>
+        <item name="android:textColor">@color/main_tabhost_textcolor_selector</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/home_btn_bg</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:button">@null</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:paddingTop">6dp</item>
+    </style>
+
+    <style name="wrap_content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="time_text">
+        <item name="android:background">@drawable/time_bg</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:paddingLeft">2.5dp</item>
+        <item name="android:paddingRight">2.5dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- 正文字体 粗体 深灰色 -->
+    <style name="text_16_black">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- 正文字体 粗体 深灰色 -->
+    <style name="text_16_black_clickable">
+        <item name="android:textColor">@color/pager_tab_selector</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="text_18_black">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- 正文字体 粗体橙色 -->
+    <style name="text_16_orange">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_16_red__price">
+        <item name="android:textColor">@color/red_dd2727</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="text_17_red__price">
+        <item name="android:textColor">@color/red_dd2727</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="text_19_red__price">
+        <item name="android:textColor">@color/red_dd2727</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+
+    <style name="text_18_orange">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="text_18_red__price">
+        <item name="android:textColor">@color/red_dd2727</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="text_20_orange">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="text_20_red__price">
+        <item name="android:textColor">@color/red_dd2727</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- 正文字体 粗体橙色 -->
+    <style name="text_16_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_15_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- 正文字体 粗体浅灰色 -->
+    <style name="text_16_light_grey">
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_15_grey">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="text_15_grey_price">
+        <item name="android:textColor">@color/grey_price</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="text_16_grey">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="text_16_grey_price">
+        <item name="android:textColor">@color/grey_price</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="text_13_grey_price">
+        <item name="android:textColor">@color/grey_price</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="text_15_darkgray">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="text_16_darkgray">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_15_black">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="text_17_black">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="text_15_orange">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="text_15_666666">
+        <item name="android:textColor">@color/color_666666</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="text_15_999999">
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="text_15_dd2727">
+        <item name="android:textColor">@color/red_dd2727</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- 小字体 粗体 深灰色 -->
+    <style name="text_14_black">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="text_14_666666">
+        <item name="android:textColor">@color/color_666666</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="text_14_light_grey">
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="text_12_666666">
+        <item name="android:textColor">@color/color_666666</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="text_13_orange">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="text_14_orange">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="text_14_red_dd2727">
+        <item name="android:textColor">@color/red_dd2727</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="text_13_red_dd2727">
+        <item name="android:textColor">@color/red_dd2727</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="text_14_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="text_13_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="text_13_black">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="text_13_light_grey">
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- 小字体 粗体 深灰色 -->
+    <style name="text_12_black">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="text_12_orange">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- 小字体 粗体浅灰色 -->
+    <style name="text_12_light_grey">
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="text_15_light_grey">
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- 正文字体 白色 -->
+
+    <style name="text_12_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <!-- 正文字体 白色 -->
+    <style name="text_12_white_bold">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_18_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <!-- 小字体 粗体浅灰色 -->
+    <style name="text_11_light_grey">
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="text_11_orange">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <!-- 正文字体 白色 -->
+    <style name="text_11_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <!-- 正文字体 白色 -->
+    <style name="text_10_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <!-- 小字体 粗体浅灰色 -->
+    <style name="text_10_light_grey">
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="text_9_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">9sp</item>
+    </style>
+
+    <style name="text_10_orange">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="text_17_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextStyle">
+        <item name="android:shadowColor">#999999</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">0</item>
+    </style>
+
+    <style name="RushBuyCountDownTimerViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_view</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">0</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style</item>
+    </style>
+
+    <style name="SecondHandCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style</item>
+    </style>
+
+    <style name="dialogWindowAnim" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_anim_enter</item>
+        <item name="@android:windowExitAnimation">@anim/dialog_anim_exit</item>
+    </style>
+
+    <style name="Crop"></style>
+
+    <style name="Crop.DoneCancelBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/crop__bar_height</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:divider">@drawable/crop__divider</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:dividerPadding">12dp</item>
+        <item name="android:background">@color/crop__button_bar</item>
+    </style>
+
+    <style name="Crop.ActionButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/crop__selectable_background</item>
+    </style>
+
+    <style name="Crop.ActionButtonText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingRight">20dp</item>
+ <!-- Offsets left drawable -->
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textColor">@color/crop__button_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Crop.ActionButtonText.Done">
+        <item name="android:drawableLeft">@drawable/crop__ic_done</item>
+        <item name="android:text">@string/crop__done</item>
+    </style>
+
+    <style name="Crop.ActionButtonText.Cancel">
+        <item name="android:drawableLeft">@drawable/crop__ic_cancel</item>
+        <item name="android:text">@string/crop__cancel</item>
+    </style>
+
+</resources>

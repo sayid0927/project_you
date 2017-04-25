@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:background="@drawable/app_white_bg" android:orientation="vertical">
+    <RelativeLayout
+        android:orientation="vertical" android:layout_width="match_parent" android:paddingLeft="10dp" android:paddingBottom="15dp"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content" style="@style/text_14_black" android:layout_toRightOf="@id/btn_check" android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"   android:id="@+id/txt_shop_name" android:drawableLeft="@drawable/shop_info_list_icon"/>
+        <ImageView
+            android:layout_width="wrap_content"  android:layout_below="@id/txt_shop_name"  android:layout_marginTop="10dp"
+            android:layout_height="wrap_content" android:background="@drawable/zuobiao_icon" android:id="@+id/btn_zb" android:layout_marginLeft="6dp"/>
+        <TextView
+            android:layout_width="wrap_content"  android:layout_below="@id/txt_shop_name" android:id="@+id/txt_address"
+            android:layout_height="wrap_content"  android:layout_marginTop="10dp" android:layout_toRightOf="@id/btn_zb"
+            android:textColor="@color/gray_666666" android:layout_marginRight="50dp" android:layout_marginLeft="7dp" />
+        <TextView
+            android:layout_width="wrap_content" android:layout_alignLeft="@id/txt_shop_name" android:layout_below="@id/txt_address" android:id="@+id/txt_tel"
+            android:layout_height="wrap_content"  android:layout_marginTop="6dp" android:layout_marginLeft="6dp"
+            android:drawableLeft="@drawable/tel_icon" android:textColor="@color/gray_666666"/>
+
+        <FrameLayout
+            android:layout_width="45dp" android:orientation="horizontal" android:layout_alignParentRight="true"  android:layout_below="@id/txt_shop_name"
+            android:layout_height="30dp">
+            <View
+                android:layout_width="0.5dp" android:layout_height="match_parent" android:background="@color/grey" />
+            <ImageView
+                android:layout_width="wrap_content" android:src="@drawable/call" android:id="@+id/btn_call"
+                android:layout_height="wrap_content" android:layout_gravity="center"/>
+        </FrameLayout>
+
+    </RelativeLayout>
+    <View android:layout_height="0.5dp" android:layout_width="match_parent" android:background="@color/grey"/>
+</LinearLayout>

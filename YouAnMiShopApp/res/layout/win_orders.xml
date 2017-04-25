@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+                android:background="@color/white"
+              android:orientation="vertical"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/orange_ff5f19">
+
+        <ImageView
+            android:id = "@+id/btn_back"
+            android:layout_width = "wrap_content"
+            android:layout_height = "match_parent"
+            android:paddingLeft = "10dp"
+            android:paddingRight = "40dp"
+            android:scaleType = "center"
+            android:src = "@drawable/fanhui"/>
+
+
+        <TextView
+            android:id = "@+id/tag_title_title_name"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_gravity = "center"
+            android:text="订单管理"
+            android:textColor = "@color/white"
+            android:layout_centerInParent="true"
+            android:textSize = "@dimen/main_tab_title_text_size"/>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/layout_title"
+        android:id="@+id/layout_tips"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txt_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            
+            android:textSize="15sp"
+            android:paddingTop="26dip"
+            android:paddingLeft="21dip"
+            android:paddingRight="32dip"
+            android:paddingBottom="19dip"
+            android:textColor="#f8931c"
+            android:background="#fff3cf"
+            android:text="商户APP后台前期只提供简单的订单查看功能，订单处理需要移至web端进行，由此给您带来的不便请多包涵，谢谢！~"/>
+
+
+        <ImageView
+            android:id="@+id/btn_close_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/close_btn_normal"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.7dip"
+            android:layout_below="@+id/txt_tips"
+            android:background="@color/grey"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="您当前没有要及时处理的订单"
+        android:drawableTop="@drawable/wudingdan"
+        android:layout_gravity="center_horizontal"
+        android:drawablePadding="12dip"
+        android:layout_marginTop="63dip"
+        android:visibility="gone"
+        android:textSize="14sp"
+        android:textColor="#d4d3d3"
+        />
+    <com.zxly.o2o.view.MPagerSlidingTab
+        android:id = "@+id/tabs"
+        android:layout_below="@+id/layout_title"
+        android:layout_width = "match_parent"
+        android:layout_marginLeft="11dp"
+        android:layout_height = "40dp"
+        android:background = "@color/white"/>
+    <com.zxly.o2o.view.FixedViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/ease_tl_tabs"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

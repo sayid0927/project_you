@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/grey_f6f6f6" >
+
+
+     <TextView
+            android:id="@+id/txt_shop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_centerHorizontal="true"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/btn_top_message"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:src="@drawable/top_xiaoxi_normal"
+             android:background="@drawable/bt_light_grey_selector" />
+
+        <com.zxly.o2o.view.RedPoint
+            android:id="@+id/img_tips"
+            android:layout_width="10dip"
+            android:layout_height="10dip"
+            android:layout_alignRight="@+id/btn_top_message"
+            android:layout_alignTop="@+id/btn_top_message"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="7dip"
+            android:visibility="gone"
+            android:background="@drawable/xiaoxi" />
+    </RelativeLayout>
+
+
+    
+    <com.zxly.o2o.pullrefresh.PullToRefreshListView
+        android:id="@id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/grey"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="true"
+        android:listSelector="@color/transparent"
+        android:scrollbars="none"
+        android:scrollingCache="false"
+        ptr:ptrAnimationStyle="flip" />
+
+        <com.zxly.o2o.view.LoadingView
+        android:id="@+id/view_loading"
+        android:layout_below="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    
+</RelativeLayout>

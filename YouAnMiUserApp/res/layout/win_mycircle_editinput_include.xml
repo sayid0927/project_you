@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@drawable/app_white_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <ImageButton
+        android:id="@+id/reply_pic_select_btn"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="2.0dip"
+        android:background="@drawable/bt_camera_selector"
+        android:contentDescription="@null"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/comment_content"
+        android:layout_width="0dp"
+        android:layout_height="45dip"
+        android:layout_marginLeft="4dp"
+        android:layout_weight="1.0"
+        android:paddingTop="10dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/down_shurukuang"
+        android:hint="@string/upload_forum_edittext_hint"
+        android:inputType="textWebEditText"
+        android:maxLength="5000"
+        android:textSize="@dimen/nomal_text" />
+
+    <Button
+        android:id="@+id/comment_sendbtn"
+        android:layout_width="70dp"
+        android:layout_height="45dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/chongdianbao"
+        android:textColor="@color/dark_grey"
+        android:text="@string/send_btn" />
+
+</LinearLayout>

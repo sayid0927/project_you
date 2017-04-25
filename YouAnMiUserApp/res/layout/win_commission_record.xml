@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_eeeeee"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@color/orange_ff5f19">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:maxLength="18"
+            android:text="佣金记录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/main_tab_title_text_size" />
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="16dip"
+            android:paddingRight="40dip"
+            android:src="@drawable/fanhui" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_eeeeee">
+
+        <RelativeLayout
+            android:id="@+id/layout_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fe6c2d"
+            android:paddingBottom="21dp">
+
+            <TextView
+                android:id="@+id/txt_allCommission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:text="$4000.00"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/label_allCommission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_allCommission"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dip"
+                android:text="累计收到佣金"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/label_allCommission"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="13dip"
+                android:background="@drawable/yjjl"
+                android:paddingLeft="18dip"
+                android:paddingRight="18dip">
+
+                <TextView
+                    android:id="@+id/label_willArrive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="预到账佣金 : "
+                    android:textColor="#f74b00"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txt_willArrive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/label_willArrive"
+                    android:gravity="center"
+                    android:text="$400.00"
+                    android:textColor="#f74b00"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/label_migxi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_top"
+            android:layout_marginBottom="6dip"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="10dip"
+            android:drawableLeft="@drawable/minxi"
+            android:drawablePadding="6dip"
+            android:gravity="center"
+            android:text="明细"
+            android:textColor="#272636"
+            android:textSize="12sp" />
+
+
+        <RelativeLayout
+            android:id="@+id/view_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/label_migxi">
+
+            <com.zxly.o2o.pullrefresh.PullToRefreshListView
+                android:id="@id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="#00000000"
+                android:divider="@color/transparent"
+                android:dividerHeight="5dp"
+                android:fadingEdge="none"
+                android:fastScrollEnabled="true"
+                android:listSelector="@color/transparent"
+                android:scrollbars="none"
+                android:scrollingCache="false"
+                ptr:ptrAnimationStyle="flip" />
+            <com.zxly.o2o.view.LoadingView
+                android:id="@+id/view_loading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

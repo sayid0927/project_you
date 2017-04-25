@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:background="@color/transparent"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@color/white">
+
+        <Button
+            android:id="@+id/btn_all"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn_orange_ff5f19_selector"
+            android:gravity="center"
+            android:text="全部"
+            android:textColor="@color/white"
+            android:textSize="13sp"/>
+
+        <ImageView
+            android:id="@+id/divide1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/btn_all"
+            android:layout_marginTop="15dp"
+            android:background="#dcdcdc"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divide1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-9dp"
+            android:background="@color/white"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="现金抵扣"
+            android:textColor="#999999"
+            android:textSize="13sp"/>
+
+        <GridView
+            android:id="@+id/gv_deductions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divide1"
+            android:layout_marginTop="20dp"
+            android:gravity="left"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="auto_fit"
+            android:scrollbars="none"
+            android:verticalSpacing="15dp"/>
+
+        <ImageView
+            android:id="@+id/divide2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/gv_deductions"
+            android:layout_marginTop="20dp"
+            android:background="#dcdcdc"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divide2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-9dp"
+            android:background="@color/white"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="礼品赠送"
+            android:textColor="#999999"
+            android:textSize="13sp"/>
+
+        <GridView
+            android:id="@+id/gv_presents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divide2"
+            android:layout_marginTop="20dp"
+            android:gravity="left"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="auto_fit"
+            android:scrollbars="none"
+            android:verticalSpacing="15dp"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/bg_default"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/gv_presents"
+        android:background="@color/transparent"/>
+
+</LinearLayout>

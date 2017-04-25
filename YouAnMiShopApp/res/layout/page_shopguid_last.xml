@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/pic03">
+
+
+    <TextView
+        android:id="@+id/btn_experience"
+        android:layout_width="170dip"
+        android:layout_height="38dip"
+        android:background="@drawable/bg_rectangle_white_button"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dip"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:text="开始"/>
+
+</RelativeLayout>

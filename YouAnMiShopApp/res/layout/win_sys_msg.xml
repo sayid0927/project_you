@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@drawable/app_white_bg">
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/orange_ff5f19">
+
+        <ImageView
+            android:id = "@+id/btn_back"
+            android:layout_width = "wrap_content"
+            android:layout_height = "match_parent"
+            android:paddingLeft = "10dp"
+            android:paddingRight = "40dp"
+            android:scaleType = "center"
+            android:src = "@drawable/fanhui"/>
+
+
+        <TextView
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_gravity = "center"
+            android:text="系统消息"
+            android:textColor = "@color/white"
+            android:layout_centerInParent="true"
+            android:textSize = "@dimen/main_tab_title_text_size"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent" android:background="#f8f7f1" android:layout_marginTop="20dp" android:layout_marginLeft="24dp"
+        android:layout_height="70dp" android:layout_marginRight="24dp" android:gravity="center_vertical" >
+        <ImageView
+            android:layout_width="50dp" android:background="@drawable/ddyh_icon"
+            android:layout_height="50dp" android:layout_marginLeft="10dp"/>
+        <LinearLayout
+            android:layout_width="50dp" android:orientation="vertical" android:layout_marginLeft="11dp"
+            android:layout_height="50dp" android:layout_weight="1" android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"  android:textColor="#333333" android:textSize="12sp"
+                android:layout_height="wrap_content" android:text="到店优惠" />
+            <TextView
+                android:layout_width="wrap_content" android:layout_marginTop="7dp" android:textColor="#666666" android:textSize="12sp"
+                android:layout_height="wrap_content" android:text="拉动客户去店里，成为你的粉丝，赚长期分成"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="160dp" android:background="@drawable/btn_promotion_normal" android:textSize="12sp" android:textColor="@color/orange_ff5f19" android:id="@+id/btn_tuiguang"
+        android:layout_height="25dp"  android:layout_marginTop="10dp" android:layout_gravity="center_horizontal" android:text="推广" android:gravity="center" />
+    <LinearLayout
+        android:layout_width="match_parent" android:background="#eeeeee" android:layout_marginTop="10dp" android:id="@+id/linear2"
+        android:layout_height="match_parent" android:paddingTop="12dp" android:orientation="vertical" android:visibility="gone">
+        <TextView
+            android:layout_width="match_parent"  style="@style/text_14_black" android:layout_marginBottom="12dp"
+            android:layout_height="wrap_content" android:drawableLeft="@drawable/pic_left" android:text="  领取名单 "/>
+        <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/grey"
+            android:id="@+id/line"/>
+        <FrameLayout
+            android:layout_width="match_parent" android:layout_weight="1"
+            android:layout_height="match_parent" >
+            <com.zxly.o2o.pullrefresh.PullToRefreshListView
+                android:id="@+id/listview"
+                android:layout_below="@id/view_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="#00000000"
+                android:dividerHeight="0dp"
+                android:fadingEdge="none"
+                android:listSelector="@color/transparent"
+                android:scrollbars="none"
+                android:scrollingCache="false"
+                ptr:ptrAnimationStyle="flip" />
+            <com.zxly.o2o.view.LoadingView
+                android:id="@+id/view_loading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

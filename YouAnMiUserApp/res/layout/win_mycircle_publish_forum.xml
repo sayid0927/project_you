@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_white_bg"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/forum_publish_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:gravity="left|top"
+            android:hint="@string/upload_forum_edittext_hint"
+            android:inputType="textMultiLine"
+            android:maxLength="200"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/sum_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/forum_publish_text"
+            android:text="(0/200)"
+            android:textColor="#888888" />
+
+        <GridView
+            android:id="@+id/refundment_pic_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@+id/sum_edit"
+            android:cacheColorHint="#00000000"
+            android:layout_marginTop="10dp"
+            android:clickable="false"
+            android:descendantFocusability="afterDescendants"
+            android:gravity="center_vertical"
+            android:horizontalSpacing="10dp"
+            android:numColumns="4"
+            android:paddingBottom="10dp"
+            android:scrollbars="none"
+            android:verticalSpacing="10dp" />
+
+    </RelativeLayout>
+</ScrollView>

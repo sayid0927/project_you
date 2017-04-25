@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/app_white_bg">
+    <FrameLayout
+        android:id="@+id/fl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/orange_ff5f19" >
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:contentDescription="@null"
+            android:background="@color/transparent"
+            android:scaleType="center"
+            android:src="@drawable/fanhui" />
+
+        <TextView
+            style="@style/text_18_white"
+            android:layout_width="wrap_content"
+            android:id="@+id/txt_title"
+            android:layout_height="wrap_content"
+            android:text="发现详情"
+            android:layout_gravity="center"
+            />
+    </FrameLayout>
+
+    <ListView
+        android:id="@+id/goods_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/fl_title"
+        android:cacheColorHint="#00000000"
+        android:dividerHeight="10dp"
+        android:fadingEdge="none"
+        android:divider="@color/gray_eeeeee"
+        android:listSelector="@color/transparent"
+        android:scrollbars="none" android:visibility="gone"
+        android:scrollingCache="false"
+        />
+    <com.zxly.o2o.view.LoadingView
+        android:id="@+id/view_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_below="@id/fl_title"
+        />
+    <ImageView
+        android:layout_width="wrap_content" android:id="@+id/btn_toTopBtn" android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content" android:background="@drawable/up_tofirst"
+        android:layout_marginBottom="5dp" android:layout_alignParentRight="true" android:visibility="gone"/>
+
+</RelativeLayout>

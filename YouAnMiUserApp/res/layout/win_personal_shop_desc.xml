@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/gray_eeeeee">
+
+    <RelativeLayout
+        android:id="@+id/view_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/orange_ff5f19"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/btn_back_selector"
+            android:paddingLeft="12dp"
+            android:paddingRight="30dp" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:text="店铺信息"
+            android:textSize="@dimen/main_tab_title_text_size" />
+
+    </RelativeLayout>
+    <com.zxly.o2o.pullrefresh.PullToRefreshListView
+        android:id="@+id/listview"
+        android:layout_below="@id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:listSelector="@color/transparent"
+        android:background="#f8f8f8"
+        android:scrollbars="none"
+        android:scrollingCache="false"
+        ptr:ptrAnimationStyle="flip" />
+</LinearLayout>

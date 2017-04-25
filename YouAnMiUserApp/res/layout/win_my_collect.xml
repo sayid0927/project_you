@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_eeeeee">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/orange_ff5f19">
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/btn_back_selector"
+            android:paddingLeft="12dp"
+            android:paddingRight="30dp" />
+
+        <RadioGroup
+            android:layout_width="202dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/btn_paper"
+                android:layout_width="67dp"
+                android:layout_height="31dp"
+                android:background="@drawable/tab_left_btn_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="文章"
+                android:textColor="@color/collect_title_textcolor_selector"
+                android:textSize="12sp" />
+            <RadioButton
+                android:id="@+id/btn_topic"
+                android:layout_width="67dp"
+                android:layout_height="31dp"
+                android:button="@null"
+                android:gravity="center"
+                android:text="帖子"
+                android:textColor="@color/collect_title_textcolor_selector"
+                android:textSize="12sp"
+                android:background="@drawable/tab_middle_btn_selector"/>
+            <RadioButton
+                android:id="@+id/btn_product"
+                android:layout_width="67dp"
+                android:layout_height="31dp"
+                android:background="@drawable/tab_right_btn_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="商品"
+                android:textColor="@color/collect_title_textcolor_selector"
+                android:textSize="12sp" />
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:background="@color/gray_eeeeee">
+
+    </FrameLayout>
+
+</RelativeLayout>

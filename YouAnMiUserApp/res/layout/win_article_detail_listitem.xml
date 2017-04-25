@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/forum_community_detail_listitem_belowblock"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/app_white_bg"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
+    >
+
+    <ImageView
+        android:id="@+id/user_photo_defaul"
+        android:layout_width="@dimen/user_photo_small"
+        android:layout_height="@dimen/user_photo_small"
+        android:layout_marginLeft="10dp"
+        android:background="@color/transparent"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/luntan_photo" />
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/article_detail_user_photo"
+        android:layout_width="@dimen/user_photo_small"
+        android:layout_height="@dimen/user_photo_small"
+        android:layout_marginLeft="10dp"
+        android:background="@color/transparent"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/luntan_photo" />
+
+    <ImageView
+        android:layout_width="@dimen/user_photo_small"
+        android:layout_height="@dimen/user_photo_small"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/luntan_photo_grey_empty"
+        android:contentDescription="@null" />
+
+
+    <TextView
+        android:id="@+id/article_detail_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/article_detail_user_photo"
+        android:gravity="top"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:background="@color/transparent"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/article_detail_reply_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/article_detail_user"
+        android:layout_toRightOf="@+id/article_detail_user_photo"
+        android:gravity="top"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:background="@color/transparent"
+        android:textColor="@color/light_grey"
+        android:textSize="12sp" />
+
+
+    <TextView 
+        android:id="@+id/operate_text_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:text="@string/count_add"
+        android:background="@color/transparent"
+        android:textColor="@color/red"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/article_detail_listitem_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/article_detail_reply_time"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/article_detail_user_photo"
+        android:lineSpacingExtra="3dp"
+        android:paddingLeft="10dp"
+        android:layout_toLeftOf="@+id/article_detail_up_btn"
+        android:textColor="@color/black"
+        android:textScaleX="1.0"
+        android:background="@color/transparent"
+        android:textSize="@dimen/nomal_text" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/article_detail_listitem_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/grey" />
+
+    <TextView
+        android:id="@+id/article_detail_up_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_centerVertical="true"
+        android:drawableLeft="@drawable/bt_zan_small_selector"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:background="@color/transparent"
+        android:textColor="@color/orange2"
+        android:textSize="12sp" />
+
+</RelativeLayout>

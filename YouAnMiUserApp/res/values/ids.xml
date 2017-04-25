@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="title" type="id"/>
+    <item name="listview" type="id"/>
+    <item name="view_container" type="id"/>
+    <item name="viewpager" type="id"/>
+    <item name="webview" type="id"/>
+
+     <item name="txt_product_price" type="id"/>
+     <item name="txt_product_old_price" type="id"/>
+     <item name="img_activity_type" type="id"/>
+     <item name="img_product_icon" type="id"/>
+    
+<!--    oldname -->
+    <item name="image_product" type="id"/>
+    <item name="text_productName" type="id"/>
+    <item name="text_price" type="id"/>
+    <item name="text_old_price" type="id"/>
+    <item name="text_product_count" type="id"/>
+    <item name="text_comboInfo" type="id"/>
+
+    <!-- 订单 -->
+    <item name="text_order_reside_time" type="id"/>
+    <item name="text_order_number" type="id"/>
+    <item name="text_order_make_time" type="id"/>
+    <item name="text_order_finish_time" type="id"/>
+    <item name="text_order_status" type="id"/>
+    <item name="image_send_type" type="id"/>
+    <item name="text_order_price" type="id"/>
+    <item name="text_order_ture_price" type="id"/>
+    <item name="text_refund_reside_time" type="id"/>
+    <item name="btn_refund_status" type="id"/>
+    <item name="btn_pay_order" type="id"/>
+    <item name="btn_cancle_order" type="id"/>
+    <item name="btn_delete_order" type="id"/>
+    <item name="text_username" type="id"/>
+    <item name="text_phone_number" type="id"/>
+     <item name="text_detail_address" type="id"/>
+    <item name="list_order" type="id"/>
+    <item name="list_order_product" type="id"/>
+    <item name="list_order_combo_product" type="id"/>
+
+
+    <item name="convertView" type="id"/>
+</resources>

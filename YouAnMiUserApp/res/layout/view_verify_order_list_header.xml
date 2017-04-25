@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:padding="5dip" >
+
+    <LinearLayout
+        style="@style/wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txt_shopName"
+            style="@style/text_16_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             />
+
+        <TextView
+            android:id="@+id/txt_shopAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dip"
+            android:textColor="#989898"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/text_15_darkgray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/btn_chat_selector_orange"
+        android:visibility="gone"
+        android:text="聊天" />
+
+    <View
+        android:layout_width="1dip"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:background="@color/grey" />
+
+    <TextView
+        style="@style/text_15_darkgray"
+        android:id="@+id/btn_call_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/btn_call_selector"
+        android:text="电话" />
+
+</LinearLayout>

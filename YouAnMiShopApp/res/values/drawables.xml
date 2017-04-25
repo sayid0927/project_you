@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <item name="black_normal" type="drawable">#323135</item>
+    <item name="black_press" type="drawable">#29282b</item>
+
+    <item name="red_normal" type="drawable">#DD2727</item>
+    <item name="red_press" type="drawable">#a33332</item>
+
+</resources>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="securepay-lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/YouAnMiShopApp/libs/securepay-lib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

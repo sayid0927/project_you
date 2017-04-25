@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+
+
+    <TextView
+        android:id="@+id/txt_promotion_name"
+        android:layout_width="wrap_content"
+        android:layout_height="59dip"
+        android:text="商品推广"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_marginLeft="10dip"
+        android:textColor="@color/grey_666666"/>
+
+    <TextView
+        android:id="@+id/txt_promotion_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/txt_promotion_target"
+        android:text="200"
+        android:layout_marginTop="20dip"
+        android:textSize="16sp"
+        android:textColor="@color/black_000000"/>
+
+    <TextView
+        android:id="@+id/txt_promotion_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txt_promotion_count"
+        android:text="/200"
+          android:layout_toLeftOf="@+id/txt_unit"
+        android:layout_marginRight="21dip"
+        android:textSize="12sp"
+        android:textColor="@color/grey_666666"/>
+    <TextView
+        android:id="@+id/txt_unit"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="次"
+        android:layout_marginRight="10dip"
+        android:layout_alignBottom="@+id/txt_promotion_count"
+        android:textSize="15sp"
+        android:textColor="@color/grey_666666"/>
+    <View
+        android:id="@+id/line_bot"
+        android:layout_width="match_parent"
+        android:layout_height="0.9dip"
+        android:layout_below="@+id/txt_promotion_name"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@color/grey" />
+    <View android:layout_width="0.1dip"
+        android:layout_height="60dip"
+        />
+
+</RelativeLayout>

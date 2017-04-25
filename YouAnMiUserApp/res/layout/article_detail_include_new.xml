@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/app_white_bg"
+                android:orientation="vertical" >
+
+
+
+    <com.easemob.easeui.widget.MyWebView
+        android:id="@+id/article_detail_maimcontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/article_detail_maimtime"
+        android:background="@drawable/app_white_bg"
+        android:fadingEdge="none"
+        android:scrollbars="none"
+        android:scrollingCache="false" />
+
+    <View
+        android:layout_below="@+id/article_detail_maimcontent"
+        android:id="@+id/devider"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/gray_eeeeee"/>
+
+    <RelativeLayout
+        android:layout_below="@+id/devider"
+        android:id="@+id/grep_line"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white">
+        <View
+            android:id="@+id/mark_comments"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="5dp"
+            android:layout_height="15dp"
+            android:background="@color/color_ff5f19"
+            />
+        <TextView
+            android:layout_toRightOf="@+id/mark_comments"
+            android:layout_marginLeft="7dp"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="热门评论"
+            android:textSize="14sp"
+            android:textColor="@color/gray_333333"/>
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_dcdcdc"
+            android:layout_marginLeft="12dp"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

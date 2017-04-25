@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#efefef" >
+
+    <TextView
+        android:id="@+id/renew_type_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="top"
+        android:text="显示屏:"
+        android:textColor="@color/light_grey"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/renew_param_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/renew_type_name"
+        android:gravity="top|left"
+        android:text="显示屏坏了显示屏坏了，显示屏坏了显示屏坏了，显示屏坏了显示屏坏了，显示屏坏了显示屏坏了，显示屏坏了显示屏坏了，显示屏坏了显示屏坏了，显示屏坏了显示屏坏了，显示屏坏了显示屏坏了，"
+        android:textColor="@color/dark_grey"
+        android:textSize="16dp" />
+
+</RelativeLayout>

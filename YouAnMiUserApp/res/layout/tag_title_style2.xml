@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/title_bg"
+    android:layout_height="48dip">
+
+
+    <RelativeLayout
+        android:id="@+id/btn_shopInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/title_bar_height"
+        android:background="@drawable/bt_light_grey_selector">
+
+        <com.zxly.o2o.view.CircleImageView
+            android:id="@+id/img_shop_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="5dip"
+            android:background="@drawable/mendian_head" />
+
+
+        <TextView
+            android:id="@+id/txt_shop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img_shop_icon"
+
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/top_normal"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dip"
+            android:paddingRight="25dip"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/btn_top_share"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/btn_top_message"
+        android:background="@drawable/bt_light_grey_selector"
+        android:padding="10dip"
+        android:scaleType="center"
+        android:src="@drawable/top_fenxiang_normal" />
+
+    <ImageView
+        android:id="@+id/btn_top_message"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/bt_light_grey_selector"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:src="@drawable/talk_to_cs_selector" />
+
+</RelativeLayout>

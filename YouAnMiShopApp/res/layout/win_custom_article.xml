@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:orientation="vertical"  android:background="@color/gray_eeeeee"
+    android:layout_height="match_parent">
+    <com.zxly.o2o.view.LoadingView
+        android:id="@+id/view_loading11"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content" />
+    <com.zxly.o2o.pullrefresh.PullToRefreshListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/transparent"
+        android:dividerHeight="0.5dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="#00000000"
+        android:scrollbars="none"
+        android:paddingBottom="2dp"
+        android:smoothScrollbar="true"
+        ptr:ptrAnimationStyle="flip" />
+
+    <LinearLayout android:id="@+id/ll_hn_article" android:visibility="gone"
+        android:layout_width="match_parent" android:layout_marginRight="12dip" android:layout_marginLeft="12dip"  android:layout_marginTop="10dp"
+        android:layout_height="33dp"  android:layout_marginBottom="12dip" android:background="@drawable/btn_daizhifu_normal"
+        android:paddingRight="8dp" android:paddingLeft="8dp" android:gravity="center_vertical">
+        <TextView
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1"
+            android:id="@+id/btn_hn_article" android:text="看看行业内别人的转发文章 >>" android:textSize="14sp" android:textColor="@color/dark_grey"/>
+        <ImageView
+            android:layout_width="wrap_content" android:id="@+id/btn_close"
+            android:layout_height="wrap_content" android:background="@drawable/icon_close"/>
+    </LinearLayout>
+
+</LinearLayout>

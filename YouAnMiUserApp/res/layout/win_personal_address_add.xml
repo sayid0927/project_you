@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_eeeeee"
+    android:orientation="vertical">
+
+    <include layout="@layout/tab_header" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/btn_clean_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/button_edit_del_selector"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/name_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:text="收货人"
+            android:textColor="@color/gray_999999"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="90dp"
+            android:layout_marginRight="40dp"
+            android:background="@null"
+            android:hint="请填写真实姓名"
+            android:maxLength="10"
+            android:textColor="@color/gray_333333"
+            android:textColorHint="#b4b4b4"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_dcdcdc" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/btn_clean_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/button_edit_del_selector"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:text="手机号码"
+            android:textColor="@color/gray_999999"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edit_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="90dp"
+            android:layout_marginRight="40dp"
+            android:background="@null"
+            android:hint="请填写真实号码，以便联系您"
+            android:inputType="number"
+            android:maxLength="11"
+            android:textColor="@color/gray_333333"
+            android:textColorHint="#b4b4b4"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_dcdcdc" />
+
+    <RelativeLayout
+        android:id="@+id/btn_area"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/personal_setting_normal_selector">
+
+        <TextView
+            android:id="@+id/area_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:text="区域"
+            android:textColor="@color/gray_999999"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/personal_turn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/quanzi_turn" />
+
+        <TextView
+            android:id="@+id/address_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="90dp"
+            android:maxLength="30"
+            android:singleLine="true"
+            android:text="请选择区域"
+            android:textColor="#b4b4b4"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_dcdcdc" />
+
+    <RelativeLayout
+        android:id="@+id/btn_village"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/personal_setting_normal_selector">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:text="街道"
+            android:textColor="@color/gray_999999"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/personal_turn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/quanzi_turn" />
+
+        <TextView
+            android:id="@+id/address_village"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="90dp"
+            android:text="请选择街道"
+            android:textColor="#b4b4b4"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_dcdcdc" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/btn_clean_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/button_edit_del_selector"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/detail_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:text="详细地址"
+            android:textColor="@color/gray_999999"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/detail_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="90dp"
+            android:layout_marginRight="40dp"
+            android:background="@null"
+            android:hint="请填写详细以便送货上门"
+            android:maxLength="30"
+            android:textColor="@color/gray_333333"
+            android:textColorHint="#b4b4b4"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_dcdcdc" />
+
+    <LinearLayout
+        android:id="@+id/view_default_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_dcdcdc" />
+
+        <TextView
+            android:id="@+id/personal_set_default_address"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="15dp"
+            android:drawableLeft="@drawable/checkbox_style"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="设为默认地址"
+            android:textColor="@color/checkbox_textcolor_selector"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_dcdcdc" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_address_save"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_common_selector"
+        android:text="保存"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+</LinearLayout>

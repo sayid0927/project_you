@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--门店推荐  文章下方返回按钮背景-->
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    >
+    <solid
+        android:color="@color/color_68777777"
+        />
+    <size
+        android:width="45dp"
+        android:height="45dp"/>
+</shape>

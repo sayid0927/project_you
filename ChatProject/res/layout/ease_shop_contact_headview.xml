@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/contact_banner"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shop_contactlist_banner"
+                android:padding="15dp">
+
+    <TextView
+        android:id="@+id/all_vip_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/icon_hy"
+        android:drawablePadding="5dp"
+        android:text="@string/all_vip_tip_text"
+        android:textColor="#e2e0de"
+        android:textSize="11sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="@string/contact_banner_top_tip_text"
+        android:textColor="#e2e0de"
+        android:textSize="11sp"/>
+
+    <TextView
+        android:id="@+id/count_members"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/all_vip_tip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="0"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        />
+
+
+    <Button
+        android:id="@+id/qfxx_btn"
+        android:layout_width="120dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/count_members"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ease_oval_white_btn_selector"
+        android:drawableLeft="@drawable/qfxx_icon_hy"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:text="@string/qfxx_btn_text"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        />
+
+    <Button
+        android:id="@+id/tsgg_btn"
+        android:layout_width="120dp"
+        android:layout_height="38dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/count_members"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ease_oval_white_btn_selector"
+        android:drawableLeft="@drawable/tsgg_icon_hy"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:text="@string/tsgg_btn_text"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        />
+
+</RelativeLayout>

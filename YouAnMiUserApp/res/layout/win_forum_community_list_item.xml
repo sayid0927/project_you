@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/forum_community_list_item_belowblock"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    >
+
+
+    <TextView
+        android:id = "@+id/topmost_tip"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:paddingLeft = "5dp"
+        android:paddingRight = "5dp"
+        android:paddingTop = "1dp"
+        android:paddingBottom = "1dp"
+        android:background = "#ff3300"
+        android:layout_marginTop="5dp"
+        android:text = "置顶"
+        android:gravity = "center"
+        android:textColor = "@color/white"
+        android:textSize = "@dimen/small_text"/>
+    <TextView
+        android:id="@+id/forum_community_list_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/transparent"
+        android:maxLines="4"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
+
+
+    <LinearLayout
+        android:id="@+id/icon_layout"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:layout_below="@+id/forum_community_list_item_title"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:visibility="gone">
+
+        <com.easemob.easeui.widget.shapeimageview.PorterShapeImageView
+            android:id="@+id/forum_community_list_item_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_launcher"
+            app:siShape="@drawable/ease_shape_rounded_rectangle"
+            app:siSquare="true"/>
+
+        <com.easemob.easeui.widget.shapeimageview.PorterShapeImageView
+            android:id="@+id/forum_community_list_item_icon2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher"
+            app:siShape="@drawable/ease_shape_rounded_rectangle"
+            app:siSquare="true"/>
+
+        <com.easemob.easeui.widget.shapeimageview.PorterShapeImageView
+            android:id="@+id/forum_community_list_item_icon3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher"
+            app:siShape="@drawable/ease_shape_rounded_rectangle"
+            app:siSquare="true"/>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/action_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/icon_layout"
+        android:layout_marginTop="10dp"
+        android:background="@color/transparent"
+        android:gravity="center_vertical">
+
+
+        <com.easemob.easeui.widget.shapeimageview.PorterShapeImageView
+            android:id="@+id/forum_community_list_item_role_photo"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher"
+            app:siShape="@drawable/ease_shape_rounded_rectangle"
+            app:siSquare="true" />
+
+        <TextView
+            android:id="@+id/forum_community_list_item_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/forum_community_list_item_role_photo"
+            android:background="@color/transparent"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+
+        <TextView
+            android:id="@+id/forum_community_list_item_upload_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/forum_community_list_item_role"
+            android:gravity="center_horizontal"
+            android:textColor="#999999"
+            android:textSize="12sp"/>
+
+
+        <TextView
+            android:id="@+id/forum_community_list_item_up_tip"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:paddingLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/forum_community_list_item_reply_tip"
+            android:background="@color/transparent"
+            android:drawableLeft="@drawable/icon_zan"
+            android:drawablePadding="3dp"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textColor="@color/gray_afafaf"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/forum_community_list_item_reply_tip"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:paddingLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/transparent"
+            android:drawableLeft="@drawable/icon_comment"
+            android:layout_centerVertical="true"
+            android:drawablePadding="3dp"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:textColor="@color/gray_afafaf"
+            android:textSize="12sp"/>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/operate_text_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/action_layout"
+        android:layout_marginBottom="15dp"
+        android:text="+ 1"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="80dp"
+        android:textSize="12sp"
+        android:textColor="@color/orange_ff5f19"
+        android:visibility="invisible" />
+
+</RelativeLayout>

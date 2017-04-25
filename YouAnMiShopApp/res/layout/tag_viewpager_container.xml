@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/app_bg"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/orange_ff5f19">
+
+        <RadioGroup
+            android:id="@+id/rg_group_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/btn_fans"
+                android:layout_width="83dp"
+                android:layout_height="27dp"
+                android:background="@drawable/tab_left_btn_selector"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="粉丝"
+                android:textColor="@color/collect_title_textcolor_selector"
+                android:textSize="15sp" />
+            <RadioButton
+                android:id="@+id/btn_menbers"
+                android:layout_width="83dp"
+                android:layout_height="27dp"
+                android:background="@drawable/tab_right_btn_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="会员"
+                android:textColor="@color/collect_title_textcolor_selector"
+                android:textSize="15sp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/btn_tuiguang"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:text="找客"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:layout_marginRight="@dimen/dimen_12dp"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <com.zxly.o2o.view.FixedViewPager
+        android:id="@+id/pager"
+        android:isScrollContainer="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

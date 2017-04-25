@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_eeeeee"
+    android:orientation="vertical">
+
+    <include layout="@layout/tab_header" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@color/orange_ff5f19" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_zf_result_bg" />
+
+        <ImageView
+            android:id="@+id/img_pay_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="34dp"
+            android:background="@drawable/icon_zf_success" />
+
+    </RelativeLayout>
+
+    <!-- 正常支付 -->
+    <RelativeLayout
+        android:id="@+id/view_normal_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txt_pay_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="支付成功"
+            android:textColor="@color/green_3fb837"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/txt_pay_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_pay_result"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="店家将尽早安排发货，请耐心等待"
+            android:textColor="@color/gray_999999"
+            android:textSize="13sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_pay_desc"
+            android:layout_marginBottom="80dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/btn_check_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/icon_check_order"
+                android:drawablePadding="8dp"
+                android:text="查看订单"
+                android:textColor="@color/orange_ff5f19"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/btn_continue_shopping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_toRightOf="@+id/btn_check_order"
+                android:drawableLeft="@drawable/icon_continue_shopping"
+                android:drawablePadding="8dp"
+                android:text="继续购物"
+                android:textColor="@color/orange_ff5f19"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!-- 提现验证银行卡 -->
+    <RelativeLayout
+        android:id="@+id/view_verify_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/view_verify_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/txt_verify_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="支付成功"
+                android:textColor="@color/green_3fb837"
+                android:textSize="21dp" />
+
+            <TextView
+                android:id="@+id/txt_verify_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_verify_result"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="您的银行卡验证成功，可以进行提现和支付操作"
+                android:textColor="@color/gray_999999"
+                android:textSize="13dp" />
+
+            <View
+                android:id="@+id/view_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/txt_verify_desc"
+                android:layout_marginTop="30dp"
+                android:background="@color/gray_dcdcdc" />
+
+            <LinearLayout
+                android:id="@+id/view_user_balance"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:layout_below="@+id/view_line"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:drawableLeft="@drawable/icon_ktje"
+                    android:drawablePadding="8dp"
+                    android:text="可提金额："
+                    android:textColor="@color/gray_333333"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txt_user_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="￥--"
+                    android:textColor="@color/orange_ff5f19"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/view_divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_verify_top"
+            android:background="@drawable/pay_main_bottom_line" />
+
+        <RelativeLayout
+            android:id="@+id/view_input"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_below="@+id/view_divider"
+            android:layout_marginTop="10dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/txt_txje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:text="提现金额："
+                android:textColor="@color/gray_333333"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edit_money"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/txt_txje"
+                android:background="@color/white"
+                android:inputType="numberDecimal"
+                android:maxLength="10"
+                android:paddingLeft="5dp"
+                android:textColor="@color/gray_333333"
+                android:textColorHint="@color/grey_aaaaaa"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txt_yuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:text="元"
+                android:textColor="@color/gray_999999"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentTop="true"
+                android:background="@color/gray_dcdcdc" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/gray_dcdcdc" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/btn_takeout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@+id/view_input"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/btn_common_selector"
+            android:gravity="center"
+            android:text="提现"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <!-- 提现-->
+    <RelativeLayout
+        android:id="@+id/view_takeout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txt_takeout_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="提交成功"
+            android:textColor="@color/green_3fb837"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/txt_takeout_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_takeout_result"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="提现资金提交银行处理，预计在两日内到账"
+            android:textColor="@color/gray_999999"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/btn_check_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_takeout_desc"
+            android:layout_marginBottom="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="40dp"
+            android:drawableLeft="@drawable/icon_check_order"
+            android:drawablePadding="8dp"
+            android:text="查看账户"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/btn_takeout_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/txt_takeout_desc"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="40dp"
+            android:drawableLeft="@drawable/icon_continue_shopping"
+            android:drawablePadding="8dp"
+            android:text="提现明细"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txt_takeout_money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_takeout_detail"
+            android:layout_marginTop="30dp"
+            android:paddingLeft="20dp"
+            android:textColor="@color/gray_333333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txt_takeout_bankcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_takeout_money"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:textColor="@color/gray_333333"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</LinearLayout>

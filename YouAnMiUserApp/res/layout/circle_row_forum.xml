@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@android:color/transparent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="#eeeeee"
+        android:paddingBottom="2dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="10dp"
+        android:textColor="#666666"
+        android:textSize="15sp"
+        android:visibility="gone"/>
+
+    <com.easemob.easeui.widget.SwipeLayout
+        android:id="@+id/swipe"
+        xmlns:swipe="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        swipe:leftEdgeSwipeOffset="0dp"
+        swipe:rightEdgeSwipeOffset="0dp">
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/sw_btn1"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="#fe9402"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:paddingTop="10dp"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/sw_btn2"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="#ff5f19"
+                android:drawableTop="@drawable/icon_minus"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="取消关注"
+                android:textColor="@color/white"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:duplicateParentState="true">
+
+
+                <com.easemob.easeui.widget.shapeimageview.PorterShapeImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="43dp"
+                    android:layout_height="43dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ease_default_avatar"
+                    app:siShape="@drawable/ease_shape_rounded_rectangle"
+                    app:siSquare="true"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="11dp"
+                    android:layout_toRightOf="@id/avatar"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:textColor="#333333"
+                            android:textSize="15sp"/>
+
+                        <TextView
+                            android:id="@+id/title_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:singleLine="true"
+                            android:textColor="#ff5f19"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/sub_head"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="60dp"
+                        android:layout_marginTop="4dp"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textColor="#999999"
+                        android:textSize="13sp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/right_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:scaleType="center"
+                    android:src="@drawable/ease_add_selector"
+                    android:gravity="center"
+                    android:visibility="visible"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </com.easemob.easeui.widget.SwipeLayout>
+</LinearLayout>

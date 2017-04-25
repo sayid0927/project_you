@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"  android:background="@color/white"
+    android:layout_height="wrap_content" >
+
+    <com.easemob.easeui.widget.SlideDelete
+        android:id="@+id/layout_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:layout_marginLeft="11dp" android:layout_marginBottom="0.6dp">
+
+            <FrameLayout
+                android:id="@+id/layout_article_content"
+                android:layout_width="wrap_content" android:paddingBottom="8dp"
+                android:layout_height="83dp" android:paddingRight="9.5dp" android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:text="暂无"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:id="@+id/txt_browseCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9999 浏览数"
+                    android:textColor="@color/gray_999999"
+                    android:layout_gravity="bottom|left"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="11sp" />
+
+
+                <TextView
+                    android:id="@+id/btn_promotion"
+                    android:layout_width="57dp"
+                    android:layout_height="26dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/btn_promotion_normal"
+                    android:layout_gravity="bottom|right"
+                    android:gravity="center"
+                    android:text="推广"
+                    android:textColor="@color/orange_ff5f19"
+                    android:textSize="13sp" />
+            </FrameLayout>
+        <RelativeLayout
+            android:id="@+id/layout_swipe_content"
+            android:layout_width="75dp"
+            android:layout_height="83dp">
+
+            <ImageView
+                android:id="@+id/btn_delete"
+                android:layout_width="75dp"
+                android:layout_height="83dp"
+                android:background="#ff5f19"
+                android:scaleType="center"
+                android:src="@drawable/icon_delete" />
+        </RelativeLayout>
+    </com.easemob.easeui.widget.SlideDelete>
+    <View
+        android:layout_width="match_parent" android:layout_gravity="bottom"
+        android:layout_height="0.4dp"
+        android:background="@color/gray_dcdcdc" />
+</FrameLayout>
+

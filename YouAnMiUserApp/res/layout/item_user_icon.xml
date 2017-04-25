@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingLeft="10dp">
+    <com.android.volley.toolbox.NetworkImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp" android:id="@+id/img_user" android:background="@drawable/personal_default_head"/>
+    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/qz_icon_quan_bg_small"/>
+</FrameLayout>

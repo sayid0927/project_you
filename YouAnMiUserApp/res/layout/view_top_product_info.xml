@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zxly.o2o.SnapScrollView.McoyScrollView  xmlns:android="http://schemas.android.com/apk/res/android"     xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/product_scrollview"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fadeScrollbars="true"
+    android:focusable="false"
+    android:fillViewport="true" >
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/baner_pager"
+                android:layout_width="match_parent"
+                android:layout_height="360dip" />
+
+            <com.zxly.o2o.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/indicator"
+                android:padding="8dip"
+                android:layout_height="22.5dip"
+                android:layout_width="fill_parent"
+                android:layout_gravity="bottom|center_horizontal"
+                ptr:mRadius="3.5dip"
+                ptr:mPageColor="#60000000"
+                ptr:mFillColor="@color/white"
+                />
+
+            <LinearLayout
+                android:id="@+id/layout_time_bg"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="bottom"
+                android:background="@drawable/daojishi"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dip"
+                android:visibility="gone" >
+
+                <TextView
+                    style="@style/text_14_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dip"
+                    android:drawableLeft="@drawable/clock"
+                    android:text=" 剩余时间" />
+
+                <com.zxly.o2o.view.TimeCutDownLayout
+                    android:id="@+id/layout_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    ptr:timeTextColor="@color/white"
+                    ptr:timeTextSize="14sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/txt_name"
+                style="@style/text_18_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2" android:ellipsize="end"
+                android:text="" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/txt_price"
+                    style="@style/text_20_orange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_orig_price"
+                    style="@style/text_15_grey_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_marginLeft="10dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <View
+            android:id="@+id/line_lable"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="@color/grey" />
+
+        <LinearLayout
+            android:id="@+id/label_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dip" >
+
+            <com.zxly.o2o.view.MGridView
+                android:id="@+id/gridView_dm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:cacheColorHint="#00000000"
+                android:clickable="false"
+                android:columnWidth="89dip"
+                android:horizontalSpacing="14dp"
+                android:listSelector="@color/transparent"
+                android:numColumns="auto_fit"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="14dp" />
+
+            <LinearLayout
+                android:id="@+id/line_turn"
+                android:layout_width="20dip"
+                android:layout_height="20dip"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/img_turn"
+                    style="@style/wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="@color/grey" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dip"
+            android:background="@color/gray_eeeeee" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="@color/grey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" android:orientation="vertical"
+            android:paddingLeft="10dip" android:layout_marginBottom="10dp"
+            android:paddingRight="10dip"  >
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_marginLeft="22.5dp"
+                android:layout_height="wrap_content" android:layout_marginTop="17.5dp">
+                <TextView
+                    android:layout_width="wrap_content" android:id="@+id/btn_like"
+                    android:layout_height="wrap_content" android:textSize="12sp" android:textColor="@color/orange_ff5f19" />
+                <View android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="wrap_content" android:id="@+id/btn_collect"
+                    android:layout_height="wrap_content" android:textSize="12sp" android:textColor="@color/orange_ff5f19" />
+                <View android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="wrap_content" android:id="@+id/btn_share"  android:drawableLeft="@drawable/btn_share_selector"
+                    android:layout_height="wrap_content" android:textSize="12sp" android:textColor="@color/orange_ff5f19" />
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="match_parent"  android:layout_marginTop="17.5dp"
+                android:layout_height="wrap_content" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:gravity="center_vertical" >
+
+                    <com.zxly.o2o.view.HorizontalListView
+                        android:id="@+id/hListView"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        />
+                    <ImageView
+                        style="@style/wrap_content"
+                        android:background="@drawable/quanzi_turn" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp" android:id="@+id/view_like"/>
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="@color/grey" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dip"
+            android:background="@color/gray_eeeeee" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="@color/grey" />
+
+
+        <LinearLayout
+            android:id="@+id/prop_sel_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dip"
+            android:orientation="horizontal"
+            android:paddingRight="10dip" >
+            <TextView
+                android:layout_width="wrap_content" android:textSize="14sp" android:text="选择"
+                android:layout_height="wrap_content" android:textColor="@color/light_grey" />
+            <TextView
+                android:id="@+id/txt_sel_desc"
+                style="@style/text_14_black"
+                android:layout_marginLeft="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                />
+
+            <ImageView
+                style="@style/wrap_content"
+                android:layout_marginLeft="10dip"
+                android:background="@drawable/quanzi_turn" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent" android:id="@+id/label_combo"
+            android:layout_height="0.5dip"
+            android:background="@color/grey" />
+
+        <LinearLayout
+            android:id="@+id/combo_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="6dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="10dip" >
+
+            <TextView
+                android:id="@+id/txt_combo"
+                style="@style/text_14_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="套餐" />
+
+            <com.zxly.o2o.view.MGridView
+                android:id="@+id/gridView_combo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dip"
+                android:cacheColorHint="#00000000"
+                android:clickable="false"
+                android:listSelector="@color/transparent"
+                android:numColumns="2"
+                android:horizontalSpacing="10dp"
+                android:verticalSpacing="10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content" android:orientation="vertical"
+            android:layout_height="wrap_content" android:id="@+id/btn_take_yh" android:visibility="gone">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dip"
+                android:background="@color/grey" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dip"
+                android:background="@color/gray_eeeeee" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dip"
+                android:background="@color/grey" />
+            <LinearLayout
+                android:layout_width="match_parent" android:background="@color/white" android:layout_height="wrap_content" android:gravity="center_vertical"
+                android:paddingTop="8.5dp" android:paddingBottom="8.5dp" android:paddingLeft="10dp" android:layout_marginRight="10dp" >
+                <ImageView
+                    android:layout_width="wrap_content" android:background="@drawable/ddyh_gift" android:layout_height="wrap_content" />
+                <LinearLayout android:layout_width="78.5dp" android:id="@+id/gift1" android:layout_height="wrap_content" android:orientation="vertical"
+                    android:layout_marginLeft="27dp" android:gravity="center" android:background="@drawable/ddyh_green_sawtooth_bg" android:visibility="gone" >
+                    <TextView android:layout_width="wrap_content" android:textSize="15sp" android:textColor="#ffffff" android:layout_height="wrap_content" android:id="@+id/txt_hyName1" android:maxLines="1" android:ellipsize="end"  android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:textSize="8sp"  android:layout_height="wrap_content" android:id="@+id/txt_hyType1"   android:layout_marginTop="-3dp"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="78.5dp" android:id="@+id/gift2" android:layout_height="wrap_content" android:orientation="vertical"
+                    android:layout_marginLeft="17.5dp" android:gravity="center" android:background="@drawable/ddyh_red_sawtooth_bg" android:visibility="gone">
+                    <TextView android:layout_width="wrap_content" android:textSize="15sp" android:textColor="#ffffff" android:layout_height="wrap_content" android:id="@+id/txt_hyName2"  android:lines="1" android:ellipsize="end" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:textSize="8sp" android:textColor="#ffffff" android:layout_height="wrap_content" android:id="@+id/txt_hyType2"   android:layout_marginTop="-3dp" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent" android:textSize="12sp" android:textColor="#333333"  android:drawableRight="@drawable/quanzi_turn"
+                    android:layout_height="wrap_content" android:layout_weight="1" android:gravity="right" android:text="领取"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="@color/grey" />
+
+        <TextView
+            android:layout_width="match_parent" android:background="@color/gray_eeeeee" android:gravity="center"
+            android:layout_height="49dp" android:textSize="14sp" android:text="继续拖动查看详情" android:textColor="@color/gray_666666"/>
+
+    </LinearLayout>
+
+</com.zxly.o2o.SnapScrollView.McoyScrollView>

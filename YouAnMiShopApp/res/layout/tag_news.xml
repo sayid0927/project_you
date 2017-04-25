@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+                android:paddingBottom="17dip"
+              android:orientation="vertical"
+              android:layout_height="match_parent">
+    <com.easemob.easeui.widget.viewpagerindicator.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@color/white" />
+    <com.zxly.o2o.view.FixedViewPager
+        android:id="@+id/pager1"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dip"
+        android:layout_below="@+id/ease_tl_tabs"
+        android:layout_height="190dip" />
+ 
+    <LinearLayout
+        android:id="@+id/btn_showMore"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_below="@+id/pager1"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginBottom="17dip"
+        android:background="@drawable/btn_detail"
+        android:layout_height="33dip">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/light_grey"
+            android:drawableRight="@drawable/turn_dowm_small"
+
+            android:drawablePadding="6dip"
+            android:text="查看更多"/>
+
+    </LinearLayout>
+</RelativeLayout>

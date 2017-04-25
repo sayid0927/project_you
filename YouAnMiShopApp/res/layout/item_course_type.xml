@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/btn_course_type"
+        android:layout_width="85dp"
+        android:layout_height="25dp"
+        android:layout_margin="10.5dp"
+        android:background="@drawable/btn_tag_selector"
+        android:gravity="center"
+        android:maxLength="6"
+        android:singleLine="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="新手必看必看"
+        android:textColor="@color/gray_333333"
+        android:textSize="12sp" />
+
+</RelativeLayout>

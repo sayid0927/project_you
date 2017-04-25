@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="Circle">
+        <attr name="radius" format="dimension"/>
+        <attr name="color" format="color"/>
+        <attr name="alpha" format="integer"/>
+    </declare-styleable>
+
+	
+    <!--<declare-styleable name="RoundedImageView">
+	    <attr name="r_corner_radius" format="dimension" />&lt;!&ndash; 圆角弧度 &ndash;&gt;
+	    <attr name="r_border_width" format="dimension" />&lt;!&ndash; 边框宽度 &ndash;&gt;
+	    <attr name="r_border_color" format="color" />&lt;!&ndash; 边框颜色 &ndash;&gt;
+	    <attr name="r_mutate_background" format="boolean" />
+	    <attr name="r_oval" format="boolean" />
+	    <attr name="android:scaleType" />
+    </declare-styleable>
+     &lt;!&ndash; 文本 框计数器 &ndash;&gt;
+    <declare-styleable name="InputCountter">
+        <attr name="input_max_count" format="integer"/> 
+        <attr name="input_background_color" format="color"/>
+        <attr name="input_background" format="reference"/>
+        <attr name="input_padding" format="dimension"/>
+        <attr name="edit_text_size" format="dimension"/>
+        <attr name="edit_text_color" format="color"/>
+        <attr name="edit_hint" format="string"/>
+        <attr name="lable_text_size" format="dimension"/>
+        <attr name="lable_text_color" format="color"/>
+    </declare-styleable>-->
+    
+</resources>

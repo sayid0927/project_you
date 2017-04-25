@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dip"
+    android:paddingBottom="20dip"
+    android:paddingLeft="13dip"
+    android:paddingRight="5dip"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        style="@style/text_16_black" android:id="@+id/productName" />
+    <com.zxly.o2o.view.MGridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#00000000" android:layout_marginTop="19dp"
+        android:clickable="false"
+        android:columnWidth="80dip"
+        android:listSelector="@color/transparent"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="14dp" />
+
+</LinearLayout>

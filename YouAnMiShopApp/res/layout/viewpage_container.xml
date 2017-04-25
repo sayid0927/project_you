@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/app_bg"
+              android:orientation="vertical">
+
+    <com.easemob.easeui.widget.viewpagerindicator.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"/>
+
+    <View
+        android:layout_width="match_parent" android:id="@+id/line"
+        android:layout_height="0.5dp" android:layout_below="@id/tabs"
+        android:background="@color/grey"/>
+
+    <com.zxly.o2o.view.FixedViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:layout_below="@id/line"/>
+
+</RelativeLayout>

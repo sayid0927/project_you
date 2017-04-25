@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="48dp"
+                android:layout_height="48dp">
+
+    <com.easemob.easeui.widget.shapeimageview.PorterShapeImageView
+        android:id="@+id/circle_image_row"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ease_default_avatar"
+        app:siShape="@drawable/ease_shape_rounded_rectangle"
+        app:siSquare="true"/>
+</RelativeLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/single_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="15dp"
+            android:text="ssss"
+            style="@style/text_16_black"/>
+
+        <com.zxly.o2o.view.CheckLayout
+            android:id="@+id/single_ckeck_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    <View 
+        android:layout_width="match_parent"
+        android:layout_marginLeft="8dp"
+        android:background="@color/grey"
+        android:layout_height="0.5dp"/>
+</LinearLayout>

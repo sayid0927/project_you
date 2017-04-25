@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="150dp"
+    android:layout_height="159dp"
+    android:background="@color/white" >
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/image_product_icon"
+        android:layout_width="wrap_content"
+         android:layout_height="106dp"
+         android:layout_marginTop="5dp"
+         android:layout_marginLeft="5dp"
+         android:layout_marginRight="5dp" />
+
+    <LinearLayout
+        android:id="@+id/layout_time_bg"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignBottom="@+id/image_product_icon"
+        android:background="@drawable/daojishi"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <com.zxly.o2o.view.TimeCutDownLayout
+            android:id="@+id/layout_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ptr:timeTextColor="@color/white"
+            ptr:timeTextSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_product_name"
+        style="@style/text_13_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_product_icon"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="苹果iphone6 plus 16G" />
+
+    <TextView
+        android:id="@+id/text_product_price"
+        style="@style/text_14_orange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_product_name"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="5dp"
+        android:text="$6500.00" />
+
+    <TextView
+        android:id="@+id/text_product_old_price"
+        style="@style/text_11_light_grey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/text_product_price"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="6dp"
+        android:text="$6500.00"
+        android:visibility="gone" />
+
+</RelativeLayout>

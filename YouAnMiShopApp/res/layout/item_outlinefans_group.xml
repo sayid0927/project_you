@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="43dp"
+              android:background="@color/white">
+    <View
+        android:id="@+id/top_line"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="#f0eff5"
+        />
+    <RelativeLayout
+        android:layout_marginLeft="11dp"
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="备注信息"
+            android:textSize="15sp"
+            android:textColor="@color/gray_999999"/>
+        <ImageView
+            android:id="@+id/icon_arrow"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/group_name"
+            android:layout_width="9dp"
+            android:layout_height="5dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/turn_up_small"/>
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_marginRight="11.5dp"
+            android:id="@+id/tv_group_remarks"
+            android:layout_width="80.5dp"
+            android:layout_height="23dp"
+            android:text="写备注"
+            android:gravity="center"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="14sp"
+            android:background="@drawable/btn_submit_normal"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

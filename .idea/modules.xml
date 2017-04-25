@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ChatProject/ChatProject.iml" filepath="$PROJECT_DIR$/ChatProject/ChatProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YouAnMiShopApp/YouAnMiShopApp.iml" filepath="$PROJECT_DIR$/YouAnMiShopApp/YouAnMiShopApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YouAnMiUserApp/YouAnMiUserApp.iml" filepath="$PROJECT_DIR$/YouAnMiUserApp/YouAnMiUserApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project_YW.iml" filepath="$PROJECT_DIR$/project_YW.iml" />
+    </modules>
+  </component>
+</project>

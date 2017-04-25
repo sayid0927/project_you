@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/head_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.zxly.o2o.view.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/head_image"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/default_head_big"
+            app:border_color="@color/white"/>
+
+        <ImageView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:paddingLeft="50dp"
+            android:src="@drawable/ease_man_icon"/>
+        <LinearLayout
+            android:layout_below="@+id/head_image"
+            android:id="@+id/layout_name"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/name"
+            android:layout_marginLeft="@dimen/dimen_12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/gray_333333"
+            android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/phone_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/gray_333333"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/gray_333333"
+                android:textSize="14sp"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_send_message"
+            android:layout_width="80dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/layout_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_rectangle_button"
+            android:gravity="center"
+            android:text="聊天"
+            android:textColor="#ffffff"
+            android:textSize="14sp"/>
+
+        <LinearLayout
+            android:id="@+id/layout_notice"
+            android:layout_marginTop="17dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_send_message"
+            android:gravity="center"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/tv_tuisong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_tuisong"
+                    android:drawablePadding="6dp"
+                    android:gravity="center"
+                    android:textColor="@color/orange_ff5f19"
+                    android:textSize="14sp"
+                    android:text="推送"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="21dp"
+                android:layout_gravity="center"
+                android:background="@color/orange_ff5f19"/>
+
+            <LinearLayout
+                android:id="@+id/tv_sendmsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_message"
+                    android:drawablePadding="6dp"
+                    android:textColor="@color/orange_ff5f19"
+                    android:textSize="14sp"
+                    android:text="短信"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="21dp"
+                android:layout_gravity="center"
+                android:background="@color/orange_ff5f19"/>
+
+            <LinearLayout
+                android:id="@+id/tv_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_telephone"
+                    android:drawablePadding="6dp"
+                    android:textColor="@color/orange_ff5f19"
+                    android:textSize="14sp"
+                    android:text="电话"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

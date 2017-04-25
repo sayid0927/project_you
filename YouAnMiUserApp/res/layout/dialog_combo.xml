@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_white_bg"
+    android:orientation="vertical"
+    android:paddingBottom="6dip" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="6dip" >
+
+        <LinearLayout
+            android:layout_width="93.33dip"
+            android:layout_height="93.33dip"
+            android:background="@drawable/combo_name_bg"
+            android:gravity="center"
+            android:orientation="vertical" >
+            <TextView style="@style/text_15_white" android:background="@drawable/combo_name_rect" 
+                android:id="@+id/txt_combo_name" android:layout_width="wrap_content" 
+                android:gravity="center" android:textStyle="bold" android:layout_height="wrap_content"/>
+            <TextView style="@style/text_16_white" android:layout_width="wrap_content" 
+               android:text="套餐"  android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dip"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    style="@style/text_12_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#E43715"
+                    android:padding="3dip"
+                    android:text="折扣价" />
+
+                <TextView
+                    android:id="@+id/txt_price"
+                    style="@style/text_18_orange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dip" >
+
+                <TextView
+                    style="@style/text_15_darkgray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="原价" />
+
+                <TextView
+                    android:id="@+id/txt_orig_price"
+                    style="@style/text_15_darkgray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    style="@style/text_15_darkgray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:text="立省" />
+
+                <TextView
+                    android:id="@+id/txt_pref_price"
+                    style="@style/text_15_darkgray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="49.33dip"
+            android:layout_height="49.33dip"
+            android:background="@drawable/dialog_close" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/grey" />
+
+    <ListView
+        android:id="@+id/lv_param_sel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#F8F8F8"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/grey"
+        android:dividerHeight="1dip"
+        android:fadingEdge="none"
+        android:listSelector="@color/transparent"
+        android:scrollbars="none"
+        android:scrollingCache="false" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/grey" />
+
+    <TextView
+        android:id="@+id/btn_ok"
+        style="@style/text_18_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_marginLeft="6dip"
+        android:layout_marginRight="6dip"
+        android:layout_marginTop="6dip"
+        android:background="@drawable/bnt_normal"
+        android:gravity="center" />
+
+</LinearLayout>

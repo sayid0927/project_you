@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@drawable/app_white_bg" >
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/orange_ff5f19">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:contentDescription="@null"
+            android:background="@color/transparent"
+            android:scaleType="center"
+            android:src="@drawable/back" />
+
+        <TextView
+            style="@style/text_18_white"
+            android:layout_width="wrap_content"
+            android:id="@+id/txt_title"
+            android:text="充电宝连接教程"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            />
+    </FrameLayout>
+    <View android:layout_width="match_parent" android:layout_height="10dp" android:background="#f2f2f2"/>
+    <View
+        android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/grey"/>
+    <LinearLayout
+        android:layout_width="match_parent"   android:paddingLeft="10dp"
+        android:layout_height="wrap_content" android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content" android:text="第一步：检查电量" android:textSize="13dp" android:textColor="#333333"
+            android:layout_height="wrap_content"  android:layout_marginTop="7dp"/>
+        <View
+            android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/grey"  android:layout_marginTop="7dp"/>
+        <ImageView
+            android:layout_width="wrap_content" android:background="@drawable/txt_cdb1" android:layout_marginTop="12dp"
+            android:layout_height="wrap_content" android:layout_marginLeft="60dp"/>
+        <ImageView
+            android:layout_width="wrap_content" android:background="@drawable/cdb_guide1" android:layout_marginTop="12dp"
+            android:layout_height="wrap_content"  android:layout_marginLeft="60dp"/>
+    </LinearLayout>
+    <View android:layout_width="match_parent" android:layout_height="10dp" android:background="#f2f2f2" android:layout_marginTop="18dp"/>
+    <View
+        android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/grey"/>
+    <LinearLayout
+        android:layout_width="match_parent"   android:paddingLeft="10dp"
+        android:layout_height="wrap_content" android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content" android:text="第二步：开启充电宝" android:textSize="13dp" android:textColor="#333333"
+            android:layout_height="wrap_content"  android:layout_marginTop="7dp"/>
+        <View
+            android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/grey"  android:layout_marginTop="7dp"/>
+        <ImageView
+            android:layout_width="wrap_content" android:background="@drawable/txt_cdb2" android:layout_marginTop="12dp"
+            android:layout_height="wrap_content" android:layout_marginLeft="60dp"/>
+
+    </LinearLayout>
+    <View android:layout_width="match_parent" android:layout_height="10dp" android:background="#f2f2f2" android:layout_marginTop="18dp"/>
+    <View
+        android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/grey"/>
+    <LinearLayout
+        android:layout_width="match_parent"   android:paddingLeft="10dp"
+        android:layout_height="wrap_content" android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content" android:text="第三步：连接充电宝WIFI" android:textSize="13dp" android:textColor="#333333"
+            android:layout_height="wrap_content"  android:layout_marginTop="7dp"/>
+        <View
+            android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/grey"  android:layout_marginTop="7dp"/>
+        <ImageView
+            android:layout_width="wrap_content" android:background="@drawable/txt_cdb3" android:layout_marginTop="12dp"
+            android:layout_height="wrap_content" android:layout_marginLeft="60dp"/>
+        <ImageView
+            android:layout_width="wrap_content" android:background="@drawable/cdb_guide2" android:layout_marginTop="12dp"
+            android:layout_height="wrap_content"  android:layout_marginLeft="60dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content" android:text="备注：如果您有多台必赞设备无法区分，您可以查看路由背面的铭牌贴信息" android:textSize="9sp" android:textColor="#999999"
+        android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="12dp"/>
+</LinearLayout>

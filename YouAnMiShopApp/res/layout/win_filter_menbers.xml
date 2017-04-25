@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/layout_title"
+        layout="@layout/common_header"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp">
+
+            <RadioGroup
+                android:id="@+id/rg_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/txt_fans"
+                    android:layout_width="70dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/btn_tag_selector"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="粉丝"
+                    android:textColor="@color/tag_checked_selector"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/txt_menbers"
+                    android:layout_width="70dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toRightOf="@+id/txt_fans"
+                    android:background="@drawable/btn_tag_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="会员"
+                    android:textColor="@color/tag_checked_selector"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="@dimen/dimen_12dp"
+            android:layout_marginRight="@dimen/dimen_12dp"
+            android:background="@color/gray_dcdcdc"/>
+        <!--筛选人员  点击粉丝  展现模块-->
+        <RelativeLayout
+            android:id="@+id/layout_fans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+            <include
+                android:id="@+id/layout_filterfans"
+                layout="@layout/layout_filter_fanspart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>
+
+        <!--筛选人员  点击会员 展现模块-->
+        <RelativeLayout
+            android:id="@+id/layout_menbers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <include
+                android:id="@+id/layout_filtermenbers"
+                layout="@layout/layout_filter_menbers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <com.zxly.o2o.view.LoadingView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.zxly.o2o.view.LoadingView>
+</LinearLayout>

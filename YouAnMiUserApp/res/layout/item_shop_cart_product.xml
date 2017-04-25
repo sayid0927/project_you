@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/app_white_bg" android:paddingTop="10dp" android:paddingRight="14dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.android.volley.toolbox.NetworkImageView
+            android:layout_width="92dp" android:background="@drawable/line_black_rect"
+            android:layout_height="86dp" android:id="@+id/item_icon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="9dip">
+
+            <TextView
+                android:id="@+id/item_name"
+                style="@style/text_15_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2" />
+
+            <TextView
+                android:id="@+id/txt_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#999999"
+                android:textSize="12sp" android:ellipsize="end" android:maxLines="2" />
+            <LinearLayout
+                android:layout_width="wrap_content" android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content" android:textColor="@color/orange_ff5f19"
+                    android:layout_height="wrap_content" android:textSize="20sp" android:id="@+id/txt_price"/>
+                <TextView
+                    android:layout_width="wrap_content" android:textColor="@color/gray_999999" android:layout_marginLeft="12sp"
+                    android:layout_height="wrap_content" android:textSize="12sp" android:id="@+id/txt_pref_price" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip" android:layout_marginTop="10dp"
+        android:background="@color/grey" />
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/loading_bg"
+    android:paddingLeft="35dip"
+    android:paddingRight="35dip"
+    android:paddingTop="20dip"
+    android:paddingBottom="20dip"
+    android:gravity="center"
+    android:orientation="vertical" >
+       <ImageView style="@style/wrap_content"  android:id="@+id/img_progress" android:background="@drawable/loading_big"/>
+    <TextView android:textSize="14sp" android:textColor="@color/white" android:text="请稍候" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_marginTop="10dip"/>
+</LinearLayout>

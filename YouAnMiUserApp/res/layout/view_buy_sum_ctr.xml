@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="15dip"
+    android:paddingBottom="15dip"
+    android:paddingLeft="10dip"
+    android:paddingRight="6dip"
+    >
+
+    <TextView
+        style="@style/text_16_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="购买数量" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right">
+
+        <ImageView
+            android:id="@+id/btn_reduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_product_subtract_selector" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_buy_sum"
+            android:gravity="center"
+            style="@style/text_18_black"
+            android:textStyle="bold"
+            android:background="@drawable/eidt_sum_middle" />
+
+
+        <ImageView
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_product_add_selector" />
+    </LinearLayout>
+
+</FrameLayout>

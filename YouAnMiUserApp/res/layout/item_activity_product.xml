@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_fdfeff">
+
+    <View
+        android:id="@+id/bg_top"
+        android:layout_width="match_parent"
+        android:layout_height="10dip"
+        android:background="@color/gray_eeeeee"/>
+    
+    <com.android.volley.toolbox.NetworkImageView
+        android:layout_below="@+id/bg_top"
+        android:id="@+id/img_product_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/shouye_huodong" />
+
+    <LinearLayout
+        android:id="@+id/layout_time"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_alignBottom="@+id/img_product_icon"
+        android:background="@drawable/daojishi"
+        android:visibility="visible"
+        android:gravity="center"
+        android:layout_height="25dp">
+
+        <TextView
+            android:id="@+id/txt_status"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text=""/>
+
+        <com.zxly.o2o.view.TimeCutDownLayout
+            android:id="@+id/view_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+
+            />
+   </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/txt_product_name"
+        style="@style/text_14_666666"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_product_icon"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txt_product_price"
+        android:textSize="14sp"
+        android:textColor="@color/red_ff0000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dip"
+        android:layout_below="@+id/txt_product_name"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+         />
+
+    <TextView
+        android:layout_below="@+id/bg_top"
+        android:id="@+id/txt_act_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingLeft="5dip"
+        android:paddingRight="9dip"
+        android:background="@drawable/bg_huodong"
+        style="@style/text_12_white"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/txt_likeCount"
+        android:layout_below="@+id/bg_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:paddingLeft="32dp"
+        android:visibility="gone"
+        android:layout_marginTop="6dip"
+        android:layout_marginRight="6dip"
+        android:paddingRight="10dip"
+        android:background="@drawable/bg_like"
+        style="@style/text_12_white"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/txt_product_old_price"
+        android:textColor="@color/gray_999999"
+        android:textSize="11sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txt_product_price"
+        android:layout_marginRight="21dp"
+        android:text=""
+        android:layout_alignParentRight="true"
+       />
+
+    <View
+        android:id="@+id/bg_bot"
+        android:layout_width="match_parent"
+        android:layout_height="10dip"
+        android:layout_below="@+id/txt_product_price"
+        android:background="@color/gray_eeeeee" />
+</RelativeLayout>

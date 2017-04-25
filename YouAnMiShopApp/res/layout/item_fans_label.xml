@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <CheckBox
+        android:id="@+id/cbx_label"
+        android:layout_width="wrap_content"
+        android:layout_height="13dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/btn2_selector"
+        android:button="@null"
+        android:checked="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="爱砍价"
+        android:textColor="@color/gray_333333"
+        android:textSize="9dp" />
+
+</RelativeLayout>

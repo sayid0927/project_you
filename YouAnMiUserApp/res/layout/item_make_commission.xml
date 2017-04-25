@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal" >
+    <View android:layout_width="fill_parent" android:layout_height="0.5dip" android:background="@color/grey"
+        android:id="@+id/line1" />
+    <FrameLayout android:layout_width="100dip" android:layout_height="100dip"
+        android:id="@+id/icon_layout" android:layout_below="@id/line1">
+        <com.android.volley.toolbox.NetworkImageView android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/img_item_icon"
+            android:layout_gravity="center" />
+        <ImageView style="@style/wrap_content" android:id="@+id/img_plot_flag" android:layout_gravity="right"/>
+    </FrameLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="100dip" android:orientation="vertical" android:gravity="center_vertical"
+        android:layout_toRightOf="@id/icon_layout" android:id="@+id/lin_layout" android:layout_marginLeft="15dp" android:paddingRight="9dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="39dp">
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1"
+                android:id="@+id/txt_name" android:textSize="14sp" android:textColor="#666666" android:lines="2" android:ellipsize="end"
+                android:text="vivo X5电信4G手机5寸大屏极致体验，无与伦比"/>
+            <TextView
+                android:layout_width="64dp" android:background="@drawable/btn1_normal"  android:gravity="center"
+                android:layout_height="30dp"  android:textColor="#EB3434" android:textSize="18sp" android:layout_marginLeft="5dp"
+                android:text="推广" android:id="@+id/btn_tuiguang"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingRight="5dip"
+            android:gravity="bottom"  android:layout_marginTop="13dp" >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/text_16_black" android:id="@+id/txt_price"  android:text="￥6500.00" />
+            <TextView
+                android:layout_width="wrap_content" android:textSize="12sp" android:textColor="#B0B0B0"
+                android:layout_height="wrap_content"  android:id="@+id/txt_old_price" android:layout_weight="1"/>
+            <TextView
+                android:layout_width="wrap_content" android:textSize="16sp" android:id="@+id/txt_comission"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+    <View android:layout_width="fill_parent" android:layout_height="0.5dip" android:background="@color/grey"
+        android:layout_below="@id/lin_layout" android:id="@+id/line_bottom"  />
+</RelativeLayout>

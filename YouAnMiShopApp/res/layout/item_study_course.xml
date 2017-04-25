@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="92dp">
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/img_study_course"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/img_study_course"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="2dp"
+            android:maxLines="2"
+            android:textColor="@color/gray_333333"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:id="@+id/view_labels"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_below="@+id/txt_title"
+            android:layout_marginLeft="9dp"
+            android:layout_toRightOf="@+id/img_study_course">
+
+            <TextView
+                android:id="@+id/txt_label1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-1dp"
+                android:layout_marginRight="3dp"
+                android:background="@color/red_f83030"
+                android:gravity="center_horizontal"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:textColor="@color/white"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/txt_label2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-1dp"
+                android:layout_toRightOf="@+id/txt_label1"
+                android:background="@color/blue_1ea1f7"
+                android:gravity="center_horizontal"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:textColor="@color/white"
+                android:textSize="9sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txt_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_labels"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/img_study_course"
+            android:textColor="@color/gray_888888"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/txt_study_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/view_labels"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:text="人正在学习"
+            android:textColor="@color/gray_888888"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/txt_study_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_labels"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@+id/txt_study_now"
+            android:textColor="@color/yellow_ffa200"
+            android:textSize="11sp" />
+
+        <View
+            android:id="@+id/line_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_dcdcdc" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

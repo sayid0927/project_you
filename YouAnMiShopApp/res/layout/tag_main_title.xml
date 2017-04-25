@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title_height"
+    android:background="@color/white" >
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/title_height"
+        android:gravity="center"
+        android:text="全部商品"
+        android:layout_centerInParent="true"
+        android:textColor="@color/dark_grey"
+        android:textSize="@dimen/main_tab_title_text_size" />
+
+    <ImageView
+        android:id="@+id/btn_message"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dip"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/bt_light_grey_selector"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:src="@drawable/top_xiaoxi_normal" />
+
+    <ImageView
+        android:id="@+id/img_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/btn_message"
+        android:layout_alignTop="@+id/btn_message"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="7dip"
+        android:background="@drawable/xiaoxi" />
+
+</RelativeLayout>

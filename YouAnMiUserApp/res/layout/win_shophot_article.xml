@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:background="@color/transparent"
+    >
+        <include
+            layout="@layout/pull_to_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    <com.zxly.o2o.view.LoadingView
+        android:id="@+id/view_loading"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/win_myarticle_bottom_view"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/win_mycircle_conments_include_layout"
+            layout="@layout/view_article_comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#80000000">
+
+    <ImageView
+        android:id="@+id/icon_arrow"
+        android:layout_width="45dp"
+        android:layout_height="80dp"
+        android:clickable="false"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/icon_fans_downarrow"
+        android:layout_marginLeft="125dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="20dp"/>
+    <ImageView
+        android:id="@+id/iv_salsman"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="115dp"
+        android:layout_centerHorizontal="true"
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_nodata_customer"
+        android:layout_marginLeft="55dp"/>
+    <LinearLayout
+        android:layout_marginTop="115.5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="找客无头绪?柚安米商学院帮你忙!"/>
+        <Button
+            android:id="@+id/btn_gonext"
+            android:layout_width="51dp"
+            android:layout_height="23dp"
+            android:text="GO!"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/bg_rectangle_button"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

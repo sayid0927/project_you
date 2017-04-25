@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/gray_f0eff6">
+
+    <TextView
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="取消"
+        android:textColor="@color/orange_ff5f19"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/edit_search"
+        android:layout_width="match_parent"
+        android:layout_height="24.5dp"
+        android:layout_marginLeft="11.5dp"
+        android:layout_marginRight="12.5dp"
+        android:layout_marginTop="7.5dp"
+        android:layout_toLeftOf="@+id/btn_cancel"
+        android:background="@drawable/dialog_bargain_bg"
+        android:hint="搜索"
+        android:paddingLeft="25.5dp"
+        android:paddingRight="25.5dp"
+      android:imeOptions="actionSearch"
+        android:singleLine="true"
+        android:textColor="@color/color_000a14"
+        android:textColorHint="@color/gray_979797"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_alignLeft="@+id/edit_search"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8.5dp"
+        android:background="@drawable/btn_search" />
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignRight="@+id/edit_search"
+        android:background="@drawable/icon_close"
+        android:layout_marginRight="8.5dp"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"
+        />
+
+</RelativeLayout>

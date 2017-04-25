@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="VerticalRollingTextView">
+        <!--文字颜色-->
+        <attr name="vrColor" format="color"/>
+        <!--重点强调颜色-->
+        <attr name="vrHighlightColor" format="color"/>
+        <!--文字大小-->
+        <attr name="vrSize" format="dimension"/>
+        <!--滚动动画时长-->
+        <attr name="duration" format="integer"/>
+        <!--两次动画之间的间隔-->
+        <attr name="animInterval" format="integer"/>
+    </declare-styleable>
+</resources>
+

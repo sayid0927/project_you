@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_white_bg"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/fl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/orange_ff5f19" android:paddingRight="14dp">
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:contentDescription="@null"
+            android:background="@color/transparent"
+            android:scaleType="center"
+            android:src="@drawable/fanhui" />
+
+        <TextView
+            style="@style/text_18_white"
+            android:layout_width="wrap_content"
+            android:id="@+id/txt_title"
+            android:layout_height="wrap_content"
+            android:text="购物车"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content" style="@style/text_16_white"  android:layout_gravity="right|center_vertical"
+            android:layout_height="wrap_content"  android:text="编辑" android:id="@+id/btn_edit" android:visibility="gone"/>
+    </FrameLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/content_layout"
+        android:visibility="gone"
+        android:layout_weight="1" android:orientation="vertical">
+        <com.zxly.o2o.pullrefresh.PullToRefreshListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:cacheColorHint="#00000000"
+            android:divider="@color/gray_eeeeee"
+            android:dividerHeight="7.5dp"
+            android:fadingEdge="none"
+            android:listSelector="@color/transparent"
+            android:scrollbars="none"
+            android:scrollingCache="false"
+            ptr:ptrAnimationStyle="flip" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dip"
+            android:background="@color/grey" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="49dip"
+            android:gravity="center_vertical"  android:paddingLeft="15dp">
+            <TextView
+                android:id="@+id/btn_allSel"
+                style="@style/wrap_content" android:textColor="@color/gray_333333"
+                android:clickable="false" android:textSize="16sp"
+                android:drawableLeft="@drawable/checkbox_style"
+                android:text="   全选"
+                />
+
+            <TextView
+                android:layout_width="wrap_content" android:textColor="@color/gray_999999" android:text="应付："
+                android:layout_height="wrap_content"  android:textSize="16sp" android:layout_marginLeft="17dp"/>
+            <TextView
+                android:layout_width="match_parent" android:textColor="@color/red_fe0000" android:textSize="17sp"
+                android:layout_height="wrap_content"  android:id="@+id/txt_price"  android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/btn_to_buy" android:layout_marginLeft="10dp"
+                style="@style/text_18_white"
+                android:layout_width="106dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_rect_orange_selector"
+                android:gravity="center" android:text="结算"
+               />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.zxly.o2o.view.LoadingView
+        android:id="@+id/view_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        />
+
+</LinearLayout>

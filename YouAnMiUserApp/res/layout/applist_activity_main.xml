@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <RelativeLayout
+         android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="#01a2ff">
+        
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_selector_back"
+            android:paddingLeft="18dp"
+            android:paddingRight="10dp"
+            android:drawableLeft="@drawable/back_icon"
+            style="@style/text_17_white"
+            android:gravity="center_vertical|right"
+            android:text="市场"/>
+        
+                <ImageView 
+            android:id="@+id/download_task"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_selector_back"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="center"
+            android:src="@drawable/download_manager"/>
+        
+   </RelativeLayout>
+
+    <WebView
+        android:layout_below="@+id/title"
+        android:id="@+id/myWebivew"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

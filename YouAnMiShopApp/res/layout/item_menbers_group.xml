@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+    <com.zxly.o2o.view.SlideDelete
+        android:id="@+id/layout_sidedelete"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        >
+
+    <RelativeLayout
+        android:id="@+id/layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <RelativeLayout
+            android:id="@+id/layout_img"
+            android:layout_width="53dp"
+            android:layout_centerVertical="true"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/group_img"
+                android:layout_width="32dp"
+                android:layout_height="31dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/icon_group_image"
+                android:layout_marginLeft="12dp"/>
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:padding="2dp"
+                android:text="5"
+                android:gravity="center|center_vertical"
+                android:textSize="9sp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_behave"
+                />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新粉丝"
+            android:textColor="@color/gray_333333"
+            android:textSize="15sp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/layout_img"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/tv_child_cout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(10)"
+            android:textColor="@color/gray_333333"
+            android:textSize="15sp"
+            android:layout_toRightOf="@+id/tv_group_name"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/tv_sendmessage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/icon_tuisong"
+            android:drawablePadding="6dp"
+            android:gravity="center"
+            android:text="推送"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="14sp"
+            android:layout_marginRight="14dp"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+        <View
+            android:id="@+id/top_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_dcdcdc"
+            android:layout_alignParentTop="true"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_delete"
+        android:layout_width="60dp"
+        android:layout_height="46dp"
+        android:background="#ff5f19"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/sw_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/ease_delete_icon"/>
+    </LinearLayout>
+    </com.zxly.o2o.view.SlideDelete>
+</LinearLayout>
+

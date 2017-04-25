@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#eeeeee">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@drawable/im_detail_user_banner"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="个人信息"
+        android:textColor="#ffffff"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:contentDescription="@null"
+        android:scaleType="center"
+        android:src="@drawable/ease_back"/>
+
+    <Button
+        android:id="@+id/btn_send_message"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/ease_btn_yellow_selector"
+        android:gravity="center"
+        android:text="发消息"
+        android:textColor="#ffffff"
+        android:textSize="15sp"/>
+
+    <RelativeLayout
+        android:id="@+id/signature_layout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="150dp"
+        android:background="#66361b0b">
+
+
+            <com.easemob.easeui.widget.shapeimageview.PorterShapeImageView
+                android:id="@+id/head_image"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:background="@drawable/ease_default_avatar"
+                app:siShape="@drawable/ease_shape_bigrounded_rectangle"
+                app:siSquare="true"/>
+
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/head_image"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/ease_women_icon"
+            android:textColor="#ff5f19"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/signature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/head_image"
+            android:gravity="center_vertical"
+            android:textColor="#ffffff"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/item_1"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_below="@+id/signature_layout"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/nick_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:gravity="right|center_vertical"
+            android:paddingRight="10dp"
+            android:textColor="#999999"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:text="昵称"
+            android:textColor="@color/black_000000"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_dcdcdc"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_2"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_below="@+id/item_1">
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:gravity="right|center_vertical"
+            android:paddingRight="10dp"
+            android:text="男"
+            android:textColor="#999999"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:text="性别"
+            android:textColor="@color/black_000000"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_dcdcdc"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_3"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_below="@+id/item_2">
+
+        <TextView
+            android:id="@+id/birthday"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:gravity="right|center_vertical"
+            android:paddingRight="10dp"
+            android:textColor="#999999"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:text="出生日期"
+            android:textColor="@color/black_000000"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_dcdcdc"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_4"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_below="@+id/item_3">
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:gravity="right|center_vertical"
+            android:paddingRight="10dp"
+            android:textColor="#999999"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:text="地区"
+            android:textColor="@color/black_000000"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_dcdcdc"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 公用 -->
+    <string name = "app_name">亮店</string>
+    <string name = "promotionCode"></string>
+    <string name = "action_settings">Settings</string>
+    <string name = "pull_to_refresh_up">正在玩命的加载中...</string>
+    <string name = "pull_to_refresh_done">刷新完成</string>
+    <string name = "pull_to_refresh_down">加载中...</string>
+    <string name = "pull_to_releaseL_down">松开刷新</string>
+    <string name = "back_btn">返回</string>
+    <string name = "count_add">+ 1</string>
+    <string name = "publish_btn">发布</string>
+    <string name = "send_btn">发送</string>
+    <string name = "upload_picture">上传图片</string>
+    <string name = "my_publish">我的发布</string>
+    <string name = "upload_forum_edittext_hint">这一刻说点什么呢...\n\n\n</string>
+    <string name = "actions_must_sign">要先登录哟，亲</string>
+    <string name = "crop__saving">正在保存照片…</string>
+    <string name = "crop__wait">请等待…</string>
+    <string name = "crop__pick_error">无效的图片</string>
+    <string name = "crop__done">完成</string>
+    <string name = "crop__cancel">取消</string>
+    <string name = "delete">删除</string>
+
+    <!-- 提示语 -->
+    <string name = "send_success">发送成功 !</string>
+    <string name = "send_fail">发送失败 !</string>
+    <string name = "issue_success">发布成功 !</string>
+    <string name = "commit_success">提交成功 !</string>
+    <string name = "commit_faild">网络不佳，提交失败 !</string>
+    <string name = "collect_success">收藏成功 !</string>
+    <string name = "cancle_collect">已取消收藏 !</string>
+    <string name = "change_passwd_success">修改密码成功 !</string>
+    <string name = "change_passwd_faild">网络不佳，修改失败 !</string>
+    <string name = "send_order_to_owner">议价已发送至店主 !</string>
+    <string name = "no_phone">"手机号"未填写 !</string>
+    <string name = "last_page">亲,没有新数据了</string>
+    <string name = "message_server_unavailable">无法连接到服务器</string>
+    <string name = "unrecoverable_error">发生未知异常,连接失败</string>
+    <string name = "new_message">收到新短消息</string>
+    <string name = "device_manager_activate_msg">此APP提供的电子保单是您购买商品保修的最终凭证，是否激活？</string>
+
+
+    <!-- 门店 -->
+    <string name = "tag_store_name"></string>
+    <string name = "tag_store_tel">商品</string>
+    <string name = "tag_store_name_addr">圈子</string>
+    <string name = "tag_store_save">我</string>
+    <string name = "tag_store_waiter">我</string>
+    <string name = "tag_store_all_goods">我</string>
+    <string name = "tag_store_new_goods">我</string>
+    <string name = "tag_store_activitys">我</string>
+    <string name = "pull_to_refresh_pull_label">Pull to refresh…</string>
+    <string name = "pull_to_refresh_release_label">Release to refresh…</string>
+    <string name = "pull_to_refresh_refreshing_label">Loading…</string>
+
+    <!-- Just use standard Pull Down String when pulling up. These can be set for languages which require it -->
+    <string name = "pull_to_refresh_from_bottom_pull_label">@string/pull_to_refresh_pull_label</string>
+    <string name = "pull_to_refresh_from_bottom_release_label">@string/pull_to_refresh_release_label</string>
+    <string name = "pull_to_refresh_from_bottom_refreshing_label">@string/pull_to_refresh_refreshing_label</string>
+
+    <!-- 圈子 -->
+    <string name = "mycircle_must_look">新手必看</string>
+    <string name = "mycircle_phone_upkeep">手机保养</string>
+    <string name = "mycircle_function_dig">本店热文</string>
+    <string name = "mycircle_forum_community">本店交流</string>
+    <string name = "mycircle_article_detail">文章详情</string>
+    <string name = "mycircle_forum_community_detail">论坛详情</string>
+    <string name = "mycircle_publish_forum">发一帖</string>
+    <string name = "loading_all_floor">只看我</string>
+    <string name = "no_comment_prompt">现在还没有人评论\n    快来评论吧!</string>
+    <string name = "mycircle_community">本店交流\n基友交流社区 [ 会员: %1$d 帖子: %2$d ]</string>
+    <string name = "topic_up_count_text">赞一个(%1$d)</string>
+    <string name = "topic_share_count_text">分享(%1$d)</string>
+    <string name = "topic_reply_other_text">%1$s : %2$s</string>
+    <string name = "no_comment_notice">哎~还没人评论呢...</string>
+    <!-- 缺省的服务器配置 -->
+    <integer name = "xmpp_port">5222</integer>
+
+    <bool name = "is_remember">true</bool>
+    <bool name = "is_autologin">false</bool>
+    <bool name = "is_novisible">false</bool>
+
+    <!-- 数据库和文件路径 -->
+    <string name = "dir">/eim</string>
+    <string name = "app_dir">/app</string>
+    <string name = "db_dir">/database</string>
+    <string name = "img_dir">/img</string>
+    <string name = "title_activity_refundment">RefundmentActivity</string>
+
+    <string name="confirm_install_hint">"安装提示"</string>
+    <string name="confirm_install">"为保证您的交易安全，需要您安装安全支付服务，才能进行付款。\n\n点击确定，立即安装。"</string>
+    <string name="confirm_update">"为保证您的交易安全，需要您升级安全支付服务，才能进行付款。\n\n点击确定，立即升级。"</string>
+
+    <!--   订单    -->
+    <string name = "my_order">我的订单</string>
+    <string name = "order_all">全部</string>
+    <string name = "order_wait_pay">待付款</string>
+    <string name = "order_wait_take">待取货</string>
+    <string name = "order_wait_confirm">待确认</string>
+    <string name = "order_wait_finish">结束</string>
+    <string name = "order_number">订单号</string>
+    <string name = "order_cancle">取消订单</string>
+    <string name = "order_delete">删除订单</string>
+    <string name = "order_product_count_x">x</string>
+    <string name = "order_pay">付款</string>
+    <string name = "order_really_pay">实付  ：</string>
+    <string name = "product_info">商品详情</string>
+
+    <!-- 退款-->
+    <string name = "refundment_detail_headtext_text">如店家同意，申请成功并退款至您的账户\n如店家未处理,超过1天23小时则申请达成,届时需要您将商品退回店家,请保证商品完好无整并满足退货条件</string>
+    <string name = "refundment_detail_top_text">退款类型 : &lt;font color="#666666">%1$s&lt;/font>
+        &lt;br />退款金额 :&lt;font color="#666666">%2$s&lt;/font>
+        &lt;br />退款原因 :&lt;font color="#666666">%3$s&lt;/font>
+        &lt;br />退款备注 :&lt;font color="#666666">%4$s&lt;/font></string>
+    <string name = "refundment_detail_bottom_text">退款编号 : &lt;font color="#666666">%1$s&lt;/font>
+        &lt;br />申请时间 : &lt;font color="#666666">%2$s&lt;/font>
+        &lt;br />退款自动确认时间 : &lt;font color="#666666">%3$s&lt;/font></string>
+    <string name = "refundment_detail_bottom_text3">退款编号 : &lt;font color="#666666">%1$s&lt;/font>
+        &lt;br />申请时间 : &lt;font color="#666666">%2$s&lt;/font>
+        &lt;br />店家确认时间 : &lt;font color="#666666">%3$s&lt;/font></string>
+    <string name = "refundment_detail_bottom_text4">退款编号 : &lt;font color="#666666">%1$s&lt;/font>
+        &lt;br />申请时间 : &lt;font color="#666666">%2$s&lt;/font>
+        &lt;br />退款成功时间 : &lt;font color="#666666">%3$s&lt;/font></string>
+     <string name = "refundment_detail_bottom_text2">退款编号 : &lt;font color="#666666">%1$s&lt;/font>
+        &lt;br />申请时间 : &lt;font color="#666666">%2$s&lt;/font>
+        &lt;br />退款驳回时间 : &lt;font color="#666666">%3$s&lt;/font></string>
+    <string name = "refundment_reject_string">驳回原因&#032;: &lt;font color="#666666">%1$s&lt;/font></string>
+ <string name = "refundment_detail_bottom_text5">退款编号 : &lt;font color="#666666">%1$s&lt;/font>
+        &lt;br />申请时间 : &lt;font color="#666666">%2$s&lt;/font></string>
+
+    <!-- 我的佣金-->
+    <string name = "commision_detail_below_string">订单编号&#032;: %1$s
+        &lt;br />订单状态 : %2$s
+        &lt;br />下单用户 : %3$s
+        &lt;br />订单时间 : %4$s</string>
+    <string name = "commision_detail_top_string">预到账佣金&#032;: &lt;font  color="#C1272D" >%1$s&lt;/font>
+        &lt;br />预到账时间 : &lt;font color="#666666">%2$s&lt;/font></string>
+    <string name = "commision_list_item_left">订单编号&#032;: &lt;font  color="#666666" >%1$s&lt;/font>
+        &lt;br />预到账时间 : &lt;font color="#666666">%2$s&lt;/font></string>
+    <string name = "commision_list_head_banner">累积已收益佣金&#032;
+    &lt;font  color="#fff373" >&#032;￥%1$s&lt;/font></string>
+     <string name = "commision_list_head_banner2">预计到账佣金总额&#032;
+    &lt;font  color="#fff373" >&#032;￥%1$s&lt;/font></string>
+
+    <!--IM-->
+    <string name = "select_kefu_dialog_item_name">[%1$s] %2$s</string>
+    <string name = "dianzi_baodan_pingzheng">电子保单凭证</string>
+</resources>

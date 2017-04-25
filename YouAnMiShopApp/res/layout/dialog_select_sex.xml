@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bargain_bg">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/select_man"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:button="@drawable/checkbox_selector"
+            android:paddingLeft="20dp"
+            android:text="男"
+            android:textColor="@color/gray_333333"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_dcdcdc" />
+
+        <RadioButton
+            android:id="@+id/select_woman"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:button="@drawable/checkbox_selector"
+            android:paddingLeft="20dp"
+            android:text="女"
+            android:textColor="@color/gray_333333"
+            android:textSize="15sp" />
+
+    </RadioGroup>
+
+</LinearLayout>

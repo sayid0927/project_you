@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:clickable="true"
+              android:background="#80000000">
+
+    <TextView
+        android:layout_width="104dp"
+        android:layout_height="31dp"
+        android:id="@+id/txt_fanscount"
+        android:background="@drawable/bg_white_button"
+        android:text=""
+        android:textSize="15sp"
+        android:gravity="center"
+        android:textColor="@color/gray_333333"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="46dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:background="@drawable/icon_menber_arrow"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="109dp"/>
+    <ImageView
+        android:clickable="false"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="280dp"
+        android:layout_height="180dp"
+        android:background="@drawable/icon_nodata_fans"
+        />
+    <Button
+        android:id="@+id/btn_sendmsg_tofans"
+        android:layout_width="145dp"
+        android:layout_height="23dp"
+        android:background="@drawable/bg_rectangle_button"
+        android:text="立即跟粉丝打个招呼吧"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="12sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="29dp"
+        android:textColor="@color/white"/>
+
+</LinearLayout>

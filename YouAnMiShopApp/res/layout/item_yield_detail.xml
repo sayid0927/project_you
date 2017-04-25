@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/app_white_bg"
+    android:paddingLeft="12dp" android:paddingRight="12dp">
+ <ImageView style="@style/wrap_content" android:id="@+id/img_yiel_type" android:layout_marginTop="10dp" />
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+        android:gravity="center_vertical" android:layout_marginLeft="10dp" android:paddingBottom="12dp" android:paddingTop="9dp" android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content" style="@style/text_14_black" android:id="@+id/txt_serialNumber"
+            android:layout_height="wrap_content" android:text="2326532132123" />
+        <TextView
+            android:layout_width="wrap_content" android:textSize="12sp" android:id="@+id/txt_time"
+            android:layout_height="wrap_content"  android:layout_marginTop="10dp" android:text="1990110314" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content" android:orientation="vertical" android:gravity="center_vertical"
+        android:layout_height="match_parent" >
+        <TextView
+            android:layout_width="wrap_content" android:textSize="18sp" android:textColor="@color/orange_ff5f19" android:id="@+id/txt_money"
+            android:layout_height="wrap_content"  android:layout_gravity="center_vertical" android:text="￥3000"/>
+        <TextView
+            android:layout_width="wrap_content" android:textSize="10sp" android:textColor="@color/dark_grey" android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content" android:id="@+id/txt_status" android:text="冻结中" android:layout_marginTop="3dp" android:visibility="gone"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:paddingRight="7.5dp" android:paddingTop="7.5dp"
+    android:paddingLeft ="7.5dp"  android:background="@color/white" android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_horizontal" android:clickable="false">
+        <TextView
+            android:layout_width="wrap_content" android:background="@drawable/img_rotundity_ff5f19" style="@style/text_14_white"
+            android:layout_height="wrap_content" android:id="@+id/txt_count" android:gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"  android:textSize="17sp"  android:textColor="@color/gray_333333"
+            android:layout_height="wrap_content" android:id="@+id/txt_name" android:layout_marginLeft="6dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content" android:layout_marginTop="7.5dp" android:textSize="15sp"
+        android:textColor="@color/gray_666666"
+        android:layout_height="wrap_content"  android:id="@+id/txt_content" android:lineSpacingExtra="5dp"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent" android:background="@drawable/line_black_rect"
+        android:layout_height="wrap_content" android:layout_marginTop="10dp"  android:id="@+id/btn_product_info1">
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/img_product" android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            />
+        <TextView
+            android:id="@+id/txt_likeCount"
+            android:layout_below="@+id/bg_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:layout_marginTop="5dip"
+            android:layout_marginRight="5dip"
+            android:paddingRight="7dip"
+            android:visibility="gone"
+            android:background="@drawable/xihuan_nomal"
+            style="@style/text_12_white" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_marginTop="10dp" android:paddingBottom="10dp"
+        android:layout_height="wrap_content" android:gravity="center_vertical" android:id="@+id/btn_product_info2">
+        <TextView
+            android:layout_width="wrap_content" android:textSize="19sp" android:textColor="@color/orange_ff5f19"
+            android:layout_height="wrap_content" android:id="@+id/txt_minPrice"/>
+        <TextView
+            android:layout_width="wrap_content" android:textSize="12sp" android:textColor="@color/gray_999999"
+            android:layout_height="wrap_content" android:visibility="gone" android:id="@+id/txt_maxPrice" android:layout_below="@id/txt_minPrice"/>
+
+        <TextView
+            android:layout_width="wrap_content" android:background="@drawable/button_orange" android:text="  查看详情>>  " android:layout_alignParentRight="true"
+            android:layout_height="wrap_content" style="@style/text_12_white" />
+    </RelativeLayout>
+
+
+
+</LinearLayout>

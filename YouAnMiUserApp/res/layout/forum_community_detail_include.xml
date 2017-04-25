@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/app_white_bg"
+              android:orientation="vertical"
+              android:paddingBottom="10dp"
+              android:paddingTop="10dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:background="@color/transparent">
+
+        <com.easemob.easeui.widget.shapeimageview.PorterShapeImageView
+            android:id="@+id/forum_community_detail_mainuser_photo"
+            android:layout_width="@dimen/user_photo_small"
+            android:layout_height="@dimen/user_photo_small"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher"
+            app:siShape="@drawable/ease_shape_rounded_rectangle"
+            app:siSquare="true"/>
+
+        <TextView
+            android:id="@+id/forum_community_detail_mainuser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/forum_community_detail_mainuser_photo"
+            android:background="@color/transparent"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:textSize="17sp"
+            android:singleLine="true"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/forum_community_detail_mainuser_below_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/forum_community_detail_mainuser"
+            android:layout_toRightOf="@+id/forum_community_detail_mainuser_photo"
+            android:background="@color/transparent"
+            android:paddingLeft="5dp"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/forum_community_detail_maimcontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/transparent"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:lineSpacingExtra="5dp"
+        android:textColor="@color/gray_666666"
+        android:textSize="15sp"/>
+
+
+    <!-- <ListView
+         android:id="@+id/forum_community_detail_maimcontent_icon"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         android:layout_marginLeft="15dp"
+         android:layout_marginRight="15dp"
+         android:layout_marginTop="10dp"
+         android:divider="@color/transparent"
+         android:dividerHeight="5dp"
+         android:background="@color/transparent"
+         android:scrollbars="none"
+         android:visibility="gone"
+         />-->
+    <LinearLayout
+        android:id="@+id/img_ccontainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/operate_text_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="30dp"
+        android:background="@color/transparent"
+        android:text="+ 1"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        android:visibility="invisible"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="-10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/detail_upicon"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:drawableLeft="@drawable/dianzan_normal"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="赞一个(0)"
+            android:textColor="@color/orange2"/>
+
+        <TextView
+            android:id="@+id/detail_share"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="30dp"
+            android:drawableLeft="@drawable/btn_share_selector"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="分享(0)"
+            android:textColor="@color/orange2"/>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/up_members_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <GridView
+            android:id="@+id/up_members_gv"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="25dp"
+            android:clickable="false"
+            android:horizontalSpacing="10dp"
+            android:numColumns="8"
+            android:scrollbars="none"/>
+
+        <TextView
+            android:id="@+id/more_members"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:paddingRight="10dp"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            android:drawableRight="@drawable/icon_turn_gray"
+            />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/detail_loadall"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-55dp"
+        android:background="@drawable/bt_white_selector"
+        android:gravity="center"
+        android:text="@string/loading_all_floor"
+        android:textColor="@color/light_grey"
+        android:textSize="16sp"
+        android:visibility="gone"
+        />
+
+
+</LinearLayout>

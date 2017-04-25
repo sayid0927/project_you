@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/forum_community_detail_listitem_belowblock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/app_white_bg"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+    >
+
+    <com.zxly.o2o.view.CircleImageView
+        android:id="@+id/article_detail_user_photo"
+        android:layout_width="@dimen/user_photo_small"
+        android:layout_height="@dimen/user_photo_small"
+        android:layout_marginLeft="12dp"
+        android:background="@color/transparent"
+        android:src="@drawable/luntan_photo" />
+
+
+    <TextView
+        android:id="@+id/article_detail_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/article_detail_user_photo"
+        android:gravity="top"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="用户名"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:background="@color/transparent"
+        android:textColor="@color/color_333333" />
+
+    <TextView
+        android:id="@+id/article_detail_reply_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/article_detail_user"
+        android:layout_marginLeft="17dp"
+        android:singleLine="true"
+        android:layout_marginTop="10dp"
+        android:text="几天前"
+        android:background="@color/transparent"
+        android:textColor="@color/light_grey"
+        android:textSize="13sp" />
+
+
+    <TextView
+        android:id="@+id/operate_text_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:text="@string/count_add"
+        android:background="@color/transparent"
+        android:textColor="@color/color_ff5f19"
+        android:textSize="12sp"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/article_detail_reply_time"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/article_detail_user_photo"
+        >
+        <TextView
+            android:visibility="visible"
+            android:id="@+id/article_detail_listitem_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="5dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:layout_marginRight="17dp"
+            android:textScaleX="1.0"
+            android:text="内容好想买好想买"
+            android:background="@color/transparent"
+            android:textSize="@dimen/nomal_text" />
+        <LinearLayout
+            android:id="@+id/article_illegal_comments"
+            android:visibility="gone"
+            android:layout_width="170dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/color_f8f8f8">
+        <TextView
+            android:textSize="13sp"
+            android:text="@string/article_illega_comments"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textColor="@color/color_cccccc"
+            android:layout_height="match_parent"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:layout_toLeftOf="@+id/article_detail_up_btn"
+            android:id="@+id/img_dianzan_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_zan_normal_new"/>
+        <TextView
+            android:layout_alignParentRight="true"
+            android:visibility="visible"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/article_detail_up_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="12"
+            android:background="@color/transparent"
+            android:textColor="@color/gray_afafaf"
+            android:textSize="12sp" />
+    </RelativeLayout>
+</RelativeLayout>

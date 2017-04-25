@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.zxly.o2o.view.SlideCutListView
+        android:id="@+id/win_mycircle_slide_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@color/grey"
+        android:listSelector="@android:color/transparent" >
+    </com.zxly.o2o.view.SlideCutListView>
+
+</LinearLayout>

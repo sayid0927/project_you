@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+
+
+    <!-- pulltorefresh attr -->
+    <declare-styleable name="EasePullToRefresh">
+
+        <!-- A drawable to use as the background of the Refreshable View -->
+        <attr name="easeptrRefreshableViewBackground" format="reference|color" />
+
+        <!-- A drawable to use as the background of the Header and Footer Loading Views -->
+        <attr name="easeptrHeaderBackground" format="reference|color" />
+
+        <!-- Text Color of the Header and Footer Loading Views -->
+        <attr name="easeptrHeaderTextColor" format="reference|color" />
+
+        <!-- Text Color of the Header and Footer Loading Views Sub Header -->
+        <attr name="easeptrHeaderSubTextColor" format="reference|color" />
+
+        <!-- Mode of Pull-to-Refresh that should be used -->
+        <attr name="easeptrMode">
+            <flag name="easedisabled" value="0x0" />
+            <flag name="easepullFromStart" value="0x1" />
+            <flag name="easepullFromEnd" value="0x2" />
+            <flag name="easeboth" value="0x3" />
+            <flag name="easemanualOnly" value="0x4" />
+
+            <!-- These last two are depreacted -->
+            <flag name="easepullDownFromTop" value="0x1" />
+            <flag name="easepullUpFromBottom" value="0x2" />
+        </attr>
+
+        <!-- Whether the Indicator overlay(s) should be used -->
+        <attr name="easeptrShowIndicator" format="reference|boolean" />
+
+        <!-- Drawable to use as Loading Indicator. Changes both Header and Footer. -->
+        <attr name="easeptrDrawable" format="reference" />
+
+        <!-- Drawable to use as Loading Indicator in the Header View. Overrides value set in ptrDrawable. -->
+        <attr name="easeptrDrawableStart" format="reference" />
+
+        <!-- Drawable to use as Loading Indicator in the Footer View. Overrides value set in ptrDrawable. -->
+        <attr name="easeptrDrawableEnd" format="reference" />
+
+        <!-- Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh. -->
+        <attr name="easeptrOverScroll" format="reference|boolean" />
+
+        <!-- Base text color, typeface, size, and style for Header and Footer Loading Views -->
+        <attr name="easeptrHeaderTextAppearance" format="reference" />
+
+        <!-- Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header -->
+        <attr name="easeptrSubHeaderTextAppearance" format="reference" />
+
+        <!-- Style of Animation should be used displayed when pulling. -->
+        <attr name="easeptrAnimationStyle">
+            <flag name="easerotate" value="0x0" />
+            <flag name="easeflip" value="0x1" />
+        </attr>
+
+        <!-- Whether the user can scroll while the View is Refreshing -->
+        <attr name="easeptrScrollingWhileRefreshingEnabled" format="reference|boolean" />
+
+        <!--
+        	Whether PullToRefreshListView has it's extras enabled. This allows the user to be 
+        	able to scroll while refreshing, and behaves better. It acheives this by adding
+        	Header and/or Footer Views to the ListView.
+
+
+
+        -->
+        <attr name="easeptrListViewExtrasEnabled" format="reference|boolean" />
+
+        <!--
+        	Whether the Drawable should be continually rotated as you pull. This only
+        	takes effect when using the 'Rotate' Animation Style.
+
+
+
+        -->
+        <attr name="easeptrRotateDrawableWhilePulling" format="reference|boolean" />
+
+        <!-- BELOW HERE ARE DEPRECEATED. DO NOT USE. -->
+        <attr name="easeptrAdapterViewBackground" format="reference|color" />
+        <attr name="easeptrDrawableTop" format="reference" />
+        <attr name="easeptrDrawableBottom" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="easeEaseSlidingMenu">
+        <attr name="easemode">
+            <enum name="easeleft" value="0" />
+            <enum name="easeright" value="1" />
+        </attr>
+        <attr name="easeviewAbove" format="reference" />
+        <attr name="easeviewBehind" format="reference" />
+        <attr name="easebehindOffset" format="dimension" />
+        <attr name="easebehindWidth" format="dimension" />
+        <attr name="easebehindScrollScale" format="float" />
+        <attr name="easetouchModeAbove">
+            <enum name="easemargin" value="0" />
+            <enum name="easefullscreen" value="1" />
+        </attr>
+        <attr name="easetouchModeBehind">
+            <enum name="easemargin" value="0" />
+            <enum name="easefullscreen" value="1" />
+        </attr>
+        <attr name="easeshadowDrawable" format="reference" />
+        <attr name="easeshadowWidth" format="dimension" />
+        <attr name="easefadeEnabled" format="boolean" />
+        <attr name="easefadeDegree" format="float" />
+        <attr name="easeselectorEnabled" format="boolean" />
+        <attr name="easeselectorDrawable" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="easeEaseViewFlow">
+        <attr name="easesidebuffer" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="easeCircleFlowIndicator">
+        <attr name="easeactiveColor" format="color" />
+        <attr name="easeinactiveColor" format="color" />
+        <attr name="easefadeOut" format="integer" />
+        <attr name="easeinactiveType">
+            <flag name="easestroke" value="0" />
+            <flag name="easefill" value="1" />
+        </attr>
+        <attr name="easeactiveType">
+            <flag name="easestroke" value="0" />
+            <flag name="easefill" value="1" />
+        </attr>
+        <attr name="easecircleSeparation" format="dimension" />
+        <attr name="easeactiveRadius" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="easeEaseCircleProgressBar">
+        <attr name="easemax" format="integer" />
+        <attr name="easefill" format="boolean" />
+        <attr name="easePaint_Width" format="dimension" />
+        <attr name="easePaint_Color" format="color" />
+        <attr name="easeInside_Interval" format="dimension" />
+        <attr name="easeBackgroud_Color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="easeEaseCircleImageView">
+        <attr name="easeborder_width" format="dimension" />
+        <attr name="easeborder_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="easeEaseSwipeLayout">
+        <attr name="easedrag_edge">
+            <flag name="easeleft" value="1" />
+            <flag name="easeright" value="2" />
+            <flag name="easetop" value="4" />
+            <flag name="easebottom" value="8" />
+        </attr>
+        <attr name="easeleftEdgeSwipeOffset" format="dimension" />
+        <attr name="easerightEdgeSwipeOffset" format="dimension" />
+        <attr name="easetopEdgeSwipeOffset" format="dimension" />
+        <attr name="easebottomEdgeSwipeOffset" format="dimension" />
+        <attr name="easeshow_mode" format="enum">
+            <enum name="easelay_down" value="0" />
+            <enum name="easepull_out" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="easePullView">
+         <attr name="easeturnUp" format="reference"/>
+         <attr name="easeturnDown" format="reference"/>
+         <attr name="easetextSize" format="dimension"/>
+         <attr name="easetextColor" format="color"/>
+    </declare-styleable >
+
+</resources>

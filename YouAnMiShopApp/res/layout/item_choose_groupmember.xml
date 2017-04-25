@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white">
+    <RelativeLayout
+        android:id="@+id/layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.zxly.o2o.view.CircleImageView
+            android:id="@+id/img_user_head"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:border_color="@color/white"
+            android:src="@drawable/default_head_big"
+            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img_user_head"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="9dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txt_member_name"
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dimen_12dp"
+                android:gravity="center"
+                android:textColor="@color/gray_333333"
+                android:text="范冰冰"/>
+
+            <TextView
+                android:id="@+id/txt_member_phone"
+                android:gravity="center"
+                android:layout_below="@+id/txt_member_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="@color/gray_666666"
+                android:text="15013509877"/>
+
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:id="@+id/layout_willingbuy"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/fans_name"
+                android:layout_marginLeft="9dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/star_first"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_lightstar"/>
+
+                <ImageView
+                    android:id="@+id/star_second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:background="@drawable/icon_lightstar"/>
+
+                <ImageView
+                    android:id="@+id/star_third"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:background="@drawable/icon_darkstar"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txt_phone_brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="202dp"
+            android:textSize="@dimen/dimen_12dp"
+            android:visibility="gone"
+            android:textColor="@color/gray_333333"
+            android:text="iPhone6s"/>
+
+        <ImageView
+            android:id="@+id/img_check"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/icon_check_press"
+            android:layout_marginRight="33dp"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_dcdcdc"
+        android:layout_marginLeft="@dimen/dimen_12dp"
+        android:layout_marginRight="@dimen/dimen_12dp"/>
+</LinearLayout>

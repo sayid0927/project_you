@@ -1,0 +1,2 @@
+include  ':ChatProject',':YouAnMiUserApp',':YouAnMiShopApp'
+//project(":ChatProject").projectDir =new File("E:\\project_YW\\ChatProject");

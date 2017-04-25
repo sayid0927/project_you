@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+    android:id = "@+id/win_mycircle_list_item_belowblock"
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "wrap_content"
+    android:background = "@drawable/app_white_bg"
+    android:paddingBottom = "0.1dp"
+    android:paddingLeft = "@dimen/o2o_padding"
+    android:paddingRight = "@dimen/o2o_padding"
+    android:paddingTop = "10dp">
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id = "@+id/win_mycircle_list_item_icon"
+        android:layout_width = "85dp"
+        android:layout_height = "85dp"
+        android:background = "@color/transparent"
+        android:contentDescription = "@null"
+        android:scaleType="fitXY"
+        android:src = "@drawable/ic_launcher"/>
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:layout_marginLeft = "10dp"
+        android:layout_toRightOf = "@+id/win_mycircle_list_item_icon">
+
+        <TextView
+            android:id = "@+id/win_mycircle_list_item_title"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+
+            android:background = "@color/transparent"
+            android:maxLines = "2"
+            android:textColor = "@color/black"
+            android:textSize = "16sp"/>
+
+        <TextView
+            android:id = "@+id/win_mycircle_list_item_reply_tip"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_marginLeft = "20dp"
+            android:layout_marginTop = "65dp"
+            android:layout_toRightOf = "@+id/win_mycircle_list_item_upload_time"
+            android:background = "@color/transparent"
+            android:drawableLeft = "@drawable/liuyan"
+            android:drawablePadding = "5dp"
+            android:gravity = "center_horizontal"
+            android:textColor = "@color/orange2"
+            android:textSize = "12sp"/>
+
+        <TextView
+            android:id = "@+id/win_mycircle_list_item_upload_time"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_marginLeft = "5dp"
+            android:layout_marginTop = "65dp"
+            android:layout_toRightOf = "@+id/win_mycircle_list_item_tiplayout"
+            android:background = "@color/transparent"
+            android:gravity = "center"
+            android:textColor = "@color/black"
+            android:textSize = "12sp"/>
+
+        <RelativeLayout
+            android:id = "@+id/win_mycircle_list_item_tiplayout"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "60dp"
+            android:background = "@color/transparent">
+
+            <TextView
+                android:id = "@+id/win_mycircle_list_item_tip"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:background = "#f05b5b"
+                android:gravity = "center"
+                android:paddingLeft = "2dp"
+                android:paddingRight = "2dp"
+                android:text = "热"
+                android:textColor = "@color/white"
+                android:textSize = "10sp"
+                android:visibility = "gone"/>
+
+            <TextView
+                android:id = "@+id/win_mycircle_list_item_tip2"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:background = "#fd7a40"
+                android:gravity = "center"
+                android:paddingLeft = "2dp"
+                android:paddingRight = "2dp"
+                android:text = "荐"
+                android:textColor = "@color/white"
+                android:textSize = "10sp"
+                android:visibility = "gone"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id = "@+id/btn_del"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_alignParentRight = "true"
+        android:layout_marginRight = "10dp"
+        android:layout_marginTop = "50dp"
+        android:background = "@drawable/circle_more_btn_selector"/>
+
+    <View
+        android:id = "@+id/divide0"
+        android:layout_width = "match_parent"
+        android:layout_height = "0.5dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/content"
+        android:background = "@color/grey"/>
+
+</RelativeLayout>

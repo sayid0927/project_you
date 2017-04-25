@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_white_bg"
+    android:orientation="vertical"
+    android:paddingBottom="6dip" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/select_region_label"
+            style="@style/text_16_orange"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="选择区域"/>
+
+        <LinearLayout
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:visibility="gone" >
+
+            <Button
+                style="@style/text_16_orange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/back_orange"
+                android:gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/grey" />
+
+    <ListView
+        android:id="@+id/used_region_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#F8F8F8"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/grey"
+        android:dividerHeight="0.5dip"
+        android:fadingEdge="none"
+        android:listSelector="@color/transparent"
+        android:scrollbars="none"
+        android:scrollingCache="false" />
+
+    <!-- <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/grey" /> -->
+
+</LinearLayout>

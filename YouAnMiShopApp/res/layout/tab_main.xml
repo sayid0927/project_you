@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:red="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/gray_eeeeee"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/main_act_tabcontent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_b3b3b3" />
+
+    <com.zxly.o2o.view.FlowRadioGroup
+        android:id="@+id/main_act_radio_group"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:layout_weight="0.1"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/btn_fans"
+                style="@style/main_tab_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:drawableTop="@drawable/btn_tab_fans_selector"
+                android:text="客多多" />
+
+            <ImageView
+                android:id="@+id/point_fans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="31dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/icon_red_point"
+                android:visibility="gone" />
+
+            <!--
+                        <com.zxly.o2o.view.RedPoint
+                            android:id="@+id/view_redPoint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="-35dp"
+                            android:layout_toRightOf="@+id/btn_fans"
+                            android:background="@drawable/icon_red_point"
+                            android:visibility="visible"
+                            red:redIsShowText="false" />-->
+
+        </RelativeLayout>
+
+        <RadioButton
+            android:id="@+id/btn_manage_or_promotion"
+            style="@style/main_tab_bottom"
+            android:drawableTop="@drawable/btn_tab_manage_selector"
+            android:text="管理" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/btn_make_money"
+                style="@style/main_tab_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:drawableTop="@drawable/btn_tab_make_money_selector"
+                android:text="赚钱" />
+
+            <ImageView
+                android:id="@+id/point_make_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="31dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/icon_red_point"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/btn_mine"
+                style="@style/main_tab_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:drawableTop="@drawable/btn_tab_mine_selector"
+                android:text="我的" />
+
+            <ImageView
+                android:id="@+id/point_mine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="31dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/icon_red_point"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+    </com.zxly.o2o.view.FlowRadioGroup>
+
+</LinearLayout>

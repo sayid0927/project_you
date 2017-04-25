@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/view_result"
+        android:layout_width="83.5dp"
+        android:layout_height="94.5dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/bg_task_green">
+
+        <TextView
+            android:id="@+id/txt_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="全部完成"
+            android:gravity="center"
+            android:background="@drawable/bg_task_finish"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/txt_finishTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:maxLines="1"
+            android:text="已完成"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/txt_finishRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_finishTask"
+            android:maxLines="1"
+            android:text="50%"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/btn_promotion_now"
+            android:layout_width="68dp"
+            android:layout_height="24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5.5dp"
+            android:background="@drawable/bg_btn_promotion_product"
+            android:gravity="center"
+            android:text="立即推广"
+            android:textColor="#67C136"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_left_time"
+        android:layout_width="wrap_content"
+        android:layout_height="13.5dp"
+        android:layout_marginTop="6.5dp"
+        android:background="@drawable/bg_promotion_label"
+        android:gravity="center"
+        android:text="剩余98次未完成"
+        android:textColor="@color/white"
+        android:textSize="9sp" />
+
+    <ImageView
+        android:id="@+id/img_type_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="11.5dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="32.5dp"
+        android:src="@drawable/icon_promotion_product" />
+
+    <ImageView
+        android:id="@+id/img_finish_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dimen_12dp"
+        android:visibility="gone"
+        android:src="@drawable/icon_wancheng" />
+
+    <TextView
+        android:id="@+id/txt_taskName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28.5dp"
+        android:layout_toRightOf="@+id/img_type_icon"
+        android:text="商品推广"
+        android:textColor="@color/gray_333333"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/txt_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txt_taskName"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="3dp"
+        android:layout_toRightOf="@+id/txt_taskName"
+        android:text="(件)"
+        android:textColor="@color/gray_333333"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:id="@+id/txt_allTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txt_unit"
+        android:layout_marginRight="14.5dp"
+        android:layout_toLeftOf="@+id/view_result"
+        android:text="浏览量"
+        android:textColor="@color/gray_999999"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/txt_taskProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/txt_allTask"
+        android:layout_below="@+id/txt_allTask"
+        android:layout_marginTop="10dp"
+        android:text="12/200"
+        android:textColor="@color/gray_999999"
+        android:textSize="13sp" />
+
+
+    <com.zxly.o2o.view.MProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_alignLeft="@+id/img_type_icon"
+        android:layout_below="@+id/img_type_icon"
+        android:layout_marginRight="14.5dp"
+        android:layout_marginTop="18dp"
+        android:layout_toLeftOf="@+id/view_result" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/view_result"
+        android:background="@color/gray_eeeeee" />
+</RelativeLayout>

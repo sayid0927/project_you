@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+                android:layout_width = "match_parent"
+                android:layout_height = "match_parent"
+                android:background = "@color/white"
+                android:paddingBottom = "20dp"
+                android:paddingTop = "15dp">
+
+    <TextView
+        android:id = "@+id/order_number_type"
+        android:layout_width = "50dp"
+        android:layout_height = "16dp"
+        android:layout_marginLeft = "10dp"
+        android:layout_marginTop = "4dp"
+        android:background = "@color/orange"
+        android:gravity = "center"
+        android:text = "仅退款"
+        android:textColor = "@color/white"
+        android:textSize = "10sp"/>
+
+    <TextView
+        android:id = "@+id/order_number_text"
+        android:layout_width = "180dp"
+        android:layout_height = "wrap_content"
+        android:layout_marginLeft = "5dp"
+        android:layout_toRightOf = "@+id/order_number_type"
+        android:singleLine="true"
+        android:textColor = "@color/crop__button_text"
+        android:textSize = "16sp"/>
+
+    <TextView
+        android:id = "@+id/refundment_status"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_alignParentRight = "true"
+        android:layout_marginRight = "10dp"
+        android:textColor = "@color/orange"
+        android:textSize = "16sp"/>
+
+
+    <include
+        android:id = "@+id/main_content_layout"
+        layout = "@layout/item_refund_product"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_below = "@+id/order_number_text"
+        android:layout_marginTop = "15dp"/>
+
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_below = "@+id/main_content_layout"
+        android:layout_marginLeft = "10dp"
+        android:layout_marginTop = "20dp"
+        android:textColor = "@color/light_grey"
+        android:textSize = "14sp"/>
+
+    <TextView
+        android:id="@+id/refundment_sum_text"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_toLeftOf="@+id/refundment_sum_cost"
+        android:layout_below = "@+id/main_content_layout"
+        android:layout_marginRight = "5dp"
+        android:layout_marginTop = "20dp"
+        android:text = "退款金额:"
+        android:textColor = "@color/light_grey"
+        android:textSize = "14sp"/>
+
+    <TextView
+        android:id="@+id/refundment_sum_cost"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_alignParentRight = "true"
+        android:layout_below = "@+id/main_content_layout"
+        android:layout_marginRight = "10dp"
+        android:layout_marginTop = "18dp"
+        android:textColor = "@color/dark_grey"
+        android:textSize = "18sp"/>
+
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+                android:layout_width = "match_parent"
+                android:layout_height = "match_parent"
+                android:background = "@color/transparent"
+                android:clickable = "true">
+
+    <ImageView
+        android:id = "@+id/pic_select_btn"
+        android:layout_width = "75dp"
+        android:layout_height = "75dp"
+        android:background = "@color/transparent"
+        android:contentDescription = "@null"
+        android:scaleType = "fitXY"
+        android:src = "@drawable/bt_upload_pic_btn_selector"/>
+
+    <ImageView
+        android:id = "@+id/forum_publish_pic_clean_btn"
+        android:layout_width = "20dp"
+        android:layout_height = "20dp"
+        android:layout_alignParentRight="true"
+        android:src = "@drawable/qz_icon_xx"
+        android:layout_alignParentBottom="true"
+        android:contentDescription = "@null"/>
+</RelativeLayout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/default_text"
+        android:layout_marginBottom="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txt_default_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:maxLines="2"
+            android:textColor="@color/gray_333333"
+            android:layout_marginLeft="11dp"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_marginRight="11.5dp"
+            android:id="@+id/btn_remarks"
+            android:layout_width="80.5dp"
+            android:layout_height="23dp"
+            android:text="写备注"
+            android:visibility="gone"
+            android:gravity="center"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="14sp"
+            android:background="@drawable/btn_submit_normal"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/hasRemark_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_centerVertical="true"
+                android:text="手机号:"
+                android:textColor="@color/gray_333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txt_phone_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="88dp"
+                android:maxLength="11"
+                android:textColor="#3f90e8"
+                android:layout_centerVertical="true"
+                android:textSize="14sp" />
+            <Button
+                android:id="@+id/btn_send_message"
+                android:gravity="center"
+                android:layout_width="80dp"
+                android:layout_height="23dp"
+                android:textColor="@color/orange_ff5f19"
+                android:textSize="14sp"
+                android:text="发短信"
+                android:layout_marginRight="11.5dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_submit_normal"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginBottom="11dp"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_centerVertical="true"
+                android:text="基本资料:"
+                android:textColor="@color/gray_333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="88dp"
+                android:layout_centerVertical="true"
+                android:maxLength="11"
+                android:textColor="@color/gray_333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txt_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/txt_name"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:maxLength="11"
+                android:textColor="@color/gray_333333"
+                android:textSize="14sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/tag_container"
+            android:visibility="gone"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.zxly.o2o.view.TagLayout
+                android:layout_marginLeft="7dp"
+                android:id="@+id/layout_tag_typeb"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

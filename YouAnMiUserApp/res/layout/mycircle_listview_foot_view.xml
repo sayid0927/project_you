@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:background = "@color/transparent">
+    <!--
+    <TextView
+        android:id = "@+id/no_review"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "@string/no_comment_prompt"
+        android:textSize = "18sp"
+        android:layout_marginTop = "18dp"
+        android:layout_centerInParent = "true"
+        android:drawablePadding = "10dp"
+        android:gravity = "bottom"
+        android:background = "@color/transparent"
+        android:drawableLeft = "@drawable/loading_empty"
+        android:textColor = "@color/grey"
+        android:clickable = "false"
+        android:visibility = "invisible"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/transparent"
+        android:layout_below="@+id/no_review"/>
+    -->
+
+    <TextView
+        android:layout_alignParentTop="true"
+        android:id = "@+id/no_review"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_centerInParent = "true"
+        android:text = "@string/no_comment_notice"
+        android:drawableTop="@drawable/loading_empty"
+        android:clickable = "false"
+        android:textColor = "@color/grey"
+        android:drawablePadding = "20dp"
+        android:textSize = "15sp"
+        android:visibility = "invisible"/>
+
+    <TextView
+        android:id="@+id/nodata_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/transparent"
+        android:layout_below="@+id/no_review"/>
+
+</RelativeLayout>

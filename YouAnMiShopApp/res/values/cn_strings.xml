@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- 公用 -->
+    <string name="app_name">柚安米商户</string>
+    <string name="action_settings">Settings</string>
+    <string name="pull_to_refresh_up">正在玩命的加载中...</string>
+    <string name="pull_to_refresh_done">刷新完成</string>
+    <string name="pull_to_refresh_down">加载中...</string>
+    <string name="pull_to_releaseL_down">松开刷新</string>
+    <string name="back_btn">返回</string>
+    <string name="count_add">+ 1</string>
+    <string name="publish_btn">发布</string>
+    <string name="send_btn">发送</string>
+    <string name="upload_picture">上传图片</string>
+    <string name="my_publish">我的发布</string>
+    <string name="upload_forum_edittext_hint">随便说点什么呢...</string>
+    <string name="actions_must_sign">要先登录哟，亲</string>
+    <string name="crop__saving">正在保存照片…</string>
+    <string name="crop__wait">请等待…</string>
+    <string name="crop__pick_error">无效的图片</string>
+    <string name="crop__done">完成</string>
+    <string name="crop__cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="pull_to_refresh_pull_label">Pull to refresh…</string>
+    <string name="pull_to_refresh_release_label">Release to refresh…</string>
+    <string name="pull_to_refresh_refreshing_label">Loading…</string>
+
+    <!-- 提示语 -->
+    <string name="send_success">发送成功 !</string>
+    <string name="send_fail">发送失败 !</string>
+    <string name="issue_success">发布成功 !</string>
+    <string name="commit_success">提交成功 !</string>
+    <string name="commit_faild">网络不佳，提交失败 !</string>
+    <string name="collect_success">收藏成功 !</string>
+    <string name="cancle_collect">已取消收藏 !</string>
+    <string name="change_passwd_success">修改密码成功 !</string>
+    <string name="change_passwd_faild">网络不佳，修改失败 !</string>
+    <string name="send_order_to_owner">议价已发送至店主 !</string>
+    <string name="no_phone">"手机号"未填写 !</string>
+    <string name="last_page">亲,没有新数据了</string>
+    <string name="message_server_unavailable">无法连接到服务器</string>
+    <string name="unrecoverable_error">发生未知异常,连接失败</string>
+    <string name="new_message">收到新短消息</string>
+
+    <!-- Just use standard Pull Down String when pulling up. These can be set for languages which require it -->
+    <string name="pull_to_refresh_from_bottom_pull_label">@string/pull_to_refresh_pull_label</string>
+    <string name="pull_to_refresh_from_bottom_release_label">@string/pull_to_refresh_release_label</string>
+    <string name="pull_to_refresh_from_bottom_refreshing_label">@string/pull_to_refresh_refreshing_label</string>
+
+     <string name="move_to_new_group_dialog_text">确定把帐号为&lt;font color="#dd2727">%1$s&lt;/font>
+       &lt;br />移到&lt;font color="#dd2727">%2$s&lt;/font>吗?</string>
+
+     <string name="move_to_black_group_dialog_text">确定把帐号为&lt;font color="#dd2727">%1$s&lt;/font>的会员
+       &lt;br />移到&lt;font color="#dd2727">黑名单&lt;/font>吗?此后会员帐号将会被禁用</string>
+
+     <string name="remove_from_black_group_dialog_text">确定把帐号为&lt;font color="#dd2727">%1$s&lt;/font>的会员
+       &lt;br />移出&lt;font color="#dd2727">黑名单&lt;/font>吗?</string>
+
+     <string name="article_detail_title_text">
+       &lt;font color="#3580de">%1$s&lt;/font>
+     &#160;&#160;&#160;&lt;font color="#999999">%2$s&lt;/font></string>
+
+     <string name="im_user_detail_name">%1$s
+        &lt;br />&lt;font color="#999999">%2$s&lt;/font>
+        &#160;&#160;&#160;&lt;font color="#999999">%3$s&lt;/font>
+        &#160;&#160;&#160;&lt;font color="#999999">%4$s&lt;/font>
+        </string>
+
+    <string name="im_user_detail_name_below_nick_shop">&lt;font color="#999999">账号 : %1$s&lt;/font>
+        &lt;br />&lt;font color="#999999">昵称 : %2$s&lt;/font>
+        </string>
+
+       <string name="im_user_detail_name_below_shop">&lt;font color="#999999">账号 : %1$s&lt;/font>
+        </string>
+
+       <string name="insure_name">&lt;font color="#000000">%1$s&lt;/font>%2$s</string>
+
+</resources>

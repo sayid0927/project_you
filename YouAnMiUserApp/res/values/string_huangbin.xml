@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+       <string name="tip_message">
+    &lt;font  color="#fff373" >您好，欢迎光临蓝天手机店，我是业务员小A，有什么可以帮到您？~\n去我的主页瞧瞧!~&lt;/font></string>
+    <string name="signature">个性签名:%1$s</string>
+</resources>

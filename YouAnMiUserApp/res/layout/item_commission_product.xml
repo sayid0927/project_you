@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_fdfeff"
+    android:paddingBottom="9dip" >
+
+    <View
+        android:id="@+id/bg_top"
+        android:layout_width="match_parent"
+        android:layout_height="10dip"
+        android:background="@color/gray_eeeeee"/>
+    
+    <com.android.volley.toolbox.NetworkImageView
+        android:layout_below="@+id/bg_top"
+        android:id="@+id/img_product_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/shouye_huodong" />
+
+
+    <TextView
+        android:id="@+id/txt_product_name"
+        style="@style/text_14_666666"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_product_icon"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="苹果iphone6 plus 16G" />
+
+    <TextView
+        android:id="@+id/txt_product_price"
+        android:textSize="14sp"
+        android:textColor="@color/red_ff0000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_product_name"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:text="$6500.00" />
+
+
+    <TextView
+        android:id="@+id/txt_returnCommission"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dip"
+        android:paddingRight="9dip"
+        android:layout_alignBottom="@+id/txt_product_price"
+        android:gravity="center"
+        android:background="@drawable/bg_fenyongjin"
+        android:layout_alignParentRight="true"
+        android:text="返佣金" />
+
+    <TextView
+        android:id="@+id/btn_promotion"
+        android:textColor="@color/orange_ff5f19"
+        android:textSize="18sp"
+        android:layout_below="@+id/txt_returnCommission"
+        android:layout_width="143dip"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dip"
+        android:paddingRight="9dip"
+        android:layout_marginTop="10dip"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_tuiguang"
+        android:text="推广" />
+
+</RelativeLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="39dp"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/txt_insurance_price_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="18dp"
+        android:text="支付金额"
+        android:textColor="@color/gray_a7a7a7"
+        android:textSize="12sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="90dp"
+        android:text="￥"
+        android:textColor="@color/black_373737"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txt_insurance_price"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="105dp"
+        android:textColor="@color/red_ff0000"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txt_insurance_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/txt_insurance_price"
+        android:layout_marginLeft="5dp"
+        android:text="(手机价格)"
+        android:textColor="@color/gray_a7a7a7"
+        android:textSize="9sp" />
+
+    <View
+        android:id="@+id/view_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="82dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/gray_e6e6e6" />
+
+</RelativeLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/label_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:textSize="13sp"
+        android:layout_marginLeft="12dp"
+        android:textColor="@color/orange_ff5f19"
+        android:textColorHint="@color/grey_aaaaaa"
+        android:drawablePadding="6dp"
+        android:drawableLeft="@drawable/icon_shouhuoma"
+        android:text="收货码"/>
+
+
+
+    <EditText
+        android:id="@+id/edit_takeNo"
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/bg_input"
+        android:textSize="13sp"
+        android:textColor="@color/gray_666666"
+        android:hint="输入提货码"
+        android:gravity="center_vertical|left"
+        android:layout_below="@+id/label_tips"
+        android:layout_toLeftOf="@+id/btn_submit"/>
+
+    <TextView
+        android:id="@+id/btn_submit"
+        android:layout_width="68dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/edit_takeNo"
+        android:background="@drawable/btn2_selector"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="6dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentRight="true"
+        android:text="交货"/>
+
+</RelativeLayout>
