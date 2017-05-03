@@ -1,37 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/app_white_bg"
-    android:paddingTop="10.5dp"  android:paddingLeft="12dp"  android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/app_white_bg"
+    android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingTop="10.5dp">
+
     <LinearLayout
-        android:layout_width="match_parent" android:paddingBottom="9.5dp"
-        android:layout_height="wrap_content" android:paddingRight="12dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="9.5dp"
+        android:paddingRight="12dp">
+
         <com.android.volley.toolbox.NetworkImageView
-            android:layout_width="92dp" android:background="@drawable/line_black_rect"
-            android:layout_height="86dp" android:id="@+id/img_product" />
+            android:id="@+id/img_product"
+            android:layout_width="92dp"
+            android:layout_height="86dp"
+            android:background="@drawable/line_black_rect" />
+
         <LinearLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="6dp" android:paddingLeft="9dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="9dp"
+            android:paddingTop="6dp">
+
             <TextView
-                android:layout_width="wrap_content" style="@style/text_15_black" android:id="@+id/txt_name" android:maxLines="2" android:ellipsize="end"
-                android:layout_height="wrap_content"  android:text="送钢化膜+套 分期够apple/苹果iPhone6s公开版"
-                />
+                android:id="@+id/txt_name"
+                style="@style/text_15_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="送钢化膜+套 分期够apple/苹果iPhone6s公开版" />
+
             <TextView
-                android:layout_width="wrap_content" android:textColor="@color/gray_999999" android:textSize="12sp" android:layout_marginTop="2dp"
-                android:layout_height="wrap_content"  android:id="@+id/txt_sku" android:text="颜色：白色 内存：16G"/>
+                android:id="@+id/txt_sku"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="颜色：白色 内存：16G"
+                android:textColor="@color/gray_999999"
+                android:textSize="12sp" />
+
             <LinearLayout
-                android:layout_width="match_parent" android:layout_marginTop="2dp"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
                 <TextView
-                    android:layout_width="wrap_content" android:textSize="20sp" android:textColor="@color/orange_ff5f19"
-                    android:layout_height="wrap_content"  android:id="@+id/txt_curPrice" android:text="￥6500"/>
+                    android:id="@+id/txt_curPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="￥6500"
+                    android:textColor="@color/orange_ff5f19"
+                    android:textSize="20sp" />
+
                 <TextView
-                    android:layout_width="match_parent" android:id="@+id/txt_old_price" android:textSize="12sp" android:layout_marginLeft="10dp"
-                    android:layout_height="wrap_content" android:textColor="@color/gray_999999" android:text="￥6600" android:layout_weight="1"/>
+                    android:id="@+id/txt_old_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="￥6600"
+                    android:textColor="@color/gray_999999"
+                    android:textSize="12sp" />
+
                 <TextView
-                    android:layout_width="wrap_content" android:id="@+id/txt_count" android:textSize="12sp"
-                    android:layout_height="wrap_content" android:textColor="@color/gray_999999" android:text="x1"/>
+                    android:id="@+id/txt_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="x1"
+                    android:textColor="@color/gray_999999"
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
     <View
-        android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/grey" android:id="@+id/line"/>
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey" />
 </LinearLayout>
