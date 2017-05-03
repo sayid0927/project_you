@@ -27,7 +27,7 @@
     </FrameLayout>
     <ImageView
         android:layout_width="wrap_content"  android:id="@id/img_loadResult" android:layout_marginTop="82dp"
-        android:layout_height="wrap_content" android:background="@drawable/pic_ununited" />
+        android:layout_height="wrap_content" android:background="@drawable/img_default_disppoint" />
     <TextView
         android:layout_width="wrap_content" android:layout_height="wrap_content"  android:id="@+id/txt_msg" android:layout_marginTop="26dp" android:textSize="15sp" android:textColor="#333333"
         android:text=" 您尚未连接....."/>

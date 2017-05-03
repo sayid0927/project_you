@@ -5,21 +5,15 @@
     android:layout_height="match_parent"
     android:background="@color/gray_eeeeee">
 
-    <include layout="@layout/common_header" />
-
-    <com.zxly.o2o.view.LoadingView
-        android:id="@+id/view_loading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <include layout="@layout/common_header"
+        android:id="@+id/header"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
         android:background="@color/gray_eeeeee"
-        android:scrollbars="none"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -363,4 +357,9 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <com.zxly.o2o.view.LoadingView
+        android:id="@+id/view_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>

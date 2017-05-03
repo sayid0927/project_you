@@ -15,7 +15,7 @@
         android:drawablePadding = "10dp"
         android:gravity = "bottom"
         android:background = "@color/transparent"
-        android:drawableLeft = "@drawable/loading_empty"
+        android:drawableLeft = "@drawable/img_default_tired"
         android:textColor = "@color/grey"
         android:clickable = "false"
         android:visibility = "invisible"/>

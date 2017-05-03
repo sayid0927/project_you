@@ -1,133 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+
+              android:layout_width="match_parent"
+              android:layout_height="45dp"
+              android:background="@color/white"
+              android:orientation="horizontal">
+
+    <com.zxly.o2o.view.SlideDelete
+        android:id="@+id/layout_sidedelete"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        >
+
+
+
+        <RelativeLayout
+            android:id="@+id/layout_container"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+
+            <View
+                android:id="@+id/top_line"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:id="@+id/layout_container"
-                android:background="@color/white">
-    <View
-        android:id="@+id/top_line"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/gray_dcdcdc"
-        android:layout_alignParentTop="true"
-        />
+                android:layout_height="0.5dp"
+                android:layout_alignParentTop="true"
+                android:background="@color/gray_dcdcdc"
+                />
 
-    <ImageView
-        android:id="@+id/img_notice"
-        android:visibility="visible"
-        android:layout_width="6dp"
-        android:layout_height="6dp"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/dimen_12dp"
-        android:background="@drawable/icon_new_redpoint"/>
+            <ImageView
+                android:id="@+id/img_notice"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_12dp"
+                android:background="@drawable/icon_new_redpoint"
+                android:visibility="visible"/>
 
-    <com.zxly.o2o.view.CircleImageView
-        android:id="@+id/img_user_head"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_toRightOf="@+id/img_notice"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="9dp"
-        app:border_color="@color/white"
-        android:src="@drawable/default_head_big"
-        />
+            <com.zxly.o2o.view.CircleImageView
+                android:id="@+id/img_user_head"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="9dp"
+                android:layout_toRightOf="@+id/img_notice"
+                android:src="@drawable/default_head_big"
+                app:border_color="@color/white"
+                />
 
-    <RelativeLayout
-        android:layout_toRightOf="@+id/img_user_head"
-        android:layout_width="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="@dimen/dimen_12dp"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tv_name"
-            android:text="百岁山"
-            android:textSize="13sp"
-            android:layout_marginTop="7dp"
-            android:textColor="@color/gray_333333"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_12dp"
+                android:layout_toRightOf="@+id/img_user_head"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="百岁山"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/tv_buyonline"
+                    android:layout_width="42dp"
+                    android:layout_height="14dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_toRightOf="@+id/tv_name"
+                    android:background="@drawable/bg_buyonline_shape"
+                    android:gravity="center"
+                    android:text="线上购买"
+                    android:textColor="@color/white"
+                    android:textSize="8sp"/>
+
+                <TextView
+                    android:id="@+id/tv_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_name"
+                    android:text="12356789456"
+                    android:textColor="#888888"
+                    android:textSize="11sp"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="14dp"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:id="@+id/layout_call_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_telep"
+                        android:layout_width="11.5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/icon_telep"/>
+
+                    <TextView
+                        android:id="@+id/tv_call_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="7dp"
+                        android:layout_toRightOf="@+id/iv_telep"
+                        android:text="昨天"
+                        android:textColor="@color/gray_888888"
+                        android:textSize="10sp"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layout_call_time"
+                    android:layout_marginTop="2dp">
+
+                    <ImageView
+                        android:id="@+id/iv_msg"
+                        android:layout_width="11.5dp"
+                        android:layout_height="11.5dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/icon_msg"/>
+
+                    <TextView
+                        android:id="@+id/tv_msg_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="7dp"
+                        android:layout_toRightOf="@+id/iv_msg"
+                        android:text="16/03/05"
+                        android:textColor="@color/gray_888888"
+                        android:textSize="10sp"/>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/bottom_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="14dp"
+                android:background="@color/gray_dcdcdc"/>
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout_delete"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:background="#fc3638"
+            android:gravity="center">
+
             <TextView
-                android:id="@+id/tv_buyonline"
-                android:layout_marginLeft="6dp"
-                android:layout_toRightOf="@+id/tv_name"
-                android:layout_marginTop="7dp"
-                android:layout_width="42dp"
-                android:layout_height="14dp"
-                android:text="线上购买"
-                android:textSize="8sp"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:background="@drawable/bg_buyonline_shape"/>
-        <TextView
-            android:layout_below="@+id/tv_name"
-            android:id="@+id/tv_phone"
-            android:text="12356789456"
-            android:textSize="11sp"
-            android:textColor="#888888"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </RelativeLayout>
+                android:id="@+id/sw_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="从该分组删除"
+                android:textColor="#ffffff"
+                android:gravity="center"/>
+        </LinearLayout>
 
 
+    </com.zxly.o2o.view.SlideDelete>
 
 
-   <RelativeLayout
-       android:layout_marginRight="14dp"
-       android:layout_alignParentRight="true"
-       android:layout_width="wrap_content"
-       android:gravity="center"
-       android:layout_height="match_parent">
-       <RelativeLayout
-           android:id="@+id/layout_call_time"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content">
-           <ImageView
-               android:layout_centerVertical="true"
-               android:id="@+id/iv_telep"
-               android:layout_width="11.5dp"
-               android:layout_height="wrap_content"
-               android:background="@drawable/icon_telep"/>
-           <TextView
-               android:layout_centerVertical="true"
-               android:id="@+id/tv_call_time"
-               android:layout_toRightOf="@+id/iv_telep"
-               android:layout_marginLeft="7dp"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textSize="10sp"
-               android:text="昨天"
-               android:textColor="@color/gray_888888"/>
-       </RelativeLayout>
-       <RelativeLayout
-           android:layout_marginTop="2dp"
-           android:layout_below="@+id/layout_call_time"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content">
-           <ImageView
-               android:layout_centerVertical="true"
-               android:id="@+id/iv_msg"
-               android:layout_width="11.5dp"
-               android:layout_height="11.5dp"
-               android:background="@drawable/icon_msg"/>
-           <TextView
-               android:layout_centerVertical="true"
-               android:id="@+id/tv_msg_time"
-               android:layout_toRightOf="@+id/iv_msg"
-               android:layout_marginLeft="7dp"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textSize="10sp"
-               android:text="16/03/05"
-               android:textColor="@color/gray_888888"/>
-       </RelativeLayout>
-   </RelativeLayout>
-    <View
-        android:id="@+id/bottom_line"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/gray_dcdcdc"
-        android:layout_marginLeft="24dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="14dp"/>
-</RelativeLayout>
+</LinearLayout>

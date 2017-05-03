@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <com.zxly.o2o.pullrefresh.PullToRefreshListView
         android:id="@+id/listview"
+        android:layout_below="@+id/ll_city"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray_eeeeee"
@@ -22,10 +24,14 @@
         android:smoothScrollbar="true"
         ptr:ptrAnimationStyle="flip" />
 
+
+
+
+
     <com.zxly.o2o.view.LoadingView
         android:id="@+id/view_loading11"
         android:layout_width="match_parent"
         android:layout_centerInParent="true"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

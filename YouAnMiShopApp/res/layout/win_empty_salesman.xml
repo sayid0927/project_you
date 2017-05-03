@@ -37,7 +37,7 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="找客无头绪?柚安米商学院帮你忙!"/>
+            android:text="找客无头绪?  柚安米商学院帮你忙!"/>
         <Button
             android:id="@+id/btn_gonext"
             android:layout_width="51dp"

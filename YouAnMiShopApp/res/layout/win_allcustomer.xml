@@ -5,6 +5,8 @@
                 android:background="@color/app_bg"
                 android:orientation="vertical">
 
+
+
     <RelativeLayout
         android:id="@+id/view_title"
         android:layout_width="match_parent"
@@ -43,13 +45,6 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         layout="@layout/common_search"/>
-
-    <com.easemob.easeui.widget.viewpagerindicator.PagerSlidingTabStrip
-        android:id="@+id/tabs"
-        android:layout_below="@+id/layout_search"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_gravity="center"/>
 
     <View
         android:id="@+id/line"
@@ -97,6 +92,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </RelativeLayout>
+
+    <com.easemob.easeui.widget.viewpagerindicator.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_below="@+id/layout_search"
+        android:layout_toRightOf="@+id/layout_nodata_all"
+        android:layout_toEndOf="@+id/layout_nodata_all" />
 
 
 </RelativeLayout>

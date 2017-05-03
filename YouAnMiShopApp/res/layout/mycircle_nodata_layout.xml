@@ -14,7 +14,7 @@
         android:layout_marginTop="@dimen/loading_marginTop"
         android:drawablePadding="10dp"
         android:background="@color/transparent"
-        android:drawableTop="@drawable/loading_empty"
+        android:drawableTop="@drawable/img_default_tired"
         android:text="非常抱歉,暂时没有数据!" />
 
 </LinearLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white">
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="129.5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="106.5dp"
+            android:background="@drawable/img_ymx"/>
+        <ImageView
+            android:layout_width="114.5dp"
+            android:layout_height="21.5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20.5dp"
+            android:background="@drawable/img_newapp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/gray_333333"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="15.5dp"
+            android:text="新版本出炉啦!  又一波惊喜向你袭来!"/>
+
+    <TextView
+        android:id="@+id/btn_update"
+        android:layout_marginTop="33dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="251.5dp"
+        android:layout_height="41.5dp"
+        android:text="立即升级"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:background="@drawable/bg_rectangle_button"/>
+</LinearLayout>

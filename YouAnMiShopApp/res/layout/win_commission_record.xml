@@ -9,11 +9,11 @@
     <RelativeLayout
         android:id="@+id/layout_title"
         android:layout_width="match_parent"
-        android:layout_height="48dip"
+        android:layout_height="60dip"
         android:background="@color/orange_ff5f19">
 
         <TextView
-
+android:paddingTop="18dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -24,6 +24,7 @@
             android:textSize="@dimen/main_tab_title_text_size" />
 
         <ImageView
+            android:paddingTop="18dp"
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

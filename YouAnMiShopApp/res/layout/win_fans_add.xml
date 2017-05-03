@@ -5,12 +5,13 @@
     android:background="@color/gray_eeeeee"
     android:orientation="vertical">
 
-    <include layout="@layout/common_header" />
+    <include layout="@layout/common_header"
+        android:id="@+id/header"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
+        android:layout_below="@+id/header"
         android:background="@color/gray_eeeeee"
         android:scrollbars="none">
 

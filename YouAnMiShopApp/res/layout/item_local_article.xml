@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/app_white_bg"
+    android:orientation="vertical">
+
+
+
+    <RelativeLayout
+        android:paddingRight="9.5dp"
+        android:paddingTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0.6dp"
+        android:layout_marginLeft="11dp"
+        android:paddingBottom="8dp">
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/img_head_icon"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginRight="9.5dp"
+
+            android:src="@drawable/icon_default_170x170" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="32.5dp"
+            android:layout_toRightOf="@+id/img_head_icon"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/gray_333333"
+            android:textSize="14sp" />
+
+        <!--<LinearLayout-->
+        <!--android:id="@+id/ll_labels"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="20.5dp"-->
+        <!--android:layout_alignLeft="@id/txt_title"-->
+        <!--android:layout_below="@id/txt_title">-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/txt_recomend"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="12dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:background="#f83030"-->
+        <!--android:gravity="center"-->
+        <!--android:paddingLeft="4dp"-->
+        <!--android:paddingRight="4dp"-->
+        <!--android:text="推荐"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="9sp"-->
+        <!--android:visibility="gone" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/txt_label1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="12dp"-->
+        <!--android:layout_marginLeft="4dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:gravity="center"-->
+        <!--android:paddingLeft="3.5dp"-->
+        <!--android:paddingRight="3.5dp"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="9sp" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/txt_label2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="12dp"-->
+        <!--android:layout_marginLeft="4dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:gravity="center"-->
+        <!--android:paddingLeft="3.5dp"-->
+        <!--android:paddingRight="3.5dp"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="9sp" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/txt_label3"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="12dp"-->
+        <!--android:layout_marginLeft="4dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:gravity="center"-->
+        <!--android:paddingLeft="3.5dp"-->
+        <!--android:paddingRight="3.5dp"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="9sp" />-->
+        <!--</LinearLayout>-->
+
+        <TextView
+            android:id="@+id/btn_cityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_head_icon"
+            android:layout_toRightOf="@+id/img_head_icon"
+            android:background="@drawable/btn_promotion_locat"
+            android:gravity="center"
+            android:text="罗湖区"
+            android:padding="2dp"
+            android:textColor="@color/orange_da6f5e"
+            android:textSize="8sp" />
+
+        <TextView
+            android:id="@+id/txt_browseCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btn_cityName"
+            android:layout_alignBottom="@+id/btn_cityName"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/btn_cityName"
+            android:layout_toRightOf="@+id/btn_cityName"
+            android:text="9999 浏览数"
+            android:textColor="@color/gray_999999"
+            android:textSize="11sp" />
+
+
+        <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btn_cityName"
+            android:layout_alignBottom="@+id/btn_cityName"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/btn_cityName"
+            android:layout_toRightOf="@+id/txt_browseCount"
+            android:text="03-21"
+            android:drawableLeft="@drawable/locatdian"
+            android:drawablePadding="5dp"
+            android:textColor="@color/gray_999999"
+            android:textSize="11sp" />
+
+
+        <TextView
+            android:id="@+id/btn_promotion"
+            android:layout_width="57dp"
+            android:layout_height="26dp"
+            android:layout_alignBottom="@+id/img_head_icon"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_promotion_normal"
+            android:gravity="center"
+            android:text="推广"
+            android:textColor="@color/orange_ff5f19"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <!--<TextView-->
+        <!--android:id="@+id/label_product"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/label_ff4c46"-->
+        <!--android:gravity="center_vertical|right"-->
+        <!--android:text="商品"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="9sp" />-->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_gravity="bottom"
+        android:background="@color/gray_dcdcdc" />
+</LinearLayout>

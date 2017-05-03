@@ -5,8 +5,8 @@
     <dimen name="nomal_text">16sp</dimen>
     <dimen name="small_text">12sp</dimen>
     <dimen name="middle_text">14sp</dimen>
-    <dimen name="title_height">48dp</dimen>
-    <dimen name="content_title_height">40dp</dimen>
+    <dimen name="title_height">50dp</dimen>
+    <dimen name="content_title_height">50dp</dimen>
     <dimen name="main_tab_title_text_size">18sp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="o2o_padding">10dp</dimen>
@@ -21,5 +21,6 @@
     <dimen name="user_photo_small">35dp</dimen>
     <dimen name="crop__bar_height">56dp</dimen>
     <dimen name="loading_marginTop">60dp</dimen>
+    <dimen name="content_top">18dp</dimen>
 
 </resources>

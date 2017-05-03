@@ -1,35 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:vrtv="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:paddingBottom="12.5dp" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="12.5dp">
+
     <RelativeLayout
-        android:layout_width="match_parent" android:background="#FA6A2B"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FA6A2B">
+
         <ImageView
-            android:layout_width="wrap_content" android:background="@drawable/bg_ljsy"
-            android:layout_height="wrap_content"  android:layout_alignParentRight="true"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/bg_ljsy" />
+
         <TextView
-            android:layout_width="wrap_content"  android:drawableLeft="@drawable/ljsy" android:layout_marginTop="10dp"
-            android:layout_height="wrap_content" android:layout_marginLeft="12dp" android:id="@+id/txt_ljsy_lable"
-            android:text=" 累计收益"  style="@style/text_14_white"/>
+            android:id="@+id/txt_ljsy_lable"
+            style="@style/text_14_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ljsy"
+            android:text=" 累计收益" />
+
         <TextView
-            android:layout_width="wrap_content" android:id="@+id/txt_total_yield" android:textSize="50sp" android:layout_below="@id/txt_ljsy_lable"
-            android:layout_height="wrap_content" android:textColor="@color/white"
-            android:layout_marginTop="10dp" android:layout_centerHorizontal="true"/>
+            android:id="@+id/txt_total_yield"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_ljsy_lable"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:textSize="50sp" />
+
         <TextView
-            android:layout_width="wrap_content" android:background="@drawable/btn_symx_selector" android:textSize="14sp"
-            android:layout_height="wrap_content"  android:layout_below="@id/txt_total_yield" android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp" android:textColor="@color/white" android:text="  收益明细  " android:gravity="center"
-            android:id="@+id/btn_symx"/>
+            android:id="@+id/btn_symx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_total_yield"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_symx_selector"
+            android:gravity="center"
+            android:text="  收益明细  "
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
         <View
-            android:layout_width="match_parent" android:layout_below="@id/btn_symx"
-            android:layout_height="0.3dp" android:id="@+id/line" android:background="@drawable/dotted_line"
-            android:layout_marginTop="10dp" android:layout_marginLeft="15dp" android:layout_marginRight="15dp"
-            />
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_below="@id/btn_symx"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/dotted_line" />
+
         <TextView
-            android:layout_width="wrap_content"  android:layout_marginLeft="11dp"
-            android:layout_height="32dp" android:textSize="13sp" android:textColor="@color/white"
-            android:id="@+id/txt_cur_yield"  android:layout_below="@id/line" android:gravity="center_vertical"/>
+            android:id="@+id/txt_cur_yield"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_below="@id/line"
+            android:layout_marginLeft="11dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -179,16 +218,28 @@
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
+
     <View
-        android:layout_width="match_parent" android:id="@+id/lin_msg_top"
+        android:id="@+id/lin_msg_top"
+        android:layout_width="match_parent"
         android:layout_height="0.5dip"
         android:background="@color/grey" />
+
     <LinearLayout
-        android:layout_width="match_parent" android:paddingLeft="12dp" android:id="@+id/btn_msg"
-        android:layout_height="35dp" android:gravity="center_vertical"   android:visibility="gone">
+        android:id="@+id/btn_msg"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:visibility="gone">
+
         <TextView
-            android:layout_width="wrap_content" android:drawableLeft="@drawable/horn"
-            android:layout_height="wrap_content" android:text=" 系统消息：" android:textSize="12sp" android:textColor="#333333"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/horn"
+            android:text=" 系统消息："
+            android:textColor="#333333"
+            android:textSize="12sp" />
 
         <com.zxly.o2o.view.VerticalRollingTextView
             android:id="@+id/txt_sysMsg"
@@ -198,14 +249,23 @@
             android:text="邀请客户享受到店优惠！"
             android:textColor="#333333"
             android:textSize="12sp"
-            vrtv:vrSize="12sp"
             vrtv:vrColor="@color/gray_333333"
-            vrtv:vrHighlightColor="@color/orange_ff5f19"/>
+            vrtv:vrHighlightColor="@color/orange_ff5f19"
+            vrtv:vrSize="12sp" />
     </LinearLayout>
+
     <View
-        android:layout_width="match_parent" android:layout_height="10dp" android:background="@color/gray_eeeeee" android:id="@+id/line_msg_buttom"  android:visibility="gone"/>
+        android:id="@+id/line_msg_buttom"
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:background="@color/gray_eeeeee"
+        android:visibility="gone" />
 
     <TextView
-        android:layout_width="match_parent" android:layout_marginTop="14dp"  style="@style/text_14_black"
-        android:layout_height="wrap_content" android:drawableLeft="@drawable/pic_left" android:text="  赚钱攻略 "/>
+        style="@style/text_14_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:drawableLeft="@drawable/pic_left"
+        android:text="  赚钱攻略 " />
 </LinearLayout>

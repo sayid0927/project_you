@@ -15,12 +15,13 @@
     <FrameLayout
         android:id="@+id/title"
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:background="@color/blue_21a3ef"
         android:paddingRight="10dip"
         android:visibility="gone">
 
         <ImageView
+            android:paddingTop="18dp"
             android:id="@+id/btn_back"
             android:layout_width="@dimen/title_height"
             android:layout_height="@dimen/title_height"
@@ -30,6 +31,7 @@
             android:src="@drawable/back_white" />
 
         <TextView
+            android:paddingTop="18dp"
             android:id="@+id/txt_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,6 +41,7 @@
             android:textSize="17sp" />
 
         <TextView
+            android:paddingTop="18dp"
             android:id="@+id/btn_recharge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

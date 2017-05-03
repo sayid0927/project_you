@@ -3,6 +3,7 @@
     android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
@@ -35,6 +36,7 @@
 
 
             <TextView
+
                 android:id="@+id/txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

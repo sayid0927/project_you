@@ -2,24 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:background="@drawable/loading_bg"
+              android:background="@drawable/loading_white_bg"
               android:gravity="center"
               android:orientation="vertical"
               android:paddingBottom="20dip"
-              android:paddingLeft="35dip"
-              android:paddingRight="35dip"
+              android:paddingLeft="30dip"
+              android:paddingRight="30dip"
               android:paddingTop="20dip">
 
     <ImageView
         android:id="@+id/img_progress"
         style="@style/wrap_content"
-        android:background="@drawable/loading_big"/>
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dip"
-        android:text="请稍候"
-        android:textColor="@color/white"
-        android:textSize="14sp"/>
+        android:text="加载中..."
+        android:textColor="@color/gray_333333"
+        android:textSize="13sp"/>
 </LinearLayout>

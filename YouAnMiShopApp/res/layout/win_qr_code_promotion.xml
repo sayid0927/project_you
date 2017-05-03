@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent" android:gravity="center_horizontal"
-    android:layout_height="match_parent"  android:background="@drawable/app_white_bg">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_white_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/title_height"
@@ -11,37 +17,75 @@
             android:id="@+id/btn_back"
             android:layout_width="@dimen/title_height"
             android:layout_height="@dimen/title_height"
-            android:contentDescription="@null"
             android:background="@color/transparent"
+            android:contentDescription="@null"
             android:scaleType="center"
             android:src="@drawable/back" />
 
         <TextView
+            android:id="@+id/txt_title"
             style="@style/text_18_white"
             android:layout_width="wrap_content"
-            android:id="@+id/txt_title"
-            android:text="扫码连接推广"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            />
+            android:text="扫码连接推广" />
 
     </FrameLayout>
+
     <TextView
-        android:layout_width="match_parent" android:background="#fc911f" android:gravity="center_vertical" android:textSize="10sp"
-        android:layout_height="25.5dp" android:drawableLeft="@drawable/icon_guarantee_tip"
-        android:id="@+id/txt_hint" android:textColor="@color/white" android:paddingLeft="10dp"/>
+        android:id="@+id/txt_hint"
+        android:layout_width="match_parent"
+        android:layout_height="25.5dp"
+        android:background="#fc911f"
+        android:drawableLeft="@drawable/icon_guarantee_tip"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:textColor="@color/white"
+        android:textSize="10sp" />
+
     <ImageView
         android:id="@+id/img_qr_code"
-        android:layout_width="112dp" android:layout_marginTop="88.5dp"
-        android:layout_height="112dp"  />
+        android:layout_width="112dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="88.5dp" />
+
     <TextView
-        android:layout_width="wrap_content" android:layout_marginTop="16.5dp" android:text="扫一扫下载门店APP"
-        android:layout_height="wrap_content"  android:textSize="12sp" android:textColor="@color/gray_333333"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16.5dp"
+        android:text="扫一扫下载门店APP"
+        android:textColor="@color/gray_333333"
+        android:textSize="12sp" />
+
     <TextView
-        android:layout_width="wrap_content" android:layout_marginTop="14dp" android:id="@+id/txt_myCode" android:text="我的推广码"
-        android:layout_height="wrap_content"  android:textSize="12sp" android:textColor="@color/gray_333333"/>
+        android:id="@+id/txt_myCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="我的推广码"
+        android:textColor="@color/gray_333333"
+        android:textSize="12sp" />
+
     <TextView
-        android:layout_width="wrap_content" android:id="@+id/btn_tuiguang" android:text="推广门店APP链接" android:textColor="@color/white"
-        android:layout_height="wrap_content" android:background="@drawable/jx_yj_60x64" android:textSize="12sp" android:layout_marginTop="16.5dp"
-        android:paddingLeft="11dp" android:paddingRight="11dp" android:paddingTop="4dp" android:paddingBottom="4dp"/>
+        android:id="@+id/btn_tuiguang"
+        android:layout_width="121.5dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="16.5dp"
+        android:background="@drawable/jx_yj_60x64"
+        android:gravity="center"
+        android:text="推广门店APP链接"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/btn_share_h5"
+        android:layout_width="121.5dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/jx_yj_60x64"
+        android:gravity="center"
+        android:text="分享H5网店链接"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
 </LinearLayout>

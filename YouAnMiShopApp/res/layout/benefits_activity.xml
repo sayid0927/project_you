@@ -4,11 +4,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:background="@color/orange_ff5f19"/>
+
     <include
+        android:layout_below="@+id/header"
         layout="@layout/ease_tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent"/>
 
     <com.zxly.o2o.view.ExpandView
         android:id="@+id/view_expand"
