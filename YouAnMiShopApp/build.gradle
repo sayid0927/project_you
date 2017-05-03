@@ -29,6 +29,7 @@ dependencies {
     compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.1.4")
 //    compile 'com.getui:sdk:2.+'
     compile files('libs/SecurePay-2.6.5.jar')
+    compile 'com.bugtags.library:bugtags-lib:2.2.3'
 }
 
 repositories {

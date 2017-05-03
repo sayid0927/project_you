@@ -425,7 +425,7 @@ public class MenberListFragment extends BaseFragment implements PullToRefreshBas
 
     MenberGroupModel model = new MenberGroupModel();
 
-    List<MenberInfoModel> infoModels = new ArrayList<>();
+    List<MenberInfoModel> infoModels = new ArrayList<MenberInfoModel>();
 
     /**
      * 将数据保存在map集合中
