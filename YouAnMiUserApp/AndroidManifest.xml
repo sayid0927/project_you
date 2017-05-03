@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zxly.o2o.o2o_user"
-    android:versionCode="20520"
-    android:versionName="2.5.20">
+    android:versionCode="20503"
+    android:versionName="2.5.3">
 
-    <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="19"/>
+    <!--<uses-sdk-->
+        <!--android:minSdkVersion="14"-->
+        <!--android:targetSdkVersion="21"/>-->
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -611,7 +611,7 @@
 
         <meta-data
             android:name="H5_VERSION_CODE"
-            android:value="40"/>
+            android:value="41"/>
 
         <meta-data
             android:name="H5_STYLE_ID"
@@ -623,7 +623,7 @@
 
         <meta-data
             android:name="VERSION_CODE"
-            android:value="-1"/>
+            android:value="1"/>
 
         <meta-data
             android:name="promotionCode"

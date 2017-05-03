@@ -71,19 +71,19 @@
 
 
 
-##---------------Begin: proguard configuration for Gson ---------- 
-# Gson uses generic type information stored in a class file when working with fields. Proguard 
-# removes such information by default, so configure it to keep all of it. 
--keepattributes Signature 
-# Gson specific classes 
--keep class sun.misc.Unsafe { *; } 
-#-keep class com.google.gson.stream.** { *; } 
-# Application classes that will be serialized/deserialized over Gson 
--keep class com.google.gson.examples.android.model.** { *; } 
+##---------------Begin: proguard configuration for Gson ----------
+# Gson uses generic type information stored in a class file when working with fields. Proguard
+# removes such information by default, so configure it to keep all of it.
+-keepattributes Signature
+# Gson specific classes
+-keep class sun.misc.Unsafe { *; }
+#-keep class com.google.gson.stream.** { *; }
+# Application classes that will be serialized/deserialized over Gson
+-keep class com.google.gson.examples.android.model.** { *; }
 ##---------------End: proguard configuration for Gson ----------
 
 # # -------------------------------------------
-# #  ############### volley混淆  ############### 
+# #  ############### volley混淆  ###############
 # # -------------------------------------------
 -keep class com.android.volley.** {*;}
 -keep class com.android.volley.toolbox.** {*;}
@@ -96,22 +96,22 @@
 # # ---- 下载模块 混淆  ---
 -keepattributes *Annotation*
 -keepattributes JavascriptInterface
--keep class com.shyz.downloadutil.** { *; }  
+-keep class com.shyz.downloadutil.** { *; }
 
- #xutils包下所有类不要混淆，包括类里面的方法 { *; } 注解包下的所有内容不要混淆，ViewUitls有用到                  
--keep class com.lidroid.** { *; }                    
--keep class * extends java.lang.annotation.Annotation 
+ #xutils包下所有类不要混淆，包括类里面的方法 { *; } 注解包下的所有内容不要混淆，ViewUitls有用到
+-keep class com.lidroid.** { *; }
+-keep class * extends java.lang.annotation.Annotation
 
 #imageLoader包下所有类及类里面的内容不要混淆
--keep class com.nostra13.universalimageloader.** { *; }   
+-keep class com.nostra13.universalimageloader.** { *; }
 
 #asmack
-#-keep class com.novell.sasl.client.** { *; }            
-#-keep class org.apache.** { *; } 
-#-keep class org.jivesoftware.** { *; } 
-#-keep class org.xbill.DNS.** { *; } 
-#-keep class com.way.** { *; } 
-#-keep class com.xmpp.** { *; } 
+#-keep class com.novell.sasl.client.** { *; }
+#-keep class org.apache.** { *; }
+#-keep class org.jivesoftware.** { *; }
+#-keep class org.xbill.DNS.** { *; }
+#-keep class com.way.** { *; }
+#-keep class com.xmpp.** { *; }
 
 #环信  ：
 -keep class com.easemob.** {*;}
@@ -122,7 +122,7 @@
 #另外，demo中发送表情的时候使用到反射，需要keep SmileUtils,注意前面的包名，
 #不要SmileUtils复制到自己的项目下keep的时候还是写的demo里的包名
 -keep class com.easemob.chatuidemo.utils.SmileUtils {*;}
-#2.0.9后加入语音通话功能，如需使用此功能的api，加入以下keep 
+#2.0.9后加入语音通话功能，如需使用此功能的api，加入以下keep
 -dontwarn ch.imvs.**
 -dontwarn org.slf4j.**
 -keep class org.ice4j.** {*;}
@@ -138,7 +138,7 @@
 
 #百度地图
 -keep class com.baidu.** {*;}
--keep class vi.com.** {*;}    
+-keep class vi.com.** {*;}
 -dontwarn com.baidu.**
 
 
@@ -191,3 +191,74 @@
 #个推
 -dontwarn com.igexin.**
 -keep class com.igexin.**{*;}
+
+
+# ProGuard configurations for Bugtags
+-keepattributes LineNumberTable,SourceFile
+
+-keep class com.bugtags.library.** {*;}
+-dontwarn com.bugtags.library.**
+-keep class io.bugtags.** {*;}
+-dontwarn io.bugtags.**
+-dontwarn org.apache.http.**
+-dontwarn android.net.http.AndroidHttpClient
+-keep class io.bugtags.** {*;}
+-dontwarn io.bugtags.**
+
+# End Bugtags
+
+#umeng
+# ========= 友盟 =================
+-dontshrink
+-dontoptimize
+-dontwarn com.google.android.maps.**
+-dontwarn android.webkit.WebView
+-dontwarn com.umeng.**
+-dontwarn com.tencent.weibo.sdk.**
+-dontwarn com.facebook.**
+
+
+-keep enum com.facebook.**
+-keepattributes Exceptions,InnerClasses,Signature
+-keepattributes *Annotation*
+-keepattributes SourceFile,LineNumberTable
+
+-keep public interface com.facebook.**
+-keep public interface com.tencent.**
+-keep public interface com.umeng.socialize.**
+-keep public interface com.umeng.socialize.sensor.**
+-keep public interface com.umeng.scrshot.**
+
+-keep public class com.umeng.socialize.* {*;}
+-keep public class javax.**
+-keep public class android.webkit.**
+
+-keep class com.facebook.**
+-keep class com.umeng.scrshot.**
+-keep public class com.tencent.** {*;}
+-keep class com.umeng.socialize.sensor.**
+
+-keep class com.tencent.mm.sdk.modelmsg.WXMediaMessage {*;}
+
+-keep class com.tencent.mm.sdk.modelmsg.** implements com.tencent.mm.sdk.modelmsg.WXMediaMessage$IMediaObject {*;}
+
+-keep class im.yixin.sdk.api.YXMessage {*;}
+-keep class im.yixin.sdk.api.** implements im.yixin.sdk.api.YXMessage$YXMessageData{*;}
+# 下面中括号的地方需要要填你的包名
+-keep public class [com.zxly.o2o.o2o_user].R$*{
+    public static final int *;
+}
+-keepclassmembers class * {
+   public <init> (org.json.JSONObject);
+}
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+#友盟自动更新
+-keep public class com.umeng.fb.ui.ThreadView {
+}
+-keep public class * extends com.umeng.**
+# 以下包不进行过滤
+-keep class com.umeng.** { *; }
