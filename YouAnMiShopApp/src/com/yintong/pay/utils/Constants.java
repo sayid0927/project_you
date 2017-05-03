@@ -7,7 +7,7 @@ public final class Constants {
 	public static final String SERVER_URL = "http://yintong.com.cn/secure_server/x.htm";
 	public static final String PAY_PACKAGE = "com.yintong.secure";
 	// 银通支付安全支付服务apk的名称，必须与assets目录下的apk名称一致
-	public static final String YT_PLUGIN_NAME = "SecurePay.apk";
+	public static final String YT_PLUGIN_NAME = "SecurePay-2.6.5.apk";
 
 	public static final String RET_CODE_SUCCESS = "0000";// 0000 交易成功
 	public static final String RET_CODE_PROCESS = "2008";// 2008 支付处理中

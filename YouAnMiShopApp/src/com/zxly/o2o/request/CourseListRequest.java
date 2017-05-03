@@ -45,7 +45,7 @@ public class CourseListRequest extends BaseRequest {
 
     @Override
     protected boolean isShowLoadingDialog() {
-        return true;
+        return false;
     }
 
     @Override

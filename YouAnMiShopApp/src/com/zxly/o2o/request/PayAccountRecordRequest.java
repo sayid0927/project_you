@@ -1,6 +1,8 @@
 package com.zxly.o2o.request;
 
 import com.easemob.easeui.AppException;
+import com.easemob.easeui.utils.GsonParser;
+import com.google.gson.reflect.TypeToken;
 import com.zxly.o2o.model.TradingRecord;
 import com.zxly.o2o.util.TimeUtil;
 
@@ -18,6 +20,7 @@ import java.util.Map;
  * @description 用户资金记录网络请求
  */
 public class PayAccountRecordRequest extends BaseRequest {
+    public boolean hasNextPage;
     private ArrayList<TradingRecord> mTradingRecordList = new ArrayList<TradingRecord>();
     private Map<Object, List<Object>> tradingRecordList = new LinkedHashMap<Object, List<Object>>();
 
@@ -34,17 +37,22 @@ public class PayAccountRecordRequest extends BaseRequest {
 
     @Override
     protected void fire(String data) throws AppException {
-//        try {
-//            TypeToken<List<TradingRecord>> type = new TypeToken<List<TradingRecord>>() {
-//            };
-//            List<TradingRecord> tradingRecord = GsonParser.getInstance()
-//                    .fromJson(data, type);
-//            if (!listIsEmpty(tradingRecord)) {
-//                mTradingRecordList.addAll(tradingRecord);
-//            }
-//        } catch (Exception e) {
-//            throw new AppException("数据解析异常");
-//        }
+        try {
+            TypeToken<List<TradingRecord>> type = new TypeToken<List<TradingRecord>>() {
+            };
+            List<TradingRecord> tradingRecord = GsonParser.getInstance()
+                    .fromJson(data, type);
+            if (!listIsEmpty(tradingRecord)) {
+                mTradingRecordList.addAll(tradingRecord);
+            }
+            if(mTradingRecordList.size()<10){
+                hasNextPage = false;
+            } else {
+                hasNextPage = true;
+            }
+        } catch (Exception e) {
+            throw new AppException("数据解析异常");
+        }
         try {
             JSONArray jsonArray = new JSONArray(data);
             int length = jsonArray.length();
@@ -78,6 +86,7 @@ public class PayAccountRecordRequest extends BaseRequest {
                     tradingRecordList.get(keyTime).add(tradingRecord);
                 }
             }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

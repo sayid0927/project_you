@@ -66,7 +66,6 @@ public class MyBenefitsAct extends BasicAct {
         myValidBenefitsFragment = new MyBenefitsFragment();
         myInvalidBenefitsFragment = new MyBenefitsFragment();
 
-
         long discountId = getIntent().getLongExtra("discountId", 0);
         curTab=getIntent().getIntExtra("curTab",0);
         myValidBenefitsFragment.setDiscountId(discountId);
@@ -165,7 +164,7 @@ public class MyBenefitsAct extends BasicAct {
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) TypedValue
                 .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 45, EaseUI.displayMetrics),
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48,
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 88,
                         EaseUI.displayMetrics));
         addContentView(backBtn, layoutParams);
     }

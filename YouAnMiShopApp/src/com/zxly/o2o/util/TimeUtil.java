@@ -88,6 +88,18 @@ public class TimeUtil {
 		return formatter.format(date);
 	}
 
+	/**
+	 * 格式化订单时间
+	 */
+	@SuppressLint("SimpleDateFormat")
+	public static String formatTimeMMDD(Long time){
+		if(time==null)
+			return "-";
+		SimpleDateFormat formatter = new SimpleDateFormat("MM-dd");
+		Date date = new Date(time);
+		return formatter.format(date);
+	}
+
 	@SuppressLint("SimpleDateFormat")
 	public static String formatOrderTimeHHMM(Long time){
 		if(time==null)

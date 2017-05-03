@@ -2,7 +2,6 @@ package com.zxly.o2o.fragment;
 
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -10,7 +9,6 @@ import android.widget.RelativeLayout;
 import com.easemob.easeui.AppException;
 import com.easemob.easeui.widget.viewpagerindicator.PagerSlidingTabStrip;
 import com.zxly.o2o.application.AppController;
-import com.zxly.o2o.model.ArticleType;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.view.LoadingView;

@@ -428,7 +428,7 @@ public class BitmapUtil {
 
 		Bitmap scaledBitmap = null;
 
-		android.util.Log.d("shareImg"," no zip  mwith:"+mWidth +" mHeight :"+mHeight   +"   with="+width +"    height="+height);
+		Log.d("shareImg"," no zip  mwith:"+mWidth +" mHeight :"+mHeight   +"   with="+width +"    height="+height);
 		try {
 			while (iconSize>minSize) {
 				if(width>=height &&width>iconSize){
@@ -451,7 +451,7 @@ public class BitmapUtil {
 				if(bmpToByteArray(scaledBitmap, false).length>(maxLen-2000)){
 					iconSize-=cutRate;
 				}else{
-					android.util.Log.d("shareImg", " 尺寸压缩xxx最后：  width="+mWidth +"  height="+ mHeight + "  size:"+ (bmpToByteArray(scaledBitmap, false).length / 1000) + "kb");
+					Log.d("shareImg", " 尺寸压缩xxx最后：  width="+mWidth +"  height="+ mHeight + "  size:"+ (bmpToByteArray(scaledBitmap, false).length / 1000) + "kb");
 					break;
 				}
 
@@ -531,7 +531,7 @@ public class BitmapUtil {
 	/**
 	 * 得到指定路径图片的options （不用分配什么内存就能获取bmp尺寸）
 	 * @param srcPath
-	 * @return Options {@link android.graphics.BitmapFactory.Options}
+	 * @return Options {@link BitmapFactory.Options}
 	 */
 	public final static BitmapFactory.Options getBitmapOptions(String srcPath) {
 		BitmapFactory.Options options = new BitmapFactory.Options();

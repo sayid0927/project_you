@@ -15,8 +15,6 @@
  *******************************************************************************/
 package com.zxly.o2o.pullrefresh;
 
-import com.zxly.o2o.shop.R;
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -32,6 +30,8 @@ import android.widget.Adapter;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import com.zxly.o2o.shop.R;
 
 
 public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView> {
@@ -52,28 +52,28 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 
 	public PullToRefreshListView(Context context) {
 		super(context);
-		if (Integer.parseInt(Build.VERSION.SDK) >= 9) {
+		if (Integer.parseInt(VERSION.SDK) >= 9) {
             this.setOverScrollMode(View.OVER_SCROLL_NEVER);
         }
 	}
 
 	public PullToRefreshListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		if (Integer.parseInt(Build.VERSION.SDK) >= 9) {
+		if (Integer.parseInt(VERSION.SDK) >= 9) {
             this.setOverScrollMode(View.OVER_SCROLL_NEVER);
         }
 	}
 
 	public PullToRefreshListView(Context context, Mode mode) {
 		super(context, mode);
-		if (Integer.parseInt(Build.VERSION.SDK) >= 9) {
+		if (Integer.parseInt(VERSION.SDK) >= 9) {
             this.setOverScrollMode(View.OVER_SCROLL_NEVER);
         }
 	}
 
 	public PullToRefreshListView(Context context, Mode mode, AnimationStyle style) {
 		super(context, mode, style);
-		if (Integer.parseInt(Build.VERSION.SDK) >= 9) {
+		if (Integer.parseInt(VERSION.SDK) >= 9) {
             this.setOverScrollMode(View.OVER_SCROLL_NEVER);
         }
 	}
@@ -94,6 +94,10 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 	
 	public void addF(View v){
 		mRefreshableView.addFooterView(v);
+	}
+
+	public void callItemClick(View view,int position,long id){
+		mRefreshableView.performItemClick(view,position,id);
 	}
 
 	public void removedH(View v) {

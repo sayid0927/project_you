@@ -15,12 +15,16 @@ import com.android.volley.toolbox.NetworkImageView;
 import com.easemob.easeui.widget.SwipeLayout;
 import com.zxly.o2o.adapter.ObjectAdapter;
 import com.zxly.o2o.application.AppController;
+import com.zxly.o2o.dialog.PaySetDialog;
 import com.zxly.o2o.model.UserBankCard;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.PayMyAccountRequest;
 import com.zxly.o2o.shop.R;
+import com.zxly.o2o.util.CallBack;
 import com.zxly.o2o.util.Constants;
+import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.StringUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 import com.zxly.o2o.view.SlideDelete;
@@ -50,6 +54,11 @@ public class PayMyAccountAct extends BasicAct implements View.OnClickListener {
     private Set<SwipeLayout> mShownLayouts = new HashSet<SwipeLayout>();
     private List<SlideDelete> slideDeleteArrayList = new ArrayList<SlideDelete>();
     private Drawable drawable;
+//    private LoadingView footerView;
+    private View footerView;
+    private boolean listIsEmpty;
+    private PayMyAccountRequest payMyAccountRequest;
+    private PaySetDialog setDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,18 +89,22 @@ public class PayMyAccountAct extends BasicAct implements View.OnClickListener {
                 (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         mHeaderView = layoutInflater.inflate(R.layout.win_bankcard_list_header, null);
         txtBalance = (TextView) mHeaderView.findViewById(R.id.txt_account_balance);
-
+        footerView = layoutInflater.inflate(R.layout.footer_my_account, null);
+        footerView.findViewById(R.id.btn_add).setOnClickListener(this);
         btnTakeout = mHeaderView.findViewById(R.id.btn_takeout);
         btnTakeout.setOnClickListener(this);
         txtTakeout = (TextView) mHeaderView.findViewById(R.id.txt_takeout);
         mHeaderView.findViewById(R.id.btn_payment_detail).setOnClickListener(this);
         adapter = new PayBankcardAdapter(context);
         listView.addHeaderView(mHeaderView);
+        listView.addFooterView(footerView);
         listView.setAdapter(adapter);
+
+        UmengUtil.onEvent(PayMyAccountAct.this,new UmengUtil().ACCOUNT_ENTER,null);
     }
 
     private void loadData() {
-        final PayMyAccountRequest payMyAccountRequest = new PayMyAccountRequest();
+        payMyAccountRequest = new PayMyAccountRequest();
         payMyAccountRequest.setOnResponseStateListener(new BaseRequest.ResponseStateListener() {
 
             @Override
@@ -128,8 +141,15 @@ public class PayMyAccountAct extends BasicAct implements View.OnClickListener {
                     if(!StringUtil.isNull(userName) && !StringUtil.isNull(idCard)){
                         ViewUtils.setText(mHeaderView.findViewById(R.id.txt_user_info), "【" + StringUtil.getHideName(userName) + " " + StringUtil.getHiddenString(idCard) + "】");
                     }
+                    if (footerView != null) {
+                        listView.removeFooterView(footerView);
+                    }
                 } else {
+                    listIsEmpty = true;
                     ViewUtils.setGone(mHeaderView.findViewById(R.id.txt_my_bankcards));
+//                    loadState("您还没有添加银行卡呢!",false,R.drawable.img_default_tired);
+//                    loadingview.onDataEmpty("您还没有添加银行卡呢!",true,R.drawable.img_default_tired);
+//                    loadingview.setBtnText("去添加");
                 }
                 if (payMyAccountRequest.getIsUserPaw() != -1) {
                     Constants.isUserPaw = payMyAccountRequest.getIsUserPaw();
@@ -158,15 +178,53 @@ public class PayMyAccountAct extends BasicAct implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.btn_back:
                 finish();
+
+                UmengUtil.onEvent(PayMyAccountAct.this,new UmengUtil().ACOCUNT_BACK_CLICK,null);
                 break;
             case R.id.btn_takeout:
                 PayTakeoutAct.start(PayMyAccountAct.this);
+                UmengUtil.onEvent(PayMyAccountAct.this,new UmengUtil().ACOCUNT_WITHDRAW_CLICK,null);
+
                 break;
             case R.id.btn_payment_detail:
                 PayAccountRecordAct.start(0, PayMyAccountAct.this);
+                UmengUtil.onEvent(PayMyAccountAct.this,new UmengUtil().ACOCUNT_BILL_CLICK,null);
+
+                break;
+            case R.id.btn_add:
+                if (Constants.isUserPaw != 2) {
+                    setUserPaw(true);
+                } else {
+                    PayIdentityCheckAct.start(PayMyAccountAct.this, Constants.PAY_TYPE_LIANLIAN, 0f, Constants.TYPE_JUST_ADD, null, callBack);
+                }
+                UmengUtil.onEvent(PayMyAccountAct.this,new UmengUtil().ACOCUNT_ADDCARD_CLICK,null);
                 break;
         }
     }
+
+    /**
+     * @param isNewAdd 是否新增银行卡
+     * @description 设置交易密码
+     */
+    private void setUserPaw(final boolean isNewAdd) {
+        setDialog = new PaySetDialog(PayMyAccountAct.this, new ParameCallBack() {
+            @Override
+            public void onCall(Object object) {
+                PayIdentityCheckAct.start(PayMyAccountAct.this, Constants.PAY_TYPE_LIANLIAN, 0f, Constants.TYPE_JUST_ADD, null, callBack);
+            }
+        });
+        setDialog.show();
+    }
+
+    /**
+     * @description 绑定成功后回调关闭页面
+     */
+    private CallBack callBack = new CallBack() {
+        @Override
+        public void onCall() {
+
+        }
+    };
 
     class PayBankcardAdapter extends ObjectAdapter {
 
@@ -198,7 +256,7 @@ public class PayMyAccountAct extends BasicAct implements View.OnClickListener {
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-
+            holder.viewSlide.setDragEnable(true);
             holder.viewSlide.setOnSlideDeleteListener(new SlideDelete.OnSlideDeleteListener() {
                 @Override
                 public void onOpen(SlideDelete slideDelete) {

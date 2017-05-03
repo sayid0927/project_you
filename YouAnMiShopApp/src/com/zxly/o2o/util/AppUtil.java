@@ -175,7 +175,7 @@ public class AppUtil {
 			ApplicationInfo appinfo = pm.getApplicationInfo(ctx.getPackageName(), 0);
 			debuggable = (0 != (appinfo.flags & ApplicationInfo.FLAG_DEBUGGABLE));
 		}
-		catch(PackageManager.NameNotFoundException e) {
+		catch(NameNotFoundException e) {
 		}
 
 		return debuggable;

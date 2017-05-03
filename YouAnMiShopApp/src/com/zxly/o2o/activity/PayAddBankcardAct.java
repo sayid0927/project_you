@@ -98,6 +98,8 @@ public class PayAddBankcardAct extends BasicAct implements View.OnClickListener 
             ViewUtils.setText(findViewById(R.id.txt_title), "新卡支付");
         } else if (Constants.TYPE_TAKEOUT == type) {
             ViewUtils.setText(findViewById(R.id.txt_title), "新卡提现");
+        } else if (Constants.TYPE_JUST_ADD == type) {
+            ViewUtils.setText(findViewById(R.id.txt_title), "新卡绑定");
         }
         findViewById(R.id.btn_add).setOnClickListener(this);
         editName = (EditText) findViewById(R.id.edit_name);
@@ -149,18 +151,14 @@ public class PayAddBankcardAct extends BasicAct implements View.OnClickListener 
                 int bankType = payQueryBankInfoRequest.getBankType();
                 String bankNo = payQueryBankInfoRequest.getBankNo();
                 int withdrawType = payQueryBankInfoRequest.getWithdrawType();
-                if (Constants.TYPE_TAKEOUT == type) {//提现
-                    if (Constants.TYPE_BANKCARD_CREDIT == bankType) {//信用卡
-                        ViewUtils.showToast("提现不支持信用卡");
-                    } else {
-                        if (1 == withdrawType) {
-                            showPayVerifyDialog();
-                        } else {
-                            ViewUtils.setVisible(findViewById(R.id.txt_warning));
-                        }
-                    }
+                if (Constants.TYPE_BANKCARD_CREDIT == bankType) {//信用卡
+                    ViewUtils.showToast("提现不支持信用卡");
                 } else {
-                    saveData(userBankCard);
+                    if (1 == withdrawType) {
+                        showPayVerifyDialog();
+                    } else {
+                        ViewUtils.setVisible(findViewById(R.id.txt_warning));
+                    }
                 }
             }
 
@@ -182,6 +180,13 @@ public class PayAddBankcardAct extends BasicAct implements View.OnClickListener 
         }
         dialog.show();
         dialog.setContentView(R.layout.dialog_pay_verify);
+        String info = null;
+        if (type == Constants.TYPE_JUST_ADD) {
+            info = "新卡绑定需要支付0.01元来验证银行卡，是否支付？";
+        } else if (type == Constants.TYPE_TAKEOUT) {
+            info = "新卡提现需要支付0.01元来验证银行卡，是否支付？";
+        }
+        ((TextView) dialog.findViewById(R.id.txt_info)).setText(info);
         dialog.findViewById(R.id.btn_pay_done)
                 .setOnClickListener(new View.OnClickListener() {
 
@@ -245,7 +250,7 @@ public class PayAddBankcardAct extends BasicAct implements View.OnClickListener 
                 String notifyUrl = request.getNotifyUrl();
                 String money = request.getMoney();
                 //连连支付
-                PayUtil.launchYinTongPay(mHandler, PayAddBankcardAct.this, userBankCard, orderMoney, orderNo, money, payNo, userPaw, createTime, notifyUrl, "");
+                PayUtil.launchYinTongPay(mHandler, PayAddBankcardAct.this, type, userBankCard, orderMoney, orderNo, money, payNo, userPaw, createTime, notifyUrl, "");
             }
 
             @Override
@@ -310,7 +315,13 @@ public class PayAddBankcardAct extends BasicAct implements View.OnClickListener 
                     userBankCard.setUserName(userName);
                     userBankCard.setIdCard(userIdNumber);
                     userBankCard.setBankNumber(userCardNo);
-                    queryBankcardInfo(userBankCard);
+                    if (Constants.TYPE_TAKEOUT == type) {//提现
+                        queryBankcardInfo(userBankCard);
+                    } else if(Constants.TYPE_JUST_ADD == type){
+                        showPayVerifyDialog();
+                    } else {
+                        saveData(userBankCard);
+                    }
                 } else {
                     ViewUtils.showToast("信息填写不正确");
                 }

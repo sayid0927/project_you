@@ -6,25 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.GridView;
 import android.widget.TextView;
 
-
 import com.easemob.easeui.widget.viewpagerindicator.ViewPageFragmentAdapter;
-import com.zxly.o2o.adapter.MonthAdapter;
 import com.zxly.o2o.fragment.SalesmanRankingListFragment;
 import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.DataCallBack;
-import com.zxly.o2o.util.StringUtil;
 import com.zxly.o2o.util.ViewUtils;
-import com.zxly.o2o.view.ExpandView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by wuchenhui on 2015/5/25.

@@ -15,6 +15,7 @@ import com.zxly.o2o.application.Config;
 import com.zxly.o2o.fragment.AccountRecordFragment;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.ParameCallBack;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 import java.util.ArrayList;
@@ -110,6 +111,8 @@ public class PayAccountRecordAct extends BasicAct implements View.OnClickListene
             public void onPageScrollStateChanged(int i) {
             }
         });
+
+        UmengUtil.onEvent(PayAccountRecordAct.this,new UmengUtil().BILL_ENTER,null);
     }
 
     /**
@@ -140,6 +143,7 @@ public class PayAccountRecordAct extends BasicAct implements View.OnClickListene
         switch (view.getId()) {
             case R.id.btn_back:
                 finish();
+                UmengUtil.onEvent(PayAccountRecordAct.this,new UmengUtil().BILL_BACK_CLICK,null);
                 break;
         }
     }

@@ -14,6 +14,7 @@ import com.zxly.o2o.model.SMSMessage;
 import com.zxly.o2o.request.GetuiBindRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.Constants;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 public class LoginAct extends BasicAct {
@@ -40,6 +41,10 @@ public class LoginAct extends BasicAct {
             case LOGIN_FINISHED:
                 Intent intent = new Intent(LoginAct.this, MainActivity.class);
                 startActivity(intent);
+                // 事件埋点
+            //    MobclickAgent.onProfileSignIn( Config.getuiClientId);
+                UmengUtil.onEvent( LoginAct.this, "login_suc",null);
+
                 new GetuiBindRequest(Config.getuiClientId).start();
                 finish();
                 break;
@@ -75,10 +80,13 @@ public class LoginAct extends BasicAct {
     public static void start(Activity curAct) {
         Intent intent = new Intent(curAct, LoginAct.class);
         ViewUtils.startActivity(intent, curAct);
+
     }
 
     @Override
     public void finish() {
+
+
         super.finish();
     }
 
@@ -89,5 +97,4 @@ public class LoginAct extends BasicAct {
         mForgetPasswordFragment = new ForgetPasswordFragment();
         replaceFragment(R.id.login_fragment_main, mLoginFragment);
     }
-
 }

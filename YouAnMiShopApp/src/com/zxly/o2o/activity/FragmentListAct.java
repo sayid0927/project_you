@@ -8,8 +8,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.easemob.chatuidemo.utils.EaseCallBack;
-import com.easemob.easeui.EaseConstant;
 import com.easemob.easeui.ui.EaseHXMainFragment;
 import com.zxly.o2o.application.AppController;
 import com.zxly.o2o.fragment.CustomArticleFragment;
@@ -18,10 +16,9 @@ import com.zxly.o2o.fragment.GuaranteePayFragment;
 import com.zxly.o2o.fragment.H5CustomArticleDetailFragment;
 import com.zxly.o2o.fragment.ScanResultFragment;
 import com.zxly.o2o.fragment.TaskTargetListFragment;
-import com.zxly.o2o.request.BaseRequest;
-import com.zxly.o2o.request.IMGetContactListRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.ParameCallBack;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 /**
@@ -60,6 +57,7 @@ public class FragmentListAct extends BasicAct {
             @Override
             public void onClick(View v) {
                 finish();
+                UmengUtil.onEvent(FragmentListAct.this,new UmengUtil().INSURANCE_BACK_CLICK,null);
             }
         });
 
@@ -143,7 +141,7 @@ public class FragmentListAct extends BasicAct {
                 break;
         }
 
-
+        UmengUtil.onEvent(FragmentListAct.this,new UmengUtil().INSURANCE_ENTER,null);
      //  PromotionAcitcityFragment fragment=PromotionAcitcityFragment.newInstance();
      //   Fragment fragment=PromotionFragment.newInstance();
     // Fragment fragment= PromotionArticleFragment.newInstance();

@@ -8,14 +8,10 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -26,33 +22,22 @@ import android.widget.RelativeLayout;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 
-import com.easemob.easeui.widget.EaseSidebar;
-import com.easemob.easeui.widget.easepullrefresh.EasePullToRefreshBase;
-import com.easemob.easeui.widget.easepullrefresh.EasePullToRefreshListView;
-import com.easemob.util.HanziToPinyin;
-import com.yintong.secure.activity.BaseActivity;
 import com.zxly.o2o.adapter.ObjectAdapter;
-import com.zxly.o2o.application.AppController;
-import com.zxly.o2o.fragment.MenberListFragment;
 import com.zxly.o2o.model.AddPeopleInfo;
-import com.zxly.o2o.model.FansInfo;
 import com.zxly.o2o.model.MenberGroupModel;
 import com.zxly.o2o.model.MenberInfoModel;
-import com.zxly.o2o.pullrefresh.PullToRefreshBase;
-import com.zxly.o2o.pullrefresh.PullToRefreshListView;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.CreateNewGroupRequest;
 import com.zxly.o2o.request.GetAllMenbersRequest;
 import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.CallBack;
 import com.zxly.o2o.util.NoDoubleClickListener;
 import com.zxly.o2o.util.ParameCallBack;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.CircleImageView;
 import com.zxly.o2o.view.LoadingView;
 import com.zxly.o2o.view.SideBar;
 
-import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -151,7 +136,7 @@ public class AddPeopleToGroupAct extends BasicAct {
                         //输入的为数字
                         List<MenberInfoModel> fansInfos = filterNumberData(conten);
                         if(fansInfos.size()==0){
-                            loadingview.onDataEmpty("无结果",R.drawable.kb_icon_d);
+                            loadingview.onDataEmpty("无结果",R.drawable.img_default_tired);
                             head.setVisibility(View.INVISIBLE);
                             floating_header.setVisibility(View.INVISIBLE);
                         }else if(fansInfos.size()>0){
@@ -176,7 +161,7 @@ public class AddPeopleToGroupAct extends BasicAct {
                         //输入的为其他
                         List<MenberInfoModel> fansInfos = filterNameData(conten);
                         if(fansInfos.size()==0){
-                            loadingview.onDataEmpty("无结果",R.drawable.kb_icon_d);
+                            loadingview.onDataEmpty("无结果",R.drawable.img_default_tired);
                             head.setVisibility(View.INVISIBLE);
                             floating_header.setVisibility(View.INVISIBLE);
                         }else if(fansInfos.size()>0){
@@ -352,11 +337,14 @@ public class AddPeopleToGroupAct extends BasicAct {
                     _callBack.onCall(menberGroupModel);
                 }
                 finish();
+
+                UmengUtil.onEvent(AddPeopleToGroupAct.this,new UmengUtil().HOME_NEWGROUP_SAVE_SUC,null);
             }
 
             @Override
             public void onFail(int code) {
                     ViewUtils.showToast("新建失败，请重试");
+                UmengUtil.onEvent(AddPeopleToGroupAct.this,new UmengUtil().HOME_NEWGROUP_SAVE_FAIL,null);
             }
         });
 
@@ -500,6 +488,8 @@ public class AddPeopleToGroupAct extends BasicAct {
                     break;
                 case R.id.btn_title_right:
                     savaGroup();
+
+
                     break;
                 case R.id.layout_addall:
 

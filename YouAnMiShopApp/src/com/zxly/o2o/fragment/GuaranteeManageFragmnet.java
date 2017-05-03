@@ -4,10 +4,8 @@ import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
-import android.view.View;
 
 import com.easemob.easeui.widget.viewpagerindicator.ViewPageFragmentAdapter;
-import com.zxly.o2o.activity.FragmentListAct;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.view.MPagerSlidingTab;
 

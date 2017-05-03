@@ -7,6 +7,7 @@ import android.view.View;
 import com.easemob.easeui.ui.EaseBaseViewPageAct;
 import com.zxly.o2o.fragment.YieldDetailFragment;
 import com.zxly.o2o.shop.R;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 /**
@@ -28,6 +29,7 @@ public class YieldDetailAct extends EaseBaseViewPageAct {
             @Override
             public void onClick(View v) {
                 finish();
+                UmengUtil.onEvent(YieldDetailAct.this,new UmengUtil().INCOME_BACK_CLICK,null);
             }
         });
     }

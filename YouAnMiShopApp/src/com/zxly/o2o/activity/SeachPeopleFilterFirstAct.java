@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -17,22 +16,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.toolbox.NetworkImageView;
 import com.zxly.o2o.adapter.FilterDataAdapter;
-import com.zxly.o2o.adapter.ObjectAdapter;
-import com.zxly.o2o.dialog.AddGroupDialog;
 import com.zxly.o2o.model.FilterPeopleModel;
 import com.zxly.o2o.pullrefresh.PullToRefreshBase;
 import com.zxly.o2o.pullrefresh.PullToRefreshListView;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.SearchFilterUserRequest;
 import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.CallBack;
-import com.zxly.o2o.util.ParameCallBack;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
-import com.zxly.o2o.view.CircleImageView;
 import com.zxly.o2o.view.LoadingView;
 
 import java.util.ArrayList;
@@ -69,6 +62,7 @@ public class SeachPeopleFilterFirstAct extends BasicAct implements PullToRefresh
         showTagLayout =getIntent().getBooleanExtra("showTagLayout",false);
         inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         initView();
+        UmengUtil.onEvent(SeachPeopleFilterFirstAct.this,new UmengUtil().SEARCH_ENTER,null);
     }
 
     private void initView() {
@@ -93,6 +87,8 @@ public class SeachPeopleFilterFirstAct extends BasicAct implements PullToRefresh
         //搜索
         btn_search = (TextView) findViewById(R.id.btn_search);
         btn_search.setOnClickListener(this);
+//        edit_search.clearFocus();
+//        edit_search.setSelected(false);
         listView.setOnRefreshListener(this);
         myAdapter = new FilterDataAdapter(this);
         listView.setAdapter(myAdapter);
@@ -186,6 +182,7 @@ public class SeachPeopleFilterFirstAct extends BasicAct implements PullToRefresh
         switch (v.getId()){
             case R.id.btn_back:
                 finish();
+                UmengUtil.onEvent(SeachPeopleFilterFirstAct.this,new UmengUtil().SEARCH_BACK_CLICK,null);
                 break;
             case R.id.tag_fans_search:
                 SearchPeopleFilterSecondAct.start(SeachPeopleFilterFirstAct.this,1);
@@ -200,6 +197,7 @@ public class SeachPeopleFilterFirstAct extends BasicAct implements PullToRefresh
                     return;
                 }
                     showFilterData(filterKey,1);
+                UmengUtil.onEvent(SeachPeopleFilterFirstAct.this,new UmengUtil().SEARCH_BT_CLICK,null);
                 break;
             default:
                 break;
@@ -230,7 +228,7 @@ public class SeachPeopleFilterFirstAct extends BasicAct implements PullToRefresh
 
                     if (page == 1) {
                         ViewUtils.setGone(listView);
-                        loadingview.onDataEmpty("无结果",R.drawable.kb_icon_d);
+                        loadingview.onDataEmpty("没有搜到相关内容",R.drawable.img_default_sad);
                     } else {
                         isLastData = true;
 
@@ -253,7 +251,16 @@ public class SeachPeopleFilterFirstAct extends BasicAct implements PullToRefresh
             public void onFail(int code) {
                 ViewUtils.setGone(tag_layout);
                 listView.onRefreshComplete();
-                loadingview.onDataEmpty("加载失败");
+//                loadingview.onDataEmpty("加载失败");
+                loadingview.onLoadingFail("您的手机网络不太顺畅哦!",R.drawable.img_default_shy);
+            }
+        });
+
+        loadingview.setOnAgainListener(new LoadingView.OnAgainListener() {
+            @Override
+            public void onLoading() {
+                loadingview.startLoading();
+                searchFilterUserRequest.start();
             }
         });
     }

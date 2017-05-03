@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.net.http.SslError;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
@@ -18,6 +22,7 @@ import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.service.RemoteInvokeService;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.ShareListener;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 
@@ -109,6 +114,7 @@ public class H5DetailAct extends BasicAct implements View.OnClickListener {
 		intent.putExtra("shouldOverrideUrlLoading",shouldOverrideUrlLoading);
 		H5DetailAct.shareInfo=shareInfo;
 		ViewUtils.startActivity(intent, curAct);
+		UmengUtil.onEvent(curAct,new UmengUtil().FIND_ARTICLE_ENTER, null);
 	}
 
 	private void initViews() {
@@ -138,12 +144,19 @@ public class H5DetailAct extends BasicAct implements View.OnClickListener {
 		webView.clearHistory(); // 清除历史记录
 		webView.getSettings().setAppCacheEnabled(true);//是否使用缓存
 		webView.getSettings().setDomStorageEnabled(true);//DOM Storage
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+		}
 
 		webView.setHorizontalScrollBarEnabled(false);//水平不显示
 		webView.setVerticalScrollBarEnabled(false); //垂直不显示
 
 		webView.setWebViewClient(new WebViewClient() {
 
+			@Override
+			public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+				handler.proceed();
+			}
 
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -211,7 +224,7 @@ public class H5DetailAct extends BasicAct implements View.OnClickListener {
 								switch (pageType){
 
 									case TYPE_H5_GAME:
-										shareUrl="/makeFans/addShareAmount";
+										shareUrl="/localArticle/addShare";
 										if(shareSuccessRequest==null)
 											shareSuccessRequest=new ShareSuccessRequest();
 										shareSuccessRequest.addParams("type",shareInfo.getType());
@@ -234,6 +247,9 @@ public class H5DetailAct extends BasicAct implements View.OnClickListener {
 							}
 						}
 				);
+
+
+				UmengUtil.onEvent(H5DetailAct.this, new UmengUtil().FIND_ARTICLE_DETAILSHARE_CLICK,null);
 				break;
 		}
 

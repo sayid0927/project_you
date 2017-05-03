@@ -31,6 +31,7 @@ import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.PayResult;
 import com.zxly.o2o.util.PayUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 
@@ -270,6 +271,9 @@ public class PayAct extends BasicAct implements View.OnClickListener {
                     payType = Constants.PAY_TYPE_LIANLIAN;
                     getPayNo(2);//已设置交易密码再新增时需要验证
                 }
+
+                UmengUtil.onEvent(PayAct.this,new UmengUtil().WITHDRAW_ADDCARD_CLICK,null);
+
                 break;
             case R.id.btn_alipay:
                 if (!payType.equals(Constants.PAY_TYPE_ALI)) {
@@ -396,7 +400,6 @@ public class PayAct extends BasicAct implements View.OnClickListener {
                         setPayTypeStatus(false, false, false, false);
                         payType = Constants.PAY_TYPE_LIANLIAN;
                     }
-
                 }
             }
 

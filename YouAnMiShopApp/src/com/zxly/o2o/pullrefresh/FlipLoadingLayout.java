@@ -15,10 +15,6 @@
  *******************************************************************************/
 package com.zxly.o2o.pullrefresh;
 
-import com.zxly.o2o.pullrefresh.PullToRefreshBase.Mode;
-import com.zxly.o2o.pullrefresh.PullToRefreshBase.Orientation;
-import com.zxly.o2o.shop.R;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -29,6 +25,10 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView.ScaleType;
+
+import com.zxly.o2o.pullrefresh.PullToRefreshBase.Mode;
+import com.zxly.o2o.pullrefresh.PullToRefreshBase.Orientation;
+import com.zxly.o2o.shop.R;
 
 
 @SuppressLint("ViewConstructor")
@@ -76,7 +76,8 @@ public class FlipLoadingLayout extends LoadingLayout {
 			mHeaderImage.setScaleType(ScaleType.MATRIX);
 			Matrix matrix = new Matrix();
 			matrix.postTranslate((lp.width - dWidth) / 2f, (lp.height - dHeight) / 2f);
-			matrix.postRotate(getDrawableRotationAngle(), lp.width / 2f, lp.height / 2f);
+//			matrix.postRotate(getDrawableRotationAngle(), lp.width / 2f, lp.height / 2f);
+			matrix.postRotate(0, lp.width / 2f, lp.height / 2f);
 			mHeaderImage.setImageMatrix(matrix);
 		}
 	}
@@ -98,12 +99,13 @@ public class FlipLoadingLayout extends LoadingLayout {
 	protected void refreshingImpl() {
 		mHeaderImage.clearAnimation();
 		mHeaderImage.setVisibility(View.INVISIBLE);
-		mHeaderProgress.setVisibility(View.VISIBLE);
+//		mHeaderProgress.setVisibility(View.VISIBLE);
 	}
 
 	@Override
 	protected void releaseToRefreshImpl() {
-		mHeaderImage.startAnimation(mRotateAnimation);
+//		mHeaderImage.startAnimation(mRotateAnimation);
+		mHeaderImage.setVisibility(View.VISIBLE);
 	}
 
 	@Override
@@ -115,7 +117,8 @@ public class FlipLoadingLayout extends LoadingLayout {
 
 	@Override
 	protected int getDefaultDrawableResId() {
-		return R.drawable.default_ptr_flip;
+//		return R.drawable.default_ptr_flip;
+		return R.drawable.loading_pull;
 	}
 
 	private float getDrawableRotationAngle() {

@@ -57,6 +57,7 @@ public class CustomArticleFragment extends BaseFragment implements ResponseState
     ShopArticleRequest request;
     private int type;
     private int pageIndex = 1;
+    private boolean refrensh;
 
     /**
      * @param type 1：自定义文章  2:行内文章
@@ -90,9 +91,12 @@ public class CustomArticleFragment extends BaseFragment implements ResponseState
 
                 if (refreshView.getCurrentMode() == Mode.PULL_FROM_START) {
                     // 加载下啦数据
+                    refrensh =true;
+                    pageIndex=1;
                     loadData(1);
                 }
                 if (refreshView.getCurrentMode() == Mode.PULL_FROM_END) {
+                    refrensh =false;
                     // 加载上拉数据
                     loadData(pageIndex);
                 }
@@ -138,7 +142,7 @@ public class CustomArticleFragment extends BaseFragment implements ResponseState
     @Override
     public void onOK() {
         if (!DataUtil.listIsNull(request.getArticles())) {
-            if (pageIndex == 1)
+            if (pageIndex == 1||refrensh)
                 adapter.clear();
 
             adapter.addItem(request.getArticles(), true);

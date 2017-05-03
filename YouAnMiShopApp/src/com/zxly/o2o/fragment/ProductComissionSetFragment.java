@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.android.volley.toolbox.NetworkImageView;
 import com.zxly.o2o.adapter.ObjectAdapter;
 import com.zxly.o2o.application.AppController;
@@ -24,7 +25,6 @@ import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.ComInitRequest;
 import com.zxly.o2o.request.CommissionRequest;
 import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.AppLog;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 import com.zxly.o2o.view.PullView;
@@ -32,8 +32,6 @@ import com.zxly.o2o.view.SpinnerView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 @SuppressLint("ValidFragment")
 public class ProductComissionSetFragment extends BaseFragment implements PullToRefreshBase.OnRefreshListener, PullView.OnSelChangeListener {

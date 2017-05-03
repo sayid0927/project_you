@@ -1,7 +1,4 @@
 package com.zxly.o2o.fragment;
-import java.util.ArrayList;
-import java.util.List;
-
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -11,8 +8,10 @@ import com.easemob.easeui.controller.EaseUI;
 import com.easemob.easeui.widget.viewpagerindicator.PagerSlidingTabStrip;
 import com.easemob.easeui.widget.viewpagerindicator.ViewPageFragmentAdapter;
 import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.FixedViewPager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class BaseViewPageFragment extends BaseFragment {
 

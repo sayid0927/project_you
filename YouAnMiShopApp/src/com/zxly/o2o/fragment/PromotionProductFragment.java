@@ -1,29 +1,20 @@
 package com.zxly.o2o.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.GridView;
 
-import com.easemob.easeui.AppException;
-import com.easemob.easeui.utils.GsonParser;
-import com.google.gson.reflect.TypeToken;
-import com.zxly.o2o.account.Account;
 import com.zxly.o2o.adapter.CommissionProductAdapter;
 import com.zxly.o2o.adapter.ObjectAdapter;
 import com.zxly.o2o.application.AppController;
-import com.zxly.o2o.model.CommissionProduct;
 import com.zxly.o2o.pullrefresh.PullToRefreshAdapterViewBase;
 import com.zxly.o2o.pullrefresh.PullToRefreshBase;
 import com.zxly.o2o.pullrefresh.PullToRefreshGridView;
 import com.zxly.o2o.request.BaseRequest;
-import com.zxly.o2o.request.MyOrderListRequest;
 import com.zxly.o2o.request.PromotionProductListRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.DataUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
-
-import java.util.List;
 
 /**
  * Created by kenwu on 2015/12/3.
@@ -129,7 +120,7 @@ public class PromotionProductFragment extends BaseFragment {
                         if (pageIndex == 1) {
                             adapter.clear();
                             adapter.notifyDataSetChanged();
-                            loadingView.onDataEmpty();
+                            loadingView.onDataEmpty("暂无内容",R.drawable.img_default_tired);
                         } else {
                             //最后一页
                         }
@@ -137,6 +128,12 @@ public class PromotionProductFragment extends BaseFragment {
 
                     if (mGridView.isRefreshing())
                         mGridView.onRefreshComplete();
+
+                    if(request.hasNextPage){
+                        mGridView.setMode(PullToRefreshBase.Mode.BOTH);
+                    } else {
+                        mGridView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+                    }
                 }
 
                 @Override

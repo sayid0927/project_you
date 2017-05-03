@@ -7,6 +7,7 @@ import com.zxly.o2o.util.CallBack;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ public class LoadingDialog {
     protected Animation progressAnima;
     private View contentView;
     private ImageView imgProgress;
+    private AnimationDrawable animationDrawable;
 
     public LoadingDialog(Context context) {
         //		context = AppController.getInstance().getTopAct();
@@ -31,12 +33,17 @@ public class LoadingDialog {
         dialog = new Dialog(context, R.style.dialog);
         dialog.setCancelable(false);
         this.dialog.getWindow().setGravity(Gravity.CENTER);
-        progressAnima = AnimationUtils.loadAnimation(context,
-                R.anim.loading_progressbar_anim);
-        LinearInterpolator lin = new LinearInterpolator();
-        progressAnima.setInterpolator(lin);
+        //之前加载动画图片
+//        progressAnima = AnimationUtils.loadAnimation(context,
+//                R.anim.loading_progressbar_anim);
+//        LinearInterpolator lin = new LinearInterpolator();
+//        progressAnima.setInterpolator(lin);
         contentView = LayoutInflater.from(context).inflate(R.layout.dialog_loading, null);
         imgProgress = (ImageView) contentView.findViewById(R.id.img_progress);
+
+        //现在加载图片
+        imgProgress.setImageResource(R.drawable.loading_ivset);
+        animationDrawable = (AnimationDrawable) imgProgress.getDrawable();
     }
 
     public LoadingDialog() {
@@ -44,12 +51,15 @@ public class LoadingDialog {
         dialog = new Dialog(context, R.style.dialog);
         dialog.setCancelable(false);
         this.dialog.getWindow().setGravity(Gravity.CENTER);
-        progressAnima = AnimationUtils.loadAnimation(context,
-                R.anim.loading_progressbar_anim);
-        LinearInterpolator lin = new LinearInterpolator();
-        progressAnima.setInterpolator(lin);
+//        progressAnima = AnimationUtils.loadAnimation(context,
+//                R.anim.loading_progressbar_anim);
+//        LinearInterpolator lin = new LinearInterpolator();
+//        progressAnima.setInterpolator(lin);
         contentView = LayoutInflater.from(context).inflate(R.layout.dialog_loading, null);
         imgProgress = (ImageView) contentView.findViewById(R.id.img_progress);
+        //现在加载图片
+        imgProgress.setImageResource(R.drawable.loading_ivset);
+        animationDrawable = (AnimationDrawable) imgProgress.getDrawable();
     }
 
 
@@ -60,7 +70,8 @@ public class LoadingDialog {
         if(!((Activity)context).isFinishing()){
             dialog.getWindow().setContentView(contentView);
             dialog.show();
-            imgProgress.startAnimation(progressAnima);
+//            imgProgress.startAnimation(progressAnima);
+            animationDrawable.start();
         }
 
     }
@@ -71,7 +82,8 @@ public class LoadingDialog {
         if(!((Activity)context).isFinishing()){
             dialog.getWindow().setContentView(contentView);
             dialog.show();
-            imgProgress.startAnimation(progressAnima);
+//            imgProgress.startAnimation(progressAnima);
+            animationDrawable.start();
         }
 
         callBack.onCall();
@@ -80,6 +92,7 @@ public class LoadingDialog {
 
     public void dismiss() {
         this.dialog.cancel();
-        imgProgress.clearAnimation();
+//        imgProgress.clearAnimation();
+        animationDrawable.stop();
     }
 }

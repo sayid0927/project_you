@@ -13,6 +13,7 @@ package com.zxly.o2o.view;
 import com.zxly.o2o.shop.R;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
@@ -37,19 +38,23 @@ import android.widget.ImageView;
  */
 public class LoadingImageView extends ImageView {
 
-//    AnimationDrawable animationDrawable;
+    private final AnimationDrawable animationDrawable;
+    //    AnimationDrawable animationDrawable;
     private Animation progressAnima;
 
     public LoadingImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        progressAnima = AnimationUtils.loadAnimation(context, R.anim.loading_progressbar_anim);
-        progressAnima.setInterpolator(new LinearInterpolator());
+//        progressAnima = AnimationUtils.loadAnimation(context, R.anim.loading_progressbar_anim);
+//        progressAnima.setInterpolator(new LinearInterpolator());
+        this.setImageResource(R.drawable.loading_ivset);
+        animationDrawable = (AnimationDrawable) this.getDrawable();
     }
 
     @Override
     protected void onAttachedToWindow() {
 
-        this.startAnimation(progressAnima);
+//        this.startAnimation(progressAnima);
+        animationDrawable.start();
         super.onAttachedToWindow();
     }
 
@@ -57,10 +62,12 @@ public class LoadingImageView extends ImageView {
     protected void onVisibilityChanged(View changedView, int visibility) {
         super.onVisibilityChanged(changedView, visibility);
         if(visibility==View.GONE){
-            this.clearAnimation();
+//            this.clearAnimation();
+            animationDrawable.stop();
         }else if(visibility==View.VISIBLE){
             if(this.getAnimation()==null)
-            this.startAnimation(progressAnima);
+//            this.startAnimation(progressAnima);
+            animationDrawable.start();
         }
     }
 

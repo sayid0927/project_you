@@ -6,9 +6,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.net.http.SslError;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -84,15 +88,19 @@ public class H5CustomArticleDetailFragment extends BaseFragment implements  View
             loadingview.onDataEmpty("处理失败，稍后再试！");
         }
     };
+    private String title;
+    private String shareImageUrl;
+    private String userAppName;
 
-    @Override
+
+  /*  @Override
     public void onPause() {
         webView.reload();
         super.onPause();
-    }
+    }*/
 
     public static H5CustomArticleDetailFragment newInstance(Bundle bundle){
-        H5CustomArticleDetailFragment  f=new H5CustomArticleDetailFragment ();;
+        H5CustomArticleDetailFragment  f=new H5CustomArticleDetailFragment ();
         f.setArguments(bundle);
         return f;
     }
@@ -102,8 +110,14 @@ public class H5CustomArticleDetailFragment extends BaseFragment implements  View
     protected void initView(Bundle bundle) {
         wxUrl=bundle.getString("wxUrl"); //需要保存到服务器才能分享（保存按钮显示）
         fireUrl=bundle.getString("fireUrl");//直接打开网页（保存按钮隐藏）
-        desc=bundle.getString("title");
+        title =bundle.getString("title");
+        desc=bundle.getString("desc");//修改
+        shareImageUrl =bundle.getString("shareImageUrl");
+        userAppName =bundle.getString("userAppName");
         pageTitle=bundle.getString("pageTitle");
+        if(!TextUtils.isEmpty(userAppName)){
+            desc="【"+userAppName+"】"+desc;
+        }
         shareUrl=fireUrl;
 
         if(getActivity() instanceof  FragmentListAct){
@@ -156,7 +170,9 @@ public class H5CustomArticleDetailFragment extends BaseFragment implements  View
         webView.clearHistory(); // 清除历史记录
         webView.getSettings().setAppCacheEnabled(true);//是否使用缓存
         webView.getSettings().setDomStorageEnabled(true);//DOM Storage
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
         webView.setHorizontalScrollBarEnabled(false);//水平不显示
         webView.setVerticalScrollBarEnabled(false); //垂直不显示
 
@@ -177,11 +193,17 @@ public class H5CustomArticleDetailFragment extends BaseFragment implements  View
         webView.setWebViewClient(new WebViewClient() {
 
             @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed();
+            }
+
+            @Override
             public void onReceivedError(WebView view, final int errorCode, String description, String failingUrl) {
               //  Log.e("webMeoth", " onReceivedError -->" + errorCode + "  desc -->" + description + " faurl ->" + failingUrl);
 
               //  if(errorCode == WebViewClient.ERROR_CONNECT || errorCode == WebViewClient.ERROR_TIMEOUT || errorCode == WebViewClient.ERROR_HOST_LOOKUP) {
-                    webView.loadData("", "text/html", "utf_8");
+//                    webView.loadData("", "text/html", "utf_8");
+                    ViewUtils.setGone(webView);
                     loadingview.onLoadingFail();
                     status = errorCode;
 
@@ -215,8 +237,8 @@ public class H5CustomArticleDetailFragment extends BaseFragment implements  View
                 super.onPageFinished(view, url);
 
                 Log.e("webMeoth", " onPageFinished -->" + url);
-                ViewUtils.setVisible(webView);
                 if(status==WEBVIEW_STATUS_NOMAL){
+                    ViewUtils.setVisible(webView);
                     loadingview.onLoadingComplete();
                 }
                 if(StringUtil.isNull(fireUrl))
@@ -304,8 +326,26 @@ public class H5CustomArticleDetailFragment extends BaseFragment implements  View
                         @Override
                         public void onCall() {
                             shareUrl=saveArticleRequest.getShareUrl();
+                            String shareImageUrl ="";
+                            String shareTitle="";
+                            String userAppName="";
+                            if(!TextUtils.isEmpty(shareUrl)&&shareUrl.contains("shareImage=")){
+                                String substring = saveArticleRequest.getShareUrl().replaceAll("(?is).*?shareImage=(.*?)&.*", "$1");
+                                shareImageUrl=new String(android.util.Base64.decode(substring.getBytes(), android.util.Base64.DEFAULT));
+                            }
+                            if(!TextUtils.isEmpty(shareUrl)&&shareUrl.contains("title=")){
+                                shareTitle = saveArticleRequest.getShareUrl().replaceAll("(?is).*?title=(.*?)&.*", "$1");
+                            }
+                            if(!TextUtils.isEmpty(shareUrl)&&shareUrl.contains("userAppName=")){
+                                userAppName=saveArticleRequest.getShareUrl().substring(saveArticleRequest.getShareUrl().indexOf("userAppName="),saveArticleRequest.getShareUrl().length()-1);
+                                userAppName=userAppName.replace("userAppName=","");
+                            }
+
                             desc=articlePreViewRequest.title;
-                            shareDialog.show(desc, shareUrl.replace("isShare=0","isShare=1"), Account.user.getAppIconUrl(), new ShareListener() {
+                            if(!TextUtils.isEmpty(userAppName)){
+                                desc = ("【"+userAppName+"】"+desc);
+                            }
+                            shareDialog.show(shareTitle,desc, shareUrl.replace("isShare=0","isShare=1"), shareImageUrl, new ShareListener() {
                                 @Override
                                 public void onComplete(Object var1) {
                                     ViewUtils.showToast("分享成功!");
@@ -320,7 +360,11 @@ public class H5CustomArticleDetailFragment extends BaseFragment implements  View
                         }
                     });
                 }else {
-                    shareDialog.show(desc,shareUrl.replace("isShare=0","isShare=1"),Account.user.getAppIconUrl(),null);
+                    if(TextUtils.isEmpty(desc)){
+                        shareDialog.show(desc,shareUrl.replace("isShare=0","isShare=1"),shareImageUrl,null);
+                    }else {
+                        shareDialog.show(title,desc,shareUrl.replace("isShare=0","isShare=1"),shareImageUrl,null);
+                    }
                 }
                 break;
 
@@ -389,6 +433,7 @@ public class H5CustomArticleDetailFragment extends BaseFragment implements  View
 
                 @Override
                 public void onFail(int code) {
+
                     ViewUtils.showToast("文章保存失败！");
                 }
             });

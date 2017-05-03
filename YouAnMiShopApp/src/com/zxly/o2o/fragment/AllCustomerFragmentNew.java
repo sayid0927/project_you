@@ -3,8 +3,6 @@ package com.zxly.o2o.fragment;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +13,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.easemob.easeui.widget.viewpagerindicator.PagerSlidingTabStrip;
-import com.easemob.easeui.widget.viewpagerindicator.ViewPageFragmentAdapter;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.activity.ChooseGroupPeopleAct;
 import com.zxly.o2o.activity.MainActivity;
@@ -31,12 +28,14 @@ import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.PreferUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.CollegeCourseView;
 import com.zxly.o2o.view.FixedViewPager;
 import com.zxly.o2o.view.LoadingView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -62,6 +61,8 @@ public class AllCustomerFragmentNew extends BaseViewPageFragment implements View
 
     @Override
     protected void initView() {
+
+        UmengUtil.onEvent(getActivity(), "home_client_enter",null);
         if(tabName==null||tabName.length<=0)
         {
 
@@ -96,6 +97,7 @@ public class AllCustomerFragmentNew extends BaseViewPageFragment implements View
             @Override
             public void onClick(View v) {
                 SeachPeopleFilterFirstAct.start(getActivity());
+                UmengUtil.onEvent(getActivity(),"home_searchbox_click",null);
             }
         });
         if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
@@ -130,15 +132,20 @@ public class AllCustomerFragmentNew extends BaseViewPageFragment implements View
 
             @Override
             public void onPageSelected(int i) {
+                HashMap<String, String> map = new HashMap<String, String>();
                 switch (i){
                     case 0:
                         fansListFragment.onDataRefresh();
                         showFansDefaultView(Config.memberCount);
+                        map.put("店铺粉丝", String.valueOf(1));
+                        UmengUtil.onEvent(getActivity(),"home_toptab_click",map);
                         break;
                     case 1:
                         menberListFragment.onDataRefresh();
                         PreferUtil.getInstance().setIsFirstOpenFans();
                         showMenberDefaultView();
+                        map.put("我的会员", String.valueOf(2));
+                        UmengUtil.onEvent(getActivity(),"home_toptab_click",map);
                         break;
                 }
             }

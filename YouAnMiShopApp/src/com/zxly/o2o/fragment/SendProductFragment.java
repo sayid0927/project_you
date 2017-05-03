@@ -9,10 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.easemob.easeui.AppException;
-import com.easemob.easeui.EaseConstant;
 import com.easemob.easeui.utils.GsonParser;
-import com.easemob.easeui.widget.easepullrefresh.EasePullToRefreshBase;
-import com.easemob.easeui.widget.easepullrefresh.EasePullToRefreshListView;
 import com.google.gson.reflect.TypeToken;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.activity.ChooseGroupPeopleAct;
@@ -21,6 +18,8 @@ import com.zxly.o2o.activity.SearchProductAct;
 import com.zxly.o2o.adapter.IMSelectProduceAdapter;
 import com.zxly.o2o.application.Config;
 import com.zxly.o2o.model.CommissionProduct;
+import com.zxly.o2o.pullrefresh.PullToRefreshBase;
+import com.zxly.o2o.pullrefresh.PullToRefreshListView;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.PushProductRequest;
 import com.zxly.o2o.request.SendProductRequest;
@@ -39,7 +38,7 @@ import com.zxly.o2o.view.LoadingView;
 public class SendProductFragment extends BaseFragment implements BaseRequest.ResponseStateListener,AdapterView.OnItemClickListener{
 
     private LoadingView loadingView;
-    private EasePullToRefreshListView mListView;
+    private PullToRefreshListView mListView;
     private int pageIndex=1;
     private IMSelectProduceAdapter adapter;
     private SendProductRequest request;
@@ -59,18 +58,18 @@ public class SendProductFragment extends BaseFragment implements BaseRequest.Res
         loadingView =(LoadingView) findViewById(R.id.view_loading11);
         setSearchBtn();
         //loadingView.startLoading();
-        mListView = (EasePullToRefreshListView) findViewById(R.id.listview);
+        mListView = (PullToRefreshListView) findViewById(R.id.listview);
         btn_send = (LinearLayout) findViewById(R.id.btn_send);
         mListView.setIntercept(true);
-        EaseConstant.setRefreshText(mListView);
+        ViewUtils.setRefreshText(mListView);
         mListView.setOnItemClickListener(this);
-        mListView.setMode(EasePullToRefreshBase.Mode.BOTH);
-        mListView.setOnRefreshListener(new EasePullToRefreshBase.OnRefreshListener<ListView>() {
+        mListView.setMode(PullToRefreshBase.Mode.BOTH);
+        mListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override
-            public void onRefresh(EasePullToRefreshBase<ListView> refreshView) {
-                if (refreshView.getCurrentMode() == EasePullToRefreshBase.Mode.PULL_FROM_START) {
+            public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+                if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_START) {
                     loadData(1);
-                } else if (refreshView.getCurrentMode() == EasePullToRefreshBase.Mode.PULL_FROM_END) {
+                } else if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_END) {
                     loadData(pageIndex);
                 }
             }
@@ -164,6 +163,12 @@ public class SendProductFragment extends BaseFragment implements BaseRequest.Res
 
         if (mListView.isRefreshing())
             mListView.onRefreshComplete();
+
+        if(request.hasNextPage){
+            mListView.setMode(PullToRefreshBase.Mode.BOTH);
+        } else {
+            mListView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+        }
     }
 
     @Override

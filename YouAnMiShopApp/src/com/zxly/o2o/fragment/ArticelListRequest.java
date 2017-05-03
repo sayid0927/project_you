@@ -1,11 +1,10 @@
 package com.zxly.o2o.fragment;
 
+import android.text.TextUtils;
+import android.util.Log;
+
 import com.easemob.easeui.AppException;
-import com.easemob.easeui.utils.GsonParser;
-import com.google.gson.reflect.TypeToken;
 import com.zxly.o2o.account.Account;
-import com.zxly.o2o.application.Config;
-import com.zxly.o2o.model.ArticleType;
 import com.zxly.o2o.model.PromotionArticle;
 import com.zxly.o2o.request.BaseRequest;
 
@@ -21,6 +20,8 @@ import java.util.List;
 public class ArticelListRequest extends BaseRequest {
 
     public  List<PromotionArticle> articleList=new ArrayList<PromotionArticle>();
+
+    public boolean hasNext = true;
 
     public ArticelListRequest(int pageIndex)
     {
@@ -39,12 +40,22 @@ public class ArticelListRequest extends BaseRequest {
                 JSONObject jsonObject=jsonArray.getJSONObject(i);
                 PromotionArticle article=new PromotionArticle();
                 article.setArticleId(jsonObject.optLong("articleId"));
-                article.setUrl(jsonObject.optString("url"));
+                article.setUrl(jsonObject.optString("shareUrl"));
                 article.setScanCount(jsonObject.optInt("scanCount"));
                 article.setCreateTime(jsonObject.optLong("createTime"));
-                article.setH5Url(jsonObject.optString("url"));
+                article.setH5Url(jsonObject.optString("shareUrl"));
                 article.setTitle(jsonObject.optString("title"));
+                article.setUserAppName(jsonObject.optString("userAppName"));
+                article.setDescription(jsonObject.optString("description"));
+                String url = jsonObject.optString("shareUrl");
+                if(!TextUtils.isEmpty(url)&&url.contains("shareImage=")){
+                    String substring = url.replaceAll("(?is).*?shareImage=(.*?)&.*", "$1");
+                    article.setShareImageUrl(substring);
+                }
                 articleList.add(article);
+            }
+            if(articleList.size() < 15){
+                hasNext = false;
             }
         } catch (Exception e) {
             e.printStackTrace();

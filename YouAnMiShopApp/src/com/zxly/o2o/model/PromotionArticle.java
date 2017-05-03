@@ -12,6 +12,33 @@ public class PromotionArticle {
     public String h5Url="";
     private int scanCount;
     private long createTime;
+    private String shareImageUrl="";
+    private String userAppName="";
+    private String description="";
+
+    public String getShareImageUrl() {
+        return shareImageUrl;
+    }
+
+    public void setShareImageUrl(String shareImageUrl) {
+        this.shareImageUrl = shareImageUrl;
+    }
+
+    public String getUserAppName() {
+        return userAppName;
+    }
+
+    public void setUserAppName(String userAppName) {
+        this.userAppName = userAppName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     private int articleFrom;
 

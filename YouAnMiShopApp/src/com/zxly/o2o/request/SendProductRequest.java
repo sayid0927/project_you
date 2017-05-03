@@ -12,6 +12,7 @@ import java.util.List;
  * Created by hejun on 2016/9/5.
  */
 public class SendProductRequest extends BaseRequest {
+    public boolean hasNextPage;
 
     private List<CommissionProduct> products;
     public SendProductRequest( ){
@@ -38,6 +39,11 @@ public class SendProductRequest extends BaseRequest {
     protected void fire(String data) throws AppException {
         TypeToken<List<CommissionProduct>> types = new TypeToken<List<CommissionProduct>>() {};
         products= GsonParser.getInstance().fromJson(data, types);
+        if(products.size()<10){
+            hasNextPage = false;
+        } else {
+            hasNextPage = true;
+        }
     }
 
     @Override

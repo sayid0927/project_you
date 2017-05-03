@@ -1,28 +1,25 @@
 package com.zxly.o2o.activity;
 
-import com.umeng.analytics.MobclickAgent;
-import com.zxly.o2o.application.AppController;
-import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.ViewUtils;
-
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
-import android.view.View;
-import android.view.Window;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.view.WindowManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+
+import com.bugtags.library.Bugtags;
+import com.umeng.analytics.MobclickAgent;
+import com.zxly.o2o.application.AppController;
+import com.zxly.o2o.shop.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -99,11 +96,13 @@ public abstract class BasicAct extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Bugtags.onResume(this);
         MobclickAgent.onResume(this);
     }
 
     public void onPause() {
         super.onPause();
+        Bugtags.onPause(this);
         MobclickAgent.onPause(this);
     }
 
@@ -158,6 +157,12 @@ public abstract class BasicAct extends FragmentActivity {
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.slide_right_in, R.anim.slide_right_out);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        Bugtags.onDispatchTouchEvent(this, event);
+        return super.dispatchTouchEvent(event);
     }
 
 }

@@ -12,6 +12,42 @@ public class StoreArticle {
     private int scanCount;
     private String title;
     private String url;
+    private String shareImageUrl="";
+    private String userAppName="";
+    private String description="";
+    private String shareUrl="";
+
+    public String getShareUrl() {
+        return shareUrl;
+    }
+
+    public void setShareUrl(String shareUrl) {
+        this.shareUrl = shareUrl;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getUserAppName() {
+        return userAppName;
+    }
+
+    public void setUserAppName(String userAppName) {
+        this.userAppName = userAppName;
+    }
+
+    public String getShareImageUrl() {
+        return shareImageUrl;
+    }
+
+    public void setShareImageUrl(String shareImageUrl) {
+        this.shareImageUrl = shareImageUrl;
+    }
     private int hasNewLabel=-1;
 
     public int getHasNewLabel() {

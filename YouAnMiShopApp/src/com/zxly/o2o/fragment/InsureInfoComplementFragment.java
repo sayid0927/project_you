@@ -10,7 +10,6 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -87,10 +86,6 @@ public class InsureInfoComplementFragment extends BaseFragment implements View.O
 
     public void setData(GuaranteeInfo guaranteeInfo){
         this.guaranteeInfo=guaranteeInfo;
-
-
-
-
     }
 
     public void init() {
@@ -262,10 +257,13 @@ public class InsureInfoComplementFragment extends BaseFragment implements View.O
                     if (loadingDialog != null) {
                         loadingDialog.dismiss();
                     }
+
                     getActivity().finish();
                     Bundle bundle=new Bundle();
                     bundle.putDouble("price",_insurePrice);
                     bundle.putString("orderNo",guaranteeInfo.getOrderNo());
+                    bundle.putByte("PayType",guaranteeInfo.getPayType());
+                    bundle.putInt("Id", guaranteeInfo.getId());
                     FragmentListAct.start("完成",FragmentListAct.PAGE_GUARANTEE_PAY,bundle,null);
                 }
 
@@ -326,8 +324,7 @@ public class InsureInfoComplementFragment extends BaseFragment implements View.O
                         MyImageManager.from(getActivity())
                                 .displayImage(ivUploadPhoto,
                                         fileUri.getPath(), R.drawable.pic_normal,
-                                        100,
-                                        100);
+                                        100,100);
                         isSelectedPhoto = true;  //标记已经选择了图片
                         postFile(photo); //上传
                     } else if (mMainHandler != null) {
@@ -393,5 +390,4 @@ public class InsureInfoComplementFragment extends BaseFragment implements View.O
                 break;
         }
     }
-
 }

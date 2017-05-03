@@ -255,7 +255,7 @@ public class PayAddBankcardInfoAct extends BasicAct implements View.OnClickListe
                 String notifyUrl = request.getNotifyUrl();
                 String money = request.getMoney();
                 //连连支付
-                PayUtil.launchYinTongPay(mHandler, PayAddBankcardInfoAct.this, userBankCard, orderMoney, orderNo, money, payNo, userPaw, createTime, notifyUrl, "");
+                PayUtil.launchYinTongPay(mHandler, PayAddBankcardInfoAct.this, type, userBankCard, orderMoney, orderNo, money, payNo, userPaw, createTime, notifyUrl, "");
             }
 
             @Override
@@ -276,6 +276,8 @@ public class PayAddBankcardInfoAct extends BasicAct implements View.OnClickListe
                 case PayUtil.FINISH_TOP_ACTIVITY:
                     finishTopActivity();
                     break;
+                case PayUtil.BANKCARD_ADD_FINISH:
+                    callBack.onCall();
                 default:
                     break;
             }

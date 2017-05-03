@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.webkit.JsResult;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -20,6 +22,7 @@ import com.zxly.o2o.service.RemoteInvokeService;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.CallBack;
 import com.zxly.o2o.util.PreferUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 
@@ -33,6 +36,8 @@ public class MobileDataAct extends BasicAct implements View.OnClickListener {
     private View btnBack, btnRecharge;
     private LoadingView loadingView;
     private View viewTitle;
+    private int status;
+    public static final int WEBVIEW_STATUS_NOMAL=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,7 @@ public class MobileDataAct extends BasicAct implements View.OnClickListener {
         btnBack.setOnClickListener(this);
         btnRecharge.setOnClickListener(this);
         initViews();
+        UmengUtil.onEvent(MobileDataAct.this,new UmengUtil().ADDDATA_ENTER,null);
     }
 
     @Override
@@ -123,13 +129,18 @@ public class MobileDataAct extends BasicAct implements View.OnClickListener {
 
         webView.setWebViewClient(new WebViewClient() {
 
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed();
+            }
+
             /** 开始载入页面 */
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 setProgressBarIndeterminateVisibility(true);// 设置标题栏的滚动条开始
-                browserUrl = url;
+//                browserUrl = url;
                 super.onPageStarted(view, url, favicon);
-                loadingView.startLoading();
+
             }
 
             @Override
@@ -148,7 +159,11 @@ public class MobileDataAct extends BasicAct implements View.OnClickListener {
             @Override
             public void onReceivedError(WebView view, int errorCode,
                                         String description, String failingUrl) {
-                super.onReceivedError(view, errorCode, description, failingUrl);
+//                super.onReceivedError(view, errorCode, description, failingUrl);
+//                webView.loadData("", "text/html", "utf_8");
+                ViewUtils.setGone(webView);
+                loadingView.onLoadingFail();
+                status = errorCode;
             }
 
             /** 页面载入完毕 */
@@ -156,8 +171,10 @@ public class MobileDataAct extends BasicAct implements View.OnClickListener {
             public void onPageFinished(WebView view, String url) {
                 setProgressBarIndeterminateVisibility(false);// 设置标题栏的滚动条停止
                 super.onPageFinished(view, url);
-                loadingView.onLoadingComplete();
-                ViewUtils.setVisible(webView);
+                if(status==WEBVIEW_STATUS_NOMAL) {
+                    ViewUtils.setVisible(webView);
+                    loadingView.onLoadingComplete();
+                }
                 ViewUtils.setVisible(viewTitle);
                 String token = PreferUtil.getInstance().getLoginToken();
                 StringBuilder builder = new StringBuilder();
@@ -176,8 +193,18 @@ public class MobileDataAct extends BasicAct implements View.OnClickListener {
                 return super.onJsAlert(view, url, message, result);
             }
         });
+        status=WEBVIEW_STATUS_NOMAL;
+        loadingView.startLoading();
         webView.loadUrl(browserUrl);
         webView.addJavascriptInterface(new RemoteInvokeService(MobileDataAct.this, webView, callBack), "js_invoke");
+        loadingView.setOnAgainListener(new LoadingView.OnAgainListener() {
+            @Override
+            public void onLoading() {
+                status=WEBVIEW_STATUS_NOMAL;
+                loadingView.startLoading();
+                webView.loadUrl(browserUrl);
+            }
+        });
 
     }
 
@@ -186,9 +213,11 @@ public class MobileDataAct extends BasicAct implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.btn_back:
                 finish();
+                UmengUtil.onEvent(MobileDataAct.this,new  UmengUtil().ADDDATA_BACK_CLICK,null);
                 break;
             case R.id.btn_recharge:
                 RechargeRecordAct.start(MobileDataAct.this);
+                UmengUtil.onEvent(MobileDataAct.this,new UmengUtil().ADDDATA_RECORDS_CLICK,null);
                 break;
         }
     }

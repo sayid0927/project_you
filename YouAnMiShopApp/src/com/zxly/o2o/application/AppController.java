@@ -1,25 +1,23 @@
 package com.zxly.o2o.application;
 
-import java.util.List;
-import java.util.Stack;
-
 import android.app.Activity;
 import android.app.Application;
-import android.content.Intent;
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.support.multidex.MultiDex;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.bugtags.library.Bugtags;
 import com.easemob.EMCallBack;
 import com.easemob.chat.EMChatManager;
 import com.easemob.chatuidemo.HXApplication;
@@ -29,24 +27,27 @@ import com.easemob.chatuidemo.utils.PreferenceManager;
 import com.easemob.easeui.EaseConstant;
 import com.easemob.easeui.adapter.EaseContactAdapter;
 import com.easemob.easeui.controller.EaseUI;
-import com.easemob.easeui.model.GeTuiConversation;
 import com.easemob.easeui.model.IMUserInfoVO;
+import com.tencent.tinker.loader.app.ApplicationLike;
+import com.tinkerpatch.sdk.TinkerPatch;
+import com.tinkerpatch.sdk.loader.TinkerPatchApplicationLike;
 import com.zxly.o2o.account.Account;
-import com.zxly.o2o.activity.LoginAct;
-import com.zxly.o2o.activity.MainActivity;
 import com.zxly.o2o.cache.BitmapLruCache;
-import com.zxly.o2o.request.BaseRequest;
-import com.zxly.o2o.request.GetuiTypeDataRequest;
 import com.zxly.o2o.request.IMGetContactListRequest;
-import com.zxly.o2o.request.IMGetUnRegistListRequest;
 import com.zxly.o2o.request.MultiPartStack;
+import com.zxly.o2o.shop.BuildConfig;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.AppLog;
 import com.zxly.o2o.util.AppUtil;
+import com.zxly.o2o.util.FetchPatchHandler;
 import com.zxly.o2o.util.ImeiUtil;
 import com.zxly.o2o.util.MD5Util;
 import com.zxly.o2o.util.PreferUtil;
 import com.zxly.o2o.util.ViewUtils;
+
+import java.util.Stack;
+
+import static com.bugtags.library.Bugtags.BTGInvocationEventNone;
 
 /**
  * @author dsnx
@@ -76,19 +77,21 @@ public class AppController extends Application {
     private String userName = "";
     private String userPassword = "";
     private int loginToHxCount = 0;
+    private ApplicationLike tinkerApplicationLike;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        Bugtags.start("beb9b4f14e72470fe0ad088b715ec421", this, BTGInvocationEventNone);
         instance = this;
 
         imei = ImeiUtil.getImei(instance);
-        mImageUploadQueue = Volley.newRequestQueue(this, new MultiPartStack());
+        mImageUploadQueue = Volley.newRequestQueue(this, new MultiPartStack(this));
         lruImageCache = BitmapLruCache.instance();
 
         PreferUtil.getInstance().init(this);
 
-//        HXApplication.getInstance().onCreate(this);  //环信初始化
+        HXApplication.getInstance().onCreate(this,R.raw.sis_server);  //环信初始化
         setPkgVersion();
         displayMetrics = EaseUI.displayMetrics;
         mRequestQueue = EaseUI.requestQueue;
@@ -100,6 +103,21 @@ public class AppController extends Application {
         //判断当前的包是release还是debug包，release包供外部测试，崩溃信息打印到内存卡
         if (!AppUtil.isDebuggable(this)) {
             CrashHandler.getInstance().init(this);
+        }
+
+        if (BuildConfig.TINKER_ENABLE) {
+
+            // 我们可以从这里获得Tinker加载过程的信息
+            tinkerApplicationLike = TinkerPatchApplicationLike.getTinkerPatchApplicationLike();
+
+            // 初始化TinkerPatch SDK, 更多配置可参照API章节中的,初始化SDK
+            TinkerPatch.init(tinkerApplicationLike)
+                    .reflectPatchLibrary()
+                    .setPatchRollbackOnScreenOff(true)
+                    .setPatchRestartOnSrceenOff(true);
+
+            // 每隔3个小时去访问后台时候有更新,通过handler实现轮训的效果
+            new FetchPatchHandler().fetchPatchWithInterval(3);
         }
     }
 
@@ -289,6 +307,12 @@ public class AppController extends Application {
                 }
             }
         });
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
     }
 

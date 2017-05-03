@@ -1,8 +1,9 @@
 package com.zxly.o2o.request;
 
+import android.util.Log;
+
 import com.easemob.easeui.AppException;
 import com.zxly.o2o.account.Account;
-import com.zxly.o2o.model.FansGroupModel;
 import com.zxly.o2o.model.MenberGroupModel;
 
 import org.json.JSONArray;
@@ -31,8 +32,13 @@ public class GetMenberGroupReuqest extends BaseRequest{
 
     @Override
     protected void fire(String data) throws AppException {
+        //从/keduoduo/member/memberGroupList 截取出相应的数据
         try {
-            JSONArray jsonArray=new JSONArray(data);
+            JSONObject jo = new JSONObject(data);
+            String json = jo.getString("oldGroup");
+
+            Log.d("zzll", "oldGroup "+json);
+            JSONArray jsonArray=new JSONArray(json);
             int length=jsonArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);

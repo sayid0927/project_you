@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -22,7 +21,6 @@ import com.zxly.o2o.activity.FansAddAct;
 import com.zxly.o2o.activity.FansDetailNewAct;
 import com.zxly.o2o.activity.MainActivity;
 import com.zxly.o2o.activity.OffLineFansEnteringAct;
-import com.zxly.o2o.activity.SeachPeopleFilterFirstAct;
 import com.zxly.o2o.activity.YamCollegeDetailAct;
 import com.zxly.o2o.application.Config;
 import com.zxly.o2o.model.FansGroupModel;
@@ -40,12 +38,14 @@ import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.NoDoubleClickListener;
 import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.PreferUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.CircleImageView;
 import com.zxly.o2o.view.CollegeCourseView;
 import com.zxly.o2o.view.LoadingView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -83,7 +83,7 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
     private ParameCallBack _fansCountCallBack;
     private List<FansGroupModel> hasClickGroup = new ArrayList<FansGroupModel>();
     private FansGroupModel unGroup;
-    private int outLineFansCount=-1;
+    private int outLineFansCount = -1;
     private FansGroupModel preLoadGroup;
     private ImageView iv_salsman;
     private int outLineFansGroupCount;
@@ -99,7 +99,7 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
         expandableListView.getRefreshableView().setDivider(null);//设置模式，此模式是可以上拉，
         loadingView = (LoadingView) findViewById(R.id.view_loading);
         expandableListView.getRefreshableView().setGroupIndicator(null);
-        ViewUtils.setRefreshListText(expandableListView);
+        ViewUtils.setRefreshListFromStartText(expandableListView);
         expandableListView.setOnRefreshListener(this);
 
         //无粉丝时且身份为店长时显示的布局
@@ -149,14 +149,14 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
         //处理无粉丝与有粉丝第一次进入的情况时显示默认图层
         if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
             if (fansCount == 0) {
-                if(PreferUtil.getInstance().getIsFirstOpenFans()){
+                if (PreferUtil.getInstance().getIsFirstOpenFans()) {
                     layout_nodata_admin.setVisibility(View.VISIBLE);
                     showCollegeCourse();
                     layout_nodata_admin.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             layout_nodata_admin.setVisibility(View.GONE);
-                            if(collegeCourseView!=null){
+                            if (collegeCourseView != null) {
                                 collegeCourseView.setVisibility(View.GONE);
                             }
                         }
@@ -173,14 +173,14 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
                         @Override
                         public void onClick(View v) {
                             layout_nodata_admin.setVisibility(View.GONE);
-                            if(collegeCourseView!=null){
+                            if (collegeCourseView != null) {
                                 collegeCourseView.setVisibility(View.GONE);
                             }
                         }
                     });
-                }else {
+                } else {
                     layout_nodata_admin.setVisibility(View.GONE);
-                    if(collegeCourseView!=null){
+                    if (collegeCourseView != null) {
                         collegeCourseView.setVisibility(View.GONE);
                     }
                 }
@@ -191,7 +191,7 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
 //            }
             getLessonId();
             if (fansCount == 0) {
-                if(PreferUtil.getInstance().getIsFirstOpenFans()){
+                if (PreferUtil.getInstance().getIsFirstOpenFans()) {
                     layout_nodata_salesman.setVisibility(View.VISIBLE);
                     layout_nodata_salesman.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -213,7 +213,7 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
                             layout_nodata_salesman.setVisibility(View.GONE);
                         }
                     });
-                }else {
+                } else {
                     layout_nodata_salesman.setVisibility(View.GONE);
                 }
             }
@@ -234,7 +234,7 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
         yamLessonRequest.setOnResponseStateListener(new BaseRequest.ResponseStateListener() {
             @Override
             public void onOK() {
-                if(yamLessonRequest.getYamLessonInfo()!=null){
+                if (yamLessonRequest.getYamLessonInfo() != null) {
                     btn_gonext.setEnabled(true);
                     lessonId = yamLessonRequest.getYamLessonInfo().getId();
                 }
@@ -247,13 +247,13 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
         });
     }
 
-    public void setHasInit(boolean b){
-        hasInit=b;
+    public void setHasInit(boolean b) {
+        hasInit = b;
     }
 
     public void onResume() {
         super.onResume();
-        if (!hasInit&&Account.user != null && 0 == ((MainActivity) getActivity()).fragmentController.getCurrentTab
+        if (!hasInit && Account.user != null && 0 == ((MainActivity) getActivity()).fragmentController.getCurrentTab
                 ()) {
 
             loadGroupData(false);
@@ -272,13 +272,14 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
             public void onOK() {
                 hasClickGroup.clear();
                 fansAllDatas.clear();
+                copyFansAllDatas.clear();
                 expandableListView.onRefreshComplete();
                 loadingView.onLoadingComplete();
                 fansGroups = getFansGroupRequest.getFansGroups();
                 //二次验证是否显示默认界面
-                Config.fansCount=getFansGroupRequest.getFansNum();
+                Config.fansCount = getFansGroupRequest.getFansNum();
                 //单独找出“线下录入粉丝”组人数
-                Config.outLineFansGroupCount=fansGroups.get(0).getNum();
+                Config.outLineFansGroupCount = fansGroups.get(0).getNum();
 //                showDefaultView(getFansGroupRequest.getFansNum());
                 if (_fansCountCallBack != null) {
                     _fansCountCallBack.onCall(getFansGroupRequest.getFansNum());
@@ -286,25 +287,30 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
                 for (int i = 0; i < fansGroups.size(); i++) {
                     putDatas(fansGroups.get(i), fansInfos);
                     //预加载最后一组
-                    if(i==fansGroups.size()-1){
-                        preLoadGroup =fansGroups.get(i);
+                    if (i == fansGroups.size() - 1) {
+                        preLoadGroup = fansGroups.get(i);
                     }
                 }
                 fansListAdapter.addContent(fansAllDatas);
                 fansListAdapter.notifyDataSetChanged();
                 showBottomRedPoint(fansGroups);
                 //单独预加载最后这组 如果该组有成员
-                if(preLoadGroup.getNum()>0){
-                    loadFansData(preLoadGroup,false);
+                if (preLoadGroup.getNum() > 0) {
+                    loadFansData(preLoadGroup, false);
                 }
 //                PreferUtil.getInstance().setIsFirstOpenFans();
-
+                UmengUtil.onEvent(getActivity(), "home_refresh_suc", null);
             }
 
             @Override
             public void onFail(int code) {
                 expandableListView.onRefreshComplete();
-                loadingView.onLoadingFail("加载失败",true);
+                fansListAdapter.notifyDataSetChanged();
+                loadingView.onLoadingFail();
+
+                HashMap<String, String> map = new HashMap<String, String>();
+                map.put("首页刷新失败", String.valueOf(code));
+                UmengUtil.onEvent(getActivity(), "home_refresh_fail", map);
             }
         });
 
@@ -317,8 +323,8 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
         });
     }
 
-    private void loadFansData(final FansGroupModel fansGroupModel,boolean showDialog) {
-        final GetFansInfoRequest getFansInfoRequest = new GetFansInfoRequest(fansGroupModel.getGroup(),showDialog);
+    private void loadFansData(final FansGroupModel fansGroupModel, boolean showDialog) {
+        final GetFansInfoRequest getFansInfoRequest = new GetFansInfoRequest(fansGroupModel.getGroup(), showDialog);
         getFansInfoRequest.setOnResponseStateListener(new BaseRequest.ResponseStateListener() {
             @Override
             public void onOK() {
@@ -326,10 +332,10 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
                 boolean empty = getFansInfoRequest.getFansInfoList().isEmpty();
                 //判断用户用户已经加载过组列表时，点击组加载该组粉丝的过程中有粉丝刚好注册成为了会员
                 //导致组员数与粉丝真实数目不一致
-                if(fansGroupModel.getNum()!=fansInfoList.size()){
+                if (fansGroupModel.getNum() != fansInfoList.size()) {
                     ViewUtils.showToast("该粉丝列表已刷新");
                     fansGroupModel.setNum(fansInfoList.size());
-                    if(fansInfoList.size()==0){
+                    if (fansInfoList.size() == 0) {
                         loadGroupData(true);
                         for (int i = 0; i < fansInfoList.size(); i++) {
                             expandableListView.getRefreshableView().collapseGroup(i);
@@ -367,6 +373,7 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
 
     /**
      * 将有新轨迹的粉丝置顶
+     *
      * @param fansInfoList
      */
     private void sortHasBehavior(List<FansInfo> fansInfoList) {
@@ -416,7 +423,7 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
     /**
      * 回调目的：在现在录入粉丝界面新增线下粉丝后要手动将线下粉丝组数目加一
      */
-    CallBack offLineEnterAddNumCallBack=new CallBack() {
+    CallBack offLineEnterAddNumCallBack = new CallBack() {
         @Override
         public void onCall() {
 //            for (int i = 0; i < fansGroups.size(); i++) {
@@ -490,7 +497,9 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
         FansGroupModel fansGroupModel = (FansGroupModel) fansAllDatas.keySet().toArray()[groupPosition];
         if (groupPosition == 0) {
             //跳转至独立页面
-            OffLineFansEnteringAct.start(getActivity(), offLineEnterCallBack,offLineEnterAddNumCallBack);
+            OffLineFansEnteringAct.start(getActivity(), offLineEnterCallBack, offLineEnterAddNumCallBack);
+
+            UmengUtil.onEvent(getActivity(), new UmengUtil().FANS_OFFLINEFANS_CLICK, null);
             return true;
         }
         //如果没有二级数据 或者 该组二级数据num属性不为0但实际没数据返回那么就不让其展开
@@ -508,7 +517,7 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
                 fansListAdapter.addContent(fansAllDatas);
                 fansListAdapter.notifyDataSetChanged();
             } else {
-                loadFansData(fansGroupModel,true);
+                loadFansData(fansGroupModel, true);
                 fansListAdapter.notifyDataSetChanged();
             }
             expandGroupPosition = groupPosition;
@@ -535,6 +544,8 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
     @Override
     public void onRefresh(PullToRefreshBase refreshView) {
 
+        UmengUtil.onEvent(getActivity(), "home_refresh", null);
+
         if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_START) {
             int groupCount = expandableListView.getRefreshableView().getExpandableListAdapter().getGroupCount();
             //清除旧数据
@@ -545,9 +556,10 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
             for (int i = 0; i < groupCount; i++) {
                 expandableListView.getRefreshableView().collapseGroup(i);
             }
+
             //加载数据
 
-            loadGroupData(true);
+            loadGroupData(false);
 
         } else if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_END) {
           /*  // 加载上拉数据
@@ -607,7 +619,6 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
             } else {
                 content = _content;
             }
-
         }
 
         @Override
@@ -706,9 +717,9 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
                         .getNewBehaviorNum() + "");
                 gViewHolder.tv_count.setVisibility(fansGroupModel.getNewBehaviorNum() == 0 ? View.GONE : View.VISIBLE);
 
-                if(fansGroupModel.getNewBehaviorNum()<10){
+                if (fansGroupModel.getNewBehaviorNum() < 10) {
                     gViewHolder.tv_count.setBackgroundResource(R.drawable.bg_behave);
-                }else {
+                } else {
                     gViewHolder.tv_count.setBackgroundResource(R.drawable.bg_behavoir);
                 }
             }
@@ -720,27 +731,29 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
                 public void onClick(View v) {
                     //只在“我关注的粉丝组” 中做如下判断
                     //当我关注的粉丝组中全部是线下粉丝时  就给出提示  否则跳转
-                    if(fansGroupModel.getGroup().equals("我关注的粉丝")){
+                    if (fansGroupModel.getGroup().equals("我关注的粉丝")) {
                         List<FansInfo> focusFansInfos = copyFansAllDatas.get(fansGroupModel);
                         int focusGroupCount = copyFansAllDatas.get(fansGroupModel).size();
                         //我关注的粉丝中线下粉丝的数量
                         outLineFansCount = 0;
                         for (int i = 0; i < focusGroupCount; i++) {
-                            if(TextUtils.isEmpty(focusFansInfos.get(i).getImei())){
+                            if (TextUtils.isEmpty(focusFansInfos.get(i).getImei())) {
                                 outLineFansCount++;
                             }
                         }
-                        if(outLineFansCount==getChildrenCount(groupPosition)){
+                        if (outLineFansCount == getChildrenCount(groupPosition)) {
                             ViewUtils.showToast("不能推送给线下录入粉丝");
                             return;
                         }
                     }
                     List<FansInfo> fansInfos = copyFansAllDatas.get(fansGroupModel);
-                    if(fansInfos.size()>800){
-                        ChooseGroupPeopleAct.start((Activity) context, fansGroupModel.getGroup(),2);
-                    }else {
-                        ChooseGroupPeopleAct.startAct((Activity) context, fansInfos,2);
+                    if (fansInfos.size() > 800) {
+                        ChooseGroupPeopleAct.start((Activity) context, fansGroupModel.getGroup(), 2);
+                    } else {
+                        ChooseGroupPeopleAct.startAct((Activity) context, fansInfos, 2);
                     }
+
+                    UmengUtil.onEvent(context, new UmengUtil().FANS_FANS_PUSH_CLICK, null);
                 }
             });
             //线下录入粉丝  右侧新增点击事件
@@ -757,6 +770,13 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
         public View getChildView(final int groupPosition, final int childPosition, boolean isLastChild, View
                 convertView, ViewGroup parent) {
             final ChildViewHolder cViewHolder;
+
+            if (groupPosition == 1) {
+                UmengUtil.onEvent(context, new UmengUtil().FANS_NEWFANS_CLICK, null);
+            }else  if(groupPosition == 2){
+                UmengUtil.onEvent(context, new UmengUtil().FANS_STARFANS_CLICK, null);
+            }
+
             if (convertView == null) {
                 cViewHolder = new ChildViewHolder();
                 convertView = LayoutInflater.from(context).inflate(R.layout.item_fans_child, parent, false);
@@ -822,7 +842,7 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
                     cViewHolder.star_first.setBackgroundResource(R.drawable.icon_lightstar);
                     cViewHolder.star_second.setBackgroundResource(R.drawable.icon_lightstar);
                     cViewHolder.star_third.setBackgroundResource(R.drawable.icon_lightstar);
-                }else {
+                } else {
                     cViewHolder.star_first.setVisibility(View.GONE);
                     cViewHolder.star_second.setVisibility(View.GONE);
                     cViewHolder.star_third.setVisibility(View.GONE);
@@ -858,13 +878,15 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
                         public void onOK() {
                             if (isFocus == 0) {
                                 ViewUtils.showToast("关注成功");
+                                UmengUtil.onEvent(context, new UmengUtil().FANS_FANS_FOLLOW_CLICK, null);
                             } else {
                                 ViewUtils.showToast("取消关注成功");
+                                UmengUtil.onEvent(context, new UmengUtil().FANS_FANS_UNFOLLOW_CLICK, null);
                             }
                             FansGroupModel group = (FansGroupModel) getGroup(groupPosition);
                             if (((FansGroupModel) getGroup(groupPosition)).getGroup().contains("我关注的粉丝")) {
                                 //如果点击我关注的粉丝中的粉丝  那么就一定是关注状态 那么点击之后就需要数量减一 移除该粉丝
-                                ((FansGroupModel) getGroup(groupPosition)).setNum(group.getNum() - 1<0?0:group.getNum() - 1);
+                                ((FansGroupModel) getGroup(groupPosition)).setNum(group.getNum() - 1 < 0 ? 0 : group.getNum() - 1);
                                 List<FansInfo> fansFocusInfos = copyFansAllDatas.get(group);
                                 fansFocusInfos.remove(childInfo);
                                 putDatas(group, fansFocusInfos);
@@ -887,7 +909,7 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
                                     fansInfos.get(childPosition).setIsFocus(isFocus == 0 ? 1 : 0);
                                     putDatas((FansGroupModel) getGroup(groupPosition), fansInfos);
                                 } else {
-                                    fansGroupFoucus.setNum(fansGroupFoucus.getNum() - 1<0?0:fansGroupFoucus.getNum() - 1);
+                                    fansGroupFoucus.setNum(fansGroupFoucus.getNum() - 1 < 0 ? 0 : fansGroupFoucus.getNum() - 1);
                                     List<FansInfo> fansFocusInfos = copyFansAllDatas.get(fansGroupFoucus);
                                     if (fansFocusInfos != null) {
                                         fansFocusInfos.remove(childInfo);
@@ -968,9 +990,9 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
                 while (iterator.hasNext()) {
                     FansGroupModel next = iterator.next();
                     if (next.getGroup().equals(refreshGroup.getGroup())) {
-                        next.setNewBehaviorNum(next.getNewBehaviorNum() - 1<0?0:next.getNewBehaviorNum()-1);
-                        Config.fansNewBehavoir=Config.fansNewBehavoir-1;
-                        if(Config.fansNewBehavoir<=0){
+                        next.setNewBehaviorNum(next.getNewBehaviorNum() - 1 < 0 ? 0 : next.getNewBehaviorNum() - 1);
+                        Config.fansNewBehavoir = Config.fansNewBehavoir - 1;
+                        if (Config.fansNewBehavoir <= 0) {
                             MainActivity.getIncetance().showKeDDRedPoint();
                         }
                     }
@@ -1064,14 +1086,15 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
 
     /**
      * 判断是否会员新轨迹数大于0  显示tab红点
+     *
      * @param fansGroupList
      */
     private void showBottomRedPoint(List<FansGroupModel> fansGroupList) {
-        int newBehavoirCount=0;
+        int newBehavoirCount = 0;
         for (int i = 0; i < fansGroupList.size(); i++) {
-            newBehavoirCount=fansGroupList.get(i).getNewBehaviorNum()+newBehavoirCount;
+            newBehavoirCount = fansGroupList.get(i).getNewBehaviorNum() + newBehavoirCount;
         }
-        Config.fansNewBehavoir=newBehavoirCount;
+        Config.fansNewBehavoir = newBehavoirCount;
         MainActivity.getIncetance().showKeDDRedPoint();
     }
 }

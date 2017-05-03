@@ -1,27 +1,23 @@
 package com.zxly.o2o.dialog;
 
 import android.app.Activity;
-import android.content.Context;
 import android.text.Editable;
 import android.text.Selection;
 import android.text.Spannable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.zxly.o2o.activity.AddPeopleToGroupAct;
 import com.zxly.o2o.application.Config;
 import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.CallBack;
 import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.StringUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 /**
@@ -134,6 +130,9 @@ public class CreateNewGroupDialog extends BaseDialog implements View.OnClickList
                 }
                 AddPeopleToGroupAct.start((Activity) context,groupTitle,callBack);
                 dismiss();
+
+                UmengUtil.onEvent(context,new UmengUtil().HOME_NEWGROUP_SAVE_CLICK,null);
+
             break;
         }
     }

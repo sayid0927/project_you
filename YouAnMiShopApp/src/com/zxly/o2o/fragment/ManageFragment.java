@@ -21,6 +21,7 @@ import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.PersonalInitRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.FragmentTabHandler;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 import com.zxly.o2o.view.MGridView;
@@ -42,6 +43,7 @@ public class ManageFragment extends DateListFragment implements View.OnClickList
 
     @Override
     protected void initView() {
+        UmengUtil.onEvent(getActivity(), "home_manage_enter",null);
         super.initView(null);
         ViewUtils.setGone(findViewById(R.id.btn_back));
         ViewUtils.setText(findViewById(R.id.txt_title), "管理");
@@ -64,10 +66,12 @@ public class ManageFragment extends DateListFragment implements View.OnClickList
         findViewById(R.id.btn_dybd).setOnClickListener(this);
         findViewById(R.id.btn_shqd).setOnClickListener(this);
         findViewById(R.id.btn_yhlqtj).setOnClickListener(this);
-        if (Account.user.getIsBoss() == 1) {
-            ViewUtils.setVisible(findViewById(R.id.btn_yhlqtj));
-        } else {
-            ViewUtils.setGone(findViewById(R.id.btn_yhlqtj));
+        if (Account.user != null) {
+            if (Account.user.getIsBoss() == 1) {
+                ViewUtils.setVisible(findViewById(R.id.btn_yhlqtj));
+            } else {
+                ViewUtils.setGone(findViewById(R.id.btn_yhlqtj));
+            }
         }
     }
 
@@ -89,12 +93,15 @@ public class ManageFragment extends DateListFragment implements View.OnClickList
     }
 
     public void refreshUI() {
-        if (Account.user.getIsBoss() == 1) {
-            ViewUtils.setVisible(findViewById(R.id.btn_yhlqtj));
-        } else {
-            ViewUtils.setGone(findViewById(R.id.btn_yhlqtj));
+        if (Account.user != null) {
+            if (Account.user.getIsBoss() == 1) {
+                ViewUtils.setVisible(findViewById(R.id.btn_yhlqtj));
+            } else {
+                ViewUtils.setGone(findViewById(R.id.btn_yhlqtj));
+            }
+
+            loadData(year, month);
         }
-        loadData(year, month);
     }
 
     private void loadData(long year, long month) {
@@ -141,6 +148,9 @@ public class ManageFragment extends DateListFragment implements View.OnClickList
         });
         loadingView.startLoading();
         personalInitRequest.start(this);
+
+
+
     }
 
     @Override
@@ -153,34 +163,54 @@ public class ManageFragment extends DateListFragment implements View.OnClickList
         super.onClick(v);
         switch (v.getId()) {
             case R.id.btn_user_balance:
+
                 PayMyAccountAct.start(getActivity());
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MANAGE_BALANCE_CLICK,null);
+
                 break;
             case R.id.btn_takeout:
+
                 PayTakeoutAct.start(getActivity());
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MANAGE_WITHDRAW_CLICK,null);
+
                 break;
             case R.id.btn_payment_detail:
+
                 PayAccountRecordAct.start(0, getActivity());
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MANAGE_BILL_CLICK,null);
+
                 break;
             case R.id.btn_order_all://全部订单
                 MyOrderAct.startMyorderAct(getActivity(), MyOrderAct.ORDER_REQUEST_ALL);
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MANAGE_ALLORDER_CLICK,null);
                 break;
             case R.id.btn_order_daifahuo://待发货
                 MyOrderAct.startMyorderAct(getActivity(), MyOrderAct.ORDER_REQUEST_WAIT_FOR_SEND);
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MANAGE_CHECKING_CLICK,null);
+
                 break;
             case R.id.btn_order_daishouhuo://待收货
                 MyOrderAct.startMyorderAct(getActivity(), MyOrderAct.ORDER_REQUEST_SENDED);
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MANAGE_DELIVERING_CLICK,null);
+
                 break;
             case R.id.btn_order_refund://退款
                 MyOrderAct.startMyorderAct(getActivity(), MyOrderAct.ORDER_REQUEST_REFUND);
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MANAGE_REFUND_CLICK,null);
+
                 break;
             case R.id.btn_dybd://店员榜单
                 SalesmanRankingAct.start(getActivity());
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MANAGE_SALESRANKING_CLICK,null);
+
                 break;
             case R.id.btn_shqd://送货清单
                 ShippingListAct.start(getActivity());
                 break;
             case R.id.btn_yhlqtj:
                 GetFavorableStatisticsAct.start(getActivity());
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MANAGE_DISCOUNTRECEIVE_CLICK,null);
+
                 break;
         }
     }
@@ -232,7 +262,5 @@ public class ManageFragment extends DateListFragment implements View.OnClickList
         class ViewHolder {
             TextView txtName, txtCount;
         }
-
     }
-
 }

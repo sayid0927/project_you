@@ -83,7 +83,7 @@ public class PromotionArticleFragment extends BaseFragment implements View.OnCli
                         loadData(1);
                     }
                 }
-                if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_END) {
+                if (refreshView.getCurrentMode() == Mode.PULL_FROM_END) {
                     // 加载上拉数据
                     if(noCustomArticle){
                         industriesArticle(pageIndex);
@@ -182,13 +182,18 @@ public class PromotionArticleFragment extends BaseFragment implements View.OnCli
                         adapter.notifyDataSetChanged();
                     }
                 }
-
+                if(request.hasNext||request.articleList.isEmpty()){
+                    mListView.setMode(Mode.BOTH);
+                } else {
+                    mListView.setMode(Mode.PULL_FROM_START);
+                }
             }
 
             @Override
             public void onFail(int code) {
                 loadingView.onLoadingComplete();
                 mListView.onRefreshComplete();
+                loadingView.onLoadingFail();
             }
         });
         request.start(this);
@@ -216,7 +221,6 @@ public class PromotionArticleFragment extends BaseFragment implements View.OnCli
                         adapter.setDelItem(false);
                         adapter.notifyDataSetChanged();
 //                        industriesArticleRequest.articleList.clear();
-
                     }
                 }else
                 {

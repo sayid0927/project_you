@@ -1,4 +1,5 @@
 package com.zxly.o2o.activity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,12 +10,14 @@ import android.widget.TextView;
 
 import com.easemob.easeui.ui.EaseBaseViewPageAct;
 import com.zxly.o2o.application.AppController;
+import com.zxly.o2o.fragment.LocalArticleFragement;
 import com.zxly.o2o.fragment.PromotionAcitcityFragment;
 import com.zxly.o2o.fragment.PromotionArticleFragment;
 import com.zxly.o2o.fragment.StoreArticleFragement;
 import com.zxly.o2o.fragment.TerraceArticleFragement;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.CallBack;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.FixedViewPager;
 
@@ -37,26 +40,30 @@ public class PromotionArticleAct extends EaseBaseViewPageAct implements View.OnC
         tabs.setIndicatorColor(Color.parseColor("#626262"));
         DisplayMetrics dm = getResources().getDisplayMetrics();
         int tabPaddingLeft = (int) TypedValue
-                .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, dm);
+                .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, dm);
        int tabPaddingRight = (int) TypedValue
-                .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, dm);
+                .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, dm);
         tabs.setTabPaddingLeft(tabPaddingLeft);
         tabs.setTabPaddingRight(tabPaddingRight);
         int promotionType=getIntent().getIntExtra("promotionType",1);
         StoreArticleFragement storeArticleFragement = StoreArticleFragement.newInstance(1);
+         LocalArticleFragement localArticleFragement = LocalArticleFragement.newInstance(1);
         fragments.add(storeArticleFragement);
+        fragments.add(localArticleFragement);
         storeArticleFragement.setParam(callBack);
         fragments.add(new TerraceArticleFragement());
         fragments.add(PromotionArticleFragment.newInstance());
         if(promotionType==1)//包含活动
         {
             fragments.add(PromotionAcitcityFragment.newInstance());
-            tabName=new String[]{"店铺文章","网络热文","自定义文章","活动"};
+            tabName=new String[]{"店铺文章","本地热文","网络热文","自定义文章","活动"};
+//            tabName=new String[]{"店铺文章","网络热文","自定义文章","活动"};
             ViewUtils.setText(txtTitle,"找客");
         }else
         {
             ViewUtils.setGone(btnQrCode);
-            tabName=new String[]{"店铺文章","网络热文","自定义文章"};
+           tabName=new String[]{"店铺文章","本地热文","网络热文","自定义文章"};
+//            tabName=new String[]{"店铺文章","网络热文","自定义文章"};
             ViewUtils.setText(txtTitle,"找客");
         }
         btnBack.setOnClickListener(this);
@@ -89,9 +96,13 @@ public class PromotionArticleAct extends EaseBaseViewPageAct implements View.OnC
         {
             case R.id.btn_back:
                 finish();
+
+                UmengUtil.onEvent(PromotionArticleAct.this,new UmengUtil().FIND_BACK_CLICK,null);
+
                 break;
             case R.id.btn_qrCode:
                 QrCodePromotionAct.start(this);
+
                 break;
         }
     }

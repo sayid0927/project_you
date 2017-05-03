@@ -14,6 +14,7 @@ import java.util.List;
  * Created by Administrator on 2015/5/25.
  */
 public class PromotionProductListRequest extends BaseRequest {
+    public boolean hasNextPage;
 
     private List<CommissionProduct> products;
     public PromotionProductListRequest(int pageIndex){
@@ -39,6 +40,12 @@ public class PromotionProductListRequest extends BaseRequest {
     protected void fire(String data) throws AppException {
         TypeToken<List<CommissionProduct>> types = new TypeToken<List<CommissionProduct>>() {};
         products= GsonParser.getInstance().fromJson(data, types);
+
+        if(products.size()<10){
+            hasNextPage = false;
+        } else {
+            hasNextPage = true;
+        }
     }
 
     @Override

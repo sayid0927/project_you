@@ -5,6 +5,7 @@ import com.zxly.o2o.shop.R;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 /**
@@ -24,6 +25,19 @@ public class MyFlipperView extends ViewFlipper {
 
     public View getRetryBtn(){
         return findViewById(R.id.loading_fail_layout);
+    }
+
+    /**
+     * 缺省页项目   新增没有数据时跳转按钮  其他使用该页面不会出现按钮
+     * @param str
+     */
+    public void setBtnText(String str){
+        ((TextView)findViewById(R.id.btn_loading)).setVisibility(VISIBLE);
+        ((TextView)findViewById(R.id.btn_loading)).setText(str);
+    }
+
+    public View getBtnClick(){
+        return findViewById(R.id.btn_loading);
     }
 
     public void setDisplayedChild(int whichChild, boolean isShowAnim) {

@@ -21,16 +21,13 @@ import com.zxly.o2o.activity.H5DetailAct;
 import com.zxly.o2o.application.AppController;
 import com.zxly.o2o.dialog.ShareDialog;
 import com.zxly.o2o.model.CommissionProduct;
-import com.zxly.o2o.model.NewProduct;
 import com.zxly.o2o.model.ShareInfo;
 import com.zxly.o2o.request.PromoteCallbackConfirmRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.DesityUtil;
 import com.zxly.o2o.util.ShareListener;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * TODO 添加类的一句话简单描述。
@@ -134,6 +131,8 @@ public class CommissionProductAdapter extends ObjectAdapter implements OnClickLi
 						          AppController.getInstance().getTopAct(),
 						          holder.product.getUrl()+"&isHide=true"+"&promotionUserId=" + Account.user.getId(),
 						          "商品详情",shareInfo);
+
+				UmengUtil.onEvent(context,new UmengUtil().PROMOTION_GOODS_CLICK,null);
 				break;
 
 			case R.id.btn_promotion:
@@ -152,6 +151,8 @@ public class CommissionProductAdapter extends ObjectAdapter implements OnClickLi
 
 					}
 				});
+
+				UmengUtil.onEvent(context,new UmengUtil().PROMOTION_SHARE_CLICK,null);
 				break;
 
 			default:

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.zxly.o2o.fragment.PromotionProductFragment;
 import com.zxly.o2o.shop.R;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 /**
@@ -49,6 +50,8 @@ public class MakeCommissionAct extends BasicAct implements View.OnClickListener 
         ft.add(R.id.layout_content,fragment);
         ft.show(fragment);
         ft.commit();
+
+        UmengUtil.onEvent(MakeCommissionAct.this,new UmengUtil().PROMOTION_ENTER,null);
     }
 
     /**
@@ -67,10 +70,12 @@ public class MakeCommissionAct extends BasicAct implements View.OnClickListener 
         switch (v.getId()){
             case R.id.btn_back:
                 finish();
+                UmengUtil.onEvent(MakeCommissionAct.this,new UmengUtil().PROMOTION_BACK_CLICK,null);
                 break;
 
             case R.id.btn_right:
                 ViewUtils.startActivity(new Intent(this,CommissionRecordAct.class),this);
+                UmengUtil.onEvent(MakeCommissionAct.this,new UmengUtil().PROMOTION_RECORDS_CLICK,null);
                 break;
 
             default:

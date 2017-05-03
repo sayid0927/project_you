@@ -3,6 +3,7 @@ package com.zxly.o2o.view;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.ViewUtils;
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
@@ -26,6 +27,7 @@ public class LoadingView extends LinearLayout implements AnimationListener {
 	protected Animation progressAnima;
 	private View viewLoading,viewLoadFail;
 	private OnAgainListener onAgainListener;
+	private AnimationDrawable animationDrawable;
 
 	public LoadingView(Context context) {
 		super(context);
@@ -50,13 +52,18 @@ public class LoadingView extends LinearLayout implements AnimationListener {
 		viewLoadFail=findViewById(R.id.view_loadFail);
 		imgLoadResult = (ImageView) findViewById(R.id.img_loadResult);
 		imgProgress=(ImageView)findViewById(R.id.img_progress);
-		progressAnima = AnimationUtils.loadAnimation(getContext(),
-				R.anim.loading_progressbar_anim);
-		LinearInterpolator lin = new LinearInterpolator();
-		progressAnima.setInterpolator(lin);
+		//原先加载图片
+//		progressAnima = AnimationUtils.loadAnimation(getContext(),
+//				R.anim.loading_progressbar_anim);
+		//现在加载图片
+		imgProgress.setImageResource(R.drawable.loading_ivset);
+		animationDrawable = (AnimationDrawable) imgProgress.getDrawable();
+
+//		LinearInterpolator lin = new LinearInterpolator();
+//		progressAnima.setInterpolator(lin);
 		txtLoading = (TextView) findViewById(R.id.text_loading);
 		btnLoading = findViewById(R.id.btn_loading);
-		btnLoading.setOnClickListener(new View.OnClickListener() {
+		btnLoading.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -80,8 +87,8 @@ public class LoadingView extends LinearLayout implements AnimationListener {
 		setVisibility(View.VISIBLE);
 		ViewUtils.setGone(viewLoadFail);
 		ViewUtils.setVisible(viewLoading);
-		imgProgress.startAnimation(progressAnima);
-
+//		imgProgress.startAnimation(progressAnima);
+		animationDrawable.start();
 	}
 
 	/**
@@ -89,33 +96,34 @@ public class LoadingView extends LinearLayout implements AnimationListener {
 	 */
 	public void onLoadingComplete() {
 		setVisibility(View.GONE);
-		imgProgress.clearAnimation();
+//		imgProgress.clearAnimation();
+		animationDrawable.stop();
 	}
 
 	public void onLoadingFail() {
-		onLoadingFail("加载失败，稍后加载", R.drawable.loading_empty);
+		onLoadingFail("您的手机网络不太顺畅哦!", R.drawable.img_default_shy);
 	}
 
 	public void onLoadingFail(String failMsg) {
-		onLoadingFail(failMsg, R.drawable.loading_fial1);
+		onLoadingFail(failMsg, R.drawable.img_default_shy);
 	}
 
 	public void onLoadingFail(String failMsg, boolean isLoading) {
-		onLoadingFail(failMsg, R.drawable.loading_empty, isLoading);
+		onLoadingFail(failMsg, R.drawable.img_default_shy, isLoading);
 	}
 
 	/**
 	 * 加载成功但没有数据时调用此函数
 	 */
 	public void onDataEmpty() {
-		onDataEmpty("暂无数据!", false, R.drawable.loading_empty);
+		onDataEmpty("暂无数据!", false, R.drawable.img_default_sad);
 	}
 
 	public void onDataEmpty(String emptyMsg) {
-		onDataEmpty(emptyMsg,false,R.drawable.loading_empty);
+		onDataEmpty(emptyMsg,false,R.drawable.img_default_sad);
 	}
 	public void onDataEmpty(String emptyMsg, boolean showLoadBtn) {
-		onDataEmpty(emptyMsg,showLoadBtn,R.drawable.loading_empty);
+		onDataEmpty(emptyMsg,showLoadBtn,R.drawable.img_default_sad);
 	}
 	public void onDataEmpty(String emptyMsg,int img_empty) {
 		onDataEmpty(emptyMsg,false,img_empty);
@@ -132,7 +140,8 @@ public class LoadingView extends LinearLayout implements AnimationListener {
 		{
 			ViewUtils.setGone(btnLoading);
 		}
-		imgProgress.clearAnimation();
+//		imgProgress.clearAnimation();
+		animationDrawable.stop();
 		imgLoadResult.setImageDrawable(getResources().getDrawable(img_empty));
 	}
 
@@ -160,7 +169,8 @@ public class LoadingView extends LinearLayout implements AnimationListener {
 		} else {
 			ViewUtils.setGone(btnLoading);
 		}
-		imgProgress.clearAnimation();
+//		imgProgress.clearAnimation();
+		animationDrawable.stop();
 		imgLoadResult.setImageDrawable(getResources().getDrawable(failImg));
 	}
 

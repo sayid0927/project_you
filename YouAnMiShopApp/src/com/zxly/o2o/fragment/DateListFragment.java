@@ -10,6 +10,7 @@ import com.zxly.o2o.adapter.MonthAdapter;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.DataCallBack;
 import com.zxly.o2o.util.StringUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.ExpandView;
 
@@ -226,12 +227,15 @@ public class DateListFragment extends BaseFragment implements DataCallBack,View.
                 turnToPreMonth();
                 setNextMonthStatus();
                 closeDateChoose();
+
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MANAGE_LASTMONTH_CLICK,null);
                 break;
 
             case R.id.btn_next_month:
                 turnToNextMonth();
                 setNextMonthStatus();
                 closeDateChoose();
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MANAGE_NEXTMONTH_CLICK,null);
                 break;
 
 
@@ -241,6 +245,8 @@ public class DateListFragment extends BaseFragment implements DataCallBack,View.
                 } else {
                     closeDateChoose();
                 }
+
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MANAGE_MONTH_CLICK,null);
                 break;
 
             case R.id.view_time:

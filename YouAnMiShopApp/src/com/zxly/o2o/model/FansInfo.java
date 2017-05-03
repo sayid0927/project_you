@@ -3,7 +3,6 @@ package com.zxly.o2o.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -306,7 +305,7 @@ public class FansInfo implements Parcelable {
         this.labelStr = in.createStringArrayList();
     }
 
-    public static final Parcelable.Creator<FansInfo> CREATOR = new Parcelable.Creator<FansInfo>() {
+    public static final Creator<FansInfo> CREATOR = new Creator<FansInfo>() {
         @Override
         public FansInfo createFromParcel(Parcel source) {
             return new FansInfo(source);

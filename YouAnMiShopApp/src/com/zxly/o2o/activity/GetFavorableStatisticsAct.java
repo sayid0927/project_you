@@ -31,6 +31,8 @@ public class GetFavorableStatisticsAct extends BasicAct implements PullToRefresh
     int pageIndex=1;
     private boolean isLastData;
     private GetFavorableStatisticsAdapter adapter;
+    private boolean showBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +82,9 @@ public class GetFavorableStatisticsAct extends BasicAct implements PullToRefresh
                         ViewUtils.showToast("亲! 没有更多了");
                     }else
                     {
-                        loadingView.onDataEmpty("亲！暂无统计信息");
+                        loadingView.onDataEmpty("还没人领取优惠券哦,赶紧推广吧!",true,R.drawable.img_default_tired);
+                        loadingView.setBtnText("去推广");
+                        showBtn =true;
                     }
                 } else {
                     if (pageIndex == 1) {
@@ -88,15 +92,32 @@ public class GetFavorableStatisticsAct extends BasicAct implements PullToRefresh
                     }
                     adapter.addItem(discountTakeCountRequest.getTakeStatisticsList(),true);
                 }
+                if(discountTakeCountRequest.hasNextPage){
+                    mListView.setMode(PullToRefreshBase.Mode.BOTH);
+                } else {
+                    mListView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+                }
             }
 
             @Override
             public void onFail(int code) {
                 mListView.onRefreshComplete();
                 loadingView.onLoadingComplete();
+                loadingView.onLoadingFail();
             }
         });
         discountTakeCountRequest.start(this);
+        loadingView.setOnAgainListener(new LoadingView.OnAgainListener() {
+            @Override
+            public void onLoading() {
+                if(showBtn){
+                    PromotionArticleAct.start(GetFavorableStatisticsAct.this,1);
+                }else {
+                    loadingView.startLoading();
+                    discountTakeCountRequest.start(this);
+                }
+            }
+        });
     }
 
     @Override

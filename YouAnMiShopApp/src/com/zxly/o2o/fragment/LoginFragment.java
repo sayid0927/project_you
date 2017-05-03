@@ -18,8 +18,10 @@ import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.EncryptionUtils;
 import com.zxly.o2o.util.PreferUtil;
 import com.zxly.o2o.util.StringUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,13 +35,17 @@ public class LoginFragment extends BaseFragment implements OnClickListener {
 
     private String password;
     private String phoneNumber;
-
+    private   HashMap<String,String> map=new HashMap<String,String>();
     @Override
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
             case R.id.btn_login:
+                // 事件埋点
+                UmengUtil.onEvent( getActivity(), "login_login_press",null);
                 doLogin();
+
+
                 break;
             case R.id.btn_clean_name:
                 editName.setText("");
@@ -48,8 +54,12 @@ public class LoginFragment extends BaseFragment implements OnClickListener {
                 editPassword.setText("");
                 break;
             case R.id.btn_forget:
+                // 事件埋点
+                UmengUtil.onEvent( getActivity(), "login_forgot_press",null);
+
                 ((BasicAct) getActivity()).obtainMessage(
                         LoginAct.FORGET_PASSWORD).sendToTarget();
+
                 break;
         }
     }
@@ -169,17 +179,20 @@ public class LoginFragment extends BaseFragment implements OnClickListener {
         Pattern pp = Pattern.compile(Constants.PHONE_PATTERN);
         Matcher pm = pp.matcher(phoneNumber);
         if (!pm.matches()) {
+            map.put("登录失败","请输入正确的电话号码");
             ViewUtils.showToast("请输入正确的电话号码！");
+            UmengUtil.onEvent( getActivity(), "overall_open",map);
             return;
         }
 
         Pattern p = Pattern.compile(Constants.PASSWORD_PATTERN);
         Matcher m = p.matcher(password);
         if (!m.matches()) {
+            map.put("登录失败","请输入正确的电话号码");
             ViewUtils.showToast("密码只能为6-16位的数字或字母组成");
+            UmengUtil.onEvent( getActivity(), "overall_open",map);
             return;
         }
-
 //        final LoginRequest request = new LoginRequest(phoneNumber, EncryptionUtils.encryptionPwd(password));
         final LoginRequest request = new LoginRequest(phoneNumber, EncryptionUtils.md5TransferPwd(password));
         request.setOnResponseStateListener(new ResponseStateListener() {
@@ -202,16 +215,24 @@ public class LoginFragment extends BaseFragment implements OnClickListener {
             public void onFail(int code) {
                 if (20009 == code) {
 //                    ViewUtils.showToast("用户不存在");
+                    map.put("登录失败","用户不存在");
+                    UmengUtil.onEvent( getActivity(), "overall_open",map);
                 } else if (20010 == code) {
 //                    ViewUtils.showToast("密码错误");
+                    map.put("登录失败","密码错误");
+                    UmengUtil.onEvent( getActivity(), "overall_open",map);
                 } else if (30013 == code) {
                     ViewUtils.showToast("非商户平台用户");
+                    map.put("登录失败","非商户平台用户");
+                    UmengUtil.onEvent( getActivity(), "overall_open",map);
                 } else if (30012 == code) {
                     ViewUtils.showToast("非法参数");
+                    map.put("登录失败","非法参数");
+                    UmengUtil.onEvent( getActivity(), "overall_open",map);
                 }
             }
         });
         request.start(getActivity());
-    }
 
+    }
 }

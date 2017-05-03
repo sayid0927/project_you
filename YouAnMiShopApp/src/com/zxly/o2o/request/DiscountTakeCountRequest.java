@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class DiscountTakeCountRequest extends BaseRequest {
     private List<TakeStatistics> takeStatisticsList=new ArrayList<TakeStatistics>();
+    public boolean hasNextPage;
     public DiscountTakeCountRequest (int pageIndex)
     {
         addParams("pageIndex",pageIndex);
@@ -41,6 +42,11 @@ public class DiscountTakeCountRequest extends BaseRequest {
                 takeStatistics.setTakePersons(jsonObject.optInt("takePersons"));
                 takeStatistics.setUsePersons(jsonObject.optInt("usePersons"));
                 takeStatisticsList.add(takeStatistics);
+            }
+            if(takeStatisticsList.size()<20){
+                hasNextPage = false;
+            } else {
+                hasNextPage = true;
             }
         } catch (JSONException e) {
             throw JSONException(e);

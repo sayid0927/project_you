@@ -86,6 +86,7 @@ public class Constants {
 	public static final int TYPE_PRODUCT_PAY = 1;//确认交易类型是商品支付
 	public static final int TYPE_TAKEOUT = 3;//提现
 	public static final int TYPE_INSURANCE_PAY = 11;//延保
+	public static final int TYPE_JUST_ADD = 99;//仅仅是新增银行卡
 	/** 支付方式 */
 	public static final String PAY_TYPE_UNKNOWN = "0";//未选中任何支付方式
 	public static final String PAY_TYPE_LIANLIAN = "01";//连连支付

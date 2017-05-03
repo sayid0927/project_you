@@ -33,6 +33,7 @@ import com.zxly.o2o.util.DesityUtil;
 import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.PicTools;
 import com.zxly.o2o.util.StringUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.CircleImageView;
 import com.zxly.o2o.view.ObservableScrollView;
@@ -73,7 +74,7 @@ public class PersonalHomepageAct extends BasicAct implements
         setContentView(R.layout.win_personal_homepage);
         context = this;
         loadPersonalInfo();
-
+        UmengUtil.onEvent(PersonalHomepageAct.this,new UmengUtil().INFO_ENTER,null);
     }
 
     private void loadPersonalInfo() {
@@ -141,6 +142,7 @@ public class PersonalHomepageAct extends BasicAct implements
         scrollView.setOnScrollChangedCallback(this);
 
         findViewById(R.id.btn_user_head).setOnClickListener(this);
+        findViewById(R.id.layout_phonenumber).setOnClickListener(this);
         imgUserHead = (CircleImageView) findViewById(R.id.img_user_head);
         ViewUtils.setGone(findViewById(R.id.view_register_time));
 
@@ -269,23 +271,35 @@ public class PersonalHomepageAct extends BasicAct implements
         switch (view.getId()) {
             case R.id.btn_back:
                 finish();
+                UmengUtil.onEvent(PersonalHomepageAct.this,new UmengUtil().INFO_BACK_CLICK,null);
                 break;
             case R.id.btn_user_head:
                 new GetPictureDialog(false).show(mMainHandler);
+                UmengUtil.onEvent(PersonalHomepageAct.this,new UmengUtil().INFO_AVATAR_CLICK,null);
+
                 break;
             case R.id.btn_signature:
                 createSignatureDialog();
+                UmengUtil.onEvent(PersonalHomepageAct.this,new UmengUtil().INFO_SIGN_CLICK,null);
                 break;
             case R.id.btn_nick:
                 createNickDialog();
+                UmengUtil.onEvent(PersonalHomepageAct.this,new UmengUtil().INFO_NICKNAME_CLICK,null);
                 break;
             case R.id.btn_gender:
                 createSexDialog();
+                UmengUtil.onEvent(PersonalHomepageAct.this,new UmengUtil().INFO_SEX_CLICK,null);
                 break;
             case R.id.btn_birthday:
                 changeBirthWheelDialog();
+                UmengUtil.onEvent(PersonalHomepageAct.this,new UmengUtil().INFO_BIRTHDAY_CLICK,null);
+                break;
+            case R.id.layout_phonenumber:
+                UmengUtil.onEvent(PersonalHomepageAct.this,new UmengUtil().INFO_PHONENUMBER_CLICK,null);
                 break;
             case R.id.btn_city:
+
+                UmengUtil.onEvent(PersonalHomepageAct.this,new UmengUtil().INFO_REGION_CLICK,null);
                 AreaAct.start(PersonalHomepageAct.this, new ParameCallBack() {
                     @Override
                     public void onCall(Object object) {

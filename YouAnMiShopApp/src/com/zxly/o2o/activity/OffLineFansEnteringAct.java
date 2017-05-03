@@ -26,6 +26,7 @@ import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.CallBack;
 import com.zxly.o2o.util.DataUtil;
 import com.zxly.o2o.util.ParameCallBack;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.CircleImageView;
 import com.zxly.o2o.view.LoadingView;
@@ -96,7 +97,7 @@ public class OffLineFansEnteringAct extends BasicAct implements PullToRefreshBas
                         //输入的为数字
                         List<FansInfo> fansInfos = filterNumberData(conten);
                         if(fansInfos.size()==0){
-                            loadingView.onDataEmpty("无结果",R.drawable.kb_icon_d);
+                            loadingView.onDataEmpty("没有搜到相关内容",R.drawable.img_default_sad);
                         }else {
                             loadingView.onLoadingComplete();
                         }
@@ -107,7 +108,7 @@ public class OffLineFansEnteringAct extends BasicAct implements PullToRefreshBas
                         //输入的为其他
                         List<FansInfo> fansInfos = filterNameData(conten);
                         if(fansInfos.size()==0){
-                            loadingView.onDataEmpty("无结果",R.drawable.kb_icon_d);
+                            loadingView.onDataEmpty("没有搜到相关内容",R.drawable.img_default_sad);
                         }else {
                             loadingView.onLoadingComplete();
                         }
@@ -180,7 +181,8 @@ public class OffLineFansEnteringAct extends BasicAct implements PullToRefreshBas
                     adapter.addItem(request.getFansInfoList(),true);
                 }else
                 {
-                    loadingView.onDataEmpty("把线下客户也记录进来，统一查看，更方便哦");
+                    loadingView.onDataEmpty("把线下客户也记录进来，统一查看，更方便哦",true,R.drawable.img_default_happy);
+                    loadingView.setBtnText("去新增");
                     findViewById(R.id.layout_search).setVisibility(View.INVISIBLE);
                 }
 
@@ -188,12 +190,19 @@ public class OffLineFansEnteringAct extends BasicAct implements PullToRefreshBas
 
             @Override
             public void onFail(int code) {
-                loadingView.onDataEmpty("数据加载失败");
+                loadingView.onLoadingFail();
                 mListView.onRefreshComplete();
             }
         });
         request.start(this);
         loadingView.startLoading();
+
+        loadingView.setOnAgainListener(new LoadingView.OnAgainListener() {
+            @Override
+            public void onLoading() {
+                FansAddAct.startForResult(OffLineFansEnteringAct.this,callBack);
+            }
+        });
     }
     @Override
     public void onRefresh(PullToRefreshBase refreshView) {
@@ -223,6 +232,7 @@ public class OffLineFansEnteringAct extends BasicAct implements PullToRefreshBas
         }else  if(v==btnAddFans)
         {
             FansAddAct.startForResult(OffLineFansEnteringAct.this,callBack);
+            UmengUtil.onEvent(OffLineFansEnteringAct.this,new UmengUtil().FANS_ADDFANS_CLICK,null);
         }
     }
 
@@ -355,8 +365,12 @@ public class OffLineFansEnteringAct extends BasicAct implements PullToRefreshBas
                             updateSingleRow(mListView.getRefreshableView(),childInfo);
                             if(isFocus==0){
                                 ViewUtils.showToast("关注成功");
+
+
                             }else {
                                 ViewUtils.showToast("取消关注成功");
+
+
                             }
                             _callBack.onCall(childInfo);
                         }

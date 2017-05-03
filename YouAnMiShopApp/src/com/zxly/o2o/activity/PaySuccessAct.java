@@ -83,6 +83,7 @@ public class PaySuccessAct extends BasicAct implements View.OnClickListener {
     }
 
     private void initViews() {
+
         findViewById(R.id.btn_back).setOnClickListener(this);
         viewNormalPay = findViewById(R.id.view_normal_pay);
         viewVerifyCard = findViewById(R.id.view_verify_card);
@@ -95,10 +96,11 @@ public class PaySuccessAct extends BasicAct implements View.OnClickListener {
 //                ViewUtils.setText(findViewById(R.id.btn_check_order), "查看保障单");
                 ViewUtils.setGone(findViewById(R.id.btn_check_order));
                 ViewUtils.setGone(findViewById(R.id.btn_continue_shopping));
-            } else if (Constants.TYPE_PRODUCT_PAY == type) {//商户app没有商品购买
-                ViewUtils.setText(findViewById(R.id.btn_check_order), "查看订单");
-                ViewUtils.setText(findViewById(R.id.btn_continue_shopping), "继续购物");
+            } else if (Constants.TYPE_PRODUCT_PAY == type) {  //商户app没有商品购买
+                    ViewUtils.setText(findViewById(R.id.btn_check_order), "查看订单");
+                    ViewUtils.setText(findViewById(R.id.btn_continue_shopping), "继续购物");
             }
+
             findViewById(R.id.btn_check_order).setOnClickListener(this);
             findViewById(R.id.btn_continue_shopping).setOnClickListener(this);
         } else if ("takeout".equals(description)) {
@@ -118,6 +120,12 @@ public class PaySuccessAct extends BasicAct implements View.OnClickListener {
             }
             findViewById(R.id.btn_takeout).setOnClickListener(this);
             loadData();
+        }
+
+        if (orderNo!=null&&orderNo.equals("payType") || orderNo == "payType") {
+            findViewById(R.id.txt_pay_desc).setVisibility(View.GONE);
+            findViewById(R.id.btn_check_order).setVisibility(View.GONE);
+            findViewById(R.id.btn_continue_shopping).setVisibility(View.GONE);
         }
 
         findViewById(R.id.btn_check_order).setOnClickListener(this);

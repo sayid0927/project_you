@@ -13,6 +13,7 @@ public class MenberGroupModel {
      * newMsgMemberCount  新轨迹人数
      */
 
+
     private int id;
     private int isCustomerGroup;
     private int memberCount;

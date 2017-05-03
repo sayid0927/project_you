@@ -23,6 +23,7 @@ public class DisCountSystemMsgDeTailRequest extends BaseRequest {
     public List<GiftGetInfo> getGiftGetInfoList() {
         return giftGetInfoList;
     }
+    public boolean hasNext = true;
 
     public DisCountSystemMsgDeTailRequest(int pageIndex, int pageSize)
     {
@@ -60,6 +61,9 @@ public class DisCountSystemMsgDeTailRequest extends BaseRequest {
                     giftGetInfo.setHeadUrl(jsonObject.optString("headUrl"));
                     giftGetInfoList.add(giftGetInfo);
                 }
+            }
+            if(giftGetInfoList.size()<10){
+                hasNext = false;
             }
 
 

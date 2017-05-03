@@ -114,7 +114,7 @@ public class SearchActivityAct extends BasicAct implements PullToRefreshBase.OnR
                 if (isEmpty) {
                     if (_pageIndex == 1) {
                         ViewUtils.setGone(articleListView);
-                        loadingview.onDataEmpty("无结果",R.drawable.kb_icon_d);
+                        loadingview.onDataEmpty("没有搜索到相关内容",R.drawable.img_default_sad);
                     } else {
                         isLastData = true;
                         ViewUtils.showToast("亲! 没有更多了");

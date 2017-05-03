@@ -268,7 +268,7 @@ public class MenberInfoModel implements Parcelable {
         this.labels = in.createStringArrayList();
     }
 
-    public static final Parcelable.Creator<MenberInfoModel> CREATOR = new Parcelable.Creator<MenberInfoModel>() {
+    public static final Creator<MenberInfoModel> CREATOR = new Creator<MenberInfoModel>() {
         @Override
         public MenberInfoModel createFromParcel(Parcel source) {
             return new MenberInfoModel(source);

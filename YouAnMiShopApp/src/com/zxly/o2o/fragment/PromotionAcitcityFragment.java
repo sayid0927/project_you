@@ -74,10 +74,10 @@ public class PromotionAcitcityFragment extends BaseFragment implements ResponseS
     @Override
     protected void initView(Bundle bundle) {
         loadingView = (LoadingView) findViewById(R.id.view_loading11);
-        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) loadingView.getLayoutParams();
-        lp.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-        lp.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 60, getResources().getDisplayMetrics());
-        loadingView.setLayoutParams(lp);
+//        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) loadingView.getLayoutParams();
+//        lp.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+//        lp.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 60, getResources().getDisplayMetrics());
+//        loadingView.setLayoutParams(lp);
         mListView = (PullToRefreshListView) findViewById(R.id.listview);
         mListView.setDivideHeight(0);
         mListView.setIntercept(true);
@@ -189,10 +189,10 @@ public class PromotionAcitcityFragment extends BaseFragment implements ResponseS
                 adapter.notifyDataSetChanged();
                 if(Account.user.getRoleType()== Constants.USER_TYPE_SALESMAN)
                 {
-                    loadingView.onDataEmpty("店铺还没有活动呢，提醒老板发布活动吧。\n或者您可以去自定义文章推广您的文章~", R.drawable.kb_icon_d);
+                    loadingView.onDataEmpty("店铺还没有活动呢，提醒老板发布活动吧。\n或者您可以去自定义文章推广您的文章", R.drawable.img_default_tired);
                 }else
                 {
-                    loadingView.onDataEmpty("店铺还没有活动呢，赶紧去商户后台发布活动吧~", R.drawable.kb_icon_d);
+                    loadingView.onDataEmpty("店铺还没有活动呢，赶紧去商户后台发布活动吧", R.drawable.img_default_tired);
                 }
                 showCollegeCourse();
             } else {
@@ -201,6 +201,12 @@ public class PromotionAcitcityFragment extends BaseFragment implements ResponseS
         }
         if (mListView.isRefreshing())
             mListView.onRefreshComplete();
+
+        if(request.hasNext){
+            mListView.setMode(Mode.BOTH);
+        } else {
+            mListView.setMode(Mode.PULL_FROM_START);
+        }
     }
 
 
@@ -223,6 +229,7 @@ public class PromotionAcitcityFragment extends BaseFragment implements ResponseS
 
     class ActivityListRequest extends BaseRequest {
         private List<ActicityInfo> dataList = new ArrayList<ActicityInfo>();
+        public boolean hasNext = true;
 
         public ActivityListRequest() {
             addParams("shopId", Account.user == null ? 0 : Account.user.getShopId());
@@ -242,6 +249,9 @@ public class PromotionAcitcityFragment extends BaseFragment implements ResponseS
             TypeToken<List<ActicityInfo>> types = new TypeToken<List<ActicityInfo>>() {
             };
             dataList = GsonParser.getInstance().fromJson(data, types);
+            if(dataList.size() < 10){
+                hasNext = false;
+            }
         }
 
         @Override

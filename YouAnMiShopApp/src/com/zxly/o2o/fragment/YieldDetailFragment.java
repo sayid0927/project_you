@@ -14,6 +14,7 @@ import com.zxly.o2o.pullrefresh.PullToRefreshExpandableListView;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.YieldDetailListRequest;
 import com.zxly.o2o.shop.R;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 
@@ -27,6 +28,8 @@ public class YieldDetailFragment extends  BaseFragment implements PullToRefreshB
     private int pageIndex=1;
     private boolean isLastData;
     private LoadingView loadingview;
+    private boolean isEmpty;
+
     public static YieldDetailFragment getInstance(int type){
         YieldDetailFragment ydFragment = new YieldDetailFragment();
         Bundle args = new Bundle();
@@ -81,6 +84,8 @@ public class YieldDetailFragment extends  BaseFragment implements PullToRefreshB
         loadingview.startLoading();
         loadData(pageIndex);
 
+        UmengUtil.onEvent(getActivity(),new  UmengUtil().INCOME_ENTER,null);
+
     }
     private  void  loadData(final int _pageIndex)
     {
@@ -90,12 +95,15 @@ public class YieldDetailFragment extends  BaseFragment implements PullToRefreshB
 
             @Override
             public void onOK() {
-                boolean isEmpty = yieldDetailRequest.getYieldDetailList().isEmpty();
+                isEmpty = yieldDetailRequest.getYieldDetailList().isEmpty();
                  listView.onRefreshComplete();
                     if (isEmpty) {
                         if(_pageIndex==1)
                         {
-                            loadingview.onDataEmpty();
+                            loadingview.onDataEmpty("您还没有收益呢,要加油哦!",true,R.drawable.img_default_happy);
+                            loadingview.setBtnText("去赚钱");
+
+                            UmengUtil.onEvent(getActivity(),new UmengUtil().INCOME_MAKEMONEY_CLICK,null);
                         }else
                         {
                             isLastData = true;
@@ -114,15 +122,34 @@ public class YieldDetailFragment extends  BaseFragment implements PullToRefreshB
                             listView.getRefreshableView().expandGroup(i);
                         }
                     }
+                if(yieldDetailRequest.hasNextPage){
+                    listView.setMode(PullToRefreshBase.Mode.BOTH);
+                } else {
+                    listView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+                }
             }
 
             @Override
             public void onFail(int code) {
                 listView.onRefreshComplete();
-                loadingview.onDataEmpty("加载失败");
+                loadingview.onLoadingFail();
             }
         });
         yieldDetailRequest.start(this);
+
+        loadingview.setOnAgainListener(new LoadingView.OnAgainListener() {
+            @Override
+            public void onLoading() {
+                if(isEmpty){
+                    if(!getActivity().isFinishing()){
+                        getActivity().finish();
+                    }
+                }else {
+                    loadingview.startLoading();
+                    yieldDetailRequest.start(this);
+                }
+            }
+        });
     }
 
     @Override
@@ -140,7 +167,10 @@ public class YieldDetailFragment extends  BaseFragment implements PullToRefreshB
 
             loadData(pageIndex);
 
+            UmengUtil.onEvent(getActivity(),new  UmengUtil().INCOME_REFRESH,null);
+
         } else if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_END) {
+            UmengUtil.onEvent(getActivity(),new UmengUtil().INCOME_UPLOAD,null);
             // 加载上拉数据
             if (!isLastData) {
                 pageIndex++;

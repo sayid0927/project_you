@@ -1,7 +1,4 @@
 package com.zxly.o2o.fragment;
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.view.View;
@@ -10,6 +7,9 @@ import com.zxly.o2o.account.Account;
 import com.zxly.o2o.activity.ProductManageAct;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.ViewUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ProductPagerFragment extends BaseViewPageFragment implements View.OnClickListener {

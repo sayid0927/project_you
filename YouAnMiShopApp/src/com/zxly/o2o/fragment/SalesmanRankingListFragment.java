@@ -10,29 +10,20 @@ package com.zxly.o2o.fragment;
 
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.ListView;
 
-import com.zxly.o2o.activity.MyOrderAct;
 import com.zxly.o2o.activity.SalesmanRankingAct;
-import com.zxly.o2o.adapter.MyOrderAdapter;
 import com.zxly.o2o.adapter.ObjectAdapter;
 import com.zxly.o2o.adapter.SalesmanRankingAdapter;
-import com.zxly.o2o.model.OrderStatistics;
 import com.zxly.o2o.pullrefresh.PullToRefreshBase;
 import com.zxly.o2o.pullrefresh.PullToRefreshBase.Mode;
 import com.zxly.o2o.pullrefresh.PullToRefreshBase.OnRefreshListener;
 import com.zxly.o2o.pullrefresh.PullToRefreshListView;
-import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.BaseRequest.ResponseStateListener;
-import com.zxly.o2o.request.MyOrderListRequest;
 import com.zxly.o2o.request.SalesmanRankingRequest;
 import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.DataCallBack;
 import com.zxly.o2o.util.DataUtil;
-import com.zxly.o2o.util.DesityUtil;
-import com.zxly.o2o.util.TimeUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 
@@ -133,7 +124,9 @@ public class SalesmanRankingListFragment extends DateListFragment implements Res
 	}
 
 	public void loadData(int year,int month) {
-		loadingView.startLoading();
+		if(!mListView.isRefreshing()) {
+			loadingView.startLoading();
+		}
 		request = new SalesmanRankingRequest(type,year,month){
 
 			protected String method() {
@@ -162,7 +155,7 @@ public class SalesmanRankingListFragment extends DateListFragment implements Res
 			//下拉刷新的时候发现数据为空，
 			adapter.clear();
 			adapter.notifyDataSetChanged();
-			loadingView.onDataEmpty();
+			loadingView.onDataEmpty("暂无数据",R.drawable.img_default_tired);
 		}
 
 		mListView.onRefreshComplete();

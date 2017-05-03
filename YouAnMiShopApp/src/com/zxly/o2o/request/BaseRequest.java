@@ -228,11 +228,11 @@ public abstract class BaseRequest extends Request<String> {
             AppException ae;
             if (error.getCause() instanceof AppException) {
                 ae = (AppException) error.getCause();
-                ViewUtils.showToast(ae.getErrorMsg());
+              //  ViewUtils.showToast(ae.getErrorMsg());
             } else if (error instanceof ServerError) {
                 ViewUtils.showToast("服务器异常");
             } else if (error instanceof NoConnectionError) {
-                ViewUtils.showToast("请检查您的网络");
+//                ViewUtils.showToast("请检查您的网络");
             }
         }
 
@@ -274,4 +274,5 @@ public abstract class BaseRequest extends Request<String> {
     public void setOnResponseStateListener(ResponseStateListener listener) {
         this.listener = listener;
     }
+
 }

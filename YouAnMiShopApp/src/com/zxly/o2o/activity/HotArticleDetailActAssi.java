@@ -143,7 +143,7 @@ public abstract class HotArticleDetailActAssi extends BasicAct
 
     protected void setFlipper() {
         viewContainer = (MyFlipperView) findViewById(R.id.list_layout);
-        viewContainer.getRetryBtn().setOnClickListener(new View.OnClickListener() {
+        viewContainer.getRetryBtn().setOnClickListener(new OnClickListener() {
 
 
             @Override

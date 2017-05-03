@@ -3,11 +3,14 @@ package com.zxly.o2o.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,8 +23,7 @@ import com.easemob.easeui.request.SysNoticReadCountRequest;
 import com.easemob.easeui.widget.EaseMyFlipperView;
 import com.easemob.easeui.widget.MyWebView;
 import com.zxly.o2o.account.Account;
-import com.zxly.o2o.util.AppUtil;
-import com.zxly.o2o.util.ViewUtils;
+import com.zxly.o2o.shop.R;
 
 /**
  * Created by hejun on 2016/8/19.
@@ -42,6 +44,7 @@ public class GetuiShopH5DetailAct extends BasicAct implements View.OnClickListen
     static final int SYS_NOTICE=201;
     private boolean isFromNotification;
     private boolean isDeleteNotice;
+    private ImageView loading_fail_imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +102,9 @@ public class GetuiShopH5DetailAct extends BasicAct implements View.OnClickListen
             public void onOK() {
                 // 成功状态则说明消息已经被撤回
                 layout_cancle.setVisibility(View.VISIBLE);
+                if(EaseConstant.shopID<0){
+                    loading_fail_imageView.setBackgroundResource(R.drawable.img_default_shy);
+                }
                 //是否是被撤回消息
                 isDeleteNotice = true;
             }
@@ -143,6 +149,7 @@ public class GetuiShopH5DetailAct extends BasicAct implements View.OnClickListen
         //撤回布局
         layout_cancle = (RelativeLayout) findViewById(com.easemob.chatuidemo.R.id.msg_cancle);
         layout_cancle.setVisibility(View.GONE);
+        loading_fail_imageView = (ImageView) findViewById(com.easemob.chatuidemo.R.id.loading_fail_imageView);
     }
 
     public static void start(Activity curAct, String url, String title, long id, boolean isFromNotice, int what) {
@@ -194,6 +201,12 @@ public class GetuiShopH5DetailAct extends BasicAct implements View.OnClickListen
 //		webView.getSettings().setLoadWithOverviewMode(true);
         webView.loadUrl(loadUrl);
         webView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed();
+            }
+
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);

@@ -3,16 +3,12 @@ package com.zxly.o2o.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.igexin.sdk.PushManager;
-import com.umeng.analytics.AnalyticsConfig;
-import com.umeng.analytics.MobclickAgent;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.application.AppController;
 import com.zxly.o2o.request.AdQueryRequest;
@@ -22,6 +18,7 @@ import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.PreferUtil;
 import com.zxly.o2o.util.StringUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 /**
@@ -39,7 +36,7 @@ public class LaunchAct extends BasicAct {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.win_launch);
 
-        PushManager.getInstance().initialize(LaunchAct.this.getApplicationContext());
+//        PushManager.getInstance().initialize(LaunchAct.this.getApplicationContext());
         txtUpdatePercent = (TextView) findViewById(R.id.txt_update_percent);
         extra_bundle = getIntent().getBundleExtra("extra_bundle");
         llAdView=findViewById(R.id.ll_ad);
@@ -47,14 +44,18 @@ public class LaunchAct extends BasicAct {
         btnSkip= (TextView) llAdView.findViewById(R.id.btn_skip);
         imgAd= (ImageView) llAdView.findViewById(R.id.img_ad);
         Account.user = Account.readLoginUser(this);
-        MobclickAgent.updateOnlineConfig(this);
-        AnalyticsConfig.enableEncrypt(true);
+
+//        MobclickAgent.updateOnlineConfig(this);
+//        AnalyticsConfig.enableEncrypt(true);
+
         ViewUtils.setImmerseLayout(getWindow());
         checkNewVersion();
+
     }
 
     private void checkNewVersion() {
-        txtUpdatePercent.setText("正在检测版本.....");
+//        txtUpdatePercent.setText("正在检测版本.....");
+        txtUpdatePercent.setText("");
         final VersionCheckRequest versionCheckRequest = new VersionCheckRequest(new ParameCallBack() {
             @Override
             public void onCall(Object object) {
@@ -181,7 +182,7 @@ public class LaunchAct extends BasicAct {
     @Override
     protected void onStop() {
         super.onStop();
-        finish();
+//        finish();
     }
 
     private void skipCountDown()
@@ -204,21 +205,25 @@ public class LaunchAct extends BasicAct {
 
     }
     private void toLoginOrHome() {
+
         if(PreferUtil.getInstance().getIsFirstOpenApp()){
             Intent intent = new Intent(LaunchAct.this, ShopGuideAct.class);
             ViewUtils.startActivity(intent, LaunchAct.this);
+            finish();
         }else {
             if (Account.user != null) {
                 AppController.getInstance().initHXAccount(Account.user,false);
                 Intent intent = new Intent(LaunchAct.this, MainActivity.class);
                 intent.putExtra("extra_bundle",extra_bundle);
                 ViewUtils.startActivity(intent, this);
+                finish();
             } else {
                 LoginAct.start(LaunchAct.this);
+                finish();
             }
         }
-
-
+        // 事件埋点
+        UmengUtil.onEvent(LaunchAct.this, "overall_open",null);
     }
 
     @Override

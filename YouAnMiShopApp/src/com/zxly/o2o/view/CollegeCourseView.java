@@ -6,12 +6,10 @@ import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
 import com.easemob.easeui.AppException;
-import com.zxly.o2o.activity.YamCollegeDetailAct;
 import com.zxly.o2o.application.AppController;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.shop.R;

@@ -15,7 +15,8 @@ import com.zxly.o2o.pullrefresh.PullToRefreshExpandableListView;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.PayAccountRecordRequest;
 import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.StringUtil; 
+import com.zxly.o2o.util.StringUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 
@@ -99,7 +100,9 @@ public class AccountRecordFragment extends BaseFragment implements PullToRefresh
     }
 
     private void loadData(final int pageIndex) {
-        loadingView.startLoading();
+        if (!mListView.isRefreshing()) {
+            loadingView.startLoading();
+        }
         payAccountRecordRequest = new PayAccountRecordRequest(status, pageIndex, 10, Account.user.getShopId());
         payAccountRecordRequest
                 .setOnResponseStateListener(new BaseRequest.ResponseStateListener() {
@@ -111,7 +114,7 @@ public class AccountRecordFragment extends BaseFragment implements PullToRefresh
                         loadingView.onLoadingComplete();
                         if (isEmpty) {
                             if (pageIndex == 1) {
-                                loadingView.onDataEmpty();
+                                loadingView.onDataEmpty("您还没有账单呢!",R.drawable.img_default_tired);
                             } else {
                                 isLastData = true;
                                 ViewUtils.showToast("亲! 没有更多了");
@@ -127,12 +130,18 @@ public class AccountRecordFragment extends BaseFragment implements PullToRefresh
                             }
                             page++;
                         }
+
+                        if(payAccountRecordRequest.hasNextPage){
+                            mListView.setMode(PullToRefreshBase.Mode.BOTH);
+                        } else {
+                            mListView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+                        }
                     }
 
                     @Override
                     public void onFail(int code) {
                         mListView.onRefreshComplete();
-                        loadingView.onDataEmpty("加载失败");
+                        loadingView.onLoadingFail();
                     }
                 });
         payAccountRecordRequest.start(getActivity());
@@ -143,9 +152,11 @@ public class AccountRecordFragment extends BaseFragment implements PullToRefresh
         if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_START) {
             page = 1;
             loadData(page);
+            UmengUtil.onEvent(getActivity(),new UmengUtil().BILL_REFRESH,null);
         }
         if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_END) {
             loadData(page);
+            UmengUtil.onEvent(getActivity(),new UmengUtil().BILL_UPLOAD,null);
         }
     }
 

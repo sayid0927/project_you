@@ -18,6 +18,7 @@ public class GuaranteeInfo {
     public static final int STATUS_OVERDUE=9;
     public static final int STATUS_MODIFY=10;//修改订单资料
 
+
     private int id; //延保单id
 
     private String orderNo;
@@ -32,6 +33,8 @@ public class GuaranteeInfo {
     private long createTime; //订单创建时间
 
     private long payTime;
+
+    private byte payType;
 
     private long  updateTime;
 
@@ -138,6 +141,14 @@ public class GuaranteeInfo {
 
     public void setOrderInfo(MOrderInfo orderInfo) {
         this.orderInfo = orderInfo;
+    }
+
+    public byte getPayType() {
+        return payType;
+    }
+
+    public void setPayType(byte payType) {
+        this.payType = payType;
     }
 
     public static class MOrderInfo{

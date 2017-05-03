@@ -13,6 +13,7 @@ import com.zxly.o2o.activity.MainActivity;
 import com.zxly.o2o.activity.MakeCommissionAct;
 import com.zxly.o2o.activity.MobileDataAct;
 import com.zxly.o2o.activity.SystemMsgAct;
+import com.zxly.o2o.activity.YamCollegeListAct;
 import com.zxly.o2o.activity.YieldDetailAct;
 import com.zxly.o2o.adapter.DataSetAdapter;
 import com.zxly.o2o.adapter.MakeMoneyAdapter;
@@ -25,7 +26,9 @@ import com.zxly.o2o.request.DisCountSystemMsgDeTailRequest;
 import com.zxly.o2o.request.MakeMoneyInitRequest;
 import com.zxly.o2o.request.MakeMoneyListRequest;
 import com.zxly.o2o.shop.R;
+import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.StringUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 import com.zxly.o2o.view.VerticalRollingTextView;
@@ -47,9 +50,16 @@ public class MakeMoneyFragment extends BaseFragment implements View.OnClickListe
     private VerticalRollingTextView mVerticalRollingView;
     private LoadingView footerView;
     private  ViewGroup discoverHead;
+    private boolean isEmpty;
+    private MakeMoneyInitRequest moneyInitRequest;
+    private boolean listIsEmpty;
+    private boolean hasShow;
 
     @Override
     protected void initView() {
+
+        UmengUtil.onEvent(getActivity(),"home_money_enter",null);
+
         mListView = (PullToRefreshListView) findViewById(R.id.zqgl_listview);
         makeMoneyAdapter = new MakeMoneyAdapter(this.getActivity());
         if(Config.screenWidth < 720){
@@ -100,7 +110,7 @@ public class MakeMoneyFragment extends BaseFragment implements View.OnClickListe
 
     protected void initData() {
         refreshCount++;
-        final MakeMoneyInitRequest moneyInitRequest = new MakeMoneyInitRequest();
+        moneyInitRequest = new MakeMoneyInitRequest();
         moneyInitRequest.setOnResponseStateListener(new BaseRequest.ResponseStateListener() {
             @Override
             public void onOK() {
@@ -111,7 +121,7 @@ public class MakeMoneyFragment extends BaseFragment implements View.OnClickListe
                 if(moneyInitRequest.getInsuranceOrderCount()>0){
                     ((MainActivity) getActivity()).setRedPointVisible(true);
                     ViewUtils.setVisible(txtYbglNumber);
-                    String count=moneyInitRequest.getInsuranceOrderCount()>99 ? "99+" : (moneyInitRequest.getInsuranceOrderCount()+"");
+                    String count= moneyInitRequest.getInsuranceOrderCount()>99 ? "99+" : (moneyInitRequest.getInsuranceOrderCount()+"");
                     ViewUtils.setText(txtYbglNumber,count);
                 }else {
                     ((MainActivity) getActivity()).setRedPointVisible(false);
@@ -119,20 +129,36 @@ public class MakeMoneyFragment extends BaseFragment implements View.OnClickListe
                 }
 
                 if (moneyInitRequest.getArticleList().isEmpty()) {
-                    LoadState("未发布攻略!");
+                    listIsEmpty=true;
+                    LoadState("暂无内容",true,R.drawable.img_default_tired);
+                    if(footerView!=null){
+                        footerView.setBtnText("去逛逛商学院");
+                    }
                 } else {
                     makeMoneyAdapter.clear();
                     makeMoneyAdapter.addItem(moneyInitRequest.getArticleList(),true);
+                    if(hasShow&&footerView!=null){
+                        mListView.getRefreshableView().removeFooterView(footerView);
+                    }
                 }
+                if(moneyInitRequest.hasNextPage){
+                    mListView.setMode(PullToRefreshBase.Mode.PULL_FROM_END);
+                } else {
+                    mListView.setMode(PullToRefreshBase.Mode.DISABLED);
+                }
+
 
             }
 
             @Override
             public void onFail(int code) {
                 loadingview.onLoadingComplete();
-                if (refreshCount == 1) {
-                    LoadState("加载失败!");
-                    ViewUtils.showToast("刷新失败");
+                if (refreshCount == 1&&!hasShow) {
+                    LoadState("您的手机网络不太顺畅哦!",true,R.drawable.img_default_shy);
+                    if(footerView!=null){
+                        footerView.setBtnText("重新加载");
+                    }
+                    hasShow=true;
                 }
 
             }
@@ -185,6 +211,7 @@ public class MakeMoneyFragment extends BaseFragment implements View.OnClickListe
             }
         });
         disCountSystemMsgDeTailRequest.start(this);
+
     }
 
     private void loadData(final int _pageIndex) {
@@ -192,38 +219,64 @@ public class MakeMoneyFragment extends BaseFragment implements View.OnClickListe
         request.setOnResponseStateListener(new BaseRequest.ResponseStateListener() {
             @Override
             public void onOK() {
-                boolean isEmpty = request.getArticleList().isEmpty();
+                isEmpty = request.getArticleList().isEmpty();
                 mListView.onRefreshComplete();
                 if (isEmpty) {
                     if (_pageIndex > 1) {
                         ViewUtils.showToast("亲! 没有更多了");
                         pageIndex--;
+                    }else {
+                        listIsEmpty=true;
+                        LoadState("暂无内容",true,R.drawable.img_default_tired);
+                        if(footerView!=null){
+                            footerView.setBtnText("去逛逛商学院");
+                        }
                     }
                 } else {
                     if (_pageIndex == 1) {
                         makeMoneyAdapter.clear();
                     }
+                    if(footerView!=null){
+                        mListView.getRefreshableView().removeFooterView(footerView);
+                    }
                     makeMoneyAdapter.addItem(request.getArticleList());
                     makeMoneyAdapter.notifyDataSetChanged();
+                }
+                if(request.hasNextPage){
+                    mListView.setMode(PullToRefreshBase.Mode.PULL_FROM_END);
+                } else {
+                    mListView.setMode(PullToRefreshBase.Mode.DISABLED);
                 }
             }
 
             @Override
             public void onFail(int code) {
+                mListView.onRefreshComplete();
                 ViewUtils.showToast("加载失败!");
             }
         });
         request.start(this);
     }
 
-    private void LoadState(String msg) {
+    private void LoadState(String msg,boolean b,int img) {
         if (footerView == null) {
             footerView = new LoadingView(this.getActivity());
             mListView.addF(footerView);
 
         }
-        footerView.onDataEmpty(msg);
-
+        footerView.onDataEmpty(msg,b,img);
+        footerView.setBtnText("去逛逛商学院");
+        footerView.setOnAgainListener(new LoadingView.OnAgainListener() {
+            @Override
+            public void onLoading() {
+                if(listIsEmpty){
+                    YamCollegeListAct.start(getActivity(), Constants.YAM_COURSE_NEW);
+                }else {
+//                    footerView.startLoading();
+                    moneyInitRequest.start();
+                }
+            }
+        });
     }
 
     @Override
@@ -235,17 +288,23 @@ public class MakeMoneyFragment extends BaseFragment implements View.OnClickListe
     public void onClick(View v) {
         if (v == btnSymx) {
             YieldDetailAct.start(this.getActivity());
+            UmengUtil.onEvent(getActivity(),new UmengUtil().MONEY_REVENUE_CLICK,null);
+        } else if (v == btnMsg) {
         } else if (v.getId() == R.id.btn_llcz) {
             Intent intent = new Intent(getActivity(), MobileDataAct.class);
             startActivity(intent);
+            UmengUtil.onEvent(getActivity(),new UmengUtil().MONEY_ADDDATA_CLICK,null);
         } else if (v == btnZyj) {
             ViewUtils.startActivity(new Intent(getActivity(), MakeCommissionAct.class), getActivity());
+            UmengUtil.onEvent(getActivity(),new UmengUtil().MONEY_COMMISSION_CLICK,null);
         } else if (v == btnScanErweima) {
             ViewUtils.startActivity(new Intent(getActivity(), CaptureActivity.class), getActivity());
+              UmengUtil.onEvent(getActivity(),new UmengUtil().MONEY_QRCODE_CLICK,null);
         } else if (v == btnMsg) {
             SystemMsgAct.start(this.getActivity());
         } else if (v.getId() == R.id.btn_ybgl) {
             FragmentListAct.start("延保管理", FragmentListAct.PAGE_GUARANTEE_MANAGE);
+            UmengUtil.onEvent(getActivity(),new UmengUtil().MONEY_INSURANCE_CLICK,null);
         }
     }
 
@@ -257,6 +316,7 @@ public class MakeMoneyFragment extends BaseFragment implements View.OnClickListe
 
                 loadData(pageIndex);
 
+            UmengUtil.onEvent(getActivity(),new UmengUtil().MONEY_REFRESH,null);
             } else if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_END) {
                 // 加载上拉数据
                     pageIndex++;

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.view.Window;
 import android.widget.CompoundButton;
@@ -15,7 +14,6 @@ import android.widget.TextView;
 
 import com.zxly.o2o.adapter.FansGroupTagAdapter;
 import com.zxly.o2o.adapter.MenberGroupTagAdapter;
-import com.zxly.o2o.adapter.TagAdapter;
 import com.zxly.o2o.application.Config;
 import com.zxly.o2o.model.FansGroupModel;
 import com.zxly.o2o.model.FansInfo;

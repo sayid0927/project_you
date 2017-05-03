@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.easemob.chatuidemo.HXApplication;
 import com.zxly.o2o.shop.R;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 /**
@@ -47,12 +48,15 @@ public class ClearDataAct extends BasicAct implements
                 break;
             case R.id.btn_clear_msg_list:
                 createDialog(1, "确定清空消息列表？");
+                UmengUtil.onEvent(ClearDataAct.this,new UmengUtil().CLEARDATA_INFOLIST_CLICK,null);
+
                 break;
             case R.id.btn_clear_chat_log:
 //                createDialog(2, "确定清空聊天记录？");
                 break;
             case R.id.btn_clear_cache:
                 createDialog(3, "确定清空缓存数据？");
+                UmengUtil.onEvent(ClearDataAct.this,new UmengUtil().CLEARDATA_CACHEDATA_CLICK,null);
 
                 break;
         }

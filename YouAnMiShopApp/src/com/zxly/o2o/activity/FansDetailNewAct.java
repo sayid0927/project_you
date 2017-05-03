@@ -138,6 +138,7 @@ public class FansDetailNewAct extends BasicAct implements View.OnClickListener,P
     private TextView txtLabel1;
     private TextView txtLabel2;
     private String[] label;//课程标签
+    private boolean showRemark;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -423,18 +424,22 @@ public class FansDetailNewAct extends BasicAct implements View.OnClickListener,P
             if(fansDtail.getHasNewBehavior()==0){
                 loadNewBehaviorData(fansId,1,false,false);
             }
+            loadRemarkData(fansId,1,false,false);
             return;
         }else if(fansDtail.getHasNewBehavior()==1&&fansDtail.getIsOffline()==0){//保证身份是普通粉丝 线下粉丝是没有行为轨迹的
             if(fansDtail.getHasNewShopping()==0){
                 loadNewBehaviorData(fansId,1,false,false);
             }
             loadNewConsumptionDatakData(fansId,1,false,false);
+            loadRemarkData(fansId,1,false,false);
         }else {
             //没有默认打开的组 那就预加载  避免出现点击分组会闪现默认提示
             //既没有新消费轨迹也没有新行为轨迹
             if(fansDtail.getHasNewShopping()==0&&fansDtail.getHasNewBehavior()==0){
                 loadNewConsumptionDatakData(fansId,1,false,false);
                 loadNewBehaviorData(fansId,1,false,false);
+                showRemark =true;
+                loadRemarkData(fansId,1,false,false);
             }
         }
     }
@@ -456,7 +461,7 @@ public class FansDetailNewAct extends BasicAct implements View.OnClickListener,P
         }
         txt_install_time.setText(EaseConstant.formatOrderLongTime(fansDtail.getInstallTime()));
         txt_install_type.setText(fansDtail.getIsOffline()==1?"线下录入":"安装App");
-        loadRemarkData(fansId,1,false,false);
+//        loadRemarkData(fansId,1,false,false);
     }
 
     /**
@@ -511,6 +516,11 @@ public class FansDetailNewAct extends BasicAct implements View.OnClickListener,P
                         }else{
                             dealUpRefrenshData("备注信息",newRemarkInfoList);
                         }
+                    }
+                }
+                if(showRemark&&!expandableListView.getRefreshableView().isGroupExpanded(1)&&!expandableListView.getRefreshableView().isGroupExpanded(2)){
+                    if(!TextUtils.isEmpty(fansDtail.getPhone())||!TextUtils.isEmpty(fansDtail.getName())||!fansDtail.getLabels().isEmpty()||fansDtail.getGender()>0){
+                        expandableListView.getRefreshableView().expandGroup(0);
                     }
                 }
             }

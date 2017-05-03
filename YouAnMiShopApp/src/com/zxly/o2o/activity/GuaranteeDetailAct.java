@@ -190,5 +190,4 @@ public class GuaranteeDetailAct extends BasicAct {
             insureInfoModifyFragment.onActivityResult(requestCode, resultCode, data);
         }
     }
-
 }

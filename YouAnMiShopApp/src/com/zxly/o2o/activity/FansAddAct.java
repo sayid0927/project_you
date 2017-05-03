@@ -10,7 +10,6 @@ import android.text.Selection;
 import android.text.Spannable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -27,17 +26,15 @@ import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.MemberLabelsRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.CallBack;
-import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.StringUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.FlowTagLayout;
 import com.zxly.o2o.view.LoadingView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * @author fengrongjian 2016-8-25
@@ -346,10 +343,12 @@ public class FansAddAct extends BasicAct implements View.OnClickListener {
                     _parameCallBack.onCall(fansInfo);
                 }
                 finish();
+                UmengUtil.onEvent(FansAddAct.this,new UmengUtil().FANS_FANS_SAVE_SUC,null);
             }
 
             @Override
             public void onFail(int code) {
+                UmengUtil.onEvent(FansAddAct.this,new UmengUtil().FANS_FANS_SAVE_FAIL,null);
                 if(code==20017){
                     showHasSameDialog();
                 }
@@ -442,6 +441,8 @@ public class FansAddAct extends BasicAct implements View.OnClickListener {
                 checkInfo(name, phone, productName, productPrice);
                 if (shouldReturn)return;
                 submitAdd(buyIntention, buyOffline, name, phone, productName, productPrice, remarkContent, phone_brand);
+
+                UmengUtil.onEvent(FansAddAct.this,new UmengUtil().FANS_FANS_SAVE_CLICK,null);
                 break;
         }
     }

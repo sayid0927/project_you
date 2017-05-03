@@ -118,7 +118,7 @@ public class FileUtils {
 	 * 
 	 * @param fileName
 	 * @return
-	 * @throws java.io.IOException */
+	 * @throws IOException */
 	public static File createSDFile(String fileName) throws IOException {
 		File file = new File(fileName);
 		file.createNewFile();

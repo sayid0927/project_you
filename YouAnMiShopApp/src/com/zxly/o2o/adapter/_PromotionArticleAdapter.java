@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +28,7 @@ import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.DataUtil;
 import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.ShareListener;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.MListView;
 
@@ -271,6 +271,8 @@ public class _PromotionArticleAdapter extends ObjectAdapter implements View.OnCl
              }else {
                  ViewUtils.showToast("请先去微信公众号复制链接！");
              }
+
+             UmengUtil.onEvent(context,new UmengUtil().FIND_CUSTOM_PASTE_CLICK,null);
 
              break;
 

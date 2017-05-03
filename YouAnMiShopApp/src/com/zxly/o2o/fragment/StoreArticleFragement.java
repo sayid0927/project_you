@@ -1,6 +1,7 @@
 package com.zxly.o2o.fragment;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,6 @@ import com.easemob.easeui.AppException;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.activity.YamCollegeDetailAct;
 import com.zxly.o2o.adapter.StoreArticelAdapter;
-import com.zxly.o2o.model.ArticleType;
 import com.zxly.o2o.model.StoreArticle;
 import com.zxly.o2o.pullrefresh.PullToRefreshBase;
 import com.zxly.o2o.pullrefresh.PullToRefreshListView;
@@ -20,6 +20,7 @@ import com.zxly.o2o.util.CallBack;
 import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.DataUtil;
 import com.zxly.o2o.util.StringUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.CollegeCourseView;
 import com.zxly.o2o.view.LoadingView;
@@ -72,6 +73,7 @@ public class StoreArticleFragement extends  BaseFragment implements PullToRefres
         mListView.setIntercept(true);
         mListView.setOnRefreshListener(this);
         mListView.setAdapter(storeArticelAdapter);
+
 
     }
 
@@ -133,8 +135,7 @@ public class StoreArticleFragement extends  BaseFragment implements PullToRefres
                 loadingView.onLoadingComplete();
                 if (!DataUtil.listIsNull(articlesRequest.storeArticles)) {
                     if (pageIndex == 1)
-                        storeArticelAdapter.clear();
-
+                    storeArticelAdapter.clear();
                     storeArticelAdapter.addItem(articlesRequest.storeArticles, true);
                     articlesRequest.storeArticles.clear();
                     pageIndex++;
@@ -147,20 +148,22 @@ public class StoreArticleFragement extends  BaseFragment implements PullToRefres
                         switch (type)
                         {
                             case 1://店铺文章
+
+
                                 if(callBack!=null&&!hasCall){
                                     callBack.onCall();
                                     hasCall=true;
                                 }
                                 if(Account.user.getRoleType()== Constants.USER_TYPE_ADMIN)
                                 {
-                                    loadingView.onDataEmpty("店铺还没有文章呢，立即到商户后台发布文章吧~", R.drawable.kb_icon_d);
+                                    loadingView.onDataEmpty("店铺还没有文章呢，立即到商户后台发布文章吧", R.drawable.img_default_tired);
                                 }else
                                 {
-                                    loadingView.onDataEmpty("店铺还没有文章呢，提醒老板发布文章吧。\n或者您可以去自定义文章推广您的文章~", R.drawable.kb_icon_d);
+                                    loadingView.onDataEmpty("店铺还没有文章呢，提醒老板发布文章吧。\n或者您可以去自定义文章推广您的文章~", R.drawable.img_default_tired);
                                 }
                                 break;
                             case 2://平台文章
-                                loadingView.onDataEmpty("暂无数据~", R.drawable.kb_icon_d);
+                                loadingView.onDataEmpty("暂无内容", R.drawable.img_default_tired);
                                 break;
                         }
                         showCollegeCourse();
@@ -168,14 +171,27 @@ public class StoreArticleFragement extends  BaseFragment implements PullToRefres
                 }
                 if (mListView.isRefreshing())
                     mListView.onRefreshComplete();
+                if(articlesRequest.hasNext){
+                    mListView.setMode(PullToRefreshBase.Mode.BOTH);
+                } else {
+                    mListView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+                }
             }
 
             @Override
             public void onFail(int code) {
-
+                loadingView.onLoadingFail();
             }
         });
         articlesRequest.start(this);
+
+        loadingView.setOnAgainListener(new LoadingView.OnAgainListener() {
+            @Override
+            public void onLoading() {
+                loadingView.startLoading();
+                articlesRequest.start(this);
+            }
+        });
     }
     @Override
     protected void initView() {
@@ -187,10 +203,12 @@ public class StoreArticleFragement extends  BaseFragment implements PullToRefres
         if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_START) {
             // 加载下啦数据
             loadData(1);
+            UmengUtil.onEvent(getActivity(),new UmengUtil().FIND_REFRESH,null);
         }
         if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_END) {
             // 加载上拉数据
             loadData(pageIndex);
+            UmengUtil.onEvent(getActivity(),new UmengUtil().FIND_UPLOAD,null);
         }
     }
 
@@ -200,6 +218,7 @@ public class StoreArticleFragement extends  BaseFragment implements PullToRefres
 
     class  ArticlesRequest extends BaseRequest{
         public List<StoreArticle> storeArticles=new ArrayList<StoreArticle>();
+        public boolean hasNext = true;
         public ArticlesRequest(String articleCode,int pageIndex,int type)
         {
             if(!StringUtil.isNull(articleCode))
@@ -228,9 +247,15 @@ public class StoreArticleFragement extends  BaseFragment implements PullToRefres
                         storeArticle.setRecomend(saJson.optInt("isRecomend")==1?true:false);
                         storeArticle.setScanCount(saJson.optInt("scanCount"));
                         storeArticle.setTitle(saJson.optString("title"));
-                        storeArticle.setUrl(saJson.optString("url"));
+                        storeArticle.setUrl(saJson.optString("shareUrl"));
+                        storeArticle.setUserAppName(saJson.optString("userAppName"));
+                        storeArticle.setDescription(saJson.optString("description"));
+                        String url = saJson.optString("shareUrl");
+                        if(!TextUtils.isEmpty(url)&&url.contains("shareImage=")){
+                            String substring = url.replaceAll("(?is).*?shareImage=(.*?)&.*", "$1");
+                            storeArticle.setShareImageUrl(substring);
+                        }
                         storeArticle.setHasNewLabel(saJson.optInt("hasNewLabel"));
-                        storeArticles.add(storeArticle);
                         if(saJson.has("labels"))
                         {
                             JSONArray labelArray=saJson.getJSONArray("labels");
@@ -244,8 +269,12 @@ public class StoreArticleFragement extends  BaseFragment implements PullToRefres
                             }
                             storeArticle.setLabels(labels);
                         }
+                        storeArticles.add(storeArticle);
                     }
 
+                if(storeArticles.size() < 15){
+                    hasNext = false;
+                }
             } catch (JSONException e) {
                 throw JSONException(e);
             }

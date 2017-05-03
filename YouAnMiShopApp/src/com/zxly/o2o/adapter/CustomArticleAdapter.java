@@ -4,12 +4,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.easemob.easeui.widget.SlideDelete;
-import com.zxly.o2o.account.Account;
 import com.zxly.o2o.activity.FragmentListAct;
 import com.zxly.o2o.dialog.ShareDialog;
 import com.zxly.o2o.model.PromotionArticle;
@@ -37,6 +37,7 @@ public class CustomArticleAdapter extends ObjectAdapter implements View.OnClickL
 
     ShareDialog dialog;
     private boolean isDelItem=true;
+    private String shareTitle;
 
     public CustomArticleAdapter(Context _context) {
         super(_context);
@@ -131,6 +132,10 @@ public class CustomArticleAdapter extends ObjectAdapter implements View.OnClickL
                 Bundle bundle = new Bundle();
                 bundle.putString("title", article.getTitle());
                 bundle.putString("fireUrl", article.getUrl());
+                //从后台返回连接中截取的分享图片链接
+                bundle.putString("shareImageUrl",new String(android.util.Base64.decode(article.getShareImageUrl().getBytes(), android.util.Base64.DEFAULT)));
+                bundle.putString("userAppName",article.getUserAppName());
+                bundle.putString("desc",article.getDescription());
                 FragmentListAct.start("文章详情", FragmentListAct.PAGE_CUSTOM_ARTICLE_DETAIL, bundle, null);
                 break;
 
@@ -141,7 +146,12 @@ public class CustomArticleAdapter extends ObjectAdapter implements View.OnClickL
                  article = (PromotionArticle) v.getTag();
                  final long articleId=article.getArticleId();
                 final String _title=article.getTitle();
-                dialog.show(article.getTitle(), article.getUrl().replace("isShare=0","isShare=1"), Account.user.getAppIconUrl(), new ShareListener() {
+                String desc=article.getDescription();
+                if(!TextUtils.isEmpty(article.getUserAppName())){
+                    desc = ("【"+article.getUserAppName()+"】"+desc);
+                }
+                String shareImageUrl=new String(android.util.Base64.decode(article.getShareImageUrl().getBytes(), android.util.Base64.DEFAULT));
+                dialog.show(_title,desc,article.getUrl().replace("isShare=0","isShare=1"), shareImageUrl, new ShareListener() {
                     @Override
                     public void onComplete(Object var1) {
                         if(isDelItem){

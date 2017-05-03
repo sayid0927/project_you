@@ -5,11 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.zxly.o2o.activity.H5DetailAct;
 import com.zxly.o2o.activity.StrategyDetailAct;
 import com.zxly.o2o.application.AppController;
 import com.zxly.o2o.model.MakeMoneyArticle;
 import com.zxly.o2o.shop.R;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 /**
@@ -52,6 +52,7 @@ public class MakeMoneyAdapter extends ObjectAdapter implements View.OnClickListe
     public void onClick(View v) {
         ViewHolder holder= (ViewHolder) v.getTag();
         StrategyDetailAct.start(AppController.getInstance().getTopAct(),"赚钱攻略",holder.makeMoneyArticle);
+        UmengUtil.onEvent(context,new UmengUtil().MONEY_GUIDE_CLICK,null);
     }
 
 

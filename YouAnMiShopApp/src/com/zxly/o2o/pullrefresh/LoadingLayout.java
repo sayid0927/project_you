@@ -14,10 +14,6 @@
  * limitations under the License.
  *******************************************************************************/
 package com.zxly.o2o.pullrefresh;
-import com.zxly.o2o.pullrefresh.PullToRefreshBase.Mode;
-import com.zxly.o2o.pullrefresh.PullToRefreshBase.Orientation;
-import com.zxly.o2o.shop.R;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -38,6 +34,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.zxly.o2o.pullrefresh.PullToRefreshBase.Mode;
+import com.zxly.o2o.pullrefresh.PullToRefreshBase.Orientation;
+import com.zxly.o2o.shop.R;
 
 
 @SuppressLint("ViewConstructor")
@@ -85,7 +84,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 		mSubHeaderText = (TextView) mInnerLayout.findViewById(R.id.pull_to_refresh_sub_text);
 		mHeaderImage = (ImageView) mInnerLayout.findViewById(R.id.pull_to_refresh_image);
 
-		FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mInnerLayout.getLayoutParams();
+		LayoutParams lp = (LayoutParams) mInnerLayout.getLayoutParams();
 
 		switch (mode) {
 			case PULL_FROM_END:
@@ -207,7 +206,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 			mHeaderText.setVisibility(View.INVISIBLE);
 		}
 		if (View.VISIBLE == mHeaderProgress.getVisibility()) {
-			mHeaderProgress.setVisibility(View.INVISIBLE);
+//			mHeaderProgress.setVisibility(View.INVISIBLE);
 		}
 		if (View.VISIBLE == mHeaderImage.getVisibility()) {
 			mHeaderImage.setVisibility(View.INVISIBLE);
@@ -220,6 +219,10 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 	public final void onPull(float scaleOfLayout) {
 		if (!mUseIntrinsicAnimation) {
 			onPullImpl(scaleOfLayout);
+		} else {
+			if (scaleOfLayout > 0.7) {
+				((AnimationDrawable) mHeaderImage.getDrawable()).start();
+			}
 		}
 	}
 
@@ -253,6 +256,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 		if (null != mHeaderText) {
 			mHeaderText.setText(mReleaseLabel);
 		}
+		((AnimationDrawable) mHeaderImage.getDrawable()).start();
 
 		// Now call the callback
 		releaseToRefreshImpl();
@@ -260,7 +264,8 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
 	public final void reset() {
 		if (null != mHeaderText) {
-			mHeaderText.setText(mPullLabel);
+//			mHeaderText.setText(mPullLabel);
+			mHeaderText.setText("");
 		}
 		mHeaderImage.setVisibility(View.VISIBLE);
 
@@ -316,7 +321,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 			mHeaderText.setVisibility(View.VISIBLE);
 		}
 		if (View.INVISIBLE == mHeaderProgress.getVisibility()) {
-			mHeaderProgress.setVisibility(View.VISIBLE);
+//			mHeaderProgress.setVisibility(View.VISIBLE);
 		}
 		if (View.INVISIBLE == mHeaderImage.getVisibility()) {
 			mHeaderImage.setVisibility(View.VISIBLE);

@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.zxly.o2o.shop.R;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 /**
@@ -24,6 +25,8 @@ public class SecurityCenterAct extends BasicAct implements OnClickListener {
         setContentView(R.layout.win_security_center);
         context = this;
         initViews();
+
+        UmengUtil.onEvent(SecurityCenterAct.this,new UmengUtil().SAFE_CHANGELOGINCODE_CLICK,null);
     }
 
     public static void start(Activity curAct) {
@@ -49,18 +52,24 @@ public class SecurityCenterAct extends BasicAct implements OnClickListener {
                 break;
             case R.id.btn_change_login_pwd:
                 PersonalChangePasswordAct.start(SecurityCenterAct.this, "login");
+                UmengUtil.onEvent(SecurityCenterAct.this,new UmengUtil().SAFE_CHANGELOGINCODE_CLICK,null);
                 break;
             case R.id.btn_change_pay_pwd:
                 PersonalChangePasswordAct.start(SecurityCenterAct.this, "pay");
+                UmengUtil.onEvent(SecurityCenterAct.this,new UmengUtil().SAFE_CHANGEPAYCODE_CLICK,null);
                 break;
             case R.id.btn_set_mobile:
                 VerifyMobileAct.start(SecurityCenterAct.this);
+                UmengUtil.onEvent(SecurityCenterAct.this,new UmengUtil().SAFE_SETPHONENUMBER_CLICK,null);
+
                 break;
             case R.id.btn_id_auth:
                 VerifyIdentityAct.start(SecurityCenterAct.this);
+                UmengUtil.onEvent(SecurityCenterAct.this,new UmengUtil().SAFE_VERIFYIDENTITY_CLICK,null);
                 break;
             case R.id.btn_bankcard_manage:
                 BankcardManageAct.start(SecurityCenterAct.this);
+                UmengUtil.onEvent(SecurityCenterAct.this,new UmengUtil().SAFE_CARDMANAGEMENT_CLICK,null);
                 break;
         }
     }

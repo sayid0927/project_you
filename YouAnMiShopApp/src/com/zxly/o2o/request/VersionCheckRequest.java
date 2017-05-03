@@ -7,14 +7,12 @@ import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.easemob.easeui.AppException;
 import com.zxly.o2o.application.AppController;
 import com.zxly.o2o.application.Config;
+import com.zxly.o2o.dialog.LoadingDialog;
 import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.AppLog;
 import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.ViewUtils;
@@ -42,8 +40,13 @@ public class VersionCheckRequest extends BaseRequest {
     private RandomAccessFile out = null;
     private ParameCallBack callBack;
     private boolean isUpdateApp;
+    //是否强制升级
+    private boolean isMustUpdate;
+
     public boolean isInstallApp=false;
+
     private Object lock = new Object();
+    private Object mustLock = new Object();
 
     public VersionCheckRequest(ParameCallBack callBack) {
         this.callBack = callBack;
@@ -61,22 +64,56 @@ public class VersionCheckRequest extends BaseRequest {
             if (jo.has("versionCodeMin")) {
                 versionCodeMin = jo.getInt("versionCodeMin");
             }
-          
             if (versionCodeMin > AppController.mVersionCode) {
                 //开始强制升级
-                download(Config.appUpdateUrl);
+                handler.post(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        final Dialog updateDialog = new Dialog(AppController.getInstance().getTopAct(), R.style.Transparent);
+                        if (updateDialog.isShowing()) {
+                            updateDialog.dismiss();
+                        }
+                        if(!AppController.getInstance().getTopAct().isFinishing()){
+                            updateDialog.show();
+                        }
+                        updateDialog.setContentView(R.layout.activity_findnewapp);
+                        updateDialog.setCancelable(false);
+                        updateDialog.findViewById(R.id.btn_update).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //TODO 保存组 返回前一页
+                                    updateDialog.dismiss();
+                                    isMustUpdate=true;
+                                    synchronized (mustLock) {
+                                        mustLock.notify();
+                                    }
+
+                            }
+                        });
+                    }
+                });
+                synchronized (mustLock) {
+                    mustLock.wait();
+                }
+                if(isMustUpdate){
+                    download(Config.appUpdateUrl);
+                }
+
+//                download(Config.appUpdateUrl);
             } else {
                     if (Config.serVerCode > AppController.mVersionCode) {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                final Dialog dialog = new Dialog(AppController.getInstance().getTopAct(), R.style.dialog);
-                                dialog.setContentView(R.layout.dialog_update);
+                                final Dialog dialog =   new Dialog(AppController.getInstance().getTopAct(), R.style.dialog);
+//                                dialog.setContentView(R.layout.dialog_update);
+                                dialog.setContentView(R.layout.dialog_hasnewversion);
                                 dialog.setCancelable(false);
-                                TextView title = (TextView) dialog.findViewById(R.id.txt_title);
-
-                                ViewUtils.setText(title, "检测到最新版本V" + Config.serVerName + ", 是否更新?");
-                                ((Button) dialog.findViewById(R.id.btn_update))
+//                                TextView title = (TextView) dialog.findViewById(R.id.txt_title);
+//
+//                                ViewUtils.setText(title, "检测到最新版本V" + Config.serVerName + ", 是否更新?");
+                                ( dialog.findViewById(R.id.btn_update))
                                         .setOnClickListener(new View.OnClickListener() {
 
                                             @Override
@@ -88,7 +125,7 @@ public class VersionCheckRequest extends BaseRequest {
                                                 }
                                             }
                                         });
-                                ((Button) dialog.findViewById(R.id.btn_cancel))
+                                ( dialog.findViewById(R.id.btn_cancel))
                                         .setOnClickListener(new View.OnClickListener() {
 
                                             @Override
@@ -101,6 +138,7 @@ public class VersionCheckRequest extends BaseRequest {
                                             }
                                         });
                                 dialog.show();
+
                             }
                         });
                         synchronized (lock) {

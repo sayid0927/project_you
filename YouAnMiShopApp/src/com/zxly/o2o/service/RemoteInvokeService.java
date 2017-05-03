@@ -158,6 +158,12 @@ public class RemoteInvokeService {
         return (String) data;
     }
 
+    @JavascriptInterface
+    public void toRecharge() {
+        if (callBack != null) {
+            callBack.onCall();
+        }
+    }
 
     public void setPageData(String data){
         this.data=data;

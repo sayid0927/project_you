@@ -1,14 +1,15 @@
 package com.zxly.o2o.fragment;
-import java.util.List;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import com.easemob.easeui.widget.viewpagerindicator.ViewPageFragmentAdapter;
+
 import com.zxly.o2o.adapter.CustomerViewpagerFragmentAdapter;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.view.FixedViewPager;
+
+import java.util.List;
 
 /**
  * 类QQ消息页面  消息和联系人页面切换

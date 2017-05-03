@@ -1,8 +1,5 @@
 package com.zxly.o2o.adapter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import com.zxly.o2o.util.DataUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class ObjectAdapter extends BaseAdapter {
 

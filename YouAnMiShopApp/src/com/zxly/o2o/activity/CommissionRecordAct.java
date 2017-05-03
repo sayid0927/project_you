@@ -30,7 +30,9 @@ public class CommissionRecordAct extends BasicAct implements View.OnClickListene
         CommissionInitRequest initRequest;
 
         private int pageIndex=1;
-        @Override
+    private boolean isEmpty;
+
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.win_commission_record);
@@ -84,11 +86,18 @@ public class CommissionRecordAct extends BasicAct implements View.OnClickListene
                     ViewUtils.setTextPrice(txtAllCommission, initRequest.getTotalCommission());
                     ViewUtils.setTextPrice(txtWillArrive, initRequest.getWillArrive());
                     if (DataUtil.listIsNull(initRequest.getOrderComms())) {
-                        loadingView.onDataEmpty();
+                        isEmpty=true;
+                        loadingView.onDataEmpty("一条记录都没有,要加油哦!",true,R.drawable.img_default_happy);
+                        loadingView.setBtnText("去赚佣金");
                     } else {
                         pageIndex = 2;
                         loadingView.onLoadingComplete();
                         adapter.addItem(initRequest.getOrderComms(),true);
+                    }
+                    if(initRequest.hasNextPage){
+                        mListView.setMode(PullToRefreshBase.Mode.PULL_FROM_END);
+                    } else {
+                        mListView.setMode(PullToRefreshBase.Mode.DISABLED);
                     }
 
                 }
@@ -102,6 +111,17 @@ public class CommissionRecordAct extends BasicAct implements View.OnClickListene
 
             initRequest.start(this);
             loadingView.startLoading();
+        loadingView.setOnAgainListener(new LoadingView.OnAgainListener() {
+            @Override
+            public void onLoading() {
+                if(isEmpty){
+                    finish();
+                }else {
+                    loadingView.startLoading();
+                    initRequest.start(this);
+                }
+            }
+        });
         }
 
 
@@ -125,9 +145,11 @@ public class CommissionRecordAct extends BasicAct implements View.OnClickListene
                     } else {
                         //下拉刷新的时候发现数据为空，清空list
                         if(pageId==1){
+                            isEmpty =true;
                             adapter.clear();
                             adapter.notifyDataSetChanged();
-                            loadingView.onDataEmpty();
+                            loadingView.onDataEmpty("一条记录都没有,要加油哦!",true,R.drawable.img_default_happy);
+                            loadingView.setBtnText("去赚佣金");
                         }else{
                             //最后一页
                         }
@@ -149,6 +171,18 @@ public class CommissionRecordAct extends BasicAct implements View.OnClickListene
             });
 
             request.start(this);
+
+            loadingView.setOnAgainListener(new LoadingView.OnAgainListener() {
+                @Override
+                public void onLoading() {
+                    if(isEmpty){
+                        finish();
+                    }else {
+                        loadingView.startLoading();
+                        request.start(this);
+                    }
+                }
+            });
         }
 
 

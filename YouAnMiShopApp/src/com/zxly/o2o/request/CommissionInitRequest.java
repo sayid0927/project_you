@@ -7,7 +7,6 @@ import com.easemob.easeui.utils.GsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.model.CommissionRecord;
-import com.zxly.o2o.util.ViewUtils;
 
 import org.json.JSONObject;
 
@@ -18,6 +17,7 @@ public class CommissionInitRequest extends BaseRequest {
     private float totalCommission;
     private float willArrive;
     private List<CommissionRecord> orderComms;
+    public boolean hasNextPage;
 
 
     public float getTotalCommission() {
@@ -48,6 +48,11 @@ public class CommissionInitRequest extends BaseRequest {
             }
             totalCommission = (float) json.optDouble("totalCommission");
             willArrive= (float) json.optDouble("willArrive");
+            if(orderComms.size()<10){
+                hasNextPage = false;
+            } else {
+                hasNextPage = true;
+            }
         } catch (Exception e) {
       //      ViewUtils.showToast("-->"+e.toString());
        Log.d("orderLisr","!!errr"+e.toString());

@@ -17,6 +17,7 @@ import com.zxly.o2o.request.PushUnbindRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.CallBack;
 import com.zxly.o2o.util.PreferUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 public class SettingAct extends BasicAct implements
@@ -48,7 +49,7 @@ public class SettingAct extends BasicAct implements
         findViewById(R.id.btn_about_us).setOnClickListener(this);
         findViewById(R.id.btn_logout).setOnClickListener(this);
         txtVersionNew = (TextView) findViewById(R.id.txt_version_new);
-        if (Config.serVerCode> AppController.mVersionCode) {
+        if (Config.serVerCode > AppController.mVersionCode) {
             ViewUtils.setText(txtVersionNew, "新版本: V" + Config.serVerName);
             ViewUtils.setVisible(txtVersionNew);
         } else {
@@ -77,18 +78,23 @@ public class SettingAct extends BasicAct implements
                 break;
             case R.id.btn_security_center:
                 SecurityCenterAct.start(SettingAct.this);
+
                 break;
             case R.id.btn_notification_settings:
                 NotificationSettingsAct.start(SettingAct.this);
                 break;
             case R.id.btn_clear_data:
                 ClearDataAct.start(SettingAct.this);
+
+                UmengUtil.onEvent(SettingAct.this, new UmengUtil().SETTING_CLEARDATA_CLICK, null);
                 break;
             case R.id.btn_about_us:
                 AboutUsAct.start(SettingAct.this);
+                UmengUtil.onEvent(SettingAct.this, new UmengUtil().SETTING_ABOUT_CLICK, null);
                 break;
             case R.id.btn_logout:
                 createLogoutDialog();
+                UmengUtil.onEvent(SettingAct.this, new UmengUtil().SETTING_LOGOUT_CLICK, null);
                 break;
 
         }
@@ -112,6 +118,7 @@ public class SettingAct extends BasicAct implements
                             dialog.dismiss();
                         }
                         pushUnBind();
+                        UmengUtil.onEvent(SettingAct.this, new UmengUtil().SETTING_LOGOUT_CONFIRM_CLICK, null);
 
                     }
                 });
@@ -122,12 +129,13 @@ public class SettingAct extends BasicAct implements
                     public void onClick(View v) {
                         if (dialog.isShowing()) {
                             dialog.dismiss();
+                            UmengUtil.onEvent(SettingAct.this, new UmengUtil().SETTING_LOGOUT_CANCEL_CLICK, null);
                         }
                     }
                 });
     }
 
-    private void pushUnBind(){
+    private void pushUnBind() {
         PushUnbindRequest pushUnbindRequest = new PushUnbindRequest();
         pushUnbindRequest.setOnResponseStateListener(new BaseRequest.ResponseStateListener() {
             @Override

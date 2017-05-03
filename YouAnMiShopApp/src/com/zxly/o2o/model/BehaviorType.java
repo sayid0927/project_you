@@ -14,7 +14,7 @@ public class BehaviorType {
     protected void setName(int type){
         switch (type){
             case 100:
-                this.name="到店购买";
+                this.name="购买";
             break;
             case 101:
                 this.name="流量充值";

@@ -32,6 +32,7 @@ import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.PhoneUtil;
 import com.zxly.o2o.util.PreferUtil;
 import com.zxly.o2o.util.StringUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.CircleImageView;
 import com.zxly.o2o.view.LoadingView;
@@ -50,6 +51,8 @@ public class PersonalCenterFragment extends BaseFragment implements View.OnClick
 
     @Override
     protected void initView() {
+
+        UmengUtil.onEvent(getActivity(), "home_my_enter",null);
         super.initView(null);
         ViewUtils.setGone(findViewById(R.id.btn_back));
         ViewUtils.setText(findViewById(R.id.txt_title), "我的");
@@ -65,7 +68,7 @@ public class PersonalCenterFragment extends BaseFragment implements View.OnClick
         findViewById(R.id.btn_user_balance).setOnClickListener(this);
         txtUserBalance = (TextView) findViewById(R.id.txt_user_balance);
         findViewById(R.id.btn_messages).setOnClickListener(this);
-        txtMsgCount  = (TextView) findViewById(R.id.txt_message_count);//我的消息数
+        txtMsgCount = (TextView) findViewById(R.id.txt_message_count);//我的消息数
 //        msgRedPoint = (RedPoint) findViewById(R.id.view_redPoint);
         findViewById(R.id.btn_yam_college).setOnClickListener(this);
         findViewById(R.id.btn_devices).setOnClickListener(this);
@@ -73,15 +76,19 @@ public class PersonalCenterFragment extends BaseFragment implements View.OnClick
         btnDiscountList.setOnClickListener(this);
         btnTask = findViewById(R.id.btn_task);
         btnTask.setOnClickListener(this);
-        if (Account.user.getIsBoss() == 1) {
-            ViewUtils.setGone(btnDiscountList);
-        } else {
-            ViewUtils.setVisible(btnDiscountList);
-        }
-        if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
-            ViewUtils.setGone(btnTask);
-        } else {
-            ViewUtils.setVisible(btnTask);
+
+        if (Account.user != null) {
+            if (Account.user.getIsBoss() == 1) {
+                ViewUtils.setGone(btnDiscountList);
+            } else {
+                ViewUtils.setVisible(btnDiscountList);
+            }
+            if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
+                ViewUtils.setGone(btnTask);
+            } else {
+                ViewUtils.setVisible(btnTask);
+            }
+
         }
         findViewById(R.id.btn_feedback).setOnClickListener(this);
         findViewById(R.id.btn_service_phone).setOnClickListener(this);
@@ -89,7 +96,7 @@ public class PersonalCenterFragment extends BaseFragment implements View.OnClick
     }
 
     public void getGetuiMsg() {
-        final GetuiTypeDataRequest getuiTypeDataRequest=new GetuiTypeDataRequest(EaseConstant.shopID);
+        final GetuiTypeDataRequest getuiTypeDataRequest = new GetuiTypeDataRequest(EaseConstant.shopID);
         getuiTypeDataRequest.start();
         getuiTypeDataRequest.setOnResponseStateListener(new HXNormalRequest.ResponseStateListener() {
 
@@ -107,11 +114,11 @@ public class PersonalCenterFragment extends BaseFragment implements View.OnClick
     }
 
     private void setNetDataUnread(List<GeTuiConversation> emConversationList) {
-        int netDataUnread=0;
-        if(emConversationList.size()!=0){
-            for (int i = 0; i< emConversationList.size(); i++){
-                if(emConversationList.get(i).getNumber()!=0){
-                    netDataUnread = netDataUnread+ emConversationList.get(i).getNumber();
+        int netDataUnread = 0;
+        if (emConversationList.size() != 0) {
+            for (int i = 0; i < emConversationList.size(); i++) {
+                if (emConversationList.get(i).getNumber() != 0) {
+                    netDataUnread = netDataUnread + emConversationList.get(i).getNumber();
                 }
             }
         }
@@ -131,11 +138,11 @@ public class PersonalCenterFragment extends BaseFragment implements View.OnClick
     private void showMsgCount() {
         int unreadMsgCount = HXApplication.getInstance().getUnreadMsgCountTotal() + HXApplication.getInstance()
                 .getGetuiUndreadcount();
-        if(unreadMsgCount>0){
+        if (unreadMsgCount > 0) {
             txtMsgCount.setVisibility(View.VISIBLE);
             _callBack.onCall(unreadMsgCount);
-            txtMsgCount.setText(unreadMsgCount>99?"99+":unreadMsgCount+"");
-        }else {
+            txtMsgCount.setText(unreadMsgCount > 99 ? "99+" : unreadMsgCount + "");
+        } else {
             _callBack.onCall(unreadMsgCount);
             txtMsgCount.setVisibility(View.GONE);
         }
@@ -150,15 +157,19 @@ public class PersonalCenterFragment extends BaseFragment implements View.OnClick
     }
 
     public void refreshUI() {
-        if (Account.user.getIsBoss() == 1) {
-            ViewUtils.setGone(btnDiscountList);
-        } else {
-            ViewUtils.setVisible(btnDiscountList);
-        }
-        if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
-            ViewUtils.setGone(btnTask);
-        } else {
-            ViewUtils.setVisible(btnTask);
+
+        if (Account.user != null) {
+            if (Account.user.getIsBoss() == 1) {
+                ViewUtils.setGone(btnDiscountList);
+            } else {
+                ViewUtils.setVisible(btnDiscountList);
+            }
+            if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
+                ViewUtils.setGone(btnTask);
+            } else {
+                ViewUtils.setVisible(btnTask);
+            }
+
         }
         setUserInfo();
         loadData();
@@ -211,6 +222,7 @@ public class PersonalCenterFragment extends BaseFragment implements View.OnClick
     @Override
     protected int layoutId() {
         return R.layout.win_personal_center;
+
     }
 
     @Override
@@ -224,24 +236,32 @@ public class PersonalCenterFragment extends BaseFragment implements View.OnClick
                         getActivity().finish();
                     }
                 });
+
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MY_SETTING_CLICK,null);
                 break;
             case R.id.btn_home_page://个人信息
                 PersonalHomepageAct.start(getActivity());
                 break;
             case R.id.btn_user_balance://账户余额
                 PayMyAccountAct.start(getActivity());
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MY_BALANCE_CLICK,null);
                 break;
             case R.id.btn_messages://我的消息
 //                AllMessageAct.start(getActivity());
                 FragmentListAct.start("我的消息", FragmentListAct.PAGE_GUARANTEE_MSG);
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MY_MESSAGE_CLICK,null);
                 break;
             case R.id.btn_task:
                 FragmentListAct.start("任务指标", FragmentListAct.PAGE_TASK_TARGET);
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MY_TARGET_CLICK,null);
                 break;
             case R.id.btn_yam_college://柚安米商学院
                 YamCollegeListAct.start(getActivity(), Constants.YAM_COURSE_NEW);
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MY_COLLEGE_CLICK,null);
+
                 break;
             case R.id.btn_devices://设备管理
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MY_DEVICE_CLICK,null);
                 final GetDeviceStatueRequest gdsRequest = new GetDeviceStatueRequest("");
                 gdsRequest.setOnResponseStateListener(new BaseRequest.ResponseStateListener() {
                     @Override
@@ -276,14 +296,16 @@ public class PersonalCenterFragment extends BaseFragment implements View.OnClick
                 break;
             case R.id.btn_feedback://意见反馈
                 FeedbackAct.start(getActivity());
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MY_FEEDBACK_CLICK,null);
                 break;
             case R.id.btn_service_phone://客服
                 PhoneUtil.openPhoneKeyBord("4008077067", getActivity());
+                UmengUtil.onEvent(getActivity(),new UmengUtil().MY_CALL_CLICK,null);
                 break;
         }
     }
 
     public void setCallBack(ParameCallBack callBack) {
-        this._callBack=callBack;
+        this._callBack = callBack;
     }
 }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.zxly.o2o.application.AppController;
 import com.zxly.o2o.application.Config;
 import com.zxly.o2o.shop.R;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 /**
@@ -70,6 +71,7 @@ public class AboutUsAct extends BasicAct implements
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(Config.appUpdateUrl));
                 startActivity(intent);
+                UmengUtil.onEvent(AboutUsAct.this,new UmengUtil().ABOUT_UPDATE_CLICK,null);
                 break;
         }
     }

@@ -164,7 +164,11 @@ public class YamCollegeListAct extends BasicAct implements View.OnClickListener,
                     if (pageId == 1) {
                         adapter.clear();
                         adapter.notifyDataSetChanged();
-                        loadingView.onDataEmpty("没有教程");
+                        if (type == Constants.YAM_COURSE_SEARCH) {
+                            loadingView.onDataEmpty("没有搜索到相关内容",R.drawable.img_default_sad);
+                        } else {
+                            loadingView.onDataEmpty("暂无内容",R.drawable.img_default_tired);
+                        }
                     } else {
                         ViewUtils.showToast("最后一页了");
                         loadingView.onLoadingComplete();
@@ -191,7 +195,9 @@ public class YamCollegeListAct extends BasicAct implements View.OnClickListener,
                 courseListRequest.start(this);
             }
         });
-        loadingView.startLoading();
+        if (!listView.isRefreshing()) {
+            loadingView.startLoading();
+        }
         courseListRequest.start(this);
     }
 

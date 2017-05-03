@@ -1,5 +1,7 @@
 package com.zxly.o2o.request;
 
+import android.text.TextUtils;
+
 import com.easemob.easeui.AppException;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.model.PromotionArticle;
@@ -12,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by dsnx on 2016/9/29.
+ * 自定义文章
  */
 public class IndustriesArticleRequest extends BaseRequest {
     public List<PromotionArticle> articleList=new ArrayList<PromotionArticle>();
@@ -31,11 +34,18 @@ public class IndustriesArticleRequest extends BaseRequest {
                 JSONObject jsonObject=jsonArray.getJSONObject(i);
                 PromotionArticle article=new PromotionArticle();
                 article.setArticleId(jsonObject.optLong("articleId"));
-                article.setUrl(jsonObject.optString("url"));
+                article.setUrl(jsonObject.optString("shareUrl"));
                 article.setScanCount(jsonObject.optInt("scanCount"));
                 article.setCreateTime(jsonObject.optLong("createTime"));
-                article.setH5Url(jsonObject.optString("url"));
+                article.setH5Url(jsonObject.optString("shareUrl"));
                 article.setTitle(jsonObject.optString("title"));
+                article.setUserAppName(jsonObject.optString("userAppName"));
+                article.setDescription(jsonObject.optString("description"));
+                String url = jsonObject.optString("shareUrl");
+                if(!TextUtils.isEmpty(url)&&url.contains("shareImage=")){
+                    String substring = url.replaceAll("(?is).*?shareImage=(.*?)&.*", "$1");
+                    article.setShareImageUrl(substring);
+                }
                 articleList.add(article);
             }
         } catch (Exception e) {

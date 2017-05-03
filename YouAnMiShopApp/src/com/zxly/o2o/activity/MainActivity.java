@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
@@ -41,6 +40,7 @@ import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.FragmentTabHandler;
 import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.PreferUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.FlowRadioGroup;
 import com.zxly.o2o.view.RedPoint;
@@ -175,7 +175,7 @@ public class MainActivity extends BasicAct {
             fragments.add(PromotionFragment.newInstance());
 //            fragments.add(TaskTargetListFragment.newInstance());
             ViewUtils.setText(btnManageOrPromotion, "找客");
-
+            UmengUtil.onEvent(this,"home_find_click",null);
             Drawable drawable = getResources().getDrawable(R.drawable.btn_tab_promotion_selector);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             btnManageOrPromotion.setCompoundDrawables(null, drawable, null, null);
@@ -326,6 +326,7 @@ public class MainActivity extends BasicAct {
                                         conflictBuilder = null;
                                         AppController.getInstance().exitAndGoToMainPage();
                                         LoginAct.start(AppController.getInstance().getTopAct());
+                                        finish();
                                     }
                                 });
                 conflictBuilder.setCancelable(false);
@@ -369,7 +370,7 @@ public class MainActivity extends BasicAct {
             isNeedToRefresh();
         }
         if (fragmentController != null && fragmentController.getCurrentTab() == 0) {
-            if(Config.shouldRefrensh){
+            if(Config.shouldRefrensh&&allCustomerFragment!=null){
                 allCustomerFragment.setShouldRfrensh(true);
                 allCustomerFragment.onResume();
                 Config.shouldRefrensh=false;

@@ -45,9 +45,9 @@ public abstract class PullToRefreshAdapterViewBase<T extends AbsListView> extend
         {
             newLp = new FrameLayout.LayoutParams(lp);
             
-            if (lp instanceof LinearLayout.LayoutParams)
+            if (lp instanceof LayoutParams)
             {
-                newLp.gravity = ((LinearLayout.LayoutParams)lp).gravity;
+                newLp.gravity = ((LayoutParams)lp).gravity;
             }
             else
             {
@@ -165,7 +165,7 @@ public abstract class PullToRefreshAdapterViewBase<T extends AbsListView> extend
     /**
      * Pass-through method for {@link PullToRefreshBase#getRefreshableView()
      * getRefreshableView()}.
-     * {@link AdapterView#setAdapter(android.widget.Adapter)}
+     * {@link AdapterView#setAdapter(Adapter)}
      * setAdapter(adapter)}. This is just for convenience!
      * 
      * @param adapter - Adapter to set

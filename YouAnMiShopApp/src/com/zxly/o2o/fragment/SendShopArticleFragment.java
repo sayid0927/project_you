@@ -9,10 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.easemob.easeui.AppException;
-import com.easemob.easeui.EaseConstant;
 import com.easemob.easeui.utils.GsonParser;
-import com.easemob.easeui.widget.easepullrefresh.EasePullToRefreshBase;
-import com.easemob.easeui.widget.easepullrefresh.EasePullToRefreshListView;
 import com.google.gson.reflect.TypeToken;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.activity.ChooseGroupPeopleAct;
@@ -21,6 +18,8 @@ import com.zxly.o2o.activity.SearchActivityAct;
 import com.zxly.o2o.adapter.IMSelectArticleAdapter;
 import com.zxly.o2o.application.Config;
 import com.zxly.o2o.model.PromotionArticle;
+import com.zxly.o2o.pullrefresh.PullToRefreshBase;
+import com.zxly.o2o.pullrefresh.PullToRefreshListView;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.PushArticleRequest;
 import com.zxly.o2o.request.SendShopArticleRequest;
@@ -37,7 +36,7 @@ import com.zxly.o2o.view.LoadingView;
 public class SendShopArticleFragment extends BaseFragment implements BaseRequest.ResponseStateListener,AdapterView.OnItemClickListener {
 
     private LoadingView loadingView;
-    private EasePullToRefreshListView mListView;
+    private PullToRefreshListView mListView;
     private IMSelectArticleAdapter adapter;
     private SendShopArticleRequest request;
     private int pageIndex=1;
@@ -56,18 +55,18 @@ public class SendShopArticleFragment extends BaseFragment implements BaseRequest
         loadingView =(LoadingView) findViewById(R.id.view_loading11);
         setSearchBtn();
         //loadingView.startLoading();
-        mListView = (EasePullToRefreshListView) findViewById(R.id.listview);
+        mListView = (PullToRefreshListView) findViewById(R.id.listview);
         btn_send = (LinearLayout) findViewById(R.id.btn_send);
         mListView.setIntercept(true);
-        EaseConstant.setRefreshText(mListView);
-        mListView.setMode(EasePullToRefreshBase.Mode.BOTH);
+        ViewUtils.setRefreshText(mListView);
+        mListView.setMode(PullToRefreshBase.Mode.BOTH);
         mListView.setOnItemClickListener(this);
-        mListView.setOnRefreshListener(new EasePullToRefreshBase.OnRefreshListener<ListView>() {
+        mListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override
-            public void onRefresh(EasePullToRefreshBase<ListView> refreshView) {
-                if (refreshView.getCurrentMode() == EasePullToRefreshBase.Mode.PULL_FROM_START) {
+            public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+                if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_START) {
                     loadData(1);
-                } else if (refreshView.getCurrentMode() == EasePullToRefreshBase.Mode.PULL_FROM_END) {
+                } else if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_END) {
                     loadData(pageIndex);
                 }
             }
@@ -166,6 +165,13 @@ public class SendShopArticleFragment extends BaseFragment implements BaseRequest
 
         if (mListView.isRefreshing())
             mListView.onRefreshComplete();
+
+        if(request.hasNextPage){
+            mListView.setMode(PullToRefreshBase.Mode.BOTH);
+        } else {
+            mListView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+        }
+
     }
 
     @Override

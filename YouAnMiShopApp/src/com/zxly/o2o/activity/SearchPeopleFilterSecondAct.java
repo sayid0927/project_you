@@ -68,6 +68,7 @@ public class SearchPeopleFilterSecondAct extends BasicAct implements View.OnClic
         getIntentData();
         inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         initView();
+
     }
 
     private void getIntentData() {
@@ -223,7 +224,7 @@ public class SearchPeopleFilterSecondAct extends BasicAct implements View.OnClic
                 if (isEmpty) {
                     if (page == 1) {
                         ViewUtils.setGone(listView);
-                        loadingview.onDataEmpty("无结果",R.drawable.kb_icon_d);
+                        loadingview.onDataEmpty("没有搜到相关内容",R.drawable.img_default_sad);
                     } else {
                         isLastData = true;
                         ViewUtils.showToast("亲! 没有更多了");
@@ -243,7 +244,14 @@ public class SearchPeopleFilterSecondAct extends BasicAct implements View.OnClic
             @Override
             public void onFail(int code) {
                 listView.onRefreshComplete();
-                loadingview.onDataEmpty("加载失败");
+                loadingview.onLoadingFail("您的手机网络不太顺畅哦!",R.drawable.img_default_shy);
+            }
+        });
+        loadingview.setOnAgainListener(new LoadingView.OnAgainListener() {
+            @Override
+            public void onLoading() {
+                loadingview.startLoading();
+                searchFilterUserRequest.start();
             }
         });
     }
@@ -284,16 +292,16 @@ public class SearchPeopleFilterSecondAct extends BasicAct implements View.OnClic
     }
 
     private void changeBackground(TextView view) {
-        if(types.contains(view.getText())){
+        if(types.contains(view.getText().toString())){
             view.setBackgroundResource(R
                     .drawable.bg_tagnormal_shape);
             view.setTextColor(Color.parseColor("#000a14"));
-            types.remove(view.getText());
+            types.remove(view.getText().toString());
         }else{
             view.setBackgroundResource(R
                     .drawable.bg_tagpress_shape);
             view.setTextColor(Color.parseColor("#ffffff"));
-            types.add((String) view.getText());
+            types.add( view.getText().toString());
         }
     }
 

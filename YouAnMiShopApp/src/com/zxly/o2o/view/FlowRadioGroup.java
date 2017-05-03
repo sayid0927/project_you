@@ -258,7 +258,7 @@ public class FlowRadioGroup extends LinearLayout {
      */
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new FlowRadioGroup.LayoutParams(getContext(), attrs);
+        return new LayoutParams(getContext(), attrs);
     }
 
     /**
@@ -266,7 +266,7 @@ public class FlowRadioGroup extends LinearLayout {
      */
     @Override
     protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
-        return p instanceof FlowRadioGroup.LayoutParams;
+        return p instanceof LayoutParams;
     }
 
     @Override
@@ -328,9 +328,9 @@ public class FlowRadioGroup extends LinearLayout {
         /**
          * <p>
          * Fixes the child's width to
-         * {@link android.view.ViewGroup.LayoutParams#WRAP_CONTENT} and the
+         * {@link ViewGroup.LayoutParams#WRAP_CONTENT} and the
          * child's height to
-         * {@link android.view.ViewGroup.LayoutParams#WRAP_CONTENT} when not
+         * {@link ViewGroup.LayoutParams#WRAP_CONTENT} when not
          * specified in the XML file.
          * </p>
          *
@@ -408,8 +408,8 @@ public class FlowRadioGroup extends LinearLayout {
      * </p>
      */
     private class PassThroughHierarchyChangeListener implements
-            ViewGroup.OnHierarchyChangeListener {
-        private ViewGroup.OnHierarchyChangeListener mOnHierarchyChangeListener;
+            OnHierarchyChangeListener {
+        private OnHierarchyChangeListener mOnHierarchyChangeListener;
 
         public void onChildViewAdded(View parent, View child) {
             if (parent == FlowRadioGroup.this && child instanceof RadioButton) {

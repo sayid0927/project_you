@@ -5,17 +5,24 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.zxly.o2o.account.Account;
 import com.zxly.o2o.activity.GuaranteeDetailAct;
 import com.zxly.o2o.activity.PayAct;
+import com.zxly.o2o.activity.PaySuccessAct;
 import com.zxly.o2o.adapter.ObjectAdapter;
+import com.zxly.o2o.dialog.LoadingDialog;
 import com.zxly.o2o.model.GuaranteeInfo;
+import com.zxly.o2o.request.BaseRequest;
+import com.zxly.o2o.request.GetMonthOrderPayRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.StringUtil;
 import com.zxly.o2o.util.TimeUtil;
+import com.zxly.o2o.util.ViewUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +37,12 @@ public class GuaranteeOrderDetailFragment extends BaseFragment {
     private TextView txtStatus, btnModify;
     private ListView mListView;
     private View btnPay;
+    private  LinearLayout layoutPay;
+    private  byte PayType;
+    private LoadingDialog loadingDialog;
 
     private GuaranteeInfo guaranteeInfo;
+    private GetMonthOrderPayRequest monthrderPayRequest;
 
     public static GuaranteeOrderDetailFragment newInstance(Bundle bundle){
         GuaranteeOrderDetailFragment f=new GuaranteeOrderDetailFragment();
@@ -44,7 +55,8 @@ public class GuaranteeOrderDetailFragment extends BaseFragment {
 
     }
 
-    public void setData(GuaranteeInfo guaranteeInfo){
+    public void setData(GuaranteeInfo guaranteeInfo)
+    {
         this.guaranteeInfo=guaranteeInfo;
     }
 
@@ -65,21 +77,51 @@ public class GuaranteeOrderDetailFragment extends BaseFragment {
         });
         mListView= (ListView) findViewById(R.id.mListView);
         btnPay = findViewById(R.id.btn_pay);
+        layoutPay= (LinearLayout)findViewById(R.id.layout_pay);
         btnPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PayAct.start(getActivity(), guaranteeInfo.getOrderNo(), Constants.TYPE_INSURANCE_PAY);
+        PayAct.start(getActivity(), guaranteeInfo.getOrderNo(), Constants.TYPE_INSURANCE_PAY);
+            }
+        });
+         layoutPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (loadingDialog == null) {
+                    loadingDialog = new LoadingDialog();
+                }
+               long aa = Account.user.getShopId();
+                loadingDialog.show();
+                monthrderPayRequest =
+                                new GetMonthOrderPayRequest(guaranteeInfo.getId(),Account.user.getShopId());
+                monthrderPayRequest.setOnResponseStateListener(new BaseRequest.ResponseStateListener() {
+                    @Override
+                    public void onOK() {
+                        ViewUtils.showToast("提交成功!");
+                        if (loadingDialog != null) {
+                            loadingDialog.dismiss();
+                        }
+                        getActivity().finish();
+                        PaySuccessAct.start(getActivity(), 0, "payType", 0, "pay");
+                    }
+                    @Override
+                    public void onFail(int code) {
+                        if (loadingDialog != null) {
+                            loadingDialog.dismiss();
+                        }
+                        ViewUtils.showToast("提交失败!");
+                    }
+                });
+                monthrderPayRequest.start(this);
             }
         });
 
+        layoutPay.setVisibility(View.GONE);
         btnPay.setVisibility(View.GONE);
         btnModify.setVisibility(View.GONE);
 
         refreshUI();
 //        GuaranteeInfo guaranteeInfo=new GuaranteeInfo();
-//
-//
-//
 //        guaranteeInfo.setOrderStatus(bundle.getInt("status"));
 //        guaranteeInfo.setCreateTime(System.currentTimeMillis());
 //        guaranteeInfo.setOrderNo(bundle.getString("orderNo"));
@@ -111,6 +153,7 @@ public class GuaranteeOrderDetailFragment extends BaseFragment {
 
         List<Item> itemList=new ArrayList<Item>();
 
+
         switch (guaranteeInfo.getOrderStatus()){
 
             case GuaranteeInfo.STATUS_WAIT_FOR_PAY:
@@ -120,8 +163,14 @@ public class GuaranteeOrderDetailFragment extends BaseFragment {
                 txtStatus.setCompoundDrawables(drawable, null, null, null);
                 txtStatus.setTextColor(0xffff5f19);
 
-                btnPay.setVisibility(View.VISIBLE);
-                btnModify.setVisibility(View.VISIBLE);
+                PayType= guaranteeInfo.getPayType();
+
+                if(PayType==0x02){
+                    layoutPay.setVisibility(View.VISIBLE);
+                    btnPay.setVisibility(View.GONE);
+                }else
+                    btnPay.setVisibility(View.VISIBLE);
+                    btnModify.setVisibility(View.VISIBLE);
 
                 itemList.add(new Item("名称", guaranteeInfo.getProduct().getName()));
                 itemList.add(new Item("下单时间", TimeUtil.formatOrderTime(guaranteeInfo.getCreateTime())));
@@ -154,6 +203,8 @@ public class GuaranteeOrderDetailFragment extends BaseFragment {
                 itemList.add(new Item("品牌型号",guaranteeInfo.getOrderInfo().getPhoneModel()));
                 itemList.add(new Item("IMEI",guaranteeInfo.getOrderInfo().getPhoneImei()));
                 itemList.add(new Item("手机价格",StringUtil.getPrice((float) guaranteeInfo.getOrderInfo().getPhonePrice())));
+                if(PayType==0x02)
+                    itemList.add(new Item("延保价格",StringUtil.getPrice((float) guaranteeInfo.getPrice())+"   (月结)"));
                 if(guaranteeInfo.getAnotherPayId()==null){
                     itemList.add(new Item("延保价格",StringUtil.getPrice((float) guaranteeInfo.getPrice())));
                 }else {
@@ -179,6 +230,7 @@ public class GuaranteeOrderDetailFragment extends BaseFragment {
                 itemList.add(new Item("IMEI",guaranteeInfo.getOrderInfo().getPhoneImei()));
                 itemList.add(new Item("手机价格",StringUtil.getPrice((float) guaranteeInfo.getOrderInfo().getPhonePrice())));
                 itemList.add(new Item("延保价格", StringUtil.getPrice((float) guaranteeInfo.getPrice())));
+
                 break;
 
             case GuaranteeInfo.STATUS_REFUNDED:

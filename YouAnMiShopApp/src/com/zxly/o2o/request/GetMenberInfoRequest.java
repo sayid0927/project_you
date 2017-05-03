@@ -24,6 +24,11 @@ public class GetMenberInfoRequest extends BaseRequest{
         addParams("shopId", Account.user.getShopId());
     }
 
+    public  GetMenberInfoRequest(String groupName){
+        addParams("groupName",groupName);
+        addParams("shopId", Account.user.getShopId());
+    }
+
     public void setIsshowLoading(boolean isshowLoading){
         this.isshowLoading=isshowLoading;
     }

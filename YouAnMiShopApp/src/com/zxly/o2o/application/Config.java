@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
-import com.easemob.chatuidemo.HXApplication;
 import com.easemob.easeui.controller.EaseUI;
 import com.zxly.o2o.model.AddressCountry;
 import com.zxly.o2o.model.BankProvince;
@@ -84,7 +82,7 @@ public class Config {
         try {
             LoadProperty();
             dataBaseUrl = getConfig("data_base_url").trim();
-            displayMetrics = ctx.getResources().getDisplayMetrics();
+            displayMetrics = EaseUI.displayMetrics;
             screenHeight = displayMetrics.heightPixels;
             screenWidth = displayMetrics.widthPixels;
             shareUrl=getConfig("share_url").trim();
@@ -96,7 +94,7 @@ public class Config {
             id = appInfo.metaData.getString("PUSH_APPID");
             key = appInfo.metaData.getString("PUSH_APPKEY");
             secret = appInfo.metaData.getString("PUSH_APPSECRET");
-//            hxInfo = HXApplication.getInstance().getHxInfo();
+          //  hxInfo = HXApplication.getInstance().getHxInfo();
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }

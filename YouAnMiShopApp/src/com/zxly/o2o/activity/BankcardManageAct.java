@@ -13,10 +13,13 @@ import com.android.volley.toolbox.NetworkImageView;
 import com.easemob.easeui.widget.SwipeLayout;
 import com.zxly.o2o.adapter.ObjectAdapter;
 import com.zxly.o2o.application.AppController;
+import com.zxly.o2o.dialog.PaySetDialog;
 import com.zxly.o2o.model.UserBankCard;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.PayMyAccountRequest;
 import com.zxly.o2o.shop.R;
+import com.zxly.o2o.util.Constants;
+import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.StringUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
@@ -41,6 +44,8 @@ public class BankcardManageAct extends BasicAct implements View.OnClickListener 
     private ArrayList<UserBankCard> bankcardList;
     private Set<SwipeLayout> mShownLayouts = new HashSet<SwipeLayout>();
     private List<SlideDelete> slideDeleteArrayList = new ArrayList<SlideDelete>();
+    private boolean showBtn;
+    private PaySetDialog setDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +96,14 @@ public class BankcardManageAct extends BasicAct implements View.OnClickListener 
                         ViewUtils.setText(findViewById(R.id.txt_user_info), "【" + StringUtil.getHideName(userName) + " " + StringUtil.getHiddenString(idCard) + "】");
                     }
                 } else {
+                    ViewUtils.setGone(contentLayout);
                     ViewUtils.setGone(findViewById(R.id.txt_my_bankcards));
+                    loadingview.onDataEmpty("您还没有添加银行卡呢!",true,R.drawable.img_default_tired);
+                    loadingview.setBtnText("去添加");
+                    showBtn =true;
+                }
+                if (payMyAccountRequest.getIsUserPaw() != -1) {
+                    Constants.isUserPaw = payMyAccountRequest.getIsUserPaw();
                 }
             }
 
@@ -104,12 +116,34 @@ public class BankcardManageAct extends BasicAct implements View.OnClickListener 
 
             @Override
             public void onLoading() {
-                loadingview.startLoading();
-                payMyAccountRequest.start(this);
+                if(showBtn){
+                    if (Constants.isUserPaw != 2) {
+                        setUserPaw(true);
+                    } else {
+                        PayIdentityCheckAct.start(BankcardManageAct.this, Constants.PAY_TYPE_LIANLIAN, 0f, Constants.TYPE_JUST_ADD, null, null);
+                    }
+                }else {
+                    loadingview.startLoading();
+                    payMyAccountRequest.start(this);
+                }
             }
         });
         loadingview.startLoading();
         payMyAccountRequest.start(this);
+    }
+
+    /**
+     * @param isNewAdd 是否新增银行卡
+     * @description 设置交易密码
+     */
+    private void setUserPaw(final boolean isNewAdd) {
+        setDialog = new PaySetDialog(BankcardManageAct.this, new ParameCallBack() {
+            @Override
+            public void onCall(Object object) {
+                PayIdentityCheckAct.start(BankcardManageAct.this, Constants.PAY_TYPE_LIANLIAN, 0f, Constants.TYPE_JUST_ADD, null, null);
+            }
+        });
+        setDialog.show();
     }
 
     @Override
@@ -152,6 +186,7 @@ public class BankcardManageAct extends BasicAct implements View.OnClickListener 
                 holder = (ViewHolder) convertView.getTag();
             }
 //            holder.swipeLayout.setSwipeEnabled(false);
+            holder.viewSlide.setDragEnable(true);
             holder.viewSlide.setOnSlideDeleteListener(new SlideDelete.OnSlideDeleteListener() {
                 @Override
                 public void onOpen(SlideDelete slideDelete) {

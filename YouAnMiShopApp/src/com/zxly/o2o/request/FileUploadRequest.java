@@ -104,7 +104,7 @@ public class FileUploadRequest {
         }
     };
 
-    Response.ErrorListener mErrorListener = new Response.ErrorListener() {
+    ErrorListener mErrorListener = new ErrorListener() {
 
         @Override
         public void onErrorResponse(VolleyError error) {
@@ -118,7 +118,7 @@ public class FileUploadRequest {
         }
     };
 
-    public static void addPutUploadFileRequest(final String url, final Map<String, File> files, final Map<String, Object> params, final Listener<String> responseListener, final Response.ErrorListener errorListener, final Object tag) {
+    public static void addPutUploadFileRequest(final String url, final Map<String, File> files, final Map<String, Object> params, final Listener<String> responseListener, final ErrorListener errorListener, final Object tag) {
         if (null == url || null == responseListener) {
             return;
         }

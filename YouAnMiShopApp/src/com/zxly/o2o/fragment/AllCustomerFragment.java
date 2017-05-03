@@ -1,28 +1,20 @@
 package com.zxly.o2o.fragment;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.zxly.o2o.account.Account;
-import com.zxly.o2o.activity.ChooseSendAct;
 import com.zxly.o2o.activity.MainActivity;
-import com.zxly.o2o.activity.OutLineFansDetailAct;
 import com.zxly.o2o.activity.PromotionArticleAct;
-import com.zxly.o2o.activity.SeachPeopleFilterFirstAct;
 import com.zxly.o2o.application.Config;
-import com.zxly.o2o.model.TagModel;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.GetFansAndMenberCountRequest;
-import com.zxly.o2o.request.GetMenberGroupReuqest;
 import com.zxly.o2o.request.ShopTagRequest;
 import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.CallBack;
 import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.PreferUtil;
@@ -53,7 +45,7 @@ public class AllCustomerFragment extends TagBaseViewPageFragment implements View
         btn_tuiguang.setOnClickListener(this);
         btn_fans = (RadioButton) findViewById(R.id.btn_fans);
         btn_menbers = (RadioButton) findViewById(R.id.btn_menbers);
-        if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
+        if (Account.user!=null&&Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
             ViewUtils.setVisible(btn_tuiguang);
         }else{
             ViewUtils.setGone(btn_tuiguang);

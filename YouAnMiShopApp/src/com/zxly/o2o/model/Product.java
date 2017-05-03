@@ -147,7 +147,7 @@ public class Product implements Parcelable ,Comparable{
 		dest.writeInt(typeCode);
 		dest.writeInt(status);
 	}
-	public static final Parcelable.Creator<Product> CREATOR = new Creator<Product>()
+	public static final Creator<Product> CREATOR = new Creator<Product>()
 	{
 		@Override
 		public Product[] newArray(int size)

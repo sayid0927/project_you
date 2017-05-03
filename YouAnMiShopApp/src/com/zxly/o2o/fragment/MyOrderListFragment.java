@@ -9,22 +9,14 @@
 package com.zxly.o2o.fragment;
 
 
-import u.aly.ar;
-
-import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ListView;
 
 import com.easemob.easeui.AppException;
 import com.easemob.easeui.utils.GsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.zxly.o2o.account.Account;
+import com.zxly.o2o.activity.MakeCommissionAct;
 import com.zxly.o2o.activity.MyOrderAct;
 import com.zxly.o2o.adapter.MyOrderAdapter;
 import com.zxly.o2o.adapter.ObjectAdapter;
@@ -32,17 +24,16 @@ import com.zxly.o2o.model.BuyItem;
 import com.zxly.o2o.model.OrderInfo;
 import com.zxly.o2o.model.OrderStatistics;
 import com.zxly.o2o.pullrefresh.PullToRefreshBase;
-import com.zxly.o2o.pullrefresh.PullToRefreshListView;
 import com.zxly.o2o.pullrefresh.PullToRefreshBase.Mode;
 import com.zxly.o2o.pullrefresh.PullToRefreshBase.OnRefreshListener;
+import com.zxly.o2o.pullrefresh.PullToRefreshListView;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.BaseRequest.ResponseStateListener;
-import com.zxly.o2o.request.MyOrderListRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.DataCallBack;
 import com.zxly.o2o.util.DataUtil;
-import com.zxly.o2o.util.DesityUtil;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 
@@ -73,6 +64,9 @@ public class MyOrderListFragment extends BaseFragment implements ResponseStateLi
 	private int pageIndex=1;
 	private int type;
 	OrderListRequest request;
+	private boolean isEmpty;
+	private boolean isShowNodata;
+
 	public static MyOrderListFragment newInstance(int type,int status,DataCallBack calllBack){
 		MyOrderListFragment f=new MyOrderListFragment();
 		Bundle args = new Bundle();
@@ -87,6 +81,16 @@ public class MyOrderListFragment extends BaseFragment implements ResponseStateLi
 		Bundle args = new Bundle();
 		args.putInt("status", status);
 		args.putInt("type", type);
+		f.setArguments(args);
+		return f;
+	}
+	public static MyOrderListFragment newInstance(int type,int status,boolean isShowNodata){
+		MyOrderListFragment f=new MyOrderListFragment();
+		Bundle args = new Bundle();
+		args.putInt("status", status);
+		args.putInt("type", type);
+		//由于之前从全部订单和送货清单进入该页面中的  送货中/已完成  都公用一个页面 现缺省项目需对其进行判断  所以增加此字段
+		args.putBoolean("isShowNodata", isShowNodata);
 		f.setArguments(args);
 		return f;
 	}
@@ -106,10 +110,13 @@ public class MyOrderListFragment extends BaseFragment implements ResponseStateLi
                 if (refreshView.getCurrentMode() == Mode.PULL_FROM_START) {
                     // 加载下啦数据
                     loadData(1);
+					UmengUtil.onEvent(getActivity(),new UmengUtil().ORDER_REFRESH,null);
                 }
                 if (refreshView.getCurrentMode() == Mode.PULL_FROM_END) {
                     // 加载上拉数据
                     loadData(pageIndex);
+					UmengUtil.onEvent(getActivity(),new UmengUtil().ORDER_UPLOAD,null);
+
                 }
 
             }
@@ -128,6 +135,7 @@ public class MyOrderListFragment extends BaseFragment implements ResponseStateLi
 			Bundle args=getArguments();	
 			status=args.getInt("status");
 			type=args.getInt("type");
+			isShowNodata =args.getBoolean("isShowNodata",false);
 			adapter = new MyOrderAdapter(getActivity());
 			((MyOrderAdapter)adapter).setOrderType(type);
 		}
@@ -138,6 +146,20 @@ public class MyOrderListFragment extends BaseFragment implements ResponseStateLi
 			request = new OrderListRequest(status);
 			request.setOnResponseStateListener(this);
 		}
+
+
+		loadingView.setOnAgainListener(new LoadingView.OnAgainListener() {
+			@Override
+			public void onLoading() {
+				if(isEmpty){
+				//跳转至推广商品页面
+					MakeCommissionAct.start(getActivity(),1);
+				}else {
+					loadingView.startLoading();
+					request.start(getActivity());
+				}
+			}
+		});
 
 
 	}
@@ -154,7 +176,7 @@ public class MyOrderListFragment extends BaseFragment implements ResponseStateLi
 
 	public void loadData(final int pageId) {
 		pageIndex=pageId;
-		if(DataUtil.listIsNull(adapter.getContent()))
+		if(DataUtil.listIsNull(adapter.getContent())&&!mListView.isRefreshing())
 		  loadingView.startLoading();
 
 		request.setPageIndex(pageId);
@@ -176,14 +198,25 @@ public class MyOrderListFragment extends BaseFragment implements ResponseStateLi
 			if(pageIndex==1){
 				adapter.clear();
 				adapter.notifyDataSetChanged();
-				loadingView.onDataEmpty();
+				if(isShowNodata){
+					loadingView.onDataEmpty("暂无内容",R.drawable.img_default_tired);
+				}else {
+					loadingView.onDataEmpty("暂无内容",true,R.drawable.img_default_happy);
+					loadingView.setBtnText("去推广");
+				}
+				isEmpty =true;
 			}else{
 				//最后一页
 			}
 		}
 		
 		if (mListView.isRefreshing())
-			mListView.onRefreshComplete();	
+			mListView.onRefreshComplete();
+		if(request.hasNextPage){
+			mListView.setMode(Mode.BOTH);
+		} else {
+			mListView.setMode(Mode.PULL_FROM_START);
+		}
 	}
 
 	@Override
@@ -196,9 +229,14 @@ public class MyOrderListFragment extends BaseFragment implements ResponseStateLi
 	}
 
 
+
+
+
 	@Override
 	protected void initView() {
 	}
+
+
 
 
 	class OrderListRequest extends BaseRequest{
@@ -208,6 +246,7 @@ public class MyOrderListFragment extends BaseFragment implements ResponseStateLi
 		private OrderStatistics statics;
 
 		private int orderRequestStatus;
+		public boolean hasNextPage;
 
 		public OrderListRequest(int status){
 			orderRequestStatus=status;
@@ -269,7 +308,11 @@ public class MyOrderListFragment extends BaseFragment implements ResponseStateLi
 					}
 
 				}
-
+				if(orderList.size()<10){
+					hasNextPage = false;
+				} else {
+					hasNextPage = true;
+				}
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

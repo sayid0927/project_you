@@ -24,9 +24,7 @@ import com.zxly.o2o.application.AppController;
 import com.zxly.o2o.pullrefresh.PullToRefreshAdapterViewBase;
 import com.zxly.o2o.pullrefresh.PullToRefreshBase;
 import com.zxly.o2o.pullrefresh.PullToRefreshBase.Mode;
-import com.zxly.o2o.pullrefresh.PullToRefreshGridView;
 import com.zxly.o2o.pullrefresh.PullToRefreshListView;
-import com.zxly.o2o.pullrefresh.PullToRefreshScrollView;
 import com.zxly.o2o.shop.R;
 
 import java.util.ArrayList;
@@ -126,49 +124,35 @@ public class ViewUtils {
     }
 
     public static void setRefreshText(PullToRefreshListView mListView) {
-
         setRefreshListText(mListView);
     }
     public static void setRefreshListText(PullToRefreshBase mListView) {
         mListView.setMode(Mode.BOTH);
         mListView.getLoadingLayoutProxy(false, true).setPullLabel("上拉加载");
-        mListView.getLoadingLayoutProxy(false, true).setRefreshingLabel("正在加载");
-        mListView.getLoadingLayoutProxy(false, true).setReleaseLabel("松开加载");
+        mListView.getLoadingLayoutProxy(false, true).setRefreshingLabel("加载中");
+        mListView.getLoadingLayoutProxy(false, true).setReleaseLabel("上拉加载");
         mListView.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
-        mListView.getLoadingLayoutProxy(true, false).setRefreshingLabel(
-                AppController.getInstance().getString(R.string.pull_to_refresh_down));
-        mListView.getLoadingLayoutProxy(true, false).setReleaseLabel(
-                AppController.getInstance().getString(R.string.pull_to_releaseL_down));
-
+        mListView.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新");
+        mListView.getLoadingLayoutProxy(true, false).setReleaseLabel("松开立即刷新");
     }
 
-    public static void setRefreshGridViewText(PullToRefreshGridView mGridView) {
-        mGridView.getLoadingLayoutProxy(false, true).setPullLabel("上拉加载");
-        mGridView.getLoadingLayoutProxy(false, true).setRefreshingLabel("正在加载");
-        mGridView.getLoadingLayoutProxy(false, true).setReleaseLabel("松开加载");
-        mGridView.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
-        mGridView.getLoadingLayoutProxy(true, false).setRefreshingLabel(
-                AppController.getInstance().getString(R.string.pull_to_refresh_down));
-        mGridView.getLoadingLayoutProxy(true, false).setReleaseLabel(
-                AppController.getInstance().getString(R.string.pull_to_releaseL_down));
-
-
-
-    }
-    
-    public static void setRefreshBaseText(PullToRefreshAdapterViewBase mPullToRefrehView) {
-        mPullToRefrehView.setMode(PullToRefreshBase.Mode.BOTH);
-        mPullToRefrehView.getLoadingLayoutProxy(false, true).setPullLabel("上拉加载");
-        mPullToRefrehView.getLoadingLayoutProxy(false, true).setRefreshingLabel("正在加载");
-        mPullToRefrehView.getLoadingLayoutProxy(false, true).setReleaseLabel("松开加载");
-        mPullToRefrehView.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
-        mPullToRefrehView.getLoadingLayoutProxy(true, false).setRefreshingLabel(
-                AppController.getInstance().getString(R.string.pull_to_refresh_down));
-        mPullToRefrehView.getLoadingLayoutProxy(true, false).setReleaseLabel(
-                AppController.getInstance().getString(R.string.pull_to_releaseL_down));
+    public static void setRefreshListFromStartText(PullToRefreshBase mListView) {
+        mListView.setMode(Mode.PULL_FROM_START);
+        mListView.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
+        mListView.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新");
+        mListView.getLoadingLayoutProxy(true, false).setReleaseLabel("松开立即刷新");
     }
 
-    
+    public static void setRefreshBaseText(PullToRefreshAdapterViewBase mPullToRefreshView) {
+        mPullToRefreshView.setMode(Mode.BOTH);
+        mPullToRefreshView.getLoadingLayoutProxy(false, true).setPullLabel("上拉加载");
+        mPullToRefreshView.getLoadingLayoutProxy(false, true).setRefreshingLabel("加载中");
+        mPullToRefreshView.getLoadingLayoutProxy(false, true).setReleaseLabel("上拉加载");
+        mPullToRefreshView.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
+        mPullToRefreshView.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新");
+        mPullToRefreshView.getLoadingLayoutProxy(true, false).setReleaseLabel("松开立即刷新");
+    }
+
 
     /**
      * 对PagerSlidingTabStrip的各项属性进行赋值。
@@ -194,20 +178,6 @@ public class ViewUtils {
         // 取消点击Tab时的背景色
         tabs.setTabBackground(R.drawable.background_tab);
         tabs.initTabStyles();
-    }
-
-
-    public static void setRefreshText(PullToRefreshScrollView mScrollView) {
-        mScrollView.setMode(Mode.BOTH);
-        mScrollView.getLoadingLayoutProxy(false, true).setPullLabel("上拉加载");
-        mScrollView.getLoadingLayoutProxy(false, true).setRefreshingLabel("正在加载");
-        mScrollView.getLoadingLayoutProxy(false, true).setReleaseLabel("松开加载");
-        mScrollView.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
-        mScrollView.getLoadingLayoutProxy(true, false).setRefreshingLabel(
-                AppController.getInstance().getString(R.string.pull_to_refresh_down));
-        mScrollView.getLoadingLayoutProxy(true, false).setReleaseLabel(
-                AppController.getInstance().getString(R.string.pull_to_releaseL_down));
-
     }
 
     static public void setText(View v, Object o) {

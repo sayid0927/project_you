@@ -1,9 +1,5 @@
 package com.google.zxing;
 
-import java.io.IOException;
-import java.util.Vector;
-
-import android.app.Activity;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
 import android.media.AudioManager;
@@ -13,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
@@ -29,6 +24,9 @@ import com.zxly.o2o.activity.FragmentListAct;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.ParameCallBack;
 import com.zxly.o2o.util.ViewUtils;
+
+import java.io.IOException;
+import java.util.Vector;
 
 
 public class CaptureActivity extends BasicAct implements Callback , View.OnClickListener{
@@ -53,7 +51,6 @@ public class CaptureActivity extends BasicAct implements Callback , View.OnClick
 		setContentView(R.layout.activity_capture);
 		CameraManager.init(getApplication());
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
-		
 		View mButtonBack = findViewById(R.id.btn_back);
 		mButtonBack.setOnClickListener(this);
 		hasSurface = false;

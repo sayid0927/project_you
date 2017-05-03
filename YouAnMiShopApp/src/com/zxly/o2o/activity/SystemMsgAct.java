@@ -13,7 +13,6 @@ import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.DisCountSystemMsgDeTailRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.BitmapUtil;
-import com.zxly.o2o.util.ShareListener;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 
@@ -107,6 +106,11 @@ public class SystemMsgAct extends BasicAct implements View.OnClickListener,PullT
                         sysMsgAdater.clear();
                     }
                     sysMsgAdater.addItem(disCountSystemMsgDeTailRequest.getGiftGetInfoList(),true);
+                }
+                if(disCountSystemMsgDeTailRequest.hasNext){
+                    mListView.setMode(PullToRefreshBase.Mode.PULL_FROM_END);
+                } else {
+                    mListView.setMode(PullToRefreshBase.Mode.DISABLED);
                 }
             }
 

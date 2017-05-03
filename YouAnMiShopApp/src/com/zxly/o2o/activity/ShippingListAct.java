@@ -1,27 +1,22 @@
 package com.zxly.o2o.activity;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.easemob.easeui.widget.viewpagerindicator.PagerSlidingTabStrip;
-import com.easemob.easeui.widget.viewpagerindicator.ViewPageFragmentAdapter;
-import com.zxly.o2o.application.AppController;
-import com.zxly.o2o.fragment.MyOrderListFragment;
-import com.zxly.o2o.fragment.SalesmanRankingListFragment;
-import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.ViewUtils;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+
+import com.easemob.easeui.widget.viewpagerindicator.ViewPageFragmentAdapter;
+import com.zxly.o2o.fragment.MyOrderListFragment;
+import com.zxly.o2o.shop.R;
+import com.zxly.o2o.util.ViewUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by wuchenhui on 2015/5/25.
@@ -46,8 +41,8 @@ public class ShippingListAct extends BasicAct implements View.OnClickListener {
 
         pager = (ViewPager) findViewById(R.id.pager);
         fragments = new ArrayList<Fragment>();
-        fragments.add(MyOrderListFragment.newInstance(MyOrderAct.TYPE_ORDER_SENDING, MyOrderAct.TYPE_ORDER_SENDING));
-        fragments.add(MyOrderListFragment.newInstance(MyOrderAct.TYPE_ORDER_SENDED, MyOrderAct.TYPE_ORDER_SENDED));
+        fragments.add(MyOrderListFragment.newInstance(MyOrderAct.TYPE_ORDER_SENDING, MyOrderAct.TYPE_ORDER_SENDING,true));
+        fragments.add(MyOrderListFragment.newInstance(MyOrderAct.TYPE_ORDER_SENDED, MyOrderAct.TYPE_ORDER_SENDED,true));
 
         String strings[] = {"送货中", "已送货"};
         pager.setAdapter(new ViewPageFragmentAdapter(getSupportFragmentManager(), fragments, strings));

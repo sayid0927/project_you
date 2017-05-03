@@ -16,6 +16,8 @@ import java.util.List;
 public class MakeMoneyListRequest extends BaseRequest {
 
     private List<MakeMoneyArticle> articleList=new ArrayList<MakeMoneyArticle>();
+    public boolean hasNextPage;
+
     public MakeMoneyListRequest(int pageIndex)
     {
         addParams("pageIndex",pageIndex);
@@ -40,6 +42,11 @@ public class MakeMoneyListRequest extends BaseRequest {
                 makeMoneyArticle.setTitle(articleJson.optString("title",""));
                 articleList.add(makeMoneyArticle);
 
+            }
+            if(articleList.size()<5){
+                hasNextPage = false;
+            } else {
+                hasNextPage = true;
             }
         } catch (JSONException e) {
             throw  JSONException(e);

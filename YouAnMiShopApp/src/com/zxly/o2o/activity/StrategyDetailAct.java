@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
@@ -13,9 +15,9 @@ import android.widget.TextView;
 import com.zxly.o2o.dialog.ShareDialog;
 import com.zxly.o2o.model.MakeMoneyArticle;
 import com.zxly.o2o.request.ShopAppArticleRequest;
-import com.zxly.o2o.service.RemoteInvokeService;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.ShareListener;
+import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.LoadingView;
 
@@ -29,6 +31,8 @@ public class StrategyDetailAct extends BasicAct implements View.OnClickListener{
     private String title;
     private LoadingView loadingview = null;
     private WebView webView;
+    private int status;
+    public static final int WEBVIEW_STATUS_NOMAL=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +43,20 @@ public class StrategyDetailAct extends BasicAct implements View.OnClickListener{
         findViewById(R.id.btn_share).setOnClickListener(this);
         ((TextView) findViewById(R.id.txt_title)).setText(title);
         loadingview = (LoadingView) findViewById(R.id.view_loading);
+        loadingview.setOnAgainListener(new LoadingView.OnAgainListener() {
+            @Override
+            public void onLoading() {
+                status=WEBVIEW_STATUS_NOMAL;
+                loadingview.startLoading();
+                webView.loadUrl(loadUrl);
+            }
+        });
         webView = ((WebView) findViewById(R.id.web_view));
+        ViewUtils.setGone(webView);
+        status=WEBVIEW_STATUS_NOMAL;
         loadH5(loadUrl);
         new ShopAppArticleRequest(makeMoneyArticle.getId()).start();
+        UmengUtil.onEvent(StrategyDetailAct.this,new UmengUtil().MONEY_GUIDE_ARTICLE_ENTER,null);
     }
     public static void start(Activity curAct, String title,MakeMoneyArticle _makeMoneyArticle) {
         makeMoneyArticle=_makeMoneyArticle;
@@ -74,6 +89,21 @@ public class StrategyDetailAct extends BasicAct implements View.OnClickListener{
 
         webView.setWebViewClient(new WebViewClient() {
 
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed();
+            }
+
+            /** 错误返回 */
+            @Override
+            public void onReceivedError(WebView view, int errorCode,
+                                        String description, String failingUrl) {
+//                super.onReceivedError(view, errorCode, description, failingUrl);
+//                webView.loadData("", "text/html", "utf_8");
+                ViewUtils.setGone(webView);
+                loadingview.onLoadingFail();
+                status = errorCode;
+            }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -90,7 +120,7 @@ public class StrategyDetailAct extends BasicAct implements View.OnClickListener{
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
-                loadingview.startLoading();
+//                loadingview.startLoading();
             }
 
             @Override
@@ -98,7 +128,10 @@ public class StrategyDetailAct extends BasicAct implements View.OnClickListener{
                 super.onPageFinished(view, url);
                 //	ViewUtils.setVisible(webView);
                 //loadingview.startLoading();
-                loadingview.onLoadingComplete();
+                if(status==WEBVIEW_STATUS_NOMAL) {
+                    ViewUtils.setVisible(webView);
+                    loadingview.onLoadingComplete();
+                }
             }
         });
         loadingview.startLoading();
@@ -127,6 +160,7 @@ public class StrategyDetailAct extends BasicAct implements View.OnClickListener{
 
                     }
                 });
+                UmengUtil.onEvent(StrategyDetailAct.this,new UmengUtil().MONEY_GUIDE_SHARE_CLICK,null);
                 break;
         }
     }

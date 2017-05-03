@@ -98,7 +98,7 @@ public class NewsArticleDetailAct extends BasicAct {
             actionBar.setCustomView(R.layout.tag_title);
             ((TextView) actionBar.getCustomView().findViewById(R.id.tag_title_title_name))
                     .setText("行业新闻");
-            findViewById(R.id.tag_title_btn_back).setOnClickListener(new View.OnClickListener() {
+            findViewById(R.id.tag_title_btn_back).setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     finish();

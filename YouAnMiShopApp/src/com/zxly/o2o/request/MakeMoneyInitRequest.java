@@ -19,6 +19,8 @@ public class MakeMoneyInitRequest extends BaseRequest {
     private float currentMonthRevenue;
     private int insuranceOrderCount;
     private List<MakeMoneyArticle> articleList=new ArrayList<MakeMoneyArticle>();
+    public boolean hasNextPage;
+
     public MakeMoneyInitRequest()
     {
         addParams("userId", Account.user.getId());
@@ -64,6 +66,11 @@ public class MakeMoneyInitRequest extends BaseRequest {
                     makeMoneyArticle.setHeadUrl(articleJson.optString("headUrl"));
                     articleList.add(makeMoneyArticle);
                 }
+            }
+            if(articleList.size()<5){
+                hasNextPage = false;
+            } else {
+                hasNextPage = true;
             }
         } catch (JSONException e) {
             throw JSONException(e);

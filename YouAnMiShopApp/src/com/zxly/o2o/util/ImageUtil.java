@@ -20,10 +20,10 @@ import java.io.InputStream;
  */
 public class ImageUtil {
 
-	public static BitmapFactory.Options opts_rgb565;
-	public static BitmapFactory.Options opts_argb4444;
-	public static BitmapFactory.Options opts_rgb565_generate;
-	public static BitmapFactory.Options opts_argb4444_generate;
+	public static Options opts_rgb565;
+	public static Options opts_argb4444;
+	public static Options opts_rgb565_generate;
+	public static Options opts_argb4444_generate;
 
 	static public Options getOptimizedOptions(boolean generatedRes) {
 

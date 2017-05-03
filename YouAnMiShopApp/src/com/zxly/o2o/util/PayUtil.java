@@ -33,6 +33,7 @@ public class PayUtil {
     public static final int BANKCARD_NUMBER_INCORRECT = 11;
     public static final int FINISH_TOP_ACTIVITY = 12;
     public static final int SOME_REASON_PAY_FAIL = 13;
+    public static final int BANKCARD_ADD_FINISH = 14;
 
     /**
      * @description    新增银行卡提现验证使用
@@ -270,7 +271,7 @@ public class PayUtil {
     }
 
 
-    public static void launchYinTongPay(final Handler handler, final Activity curAct, final UserBankCard userBankCard, final float orderMoney, final String orderNo, String money, final String payNo, final String userPaw, String createTime, String notifyUrl, String mobile) {
+    public static void launchYinTongPay(final Handler handler, final Activity curAct, final int type, final UserBankCard userBankCard, final float orderMoney, final String orderNo, String money, final String payNo, final String userPaw, String createTime, String notifyUrl, String mobile) {
         YinTongTradeInfo ytti = new YinTongTradeInfo(Float.parseFloat(money), payNo, createTime, notifyUrl);
         PayUtil.doYinTongPay(userBankCard, ytti, new ParameCallBack() {
             @Override
@@ -284,7 +285,10 @@ public class PayUtil {
                 if (com.yintong.pay.utils.Constants.RET_CODE_SUCCESS.equals(retCode)) {
                     // TODO 成功
                     AppLog.e("---success---, retCode is-----" + retCode);
-                    PaySuccessAct.start(curAct, orderMoney, orderNo, 0, "takeout_verify", userBankCard, orderMoney, userPaw);
+                    if (type == Constants.TYPE_JUST_ADD) {
+                    } else if (type == Constants.TYPE_TAKEOUT) {
+                        PaySuccessAct.start(curAct, orderMoney, orderNo, 0, "takeout_verify", userBankCard, orderMoney, userPaw);
+                    }
                     handler.obtainMessage(FINISH_TOP_ACTIVITY).sendToTarget();
                 } else if (com.yintong.pay.utils.Constants.RET_CODE_PROCESS.equals(retCode)) {
                     // TODO 处理中，掉单的情形

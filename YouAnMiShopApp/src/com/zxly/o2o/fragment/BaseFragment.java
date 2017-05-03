@@ -1,6 +1,4 @@
 package com.zxly.o2o.fragment;
-import com.umeng.analytics.MobclickAgent;
-import com.zxly.o2o.application.AppController;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+
+import com.zxly.o2o.application.AppController;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -92,13 +92,13 @@ public abstract class BaseFragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		MobclickAgent.onResume(this.getActivity());
+		//MobclickAgent.onResume(this.getActivity());
 	}
 
 	@Override
 	public void onPause() {
 		super.onPause();
-		MobclickAgent.onPause(this.getActivity());
+	//	MobclickAgent.onPause(this.getActivity());
 	}
 
 

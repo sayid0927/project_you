@@ -70,7 +70,7 @@ public class UserDefinedSendFragment extends BaseFragment{
                 case Constants.GET_PIC_FROM_CELLPHONE: // 解决4.4以上的版本图片url获取不到
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
                         Intent intent = new Intent(Intent.ACTION_PICK,
-                                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                         // intent.addCategory(Intent.CATEGORY_OPENABLE);
                         intent.setType("image/jpeg");
                         startActivityForResult(intent, Constants.GET_PIC_FROM_CELLPHONE);
@@ -100,6 +100,7 @@ public class UserDefinedSendFragment extends BaseFragment{
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
                     if(!"".equals(imgUrls.toString())) {
                         imgUrls.append(",");
                     }

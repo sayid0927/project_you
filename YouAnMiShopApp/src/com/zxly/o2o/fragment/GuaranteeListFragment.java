@@ -179,7 +179,7 @@ public class GuaranteeListFragment extends BaseFragment implements View.OnClickL
 					this.pageIndex++;
 				}else {
 					if(pageIndex==1){
-						loadingView.onDataEmpty();
+						loadingView.onDataEmpty("还没有人购买过延保服务呢,要加油哦!",R.drawable.img_default_happy);
 					}else {
 						ViewUtils.showToast("暂时没有更多了！");
 					}
@@ -188,10 +188,15 @@ public class GuaranteeListFragment extends BaseFragment implements View.OnClickL
 
 				mListView.onRefreshComplete();
 				adapter.notifyDataSetChanged();
+				if(request.hasNextPage){
+					mListView.setMode(Mode.BOTH);
+				} else {
+					mListView.setMode(Mode.PULL_FROM_START);
+				}
 				break;
 
 			case TYPE_LOAD_DATA_FAILD:
-				if(adapter.getContent()==null){
+				if(adapter.getContent()==null || adapter.getContent().isEmpty()){
 					loadingView.onLoadingFail();
 				}else {
 					ViewUtils.showToast("数据加载失败,请检查你的网络！");
@@ -256,6 +261,7 @@ public class GuaranteeListFragment extends BaseFragment implements View.OnClickL
 	static class DataListRequest extends BaseRequest {
 
 		List<GuaranteeInfo> guaranteeInfoList;
+		public boolean hasNextPage;
 
 		public DataListRequest(int type){
 			addParams("type",type);
@@ -277,6 +283,12 @@ public class GuaranteeListFragment extends BaseFragment implements View.OnClickL
 				if(jsonRoot.has("orders")){
 					TypeToken<List<GuaranteeInfo>> types = new TypeToken<List<GuaranteeInfo>>() {};
 					guaranteeInfoList= GsonParser.getInstance().fromJson(jsonRoot.getString("orders"), types);
+				}
+
+				if(guaranteeInfoList.size()<20){
+					hasNextPage = false;
+				} else {
+					hasNextPage = true;
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -343,10 +355,6 @@ public class GuaranteeListFragment extends BaseFragment implements View.OnClickL
 		}
 
 	}
-
-
-
-
 
 	 class GuaranteeManageListAdater extends ObjectAdapter implements View.OnClickListener{
 

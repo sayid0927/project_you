@@ -15,7 +15,6 @@ import com.zxly.o2o.util.TimeUtil;
 import com.zxly.o2o.util.ViewUtils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;

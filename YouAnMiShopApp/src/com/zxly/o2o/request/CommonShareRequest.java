@@ -12,6 +12,7 @@ import org.json.JSONObject;
  */
 public class CommonShareRequest extends BaseRequest {
     private String shareUrl;
+    private String h5HomeURL;
 
     public CommonShareRequest() {
         addParams("userId", Account.user.getId());
@@ -25,6 +26,9 @@ public class CommonShareRequest extends BaseRequest {
             if (json.has("url")) {
                 shareUrl = json.getString("url");
             }
+            if (json.has("h5HomeURL")) {
+                h5HomeURL = json.getString("h5HomeURL");
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -32,6 +36,10 @@ public class CommonShareRequest extends BaseRequest {
 
     public String getShareUrl() {
         return shareUrl;
+    }
+
+    public String getH5HomeURL() {
+        return h5HomeURL;
     }
 
     @Override

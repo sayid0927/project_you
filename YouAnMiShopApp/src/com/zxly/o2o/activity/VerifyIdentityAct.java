@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zxly.o2o.request.BaseRequest;
@@ -14,6 +16,7 @@ import com.zxly.o2o.request.IdentityVerifyRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.StringUtil;
 import com.zxly.o2o.util.ViewUtils;
+import com.zxly.o2o.view.LoadingView;
 
 /**
  * @author fengrongjian 2016-5-25
@@ -22,6 +25,7 @@ import com.zxly.o2o.util.ViewUtils;
 public class VerifyIdentityAct extends BasicAct implements OnClickListener {
     private EditText editName, editIdNo;
     private TextView txtName, txtIdNo;
+    private LoadingView view_loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,7 @@ public class VerifyIdentityAct extends BasicAct implements OnClickListener {
         txtName = (TextView) findViewById(R.id.txt_name);
         txtIdNo = (TextView) findViewById(R.id.txt_id_number);
         findViewById(R.id.btn_confirm).setOnClickListener(this);
+        view_loading = (LoadingView) findViewById(R.id.view_loading);
     }
 
     private void loadData() {
@@ -51,6 +56,7 @@ public class VerifyIdentityAct extends BasicAct implements OnClickListener {
         identityQueryRequest.setOnResponseStateListener(new BaseRequest.ResponseStateListener() {
             @Override
             public void onOK() {
+                view_loading.onLoadingComplete();
                 String certName = identityQueryRequest.getCertName();
                 String certNo = identityQueryRequest.getCertNo();
                 if (StringUtil.isNull(certName) || StringUtil.isNull(certNo)) {
@@ -68,9 +74,16 @@ public class VerifyIdentityAct extends BasicAct implements OnClickListener {
 
             @Override
             public void onFail(int code) {
+                view_loading.onLoadingFail();
             }
         });
         identityQueryRequest.start(this);
+        view_loading.setOnAgainListener(new LoadingView.OnAgainListener() {
+            @Override
+            public void onLoading() {
+                identityQueryRequest.start();
+            }
+        });
     }
 
     private void setData(String certName, String certNo, int certType) {

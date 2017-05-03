@@ -1,29 +1,26 @@
 package com.zxly.o2o.activity;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.easemob.easeui.widget.viewpagerindicator.PagerSlidingTabStrip;
-import com.easemob.easeui.widget.viewpagerindicator.ViewPageFragmentAdapter;
-import com.zxly.o2o.application.AppController;
-import com.zxly.o2o.fragment.MyOrderListFragment;
-import com.zxly.o2o.shop.R;
-import com.zxly.o2o.util.DataCallBack;
-import com.zxly.o2o.util.PreferUtil;
-import com.zxly.o2o.util.ViewUtils;
-import com.zxly.o2o.view.MPagerSlidingTab;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
+
+import com.easemob.easeui.widget.viewpagerindicator.ViewPageFragmentAdapter;
+import com.zxly.o2o.fragment.MyOrderListFragment;
+import com.zxly.o2o.shop.R;
+import com.zxly.o2o.util.PreferUtil;
+import com.zxly.o2o.util.UmengUtil;
+import com.zxly.o2o.util.ViewUtils;
+import com.zxly.o2o.view.MPagerSlidingTab;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by wuchenhui on 2015/5/25.
@@ -115,6 +112,7 @@ public class MyOrderAct extends BasicAct{
         tabs.setViewPager(pager);
         setTabsValue();
         pager.setCurrentItem(curTab);
+        UmengUtil.onEvent(MyOrderAct.this,new UmengUtil().ORDER_ENTER,null);
     }
 
 
@@ -150,6 +148,8 @@ public class MyOrderAct extends BasicAct{
             @Override
             public void onClick(View v) {
                 activity.finish();
+
+                UmengUtil.onEvent(MyOrderAct.this,new UmengUtil().ORDER_BACK_CLICK,null);
             }
         });
     }

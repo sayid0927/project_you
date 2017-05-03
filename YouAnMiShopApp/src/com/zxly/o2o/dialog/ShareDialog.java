@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
@@ -17,10 +16,10 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.utils.Utility;
 import com.tencent.connect.share.QQShare;
 import com.tencent.connect.share.QzoneShare;
+import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
 import com.tencent.mm.sdk.openapi.IWXAPI;
-import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.tencent.open.utils.ThreadManager;
 import com.tencent.tauth.IUiListener;
@@ -30,6 +29,7 @@ import com.zxly.o2o.account.Account;
 import com.zxly.o2o.adapter.ObjectAdapter;
 import com.zxly.o2o.application.AppController;
 import com.zxly.o2o.shop.AccessTokenKeeper;
+import com.zxly.o2o.shop.R;
 import com.zxly.o2o.shop.WBAuthActivity;
 import com.zxly.o2o.shop.WBShareActivity;
 import com.zxly.o2o.shop.wxapi.Util;
@@ -39,7 +39,6 @@ import com.zxly.o2o.util.BitmapUtil;
 import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.MyImageManager;
 import com.zxly.o2o.util.ShareListener;
-import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.StringUtil;
 import com.zxly.o2o.util.ViewUtils;
 
@@ -183,9 +182,7 @@ public class ShareDialog extends BaseDialog implements View.OnClickListener{
                         params.putString(QQShare.SHARE_TO_QQ_SUMMARY, desc);
                         mTencent.shareToQQ(AppController.getInstance().getTopAct(), params, qqShareListener);
                     }
-
                 }
-
             }
 
         });

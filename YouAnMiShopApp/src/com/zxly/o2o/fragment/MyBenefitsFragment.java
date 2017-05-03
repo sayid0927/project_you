@@ -1,18 +1,14 @@
 package com.zxly.o2o.fragment;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import com.zxly.o2o.account.Account;
+import com.zxly.o2o.activity.PromotionArticleAct;
 import com.zxly.o2o.adapter.BenefitsListAdapter;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.MyBenefitsRequest;
 import com.zxly.o2o.util.ViewUtils;
-import com.zxly.o2o.view.MyFlipperView;
 
 /**
  * Created by Administrator on 2016/6/12.
@@ -34,6 +30,13 @@ public class MyBenefitsFragment extends BaseListViewFragment {
                             myBenefitsRequest.getBenefitVOs().size() == 0) {
                         if (page == 1) {
                             viewContainer.setDisplayedChild(2, false);
+                            viewContainer.setBtnText("去推广");
+                            viewContainer.getBtnClick().setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    PromotionArticleAct.start(getActivity(),1);
+                                }
+                            });
                         } else {
                             isLastPage = true;
                         }

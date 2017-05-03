@@ -30,7 +30,7 @@ import com.zxly.o2o.util.ViewUtils;
 public class CrashHandler implements UncaughtExceptionHandler {
 
 	public static final String TAG = "CrashHandler";
-	private Thread.UncaughtExceptionHandler mDefaultHandler;
+	private UncaughtExceptionHandler mDefaultHandler;
 	private static CrashHandler INSTANCE = new CrashHandler();
 	Handler handler = new Handler(Looper.getMainLooper());
 	private Context mContext;
