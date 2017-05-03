@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zxly.o2o.shop"
-          android:versionCode="20302"
-          android:versionName="2.3.2">
+          package="com.zxly.o2o.shop"
+          android:versionCode="20509"
+          android:versionName="2.5.9">
 
-    <uses-sdk
-        android:minSdkVersion="17"
-        android:targetSdkVersion="22"/>
+    <!--<uses-sdk-->
+        <!--android:minSdkVersion="14"-->
+        <!--android:targetSdkVersion="19"/>-->
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -25,19 +25,31 @@
     <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
     <!-- 个推SDK权限配置开始 -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
-    <!-- iBeancon功能与个推3.0电子围栏功能所需要的权限为非必需的可选择权限，可以选择性配置，以便使用个推3.0电子围栏功能 -->;
+
+    <!-- iBeancon功能与个推3.0电子围栏功能所需要的权限为非必需的可选择权限，可以选择性配置，以便使用个推3.0电子围栏功能 -->
+    ;
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <!-- 个推3.0电子围栏功能所需权限 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <!-- 浮动通知权限 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- 替换为第三方应用的包名 -->
+    <uses-permission android:name="getui.permission.GetuiService.com.zxly.o2o.shop"/>
+    <!-- 个推SDK权限配置结束 -->
+
+    <permission
+        android:name="getui.permission.GetuiService.com.zxly.o2o.shop"
+        android:protectionLevel="normal">
+    </permission>
+
+    <!-- 替换为第三方应用的包名 -->
     <!-- 自定义权限 -->
     <application
         android:name="com.zxly.o2o.application.AppController"
@@ -48,13 +60,25 @@
         <activity
             android:name="com.zxly.o2o.activity.LaunchAct"
             android:label="@string/app_name"
+            android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
 
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="shopapp.com"
+                    android:scheme="yam" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name="com.zxly.o2o.activity.MainActivity"
             android:label="@string/app_name"
@@ -63,6 +87,7 @@
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="com.zxly.o2o.activity.MAINPAGE_SHOP"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
@@ -268,10 +293,10 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-        android:name="com.zxly.o2o.activity.SearchActicleAct"
-        android:label="@string/app_name"
-        android:screenOrientation="portrait">
-    </activity>
+            android:name="com.zxly.o2o.activity.SearchActicleAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
         <activity
             android:name="com.zxly.o2o.activity.SearchActivityAct"
             android:label="@string/app_name"
@@ -313,7 +338,6 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait">
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.HistoryStatisticsAct"
             android:label="@string/app_name"
@@ -330,7 +354,6 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="adjustPan">
-
         </activity>
         <activity
             android:name="com.zxly.o2o.activity.HotArticleDetailAct"
@@ -347,8 +370,6 @@
             android:theme="@style/AppTitleTheme"
             android:windowSoftInputMode="adjustPan">
         </activity>
-
-
         <activity
             android:name="com.zxly.o2o.activity.PublicArticleAct"
             android:launchMode="singleTask"
@@ -376,6 +397,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.zxly.o2o.shop.action.ACTION_FRAGMENTLIST_ACTIVITY"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
@@ -385,6 +407,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.zxly.o2o.shop.action.GUARANTEE_DETAIL"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
@@ -408,7 +431,6 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait">
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.PromotionArticleAct"
             android:label="@string/app_name"
@@ -434,7 +456,7 @@
             android:name="com.google.zxing.CaptureActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden" >
+            android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
 
         <!-- LLYT SDK START -->
@@ -466,9 +488,7 @@
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            />
-
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"
@@ -476,7 +496,7 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <!--IM用户详情-->
+        <!-- IM用户详情 -->
         <activity
             android:name="com.zxly.o2o.activity.IMUserDetailInfoActivity"
             android:launchMode="singleTask"
@@ -484,12 +504,12 @@
             android:theme="@style/AppTitleTheme">
             <intent-filter>
                 <action android:name="com.zxly.o2o.activity.IMUserDetailInfoAct"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
-
-        <!--发送自定义消息-->
+        <!-- 发送自定义消息 -->
         <activity
             android:name="com.zxly.o2o.activity.IMMultiPushActivity"
             android:launchMode="singleTask"
@@ -497,10 +517,10 @@
             android:theme="@android:style/Theme.Holo">
             <intent-filter>
                 <action android:name="com.zxly.o2o.activity.IMMultiPushActivity"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.UserSetMarkInfoAct"
             android:launchMode="singleTask"
@@ -511,11 +531,10 @@
         <activity
             android:name="com.zxly.o2o.activity.GetuiShopH5DetailAct"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            >
+            android:screenOrientation="portrait">
         </activity>
 
-        <!--商户到店优惠列表-->
+        <!-- 商户到店优惠列表 -->
         <activity
             android:name="com.zxly.o2o.activity.MyBenefitsAct"
             android:launchMode="singleTask"
@@ -524,10 +543,10 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden">
             <intent-filter>
                 <action android:name="com.zxly.o2o.activity.MyBenefitsAct"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.AlbumActivity"
             android:screenOrientation="portrait"
@@ -535,27 +554,22 @@
         </activity>
         <activity
             android:name="com.zxly.o2o.activity.SystemMsgAct"
-            android:screenOrientation="portrait"
             android:label="@string/app_name"
-            >
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.zxly.o2o.activity.GetFavorableStatisticsAct"
-            android:screenOrientation="portrait"
             android:label="@string/app_name"
-            >
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.zxly.o2o.activity.TouchImageViewAct"
             android:screenOrientation="portrait"
             android:theme="@style/AppTitleTheme">
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.ShopGuideAct"
             android:screenOrientation="portrait"/>
-
-
 
         <!-- 授权认证 -->
         <activity android:name=".WBAuthActivity"/>
@@ -571,28 +585,28 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
             android:configChanges="keyboardHidden|orientation"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="false" >
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize">
         </activity>
 
         <!-- 个推SDK配置开始 -->
         <!-- 配置的第三方参数属性 -->
         <meta-data
             android:name="PUSH_APPID"
-        android:value="sa2BTjUFy88fjEC2WNJhN4" />
+            android:value="76au5D4vV897tayUqSqTY1"/>
         <meta-data
             android:name="PUSH_APPKEY"
-            android:value="nmeGAnl4Ff9FFVoVuzrxS2" /> <!-- 替换为第三方应用的APPKEY -->
+            android:value="EvdJzHA71T8xl5DRFH7KQ"/> <!-- 替换为第三方应用的APPKEY -->
         <meta-data
             android:name="PUSH_APPSECRET"
-            android:value="O33fEC8lyg7BtEgrMKenJ4" /> <!-- 替换为第三方应用的APPSECRET -->
+            android:value="ZKQyzxEXMx5ip8WUJzmidA"/> <!-- 替换为第三方应用的APPSECRET -->
         <!-- 配置SDK核心服务 -->
         <service
             android:name="com.igexin.sdk.PushService"
@@ -600,31 +614,31 @@
             android:label="NotificationCenter"
             android:process=":pushservice">
             <intent-filter>
-                <action android:name="com.igexin.sdk.action.service.message" />
+                <action android:name="com.igexin.sdk.action.service.message"/>
             </intent-filter>
         </service>
         <service
             android:name="com.igexin.sdk.PushServiceUser"
             android:exported="true"
-            android:label="NotificationCenterUser" />
+            android:label="NotificationCenterUser"/>
 
         <receiver android:name="com.igexin.sdk.PushReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="com.igexin.sdk.action.refreshls" />
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.igexin.sdk.action.refreshls"/>
                 <!-- 以下三项为可选的action声明，可大大提高service存活率和消息到达速度 -->
-                <action android:name="android.intent.action.MEDIA_MOUNTED" />
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
             </intent-filter>
         </receiver>
         <receiver
             android:name="com.igexin.sdk.PushManagerReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.igexin.sdk.action.pushmanager" />
+                <action android:name="com.igexin.sdk.action.pushmanager"/>
             </intent-filter>
         </receiver>
 
@@ -634,51 +648,61 @@
             android:exported="false"
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
             android:name="com.igexin.sdk.GActivity"
             android:excludeFromRecents="true"
             android:exported="true"
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <service
             android:name="com.igexin.download.DownloadService"
-            android:process=":pushservice" />
+            android:process=":pushservice"/>
+
         <receiver android:name="com.igexin.download.DownloadReceiver">
             <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
+
         <provider
             android:name="com.igexin.download.DownloadProvider"
             android:authorities="downloads.com.zxly.o2o.shop"
             android:exported="true"
-            android:process=":pushservice" />
+            android:process=":pushservice"/>
+
+
+        <service
+            android:name="com.zxly.o2o.service.GeTuiPushService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":pushservice">
+        </service>
+
+
+
         <!-- 个推SDK配置结束 -->
         <!-- 配置第三方Receiver -->
         <receiver
             android:name="com.zxly.o2o.service.ShopGetuiPushReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.igexin.sdk.action.sa2BTjUFy88fjEC2WNJhN4" />
+                <action android:name="com.igexin.sdk.action.76au5D4vV897tayUqSqTY1"/>
             </intent-filter>
         </receiver>
-
-        <receiver android:name="com.zxly.o2o.service.ShopNotificationReceiver"
-
-            >
+        <receiver android:name="com.zxly.o2o.service.ShopNotificationReceiver">
             <intent-filter>
                 <action android:name="com.zxly.o2o.service.ShopNotificationReceiver"/>
             </intent-filter>
         </receiver>
+
         <service android:name="com.zxly.o2o.service.ShopNoticeMsgClickService">
             <intent-filter>
                 <action android:name="com.zxly.o2o.service.ShopNoticeMsgClickService"/>
             </intent-filter>
         </service>
-
 
         <activity
             android:name="com.zxly.o2o.activity.SeachPeopleFilterFirstAct"
@@ -690,14 +714,12 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait">
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.ChooseSendAct"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden">
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.OutLineFansDetailAct"
             android:launchMode="singleTask"
@@ -706,24 +728,22 @@
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="com.zxly.o2o.shop.action.OUTLINE_FANSDETAIL"/>
-                <category android:name="android.intent.category.DEFAULT" />
+
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.AddPeopleToGroupAct"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.WriteMenbersRemarksAct"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.ChooseGroupPeopleAct"
             android:launchMode="singleTask"
@@ -731,7 +751,6 @@
             android:theme="@android:style/Theme.Holo"
             android:windowSoftInputMode="adjustPan">
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.FilterPeopleAct"
             android:launchMode="singleTask"
@@ -745,21 +764,18 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.FansDetailNewAct"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.WriteFansRemarkAct"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
         </activity>
-
         <activity
             android:name="com.zxly.o2o.activity.AllMessageAct"
             android:label="@string/app_name"
@@ -773,6 +789,7 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="com.zxly.o2o.activity.DetailPersonalAct"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
@@ -787,15 +804,18 @@
             android:name="SN"
             android:value=""/>
 
+
+        <activity android:name="com.zxly.o2o.activity.PurchaseGroupAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+
+        <activity android:name="com.zxly.o2o.activity.ModelGroupAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
     </application>
-    <!--替换为第三方应用的包名-->
-    <uses-permission android:name="getui.permission.GetuiService.com.zxly.o2o.shop" />
-    <!-- 个推SDK权限配置结束 -->
-
-
-    <permission
-        android:name="getui.permission.GetuiService.com.zxly.o2o.shop"
-        android:protectionLevel="normal" >
-    </permission><!--替换为第三方应用的包名-->
 
 </manifest>
