@@ -14,12 +14,8 @@ define(['jquery','../../common/ajax/ajax','../../common/getArguments/getArgument
                     window.refreshView = function () {
                         $('.ui-loading-block').remove();
                         $(".webApp-content").html('<div class="banner"></div> ' +
-                            '<div class="s-function-list hot-circles clearfix" style="display: none"> ' +
+                            '<div class="s-function-list hot-circles clearfix"> ' +
                             '<ul> ' +
-                            '<li class="s-function-row entrance-click" id="moreFunction" data="" type="total"> ' +
-                            '<img src="images/quanbu_03.png" alt=""> ' +
-                            '<h1>全部</h1> ' +
-                            '</li> ' +
                             '</ul> ' +
                             '</div> ' +
                             '<section class="article-list-wrap"> ' +

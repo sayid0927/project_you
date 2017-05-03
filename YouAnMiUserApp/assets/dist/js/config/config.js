@@ -10,9 +10,6 @@ define(['jquery','../common/getArguments/getArguments','../common/baseDecode/bas
     var appConfig = {
         rootUrl: window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1),//项目所在根目录
         hostUrl: falseData ? window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1) : "http://bis.youanmi.com",//接口的主机IP
-        //multiTempUrl : 'http://asp1.youanmi.com/'//现网
-        //multiTempUrl : 'http://192.168.1.117:8082/uis' //少强
-        //multiTempUrl : 'http://192.168.1.140:7016/uis' //刘兵
         //multiTempUrl : 'http://192.168.1.10:28005'//志学
         multiTempUrl : urlDecode
     };
@@ -21,7 +18,7 @@ define(['jquery','../common/getArguments/getArguments','../common/baseDecode/bas
      * 接口项
      * @type {{indexInit: {url: string, dataType: string, type: string}}}
      */
-    var result = compare(getArguments().appVersion, '20424');
+    var result = compare(getArguments().appVersion, appVersion);
     if(result){//如果是新版本
         var circles = {
             //url: falseData ? appConfig.hostUrl + "/falseData/data.js" : appConfig.rootUrl + "/falseData/data.js",//本地接口url

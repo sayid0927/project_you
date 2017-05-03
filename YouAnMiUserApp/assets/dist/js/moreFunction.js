@@ -8,7 +8,7 @@ require.config({
         "frozen" : "../common/js/lib/frozen",
         "swiper":"../common/js/lib/swiper-3.3.1.jquery.min",
         "dropload":"../common/js/lib/dropload.min",
-        "deferred" : "../common/js/lib/deferred",
+        "deferred" : "../common/js/lib/deferred"
     },
     shim:{
         "jquery":{
@@ -29,6 +29,7 @@ require.config({
     }
 });
 
+var appVersion = '20499';
 var imgUrlPre = 'http://h5app.youanmi.com/multiTemp/multiTemp/images/';
 var client = ''; //判断ios android 的全局变量
 var clients = '';//联调android ios 的全局变量
@@ -55,7 +56,7 @@ var pageIdList = {
     'ptzx': 44,  //平台专享
     'dppt': 45, //店铺热文---平台专享   统一给app
     'total' : 100, //全部
-    'custom' : 9 //自定义
+    'custom' : 9 //自定义功能&&系统功能
 };
 
 var articleKeyAry = [null, 'topic', 'article', 'articleInfo'];

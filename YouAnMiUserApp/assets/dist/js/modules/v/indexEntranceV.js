@@ -11,74 +11,95 @@ define(['jquery','swiper','../m/indexDiscoutM', '../../common/getArguments/getAr
         if(clients != 'android'){
             noneDiv = 'noneDiv';
         }
-        var result = compare(getArguments().appVersion, '20424');
-        var isIos = navigator.userAgent.match(/iphone|ipod/ig);
-        var length = 7;
-        if(result){//如果是新版本
-            var html = '';
-            var orgBannerVos = datas.data.orgBannerVos;
+        var result = compare(getArguments().appVersion, appVersion);
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if(result){//新版本
+            var html = '';//dom
+            var type = '';//区别类型
+            var orgBannerVos = datas.data.orgBannerVos;//后台数据
+            var data = '';//传给app数据
+            var length = 9;//下标
             for(var i=0; i<length; i++){
-                if(isIos){
-                    try{
-                        if(orgBannerVos[i].type == 2) {
-                            length++;
-                            continue;
-                        }
-                    }catch (e){
-                        continue;
+                try{//异常处理
+                    switch(orgBannerVos[i].type){//类型
+                        case 1 : //流量充值
+                            type = 'recharge';
+                            data = '';
+                            break;
+                        case 2 : //应用管家
+                            type = 'download';
+                            data = '';
+                            break;
+                        case 3 : //保障服务
+                            type = 'insurance';
+                            data = '';
+                            break;
+                        case 4 : //到店优惠
+                            type = 'shopDiscount';
+                            data = '';
+                            break;
+                        case 5 : //赚佣金
+                            type = 'commission';
+                            data = '';
+                            break;
+                        case 6 : //品牌圈
+                            type = 'circle';
+                            data  = JSON.stringify(orgBannerVos[i]);
+                            break;
+                        case 7 : //地区圈
+                            type = 'circle';
+                            data  = JSON.stringify(orgBannerVos[i]);
+                            break;
+                        case 9 : //自定义功能
+                            type = 'custom';
+                            data  = JSON.stringify(orgBannerVos[i]);
+                            break;
+                        default : //系统功能
+                            type = 'custom';
+                            data  = JSON.stringify(orgBannerVos[i]);
+                            break;
                     }
                 }
-                if(orgBannerVos[i].type == 1){//流量充值
-                    html += '<li class="s-function-row entrance-click" type="recharge" data="">' +
-                        '<img src="' + orgBannerVos[i].iconUrl + '" alt=""> ' +
-                        '<h1>' + orgBannerVos[i].name + '</h1> ' +
-                        '</li>';
-                }else if(orgBannerVos[i].type == 2){//应用管家
-                    html += '<li class="s-function-row entrance-click" type="download" data="">' +
-                        '<img src="' + orgBannerVos[i].iconUrl + '" alt=""> ' +
-                        '<h1>' + orgBannerVos[i].name + '</h1> ' +
-                        '</li>';
-                }else if(orgBannerVos[i].type == 3){//保障服务
-                    html += '<li class="s-function-row entrance-click" type="insurance" data="">' +
-                        '<img src="' + orgBannerVos[i].iconUrl + '" alt=""> ' +
-                        '<h1>' + orgBannerVos[i].name + '</h1> ' +
-                        '</li>';
-                }else if(orgBannerVos[i].type == 5){//赚佣金
-                    html += '<li class="s-function-row entrance-click" type="commission" data="">' +
-                        '<img src="' + orgBannerVos[i].iconUrl + '" alt=""> ' +
-                        '<h1>' + orgBannerVos[i].name + '</h1> ' +
-                        '</li>';
-                }else if(orgBannerVos[i].type == 9){//自定义
-                    html += '<li class="s-function-row entrance-click" type="custom" data=\''+JSON.stringify(orgBannerVos[i])+'\'>' +
-                        '<img src="' + orgBannerVos[i].iconUrl + '" alt=""> ' +
-                        '<h1>' + orgBannerVos[i].name + '</h1> ' +
-                        '</li>';
-                }else if(orgBannerVos[i].type == 4){//到店优惠
-                    html += '<li class="s-function-row entrance-click" type="shopDiscount" data="">' +
-                        '<img src="' + orgBannerVos[i].iconUrl + '" alt=""> ' +
-                        '<h1>' + orgBannerVos[i].name + '</h1> ' +
-                        '</li>';
-                }else if(orgBannerVos[i].type == 6 || orgBannerVos[i].type == 7){//6:品牌圈；7:地区圈
-                    html += '<li class="s-function-row entrance-click" type="circle" data=\''+JSON.stringify(orgBannerVos[i])+'\'>' +
-                        '<img src="' + orgBannerVos[i].iconUrl + '" alt=""> ' +
-                        '<h1>' + orgBannerVos[i].name + '</h1> ' +
-                        '</li>';
+                catch(err) {
+                    break;
+                }
+                if(isAndroid){//安卓
+                    if(orgBannerVos[i].scope == 2){
+                        length++;
+                    }
+                    if(orgBannerVos[i].scope == 1 || orgBannerVos[i].scope == 3){//安卓 || 全平台
+                        html += '<li class="s-function-row entrance-click" type="' + type + '" data=\''+ data +'\'>' +
+                            '<img src="' + orgBannerVos[i].iconUrl + '" alt=""> ' +
+                            '<h1>' + orgBannerVos[i].name + '</h1> ' +
+                            '</li>';
+                    }
+                }
+                else if(isiOS){//ios
+                    if(orgBannerVos[i].type == 2) {//ios不展示应用管家
+                        length++;
+                        continue;
+                    }
+                    if(orgBannerVos[i].scope == 1){
+                        length++;
+                    }
+                    if(orgBannerVos[i].scope == 2 || orgBannerVos[i].scope == 3){//ios || 全平台
+                        html += '<li class="s-function-row entrance-click" type="' + type + '" data=\''+ data +'\'>' +
+                            '<img src="' + orgBannerVos[i].iconUrl + '" alt=""> ' +
+                            '<h1>' + orgBannerVos[i].name + '</h1> ' +
+                            '</li>';
+                    }
                 }
             }
-            $("#moreFunction").before(html);
+            html += '<li class="s-function-row entrance-click" id="moreFunction" data="" type="total">' +
+                '<img src="images/quanbu_03.png" alt=""> ' +
+                '<h1>全部</h1> ' +
+                '</li>';
+            $(".s-function-list ul").html(html);
             $(".hot-circles").css("height", "16.6rem");
-            $(".s-function-list").css("display", "block");
-
-            //跳转全部功能页面
-/*            $("#moreFunction").on("click", function () {
-                var shopId = getArguments().shopId;
-                var baseUrl = getArguments().baseUrl;
-                var appVersion = getArguments().appVersion;
-                var brandName = getArguments().brandName;
-                window.location.href = 'moreFunction.html?shopId=' + shopId + '&baseUrl=' +　baseUrl + '&appVersion=' + appVersion + '&brandName=' + brandName;
-            });*/
         }
-        else{
+        else{//老版本
             var html = '';
             html +='<div class="swiper-container">';
             html +='<div class="swiper-wrapper">';
@@ -119,6 +140,5 @@ define(['jquery','swiper','../m/indexDiscoutM', '../../common/getArguments/getAr
         });
         indexDiscountM();
     }
-
     return indexEntranceV;
 });
