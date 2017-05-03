@@ -1,19 +1,34 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
+//buildscript {
+//    repositories {
+//        mavenCentral()
+//    }
+//
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:1.3.1'
+//    }
+//}
+apply plugin: 'com.android.application'
+apply plugin: 'com.bugtags.library.plugin'
+apply from: 'tinkerpatch.gradle'
 
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
-    }
+bugtags {
+
+    appKey "beb9b4f14e72470fe0ad088b715ec421"
+    appSecret "6b657d55cf8d727e1aec0a6ab700be8d"
+    mappingUploadEnabled true
+    trackingNetworkEnabled true
 }
 
-apply plugin: 'com.android.application'
-
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
+    compile fileTree(include: '*.jar', dir: 'libs')
     compile project(':ChatProject')
-    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.bugtags.library:bugtags-lib:latest.integration'
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    provided("com.tencent.tinker:tinker-android-anno:1.7.7")
+    compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.1.4")
+//    compile 'com.getui:sdk:2.+'
+    compile files('libs/SecurePay-2.6.5.jar')
 }
 
 repositories {
@@ -39,20 +54,30 @@ afterEvaluate {
 
 android {
 
-    compileSdkVersion 19
-
-    buildToolsVersion "19.1.0"
+    compileSdkVersion 21
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
-        //	minSdkVersion Integer.parseInt(project.MIN_SDK_VERSION)
-        //	targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
-        //	versionCode Integer.parseInt(project.VERSION_CODE)
-        //	versionName project.VERSION_NAME
+        applicationId "com.zxly.o2o.shop"
         minSdkVersion 14
-        multiDexEnabled false
+        targetSdkVersion 21
+        multiDexEnabled true
+//        manifestPlaceholders = [
+//
+//        GETUI_APP_ID : "sa2BTjUFy88fjEC2WNJhN4",
+//        GETUI_APP_KEY : "nmeGAnl4Ff9FFVoVuzrxS2",
+//        GETUI_APP_SECRET : "O33fEC8lyg7BtEgrMKenJ4"
+//
+//        ]
+
+        ndk {
+            abiFilters 'armeabi'
+        }
+
     }
 
     dexOptions {
+
         preDexLibraries = false
         javaMaxHeapSize "2g"
     }
@@ -97,7 +122,7 @@ android {
             keyPassword "uhbtgb"
         }
 
-        debug{
+        debug {
             storeFile file("youanmi.keystore")
             storePassword "uhbtgb"
             keyAlias "youanmi"
@@ -122,5 +147,9 @@ android {
         }
     }
 
+    configurations {
+        all*.exclude group: 'com.android.support', module: 'support-v4'
+        all*.exclude group: 'com.android.support', module: 'support-annotations'
+    }
 
 }
