@@ -110,7 +110,7 @@ public class ZipUtil {
             }
             //child files and recursion
             for (int i = 0; i < fileList.length; i++) {
-                ZipFiles(folderString, fileString+java.io.File.separator+fileList[i], zipOutputSteam);
+                ZipFiles(folderString, fileString+ File.separator+fileList[i], zipOutputSteam);
             }//end of for
         }
     }

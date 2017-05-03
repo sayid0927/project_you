@@ -54,7 +54,7 @@ public class PersonalAboutUsAct extends BasicAct implements
             ViewUtils.setText(findViewById(R.id.txt_shop_version), "版本: V" + AppController.mVersionName);
         }
 
-        if (Config.serverShopversionNo > Config.shopVersionCode || Config.versionCodeCur > AppController.mVersionCode) {
+        if (Config.versionCodeCur > AppController.mVersionCode) {
             ViewUtils.setText(findViewById(R.id.txt_check_version), "发现新版本: V" + Config.serverVersionName);
             ViewUtils.setVisible(findViewById(R.id.btn_update_now));
         } else {

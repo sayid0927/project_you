@@ -91,7 +91,7 @@ public class PersonalHomepageAct extends BasicAct implements OnClickListener, On
 
     private void loadShareUrl(){
         final CommonShareRequest commonShareRequest = new CommonShareRequest();
-        commonShareRequest.setOnResponseStateListener(new BaseRequest.ResponseStateListener() {
+        commonShareRequest.setOnResponseStateListener(new ResponseStateListener() {
             @Override
             public void onOK() {
                 shareUrl = commonShareRequest.getShareUrl();
@@ -474,7 +474,7 @@ public class PersonalHomepageAct extends BasicAct implements OnClickListener, On
         //刷新联系人
         EaseContactAdapter.unRegistList.clear();
         final IMGetShopContactsRequest iMGetContactListRequest= new IMGetShopContactsRequest(false);
-        iMGetContactListRequest.setOnResponseStateListener(new BaseRequest.ResponseStateListener() {
+        iMGetContactListRequest.setOnResponseStateListener(new ResponseStateListener() {
             @Override
             public void onOK() {
                 iMGetContactListRequest.isLoadingContact=false;

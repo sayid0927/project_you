@@ -435,7 +435,7 @@ public class BitmapUtil {
 
 		Bitmap scaledBitmap = null;
 
-		android.util.Log.d("shareImg"," no zip  mwith:"+mWidth +" mHeight :"+mHeight   +"   with="+width +"    height="+height);
+		Log.d("shareImg"," no zip  mwith:"+mWidth +" mHeight :"+mHeight   +"   with="+width +"    height="+height);
 		try {
 			while (iconSize>minSize) {
 				if(width>=height &&width>iconSize){
@@ -458,7 +458,7 @@ public class BitmapUtil {
 				if(bmpToByteArray(scaledBitmap, false).length>(maxLen-2000)){
 					iconSize-=cutRate;
 				}else{
-					android.util.Log.d("shareImg", " 尺寸压缩xxx最后：  width="+mWidth +"  height="+ mHeight + "  size:"+ (bmpToByteArray(scaledBitmap, false).length / 1000) + "kb");
+					Log.d("shareImg", " 尺寸压缩xxx最后：  width="+mWidth +"  height="+ mHeight + "  size:"+ (bmpToByteArray(scaledBitmap, false).length / 1000) + "kb");
 					break;
 				}
 

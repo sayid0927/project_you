@@ -104,7 +104,7 @@ public class CheckLayout extends LinearLayout implements OnGlobalLayoutListener{
 				TextView checkItem=new TextView(getContext());
 				checkItem.setGravity(Gravity.CENTER);
 				checkItem.setText(checkList.get(i).getName());
-				checkItem.setLayoutParams(new LinearLayout.LayoutParams(DesityUtil.dp2px(getContext(), SINGLE_CHECK_ITEM_WITH),
+				checkItem.setLayoutParams(new LayoutParams(DesityUtil.dp2px(getContext(), SINGLE_CHECK_ITEM_WITH),
 						                  DesityUtil.dp2px(getContext(), SINGLE_CHECK_ITEM_HEIGHT)));
 				singleCheckItems.add(checkItem);
 				row1.addView(checkItem);
@@ -150,11 +150,11 @@ public class CheckLayout extends LinearLayout implements OnGlobalLayoutListener{
 	public View getMultipleCheckItem(String name){
 		LinearLayout lv=new LinearLayout(getContext());
 		lv.setGravity(Gravity.CENTER_VERTICAL);
-		lv.setLayoutParams(new LinearLayout.LayoutParams(DesityUtil.dp2px(getContext(), MULTIPLE_CHECK_ITEM_WITH), 
+		lv.setLayoutParams(new LayoutParams(DesityUtil.dp2px(getContext(), MULTIPLE_CHECK_ITEM_WITH),
 				           DesityUtil.dp2px(getContext(), MULTIPLE_CHECK_ITEM_HEIGHT)));
 		lv.setOrientation(LinearLayout.HORIZONTAL);	
 		
-		LayoutParams ivParams=new LinearLayout.LayoutParams(-2,-2);
+		LayoutParams ivParams=new LayoutParams(-2,-2);
 		ivParams.setMargins(0, 0,DesityUtil.dp2px(getContext(), 5),0);
 		ImageView iv=new ImageView(getContext());
 		iv.setLayoutParams(ivParams);
@@ -167,7 +167,7 @@ public class CheckLayout extends LinearLayout implements OnGlobalLayoutListener{
 		itemName.setText(name);		
 		itemName.setGravity(Gravity.CENTER);
 		itemName.setSingleLine(true);
-		itemName.setLayoutParams(new LinearLayout.LayoutParams(-2,-2));
+		itemName.setLayoutParams(new LayoutParams(-2,-2));
 		itemName.setPadding(0, 0,DesityUtil.dp2px(getContext(), 10),0);
 		lv.addView(itemName);
 		
@@ -348,7 +348,7 @@ public class CheckLayout extends LinearLayout implements OnGlobalLayoutListener{
 	
 	public LinearLayout getRow(){
 		LinearLayout row=new LinearLayout(getContext());
-		LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(-1, -2);
+		LayoutParams params=new LayoutParams(-1, -2);
 		params.setMargins(0, 5, 0, 5);
 		row.setLayoutParams(params);
 	//	row.setGravity(Gravity.CENTER);	

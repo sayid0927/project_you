@@ -119,13 +119,13 @@ public class TabSwitchPagerView extends RelativeLayout implements OnClickListene
 		if(index == 0){
 			mTabA.setTextAppearance(mContext,R.style.Main_tab_selected);
 			mTabB.setTextAppearance(mContext,R.style.Main_tab_unselected);
-			RelativeLayout.LayoutParams lp = (LayoutParams) mTabDiliver.getLayoutParams();
+			LayoutParams lp = (LayoutParams) mTabDiliver.getLayoutParams();
 			lp.setMargins(0, 0, 0, 0);
 			mTabDiliver.setLayoutParams(lp);
 		}else{
 			mTabA.setTextAppearance(mContext,R.style.Main_tab_unselected);
 			mTabB.setTextAppearance(mContext,R.style.Main_tab_selected);
-			RelativeLayout.LayoutParams lp = (LayoutParams) mTabDiliver.getLayoutParams();
+			LayoutParams lp = (LayoutParams) mTabDiliver.getLayoutParams();
 			lp.setMargins((int)BaseApplication.mWidthPixels/2, 0, 0, 0);
 			mTabDiliver.setLayoutParams(lp);
 		}

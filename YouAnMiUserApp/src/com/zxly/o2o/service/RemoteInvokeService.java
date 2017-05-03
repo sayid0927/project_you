@@ -538,11 +538,13 @@ public class RemoteInvokeService {
 
                 case Constants.PAGE_TOTAL:
 
-                  String  Url = "file://" + Constants.H5_PROJECT_PATH + "/moreFunction.html?shopId=" + shopId +
+                    String  Url = "file://" + Constants.H5_PROJECT_PATH + "/moreFunction.html?shopId=" + shopId +
                             "&baseUrl=" + DataUtil.encodeBase64(Config.dataBaseUrl)+"&appVersion="+ Util.getVersion(context)
                             + "&brandName=" + Build.BRAND ;
 
-                         WebViewAct.start("全部",Url);
+                    //String browserUrl1="http://192.168.1.66/app-multi-temp/moreFunction.html?shopId=100&baseUrl=aHR0cDovLzE5Mi4xNjguMS4xMDoyODAwNS8==&brandName=Xiaomi&DeviceID=867451021080988&DeviceType=1&userId=27570&appVersion=20500";
+
+                    WebViewAct.start("全部",Url);
 
                     break;
 

@@ -18,6 +18,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.bugtags.library.Bugtags;
 import com.easemob.EMCallBack;
 import com.easemob.chat.EMChatManager;
 import com.easemob.chatuidemo.HXApplication;
@@ -28,10 +29,14 @@ import com.easemob.easeui.EaseConstant;
 import com.easemob.easeui.controller.EaseUI;
 import com.igexin.sdk.PushManager;
 import com.shyz.downloadutil.BaseApplication;
+import com.tencent.tinker.loader.app.ApplicationLike;
+import com.tinkerpatch.sdk.TinkerPatch;
+import com.tinkerpatch.sdk.loader.TinkerPatchApplicationLike;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.cache.BitmapLruCache;
 import com.zxly.o2o.config.Config;
 import com.zxly.o2o.model.User;
+import com.zxly.o2o.o2o_user.BuildConfig;
 import com.zxly.o2o.o2o_user.R;
 import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.request.IMGetShopContactsRequest;
@@ -40,12 +45,15 @@ import com.zxly.o2o.service.BootBroadcastReceiver;
 import com.zxly.o2o.service.RemovedBroadcastReceiver;
 import com.zxly.o2o.thread.CrashHandler;
 import com.zxly.o2o.util.AppLog;
+import com.zxly.o2o.util.FetchPatchHandler;
 import com.zxly.o2o.util.ImeiUtil;
 import com.zxly.o2o.util.MD5Util;
 import com.zxly.o2o.util.PackageInfoUtil;
 import com.zxly.o2o.util.PreferUtil;
 
 import java.util.Stack;
+
+import static com.bugtags.library.Bugtags.BTGInvocationEventNone;
 
 /**
  * @author dsnx
@@ -74,13 +82,15 @@ public class AppController extends Application {
     public static Stack<Activity> actList = new Stack<Activity>();
     public static BitmapLruCache lruImageCache;
     private int loginToHXCount;
+    private ApplicationLike tinkerApplicationLike;
+    private RemovedBroadcastReceiver myRemovedBroadcastReceiver;
 
 
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
-
+        Bugtags.start("a23cb6aeefc8930ac5bd148da6349408", this, BTGInvocationEventNone);
         PushManager.getInstance().initialize(this.getApplicationContext());
 
         Intent completed = new Intent(Intent.ACTION_BOOT_COMPLETED);
@@ -88,8 +98,8 @@ public class AppController extends Application {
         bootBroadcastReceiver.onReceive(this,completed);
 
         Intent remove = new Intent(Intent.ACTION_PACKAGE_REMOVED);
-        RemovedBroadcastReceiver removedBroadcastReceiver= new RemovedBroadcastReceiver();
-        removedBroadcastReceiver.onReceive(this,remove);
+        RemovedBroadcastReceiver myRemovedBroadcastReceiver= new RemovedBroadcastReceiver();
+        myRemovedBroadcastReceiver.onReceive(this,remove);
 
         imei = ImeiUtil.getImei(instance);
         mImageUploadQueue = Volley.newRequestQueue(this, new MultiPartStack(this));
@@ -123,6 +133,20 @@ public class AppController extends Application {
         }
 
         initLogger();
+        if (BuildConfig.TINKER_ENABLE) {
+
+            // 我们可以从这里获得Tinker加载过程的信息
+            tinkerApplicationLike = TinkerPatchApplicationLike.getTinkerPatchApplicationLike();
+
+            // 初始化TinkerPatch SDK, 更多配置可参照API章节中的,初始化SDK
+            TinkerPatch.init(tinkerApplicationLike)
+                    .reflectPatchLibrary()
+                    .setPatchRollbackOnScreenOff(true)
+                    .setPatchRestartOnSrceenOff(true);
+
+            // 每隔3个小时去访问后台时候有更新,通过handler实现轮训的效果
+            new FetchPatchHandler().fetchPatchWithInterval(3);
+        }
     }
     
     @Override
@@ -283,7 +307,7 @@ public class AppController extends Application {
                 }
                 // 登陆成功，保存用户名密码
                 HXHelper.getInstance().setCurrentUserName(userName);
-                android.util.Log.e("login--", "环信登录成功=========:" + userName);
+                Log.e("login--", "环信登录成功=========:" + userName);
                 try {
                     // ** 第一次登录或者之前logout后再登录，加载所有本地群和回话
                     EMChatManager.getInstance().loadAllConversations();
@@ -296,7 +320,7 @@ public class AppController extends Application {
                 boolean updatenick = EMChatManager.getInstance().updateCurrentUserNick(
                         HXApplication.currentUserNick.trim());
                 if (!updatenick) {
-                    android.util.Log.e("LoginActivity", "update current user nick fail");
+                    Log.e("LoginActivity", "update current user nick fail");
                 }
             }
 
@@ -317,7 +341,7 @@ public class AppController extends Application {
                         loginToHXCount++;
                     }
                 }
-                android.util.Log.e("login--", "环信登录失败=========:" + message + "====" + userName);
+                Log.e("login--", "环信登录失败=========:" + message + "====" + userName);
             }
         });
     }

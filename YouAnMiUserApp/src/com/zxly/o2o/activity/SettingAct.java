@@ -30,7 +30,7 @@ import com.zxly.o2o.util.ViewUtils;
  * @author fengrongjian 2015-1-23
  * @description 设置界面
  */
-public class SettingAct extends BasicAct implements View.OnClickListener {
+public class SettingAct extends BasicAct implements OnClickListener {
     private Context context;
     private Dialog dialog;
     private CheckBox cbxPushMsg;
@@ -101,7 +101,7 @@ public class SettingAct extends BasicAct implements View.OnClickListener {
                     public void onOK() {
                         PreferUtil.getInstance().setLastUpdateApkTime(System.currentTimeMillis());
 
-                        if (Config.serverShopversionNo > Config.shopVersionCode || Config.versionCodeCur > AppController.mVersionCode) {
+                        if (Config.versionCodeCur > AppController.mVersionCode) {
                             ViewUtils.setVisible(txtVersionTip);
                             ViewUtils.setText(txtVersionTip, "发现新版本 V" + Config.serverVersionName);
                         }

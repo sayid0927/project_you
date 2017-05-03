@@ -69,7 +69,7 @@ public class NetUtils {
 			if (networkInfo != null && networkInfo.length > 0) {
 				for (int i = 0; i < networkInfo.length; i++) {
 					// 判断当前网络状态是否为连接状态
-					if (networkInfo[i].getState() == NetworkInfo.State.CONNECTED) {
+					if (networkInfo[i].getState() == State.CONNECTED) {
 						return true;
 					}
 				}

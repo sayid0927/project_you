@@ -69,7 +69,7 @@ public class TimeCutDownLayout extends LinearLayout {
 	private void initView(){
 		timeCutdownUtil=TimeCutdownUtil.getInstance();
 		timeText=new TextView(getContext());
-		LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(-2,-2);
+		LayoutParams params=new LayoutParams(-2,-2);
 		timeText.setLayoutParams(params);
 		timeText.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 		timeText.setTextColor(textColor);

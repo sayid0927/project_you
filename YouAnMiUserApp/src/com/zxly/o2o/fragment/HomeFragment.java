@@ -85,7 +85,7 @@ public class HomeFragment extends BaseFragment implements OnClickListener {
     @Override
     protected void initView(Bundle bundle) {
         browserUrl = bundle.getString("browserUrl");
-      //browserUrl="http://192.168.1.10:28005/app-multi-temp/index.html?shopId=1&baseUrl=aHR0cDovL3Vpcy55b3Vhbm1pLm5ldA==&brandName=Xiaomi&DeviceID=867451021080988&DeviceType=1&userId=27570&appVersion=2.8";
+        //browserUrl="http://192.168.1.66/app-multi-temp/index.html?shopId=100&baseUrl=aHR0cDovLzE5Mi4xNjguMS4xMDoyODAwNS8==&brandName=Xiaomi&DeviceID=867451021080988&DeviceType=1&userId=27570&appVersion=20500";
 
         appName = getActivity().getResources().getString(R.string.app_name);
         TextView txtTitle = (TextView) findViewById(R.id.txt_title);
@@ -419,7 +419,7 @@ public class HomeFragment extends BaseFragment implements OnClickListener {
         ((TextView) dialog.findViewById(R.id.activity_title)).setText(getuiMsg.getTitle());
         ((TextView) dialog.findViewById(R.id.activity_price)).setText(Html.fromHtml("活动价格  " + "<font color='#ff0000'>" + getuiMsg.getContent() + "</font>"));
         dialog.findViewById(R.id.content)
-                .setOnClickListener(new View.OnClickListener() {
+                .setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
@@ -427,7 +427,7 @@ public class HomeFragment extends BaseFragment implements OnClickListener {
                     }
                 });
         dialog.findViewById(R.id.close)
-                .setOnClickListener(new View.OnClickListener() {
+                .setOnClickListener(new OnClickListener() {
 
                     @Override
                     public void onClick(View v) {

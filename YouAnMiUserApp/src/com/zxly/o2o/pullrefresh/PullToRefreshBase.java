@@ -953,7 +953,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	protected final void refreshRefreshableViewSize(int width, int height) {
 		// We need to set the Height of the Refreshable View to the same as
 		// this layout
-		LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) mRefreshableViewWrapper
+		LayoutParams lp = (LayoutParams) mRefreshableViewWrapper
 				.getLayoutParams();
 
 		switch (getPullToRefreshScrollDirection()) {
@@ -1061,7 +1061,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	protected void updateUIForMode() {
 		// We need to use the correct LayoutParam values, based on scroll
 		// direction
-		final LinearLayout.LayoutParams lp = getLoadingLayoutLayoutParams();
+		final LayoutParams lp = getLoadingLayoutLayoutParams();
 
 		// Remove Header, and then add Header Loading View again if needed
 		if (this == mHeaderLayout.getParent()) {
@@ -1092,7 +1092,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		mRefreshableViewWrapper.addView(refreshableView, ViewGroup.LayoutParams.MATCH_PARENT,
 				ViewGroup.LayoutParams.MATCH_PARENT);
 
-		addViewInternal(mRefreshableViewWrapper, new LinearLayout.LayoutParams(
+		addViewInternal(mRefreshableViewWrapper, new LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 	}
 
@@ -1253,15 +1253,15 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		}
 	}
 
-	private LinearLayout.LayoutParams getLoadingLayoutLayoutParams() {
+	private LayoutParams getLoadingLayoutLayoutParams() {
 		switch (getPullToRefreshScrollDirection()) {
 		case HORIZONTAL:
-			return new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-					LinearLayout.LayoutParams.MATCH_PARENT);
+			return new LayoutParams(LayoutParams.WRAP_CONTENT,
+					LayoutParams.MATCH_PARENT);
 		case VERTICAL:
 		default:
-			return new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-					LinearLayout.LayoutParams.WRAP_CONTENT);
+			return new LayoutParams(LayoutParams.MATCH_PARENT,
+					LayoutParams.WRAP_CONTENT);
 		}
 	}
 

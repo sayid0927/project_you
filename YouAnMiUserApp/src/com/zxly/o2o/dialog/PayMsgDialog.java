@@ -233,8 +233,8 @@ public class PayMsgDialog {
     private void launchOrderCallback() {
         if (PayAct.parameCallBack != null) {
             Map<String, Object> result = new HashMap<String, Object>();
-            result.put(com.zxly.o2o.util.Constants.ORDER_OPERATE_TYPE, com.zxly.o2o.util.Constants.ORDER_OPERATE_PAY);
-            result.put(com.zxly.o2o.util.Constants.ORDER_NO, orderNo);
+            result.put(Constants.ORDER_OPERATE_TYPE, Constants.ORDER_OPERATE_PAY);
+            result.put(Constants.ORDER_NO, orderNo);
             ///   result.put(Constants.OPERATE_RESULT,Constants.OPERATE_SUCCESS);
             PayAct.parameCallBack.onCall(result);
         }

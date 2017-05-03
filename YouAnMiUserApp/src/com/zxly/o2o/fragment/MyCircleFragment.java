@@ -239,7 +239,7 @@ public class MyCircleFragment extends BaseFragment implements OnItemClickListene
 
     protected void setFlipper() {
         viewContainer = (MyFlipperView) findViewById(R.id.list_layout);
-        viewContainer.getRetryBtn().setOnClickListener(new View.OnClickListener() {
+        viewContainer.getRetryBtn().setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View arg0) {

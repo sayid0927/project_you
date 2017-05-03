@@ -35,7 +35,7 @@ public class JsObj {
 	
 	@SuppressLint("HandlerLeak")
 	Handler myHandler = new Handler(){
-		public void handleMessage(android.os.Message msg) {
+		public void handleMessage(Message msg) {
 			DownLoadTaskInfo info;
 			switch (msg.what) {
 			case ADD_TASK:

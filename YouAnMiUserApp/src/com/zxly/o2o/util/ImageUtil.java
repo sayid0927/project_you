@@ -21,10 +21,10 @@ import java.io.InputStream;
  */
 public class ImageUtil {
 
-	public static BitmapFactory.Options opts_rgb565;
-	public static BitmapFactory.Options opts_argb4444;
-	public static BitmapFactory.Options opts_rgb565_generate;
-	public static BitmapFactory.Options opts_argb4444_generate;
+	public static Options opts_rgb565;
+	public static Options opts_argb4444;
+	public static Options opts_rgb565_generate;
+	public static Options opts_argb4444_generate;
 
 	static public Options getOptimizedOptions(boolean generatedRes) {
 
@@ -33,28 +33,28 @@ public class ImageUtil {
 	}
 
 	static {
-		opts_rgb565 = new BitmapFactory.Options();
+		opts_rgb565 = new Options();
 		opts_rgb565.inDensity = DisplayMetrics.DENSITY_HIGH;
 		opts_rgb565.inTargetDensity = Config.densityDpi;
 		opts_rgb565.inPreferredConfig = Bitmap.Config.RGB_565;
 		opts_rgb565.inPurgeable = true;
 		opts_rgb565.inInputShareable = true;
 
-		opts_argb4444 = new BitmapFactory.Options();
+		opts_argb4444 = new Options();
 		opts_argb4444.inDensity = DisplayMetrics.DENSITY_HIGH;
 		opts_argb4444.inTargetDensity = Config.densityDpi;
 		opts_argb4444.inPreferredConfig = Bitmap.Config.ARGB_4444;
 		opts_argb4444.inPurgeable = true;
 		opts_argb4444.inInputShareable = true;
 
-		opts_rgb565_generate = new BitmapFactory.Options();
+		opts_rgb565_generate = new Options();
 		opts_rgb565_generate.inDensity = Config.densityDpi;
 		opts_rgb565_generate.inTargetDensity = Config.densityDpi;
 		opts_rgb565_generate.inPreferredConfig = Bitmap.Config.RGB_565;
 		opts_rgb565_generate.inPurgeable = true;
 		opts_rgb565_generate.inInputShareable = true;
 
-		opts_argb4444_generate = new BitmapFactory.Options();
+		opts_argb4444_generate = new Options();
 		opts_argb4444_generate.inDensity = Config.densityDpi;
 		opts_argb4444_generate.inTargetDensity = Config.densityDpi;
 		opts_argb4444_generate.inPreferredConfig = Bitmap.Config.ARGB_4444;

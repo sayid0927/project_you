@@ -33,7 +33,7 @@ public class ProductCollectFragment extends BaseFragment implements OnRefreshLis
     protected void initView() {
         loadingview = (LoadingView) findViewById(R.id.view_loading);
         gridView = (PullToRefreshGridView) findViewById(R.id.grid_view);
-        gridView.setMode(PullToRefreshBase.Mode.BOTH);
+        gridView.setMode(Mode.BOTH);
         adapter = new ActivityProductAdapter(this.getActivity());
         adapter.hideLikeCount();
         gridView.setAdapter(adapter);

@@ -79,7 +79,7 @@ public abstract class PullView extends LinearLayout {
 		txtView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 		txtView.setTextColor(textColor);
 		imgView.setBackgroundResource(turnDown);
-		spinnerContent.setOnClickListener(new View.OnClickListener() {
+		spinnerContent.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -141,7 +141,7 @@ public abstract class PullView extends LinearLayout {
 
 			}
 		});
-		setOnClickListener(new View.OnClickListener() {
+		setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {

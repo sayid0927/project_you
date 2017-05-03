@@ -58,7 +58,7 @@ public class DownloadManager {
     	}else{
     		filePath = appContext.getFilesDir().getAbsolutePath()+"/900_market/";
     	}
-        ColumnConverterFactory.registerColumnConverter(HttpHandler.State.class, new HttpHandlerStateConverter());
+        ColumnConverterFactory.registerColumnConverter(State.class, new HttpHandlerStateConverter());
         mContext = appContext;
         db = DbUtils.create(mContext);
         try {
@@ -424,21 +424,21 @@ public class DownloadManager {
         }
     }
 
-    private class HttpHandlerStateConverter implements ColumnConverter<HttpHandler.State> {
+    private class HttpHandlerStateConverter implements ColumnConverter<State> {
 
         @Override
-        public HttpHandler.State getFieldValue(Cursor cursor, int index) {
-            return HttpHandler.State.valueOf(cursor.getInt(index));
+        public State getFieldValue(Cursor cursor, int index) {
+            return State.valueOf(cursor.getInt(index));
         }
 
         @Override
-        public HttpHandler.State getFieldValue(String fieldStringValue) {
+        public State getFieldValue(String fieldStringValue) {
             if (fieldStringValue == null) return null;
-            return HttpHandler.State.valueOf(fieldStringValue);
+            return State.valueOf(fieldStringValue);
         }
 
         @Override
-        public Object fieldValue2ColumnValue(HttpHandler.State fieldValue) {
+        public Object fieldValue2ColumnValue(State fieldValue) {
             return fieldValue.value();
         }
 

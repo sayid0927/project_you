@@ -57,7 +57,7 @@ public class LoadingView extends LinearLayout implements AnimationListener {
         progressAnima.setInterpolator(lin);
         txtLoading = (TextView) findViewById(R.id.text_loading);
 		btnLoading = findViewById(R.id.btn_loading);
-		btnLoading.setOnClickListener(new View.OnClickListener() {
+		btnLoading.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {

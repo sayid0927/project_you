@@ -96,7 +96,7 @@ public class VersionCheckRequest extends BaseRequest {
                 }
 
 
-                if (Config.serverShopversionNo>Config.shopVersionCode||versionCodeCur > AppController.mVersionCode) {
+                if (versionCodeCur > AppController.mVersionCode) {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
