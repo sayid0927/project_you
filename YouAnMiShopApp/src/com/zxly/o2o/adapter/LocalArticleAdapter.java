@@ -79,7 +79,7 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
                    // shareInfo.setIconUrl(new String(Base64.decode(hb.article.getHeadImage().getBytes(), Base64.DEFAULT)));
                     H5DetailAct.start(H5DetailAct.TYPE_DEFAULT,
                             AppController.getInstance().getTopAct(),
-                            hb.article.getShareUrl() + "&fromApp=true", "文章详情", shareInfo, true);
+                            hb.article.getShareUrl() + "&from=app", "文章详情", shareInfo, false);
 
 //                    HashMap<String, String> map = new HashMap<String, String>();
 //                    map.put("tabID", String.valueOf(hb.article.getArticleId()));

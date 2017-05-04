@@ -23,7 +23,9 @@ import com.zxly.o2o.controller.AppController;
 import com.zxly.o2o.dialog.ShareDialog;
 import com.zxly.o2o.model.NewProduct;
 import com.zxly.o2o.o2o_user.R;
+import com.zxly.o2o.request.BaseRequest;
 import com.zxly.o2o.util.DesityUtil;
+import com.zxly.o2o.util.ShareListener;
 import com.zxly.o2o.util.StringUtil;
 import com.zxly.o2o.util.ViewUtils;
 
@@ -127,7 +129,26 @@ public class CommissionProductAdapter extends ObjectAdapter implements OnClickLi
 				StringBuilder desc=new StringBuilder("售价：");
 				desc.append(StringUtil.getRMBPrice(product.getPrice())).append("\n\n").append(Account.shopInfo.getName());
 
-				dialog.show(product.getName(),desc.toString(), product.getUrl()+"&promotionUserId="+ Account.user.getId(), product.getHeadUrl(),null);
+				dialog.show(product.getName(), desc.toString(), product.getUrl() + "&promotionUserId=" + Account.user.getId(), product.getHeadUrl(), new ShareListener() {
+					@Override
+					public void onComplete(Object var1) {
+
+//						shareUrl="/promote/quota/statistics";
+//						if(shareSuccessRequest==null)
+//							shareSuccessRequest=new ShareSuccessRequest();
+//						shareSuccessRequest.addParams("type",shareInfo.getType());
+//						shareSuccessRequest.addParams("id",shareInfo.getId());
+//						shareSuccessRequest.addParams("title",shareInfo.getTitle());
+//						shareSuccessRequest.addParams("shopId", Account.user.getShopId());
+//						shareSuccessRequest.start();
+
+					}
+
+					@Override
+					public void onFail(int errorCode) {
+
+					}
+				});
 				break;
 
 			default:
@@ -135,8 +156,16 @@ public class CommissionProductAdapter extends ObjectAdapter implements OnClickLi
 
 		}
 
+	}
 
+	private String shareUrl;
 
+	private ShareSuccessRequest shareSuccessRequest;
+	class ShareSuccessRequest extends BaseRequest {
+		@Override
+		protected String method() {
+			return shareUrl;
+		}
 	}
 
 }

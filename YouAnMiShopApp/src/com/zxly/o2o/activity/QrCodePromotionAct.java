@@ -150,7 +150,7 @@ public class QrCodePromotionAct extends BasicAct implements View.OnClickListener
                     }
                 });
                 UmengUtil.onEvent(QrCodePromotionAct.this,new UmengUtil().FIND_SHARE_H5_CLICK,null);
-                break;
+                    break;
             case R.id.btn_back:
                 finish();
                 break;

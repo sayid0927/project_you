@@ -74,11 +74,11 @@ public class H5DetailAct extends BasicAct implements View.OnClickListener {
 //						"&Authorization="+ PreferUtil.getInstance().getLoginToken()+
 //						"&type="+ Constants.OPEN_FROM_APP+"&baseUrl="+Config.dataBaseUrl+"&brand="+ Build.BRAND;
 			}
-
 		}
 
 		initViews();
 		loadH5(loadUrl);
+
 	}
 
 	@Override
@@ -134,6 +134,7 @@ public class H5DetailAct extends BasicAct implements View.OnClickListener {
 
 	private void loadH5(String loadUrl) {
 		webView.getSettings().setBuiltInZoomControls(false);
+		webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
 		webView.getSettings().setJavaScriptEnabled(true);
 		webView.getSettings().setSupportZoom(true);
 		webView.getSettings().setUseWideViewPort(true);
@@ -155,7 +156,7 @@ public class H5DetailAct extends BasicAct implements View.OnClickListener {
 
 			@Override
 			public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-				handler.proceed();
+					handler.proceed();
 			}
 
 			@Override
@@ -224,12 +225,22 @@ public class H5DetailAct extends BasicAct implements View.OnClickListener {
 								switch (pageType){
 
 									case TYPE_H5_GAME:
-										shareUrl="/localArticle/addShare";
+										shareUrl="/makeFans/addShareAmount";
 										if(shareSuccessRequest==null)
 											shareSuccessRequest=new ShareSuccessRequest();
 										shareSuccessRequest.addParams("type",shareInfo.getType());
 										shareSuccessRequest.addParams("id",shareInfo.getId());
 										shareSuccessRequest.addParams("title",shareInfo.getTitle());
+										shareSuccessRequest.addParams("shopId", Account.user.getShopId());
+										shareSuccessRequest.start();
+										break;
+
+									case TYPE_DEFAULT:
+										shareUrl="/localArticle/addShare";
+										if(shareSuccessRequest==null)
+											shareSuccessRequest=new ShareSuccessRequest();
+										shareSuccessRequest.addParams("id",shareInfo.getId());
+										shareSuccessRequest.addParams("shareChannel",1);
 										shareSuccessRequest.addParams("shopId", Account.user.getShopId());
 										shareSuccessRequest.start();
 										break;
