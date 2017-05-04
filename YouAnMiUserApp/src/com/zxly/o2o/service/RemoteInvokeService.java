@@ -44,6 +44,7 @@ import com.zxly.o2o.model.ShopArticle;
 import com.zxly.o2o.model.ShopTopic;
 import com.zxly.o2o.o2o_user.R;
 import com.zxly.o2o.request.BigturntableCountRequest;
+import com.zxly.o2o.util.ApkInfoUtil;
 import com.zxly.o2o.util.BitmapUtil;
 import com.zxly.o2o.util.CallBack;
 import com.zxly.o2o.util.CallBackWithParam;
@@ -60,6 +61,7 @@ import com.zxly.o2o.view.LoadingView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.List;
 
 import static com.zxly.o2o.config.Config.shopId;
@@ -538,13 +540,32 @@ public class RemoteInvokeService {
 
                 case Constants.PAGE_TOTAL:
 
-                    String  Url = "file://" + Constants.H5_PROJECT_PATH + "/moreFunction.html?shopId=" + shopId +
-                            "&baseUrl=" + DataUtil.encodeBase64(Config.dataBaseUrl)+"&appVersion="+ Util.getVersion(context)
-                            + "&brandName=" + Build.BRAND ;
+                    String homeUrl="";
+
+                    if ((PreferUtil.getInstance().getH5VersionCode() > ApkInfoUtil.getDefaultH5Version(context) ||
+                            PreferUtil.getInstance().getH5StyleId() != ApkInfoUtil.getDefaultH5StyleId(context)) &&
+                            new File(Constants.H5_PROJECT_PATH).exists()) {
+
+                        homeUrl = "file://" + Constants.H5_PROJECT_PATH + "/moreFunction.html?shopId=" + shopId +
+                                "&baseUrl=" + DataUtil.encodeBase64(Config.dataBaseUrl)
+                                +"&appVersion="+ Util.getVersion(context)
+                                +"&brandName=" + Build.BRAND ;
+
+                    } else {
+                        homeUrl = "file://" + Config.getH5CachePath(context) + "/moreFunction.html?shopId=" + shopId +
+                                "&baseUrl=" + DataUtil.encodeBase64(Config.dataBaseUrl)
+                                +"&appVersion="+ Util.getVersion(context)
+                                +"&brandName=" + Build.BRAND ;
+                    }
+
+//                    String  Url = "file://" + Constants.H5_PROJECT_PATH + "/moreFunction.html?shopId=" + shopId +
+//                            "&baseUrl=" + DataUtil.encodeBase64(Config.dataBaseUrl)
+//                            +"&appVersion="+ Util.getVersion(context)
+//                            + "&brandName=" + Build.BRAND ;
 
                     //String browserUrl1="http://192.168.1.66/app-multi-temp/moreFunction.html?shopId=100&baseUrl=aHR0cDovLzE5Mi4xNjguMS4xMDoyODAwNS8==&brandName=Xiaomi&DeviceID=867451021080988&DeviceType=1&userId=27570&appVersion=20500";
 
-                    WebViewAct.start("全部",Url);
+                    WebViewAct.start("全部",homeUrl);
 
                     break;
 
