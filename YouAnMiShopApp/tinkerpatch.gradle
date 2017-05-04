@@ -4,7 +4,7 @@ apply plugin: 'tinkerpatch-support'
  * TODO: 请按自己的需求修改为适应自己工程的参数
  */
 def bakPath = file("${buildDir}/bakApk/")
-def baseInfo = "youanmiShop_2.5.8_170502t1138_1000_r"
+def baseInfo = "YouAnMiShopApp-1.0.0-0504-16-35-03"
 def variantName = "release"
 
 /**
@@ -22,7 +22,7 @@ tinkerpatchSupport {
     appKey = "95a6cf2a991e451a"
 
     /** 注意: 若发布新的全量包, appVersion一定要更新 **/
-    appVersion = "1.0.0"
+    appVersion = "1.0.1"
 
     def pathPrefix = "${bakPath}/${baseInfo}/${variantName}/"
     def name = "${project.name}-${variantName}"

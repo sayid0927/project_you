@@ -674,15 +674,6 @@
             android:process=":pushservice"/>
 
 
-        <service
-            android:name="com.zxly.o2o.service.GeTuiPushService"
-            android:exported="true"
-            android:label="PushService"
-            android:process=":pushservice">
-        </service>
-
-
-
         <!-- 个推SDK配置结束 -->
         <!-- 配置第三方Receiver -->
         <receiver

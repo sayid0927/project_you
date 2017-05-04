@@ -27,7 +27,6 @@ dependencies {
     compile 'com.umeng.analytics:analytics:latest.integration'
     provided("com.tencent.tinker:tinker-android-anno:1.7.7")
     compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.1.4")
-//    compile 'com.getui:sdk:2.+'
     compile files('libs/SecurePay-2.6.5.jar')
     compile 'com.bugtags.library:bugtags-lib:2.2.3'
 }
@@ -63,13 +62,6 @@ android {
         minSdkVersion 14
         targetSdkVersion 21
         multiDexEnabled true
-//        manifestPlaceholders = [
-//
-//        GETUI_APP_ID : "sa2BTjUFy88fjEC2WNJhN4",
-//        GETUI_APP_KEY : "nmeGAnl4Ff9FFVoVuzrxS2",
-//        GETUI_APP_SECRET : "O33fEC8lyg7BtEgrMKenJ4"
-//
-//        ]
 
         ndk {
             abiFilters 'armeabi'
