@@ -103,11 +103,11 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
         holder.txDate.setText(date);
 
         int arrReadNum = loaclItem.getAllReadNum();
-        if(arrReadNum > 1000&&arrReadNum<10000){
+        if(arrReadNum >= 1000&&arrReadNum<10000){
             holder.txtBrwoseCount.setText((arrReadNum/1000)+"千 阅读");
-        }else if(arrReadNum > 10000&&arrReadNum<100000){
+        }else if(arrReadNum >= 10000&&arrReadNum<100000){
             holder.txtBrwoseCount.setText((arrReadNum/10000)+"万 阅读");
-        }else if(arrReadNum > 100000){
+        }else if(arrReadNum >= 100000){
             holder.txtBrwoseCount.setText("10万+ 阅读");
         }else {
             holder.txtBrwoseCount.setText((arrReadNum)+" 阅读");
