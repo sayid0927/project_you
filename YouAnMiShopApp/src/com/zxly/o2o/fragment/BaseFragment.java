@@ -27,6 +27,15 @@ public abstract class BaseFragment extends Fragment {
 
 	protected LayoutInflater inflater;
 
+
+
+
+
+
+
+
+
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

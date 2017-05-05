@@ -8,7 +8,6 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.application.AppController;
@@ -201,7 +200,7 @@ public class LaunchAct extends BasicAct {
         }else if(exhibitionTime==0)//倒计时为零的时候自动跳转
         {
             toLoginOrHome();
-            Toast.makeText(this,"。。。。",Toast.LENGTH_SHORT);
+        //    Toast.makeText(this,"。。。。",Toast.LENGTH_SHORT);
         }
 
     }

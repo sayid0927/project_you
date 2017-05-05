@@ -100,10 +100,12 @@ public class AllCustomerFragmentNew extends BaseViewPageFragment implements View
                 UmengUtil.onEvent(getActivity(),"home_searchbox_click",null);
             }
         });
-        if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
-            ViewUtils.setVisible(btn_tuiguang);
-        }else{
-            ViewUtils.setGone(btn_tuiguang);
+        if(Account.user != null) {
+            if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
+                ViewUtils.setVisible(btn_tuiguang);
+            } else {
+                ViewUtils.setGone(btn_tuiguang);
+            }
         }
     }
 
