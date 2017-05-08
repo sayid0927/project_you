@@ -94,6 +94,7 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
         }
 
         LocalArticlesInfo loaclItem=(LocalArticlesInfo) getItem(position);
+
         holder.headIcon.setImageUrl(loaclItem.getHeadImage(), AppController.imageLoader);
         holder.headIcon.setDefaultImageResId(R.drawable.artice_def_icon);
         holder.txCityName.setText(loaclItem.getLabel());

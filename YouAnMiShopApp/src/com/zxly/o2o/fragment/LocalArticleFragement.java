@@ -187,7 +187,8 @@ public class LocalArticleFragement extends BaseFragment implements PullToRefresh
 
             @Override
             public void onFail(int code) {
-                loadingView.onLoadingFail();
+             hideCollegeCourse();
+             loadingView.onLoadingFail();
             }
         });
         articlesRequest.start(this);
@@ -263,18 +264,26 @@ public class LocalArticleFragement extends BaseFragment implements PullToRefresh
                         JSONObject artJson = articlesArray.getJSONObject(i);
 
                         LocalArticlesInfo localArticlesItem = new LocalArticlesInfo();
+                        if (artJson.has("headImage"))
                         localArticlesItem.setHeadImage(artJson.getString("headImage"));
+                        if (artJson.has("id"))
                         localArticlesItem.setId(artJson.getLong("id"));
+                        if (artJson.has("label"))
                         localArticlesItem.setLabel(artJson.getString("label"));
+                        if (artJson.has("allReadNum"))
                         localArticlesItem.setAllReadNum(artJson.getInt("allReadNum"));
+                        if (artJson.has("shareNum"))
                         localArticlesItem.setShareNum(artJson.getInt("shareNum"));
+                        if (artJson.has("shareUrl"))
                         localArticlesItem.setShareUrl(artJson.getString("shareUrl"));
+                        if (artJson.has("title"))
                         localArticlesItem.setTitle(artJson.getString("title"));
+                        if (artJson.has("publishTime"))
                         localArticlesItem.setPublishTime(artJson.getLong("publishTime"));
+                        //localArticlesItem.setDescription(artJson.getString("description"));
                         localArticlesInfoList.add(localArticlesItem);
 
                     }
-
                     localArticle.setArticlesInfoList(localArticlesInfoList);
                 }
                 localArticle.setArticlesInfoList(localArticlesInfoList);
