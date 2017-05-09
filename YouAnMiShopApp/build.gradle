@@ -29,6 +29,7 @@ dependencies {
     compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.1.4")
     compile files('libs/SecurePay-2.6.5.jar')
     compile 'com.bugtags.library:bugtags-lib:2.2.3'
+    compile 'com.alipay.euler:andfix:0.5.0@aar'
 }
 
 repositories {
