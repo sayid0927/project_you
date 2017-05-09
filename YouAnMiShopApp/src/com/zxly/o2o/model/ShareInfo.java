@@ -11,6 +11,7 @@ public class ShareInfo {
     String iconUrl;
     String url;
 
+
     public String getTitle() {
         return title;
     }

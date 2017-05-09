@@ -12,8 +12,10 @@ import com.easemob.easeui.AppException;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.activity.YamCollegeDetailAct;
 import com.zxly.o2o.adapter.LocalArticleAdapter;
+import com.zxly.o2o.application.AppController;
 import com.zxly.o2o.model.LocalArticle;
 import com.zxly.o2o.model.LocalArticlesInfo;
+import com.zxly.o2o.model.locatinfo;
 import com.zxly.o2o.pullrefresh.PullToRefreshBase;
 import com.zxly.o2o.pullrefresh.PullToRefreshListView;
 import com.zxly.o2o.request.BaseRequest;
@@ -21,6 +23,7 @@ import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.CallBack;
 import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.DataUtil;
+import com.zxly.o2o.util.ListDataSave;
 import com.zxly.o2o.util.UmengUtil;
 import com.zxly.o2o.util.ViewUtils;
 import com.zxly.o2o.view.CollegeCourseView;
@@ -48,7 +51,8 @@ public class LocalArticleFragement extends BaseFragment implements PullToRefresh
     private CallBack callBack;
     private boolean hasCall;
     private TextView txCtys;
-    private LocalArticle  localArticle=new LocalArticle();;
+    private LocalArticle  localArticle=new LocalArticle();
+    private  ListDataSave dataSave;
 
 
     public static LocalArticleFragement newInstance(int type, String articleCode) {
@@ -66,7 +70,7 @@ public class LocalArticleFragement extends BaseFragment implements PullToRefresh
 
     @Override
     protected void initView(Bundle bundle) {
-
+        dataSave = new ListDataSave(getActivity());
         type = bundle.getInt("type");
         articleTypeId = bundle.getString("articleTypeId");
         loadingView = (LoadingView) findViewById(R.id.view_loading11);
@@ -187,7 +191,8 @@ public class LocalArticleFragement extends BaseFragment implements PullToRefresh
 
             @Override
             public void onFail(int code) {
-                loadingView.onLoadingFail();
+             hideCollegeCourse();
+             loadingView.onLoadingFail();
             }
         });
         articlesRequest.start(this);
@@ -226,7 +231,7 @@ public class LocalArticleFragement extends BaseFragment implements PullToRefresh
 
     class ArticlesRequest extends BaseRequest {
         List<LocalArticlesInfo> localArticlesInfoList = new ArrayList<>();
-
+        List<locatinfo> locatinfoList =AppController.locatinfoList;
 
         public boolean hasNext = true;
 
@@ -259,22 +264,45 @@ public class LocalArticleFragement extends BaseFragment implements PullToRefresh
                     JSONArray articlesArray = json.getJSONArray("articles");
                     int length = articlesArray.length();
                     for (int i = 0; i < length; i++) {
-
                         JSONObject artJson = articlesArray.getJSONObject(i);
-
+                        locatinfo locatinfos=new locatinfo();
                         LocalArticlesInfo localArticlesItem = new LocalArticlesInfo();
+                        if (artJson.has("headImage"))
                         localArticlesItem.setHeadImage(artJson.getString("headImage"));
-                        localArticlesItem.setId(artJson.getLong("id"));
+                        if (artJson.has("id")) {
+                            localArticlesItem.setId(artJson.getLong("id"));
+                            if(locatinfoList.size()!=0) {
+                                for (int m = 0; m < locatinfoList.size(); m++) {
+                                    if (locatinfoList.get(m).getUrl() != null) {
+                                        if (!locatinfoList.get(m).getUrl().equals(artJson.getString("id"))) {
+                                            locatinfos.setUrl(artJson.getString("id"));
+                                            locatinfos.setIsclick(true);
+                                        }
+                                    }
+                                }
+                            }else {
+                                locatinfos.setUrl(artJson.getString("shareUrl"));
+                                locatinfos.setIsclick(true);
+                            }
+                        }
+                        if (artJson.has("label"))
                         localArticlesItem.setLabel(artJson.getString("label"));
+                        if (artJson.has("allReadNum"))
                         localArticlesItem.setAllReadNum(artJson.getInt("allReadNum"));
+                        if (artJson.has("shareNum"))
                         localArticlesItem.setShareNum(artJson.getInt("shareNum"));
-                        localArticlesItem.setShareUrl(artJson.getString("shareUrl"));
+                        if (artJson.has("shareUrl")) {
+                            localArticlesItem.setShareUrl(artJson.getString("shareUrl"));
+                        }
+                        if (artJson.has("title"))
                         localArticlesItem.setTitle(artJson.getString("title"));
+                        if (artJson.has("publishTime"))
                         localArticlesItem.setPublishTime(artJson.getLong("publishTime"));
+                        localArticlesItem.setIsclick(true);
+                        //localArticlesItem.setDescription(artJson.getString("description"));
                         localArticlesInfoList.add(localArticlesItem);
-
+                        AppController.locatinfoList.add(locatinfos);
                     }
-
                     localArticle.setArticlesInfoList(localArticlesInfoList);
                 }
                 localArticle.setArticlesInfoList(localArticlesInfoList);

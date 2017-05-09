@@ -14,7 +14,25 @@ public class LocalArticlesInfo {
     private String shareUrl;    //分享地址
     private String title;       //热文标题
     private long publishTime;   //发布时间 时间戳
+    private  boolean isclick;
+    //private String description;   //文章描述
 
+    public boolean isclick() {
+        return isclick;
+    }
+
+    public void setIsclick(boolean isclick) {
+        this.isclick = isclick;
+    }
+
+
+//    public String getDescription() {
+//        return description;
+//    }
+//
+//    public void setDescription(String description) {
+//        this.description = description;
+//    }
 
     public String getHeadImage() {
         return headImage;

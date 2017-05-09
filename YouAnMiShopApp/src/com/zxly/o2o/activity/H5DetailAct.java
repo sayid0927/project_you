@@ -85,6 +85,21 @@ public class H5DetailAct extends BasicAct implements View.OnClickListener {
 	protected void onDestroy() {
 		super.onDestroy();
 		shareInfo=null;
+		webView.destroy();
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		webView.onPause();
+		webView.pauseTimers();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		webView.onResume();
+		webView.resumeTimers();
 	}
 
 	public int getLayoutId(){
