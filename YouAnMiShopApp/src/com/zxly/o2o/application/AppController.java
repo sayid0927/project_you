@@ -33,6 +33,7 @@ import com.tinkerpatch.sdk.TinkerPatch;
 import com.tinkerpatch.sdk.loader.TinkerPatchApplicationLike;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.cache.BitmapLruCache;
+import com.zxly.o2o.model.locatinfo;
 import com.zxly.o2o.request.IMGetContactListRequest;
 import com.zxly.o2o.request.MultiPartStack;
 import com.zxly.o2o.shop.BuildConfig;
@@ -45,6 +46,8 @@ import com.zxly.o2o.util.MD5Util;
 import com.zxly.o2o.util.PreferUtil;
 import com.zxly.o2o.util.ViewUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 import static com.bugtags.library.Bugtags.BTGInvocationEventNone;
@@ -72,6 +75,7 @@ public class AppController extends Application {
     public static String imei;
 
     public static Stack<Activity> actList = new Stack<Activity>();
+    public  static List<locatinfo> locatinfoList =  new ArrayList<>();
     public static BitmapLruCache lruImageCache;
 
     private String userName = "";

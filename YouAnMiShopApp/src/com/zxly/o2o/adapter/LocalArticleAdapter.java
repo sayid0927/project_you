@@ -50,6 +50,7 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final ViewHolder holder;
+        final LocalArticlesInfo loaclItem=(LocalArticlesInfo) getItem(position);
         if (convertView == null) {
 
 
@@ -66,7 +67,10 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     ViewHolder hb = (ViewHolder) v.getTag();
+//                    hb.article.setIsclick(false);
+//                    hb.txtTitle.setTextColor(context.getResources().getColor(R.color.light_grey));
                     ShareInfo shareInfo = new ShareInfo();
 //                    if (!TextUtils.isEmpty(hb.article.getUserAppName())) {
 //                        shareInfo.setDesc("【" + hb.article.getUserAppName() + "】" + hb.article.getDescription());
@@ -75,11 +79,23 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
 //                    }
                     shareInfo.setTitle(hb.article.getTitle());
                     shareInfo.setUrl(hb.article.getShareUrl().replace("isShare=0", "isShare=1"));
+
+                    if(AppController.locatinfoList.size()!=0){
+                        for(int n=0;n<AppController.locatinfoList.size();n++){
+                            if(AppController.locatinfoList.get(n).equals(hb.article.getShareUrl())){
+                                AppController.locatinfoList.get(n).setIsclick(false);
+                            }
+                        }
+                    }
+
+
 //                    shareInfo.setIconUrl(hb.article.getHeadUrl());
                    // shareInfo.setIconUrl(new String(Base64.decode(hb.article.getHeadImage().getBytes(), Base64.DEFAULT)));
                     H5DetailAct.start(H5DetailAct.TYPE_DEFAULT,
                             AppController.getInstance().getTopAct(),
                             hb.article.getShareUrl() + "&from=app", "文章详情", shareInfo, false);
+
+
 
 //                    HashMap<String, String> map = new HashMap<String, String>();
 //                    map.put("tabID", String.valueOf(hb.article.getArticleId()));
@@ -92,8 +108,6 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-
-        LocalArticlesInfo loaclItem=(LocalArticlesInfo) getItem(position);
 
         holder.headIcon.setImageUrl(loaclItem.getHeadImage(), AppController.imageLoader);
         holder.headIcon.setDefaultImageResId(R.drawable.artice_def_icon);
@@ -113,6 +127,18 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
         }else {
             holder.txtBrwoseCount.setText((arrReadNum)+" 阅读");
         }
+        boolean isClick=true;
+         if(AppController.locatinfoList.size()!=0){
+             for(int m=0;m<AppController.locatinfoList.size();m++){
+                 if(AppController.locatinfoList.get(m).getUrl().equals(loaclItem.getShareUrl())){
+                     isClick=AppController.locatinfoList.get(m).isclick();
+                 }
+             }
+         }
+
+         if(!isClick){
+             holder.txtTitle.setTextColor(context.getResources().getColor(R.color.light_grey));
+         }
 
         ViewUtils.setText(holder.txtTitle, loaclItem.getTitle());
 
