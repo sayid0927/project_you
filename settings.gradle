@@ -1,2 +1,2 @@
-include  ':ChatProject',':YouAnMiUserApp',':YouAnMiShopApp'
+include ':ChatProject', ':YouAnMiUserApp', ':YouAnMiShopApp', ':greenlib'
 //project(":ChatProject").projectDir =new File("E:\\project_YW\\ChatProject");
