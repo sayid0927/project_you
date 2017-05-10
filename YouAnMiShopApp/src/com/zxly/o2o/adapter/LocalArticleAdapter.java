@@ -5,9 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.Shop.entity.Shop;
 import com.android.volley.toolbox.NetworkImageView;
 import com.zxly.o2o.activity.H5DetailAct;
 import com.zxly.o2o.application.AppController;
+import com.zxly.o2o.dbmanager.CommonUtils;
 import com.zxly.o2o.dialog.ShareDialog;
 import com.zxly.o2o.model.LocalArticle;
 import com.zxly.o2o.model.LocalArticlesInfo;
@@ -16,6 +18,9 @@ import com.zxly.o2o.request.PromoteCallbackConfirmRequest;
 import com.zxly.o2o.shop.R;
 import com.zxly.o2o.util.ShareListener;
 import com.zxly.o2o.util.ViewUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.zxly.o2o.util.TimeUtil.formatTimeMMDD;
 
@@ -26,6 +31,9 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
     private int type;
     private ShareDialog dialog;
     private  LocalArticle localArticle;
+    private List<Shop> shopDatas = new ArrayList<>();
+
+    public CommonUtils mCommonUtils;
 
     public LocalArticleAdapter(Context _context) {
         super(_context);
@@ -34,11 +42,12 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
     public LocalArticleAdapter(Context _context, int type) {
         super(_context);
         this.type = type;
+        this.mCommonUtils = new CommonUtils(context);
     }
 
     public void setLocalArticle(LocalArticle localArticle){
         this.localArticle=localArticle;
-
+        this.mCommonUtils = new CommonUtils(context);
 
     }
 
@@ -62,15 +71,23 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
             holder.btnPromotion = convertView.findViewById(R.id.btn_promotion);
             holder.txCityName= (TextView) convertView.findViewById(R.id.btn_cityName);
             holder.txDate=(TextView)convertView.findViewById(R.id.txt_date);
-
             holder.btnPromotion.setOnClickListener(this);
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     ViewHolder hb = (ViewHolder) v.getTag();
-//                    hb.article.setIsclick(false);
-//                    hb.txtTitle.setTextColor(context.getResources().getColor(R.color.light_grey));
+                    if (shopDatas.size() != 0) shopDatas.clear();
+                    shopDatas = mCommonUtils.queryByBuilder(String.valueOf(hb.article.getId()));
+                    if (shopDatas.size() != 0) {
+                        Shop shop= new Shop();
+                        shop.setIsclick(false);
+                        shop.setClickid(String.valueOf(hb.article.getId()));
+                        shop.setId(shopDatas.get(0).getId());
+                        mCommonUtils.uoDateShop(shop);//更新数据
+                    }
+
+                    hb.txtTitle.setTextColor(context.getResources().getColor(R.color.light_grey));
                     ShareInfo shareInfo = new ShareInfo();
 //                    if (!TextUtils.isEmpty(hb.article.getUserAppName())) {
 //                        shareInfo.setDesc("【" + hb.article.getUserAppName() + "】" + hb.article.getDescription());
@@ -79,14 +96,6 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
 //                    }
                     shareInfo.setTitle(hb.article.getTitle());
                     shareInfo.setUrl(hb.article.getShareUrl().replace("isShare=0", "isShare=1"));
-
-                    if(AppController.locatinfoList.size()!=0){
-                        for(int n=0;n<AppController.locatinfoList.size();n++){
-                            if(AppController.locatinfoList.get(n).equals(hb.article.getShareUrl())){
-                                AppController.locatinfoList.get(n).setIsclick(false);
-                            }
-                        }
-                    }
 
 
 //                    shareInfo.setIconUrl(hb.article.getHeadUrl());
@@ -127,18 +136,16 @@ public class LocalArticleAdapter extends ObjectAdapter implements View.OnClickLi
         }else {
             holder.txtBrwoseCount.setText((arrReadNum)+" 阅读");
         }
-        boolean isClick=true;
-         if(AppController.locatinfoList.size()!=0){
-             for(int m=0;m<AppController.locatinfoList.size();m++){
-                 if(AppController.locatinfoList.get(m).getUrl().equals(loaclItem.getShareUrl())){
-                     isClick=AppController.locatinfoList.get(m).isclick();
-                 }
-             }
-         }
-
-         if(!isClick){
-             holder.txtTitle.setTextColor(context.getResources().getColor(R.color.light_grey));
-         }
+         boolean isclick = true;
+        if(shopDatas.size()!=0)shopDatas.clear();
+        shopDatas = mCommonUtils.queryByBuilder(String.valueOf(loaclItem.getId()));
+        for (int i=0;i<shopDatas.size();i++){
+           isclick= shopDatas.get(i).getIsclick();
+        }
+        if(!isclick)
+            holder.txtTitle.setTextColor(context.getResources().getColor(R.color.light_grey));
+        else
+            holder.txtTitle.setTextColor(context.getResources().getColor(R.color.gray_333333));
 
         ViewUtils.setText(holder.txtTitle, loaclItem.getTitle());
 
