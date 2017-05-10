@@ -10,6 +10,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.bugtags.library.plugin'
 apply from: 'tinkerpatch.gradle'
+apply plugin: 'org.greenrobot.greendao'
 
 bugtags {
 
@@ -29,6 +30,7 @@ dependencies {
     compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.1.4")
     compile files('libs/SecurePay-2.6.5.jar')
     compile 'com.bugtags.library:bugtags-lib:2.2.3'
+    compile 'org.greenrobot:greendao:3.1.1'
 }
 
 repositories {
@@ -93,7 +95,7 @@ android {
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src']
+            java.srcDirs = ['src','src/com/java-gen']
             resources.srcDirs = ['src']
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
@@ -106,6 +108,7 @@ android {
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
     }
+
 
     signingConfigs {
         release {
@@ -144,5 +147,4 @@ android {
         all*.exclude group: 'com.android.support', module: 'support-v4'
         all*.exclude group: 'com.android.support', module: 'support-annotations'
     }
-
 }
