@@ -11,7 +11,9 @@ public class PushBindRequest extends BaseRequest {
         addParams("shopId", Config.shopId);
         if(Account.user!=null){
             addParams("userId",Account.user.getId());
+
         }
+
     }
 
     @Override

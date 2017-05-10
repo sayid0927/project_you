@@ -18,6 +18,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.bugtags.library.plugin'
 apply from: 'tinkerpatch.gradle'
+apply plugin: 'org.greenrobot.greendao'
 
 bugtags {
 
@@ -37,6 +38,7 @@ dependencies {
     compile 'com.bugtags.library:bugtags-lib:latest.integration'
     provided("com.tencent.tinker:tinker-android-anno:1.7.7")
     compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.1.4")
+    compile 'org.greenrobot:greendao:3.1.1'
 }
 
 repositories {
@@ -97,7 +99,7 @@ android {
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src']
+            java.srcDirs = ['src','src/com/java-gen']
             resources.srcDirs = ['src']
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']

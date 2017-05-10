@@ -156,7 +156,7 @@ public class HomeAct extends BasicAct {
 
         redPoint = (RedPoint) findViewById(R.id.view_redPoint);
         fragments.add(HomeFragment.newInstance(homeUrl));
-//     fragments.add(new CircleMainPageFragment());
+//      fragments.add(new CircleMainPageFragment());
         fragments.add(new DiscoveryFragment());
         fragments.add(initHXMainFragment());
         fragments.add(new PersonalCenterFragment());
