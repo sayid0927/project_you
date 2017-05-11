@@ -195,18 +195,9 @@ public abstract class BasicAct extends FragmentActivity {
         return isRunning;
     }
 
-
-
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         Bugtags.onDispatchTouchEvent(this, event);
         return super.dispatchTouchEvent(event);
     }
-
-
-
-
-
-
-
 }
