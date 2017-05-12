@@ -275,7 +275,6 @@ public class HomeAct extends BasicAct {
             conflictBuilder.create().dismiss();
             conflictBuilder = null;
         }
-
         HXHelper.getInstance().cleanReceivedListeners();
 
     }
@@ -448,5 +447,4 @@ public class HomeAct extends BasicAct {
         });
         return easeHXMainFragment;
     }
-
 }

@@ -42,6 +42,7 @@ import com.zxly.o2o.view.CircleImageView;
 import com.zxly.o2o.view.LoadingView;
 import com.zxly.o2o.view.ObservableScrollView;
 import com.zxly.o2o.view.OnScrollChangedCallback;
+import com.zxly.o2o.view.RedPoint;
 
 public class PersonalCenterFragment extends BaseFragment implements
         OnClickListener, OnScrollChangedCallback {
@@ -60,6 +61,7 @@ public class PersonalCenterFragment extends BaseFragment implements
     private ObservableScrollView scrollView;
     private View viewTitle;
     private int scrollHeight, screenHeight;
+    private  RedPoint redPoint;
 
     @Override
     public void onResume() {
@@ -181,6 +183,11 @@ public class PersonalCenterFragment extends BaseFragment implements
         txtUserBalance = (TextView) findViewById(R.id.txt_user_balance);
         txtDaifukuan = (TextView) findViewById(R.id.txt_daifukuan_count);
         txtDaishouhuo = (TextView) findViewById(R.id.txt_daishouhuo_count);
+
+
+        redPoint = (RedPoint) findViewById(R.id.view_redPoint);
+        redPoint.showRedPoint();
+
     }
 
     @Override

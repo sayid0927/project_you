@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:red="http://schemas.android.com/apk/res-auto"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_eeeeee"
@@ -316,18 +318,39 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <TextView
+
+
+                <RelativeLayout
                     android:id="@+id/btn_user_mseeger"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawablePadding="7dp"
-                    android:drawableTop="@drawable/icon_wdsc"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:text="我的消息"
-                    android:textColor="@color/gray_333333"
-                    android:textSize="13sp" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tex_user_mseeger"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="7dp"
+                        android:drawableTop="@drawable/icon_wdsc"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="我的消息"
+                        android:textColor="@color/gray_333333"
+                        android:textSize="13sp" />
+
+                    <com.zxly.o2o.view.RedPoint
+                        android:id="@+id/view_redPoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="-30dp"
+                        android:layout_marginTop="3dp"
+                        red:redIsShowText="true"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:layout_toRightOf="@+id/tex_user_mseeger"
+                        android:background="@drawable/ease_unread_count_bg"/>
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/btn_user_collect"

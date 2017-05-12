@@ -5,9 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.easemob.chatuidemo.HXHelper;
 import com.easemob.chatuidemo.db.InviteMessgeDao;
@@ -17,6 +20,7 @@ import com.easemob.chatuidemo.ui.ContactListFragment;
 import com.easemob.chatuidemo.ui.ConversationListFragment;
 import com.easemob.chatuidemo.utils.EaseCallBack;
 import com.easemob.easeui.EaseConstant;
+import com.easemob.easeui.controller.EaseUI;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -128,6 +132,7 @@ public class EaseHXMainAct  extends BasicAct{
         if(EaseConstant.shopID < 0){
             tls.setVisibility(View.GONE);
         }
+        addBackBtn();
     }
 
 
@@ -211,6 +216,24 @@ public class EaseHXMainAct  extends BasicAct{
     public static void start(Activity curAct) {
         Intent intent = new Intent(curAct, EaseHXMainAct.class);
         ViewUtils.startActivity(intent, curAct);
+    }
+
+    /*添加返回按钮*/
+    private void addBackBtn() {
+        ImageView backBtn = new ImageView(this);
+        backBtn.setImageResource(R.drawable.back_white);
+        backBtn.setScaleType(ImageView.ScaleType.CENTER);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EaseHXMainAct.this.finish();
+            }
+        });
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) TypedValue
+                .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 35, EaseUI.displayMetrics),
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50,
+                        EaseUI.displayMetrics));
+        addContentView(backBtn, layoutParams);
     }
 }
 
