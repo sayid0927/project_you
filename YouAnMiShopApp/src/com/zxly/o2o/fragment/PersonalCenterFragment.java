@@ -83,12 +83,13 @@ public class PersonalCenterFragment extends BaseFragment implements View.OnClick
             } else {
                 ViewUtils.setVisible(btnDiscountList);
             }
-            if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
-                ViewUtils.setGone(btnTask);
-            } else {
-                ViewUtils.setVisible(btnTask);
+            if(Account.user != null) {
+                if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
+                    ViewUtils.setGone(btnTask);
+                } else {
+                    ViewUtils.setVisible(btnTask);
+                }
             }
-
         }
         findViewById(R.id.btn_feedback).setOnClickListener(this);
         findViewById(R.id.btn_service_phone).setOnClickListener(this);
@@ -164,12 +165,13 @@ public class PersonalCenterFragment extends BaseFragment implements View.OnClick
             } else {
                 ViewUtils.setVisible(btnDiscountList);
             }
-            if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
-                ViewUtils.setGone(btnTask);
-            } else {
-                ViewUtils.setVisible(btnTask);
+            if(Account.user != null) {
+                if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
+                    ViewUtils.setGone(btnTask);
+                } else {
+                    ViewUtils.setVisible(btnTask);
+                }
             }
-
         }
         setUserInfo();
         loadData();

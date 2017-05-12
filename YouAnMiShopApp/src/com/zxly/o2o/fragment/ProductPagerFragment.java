@@ -20,12 +20,12 @@ public class ProductPagerFragment extends BaseViewPageFragment implements View.O
 	protected void initView() {
 		super.initView();
 		btnManage=findViewById(R.id.btn_manage);
-		if(Account.user.getRoleType()==1)
-		{
-			btnManage.setOnClickListener(this);
-			ViewUtils.setVisible(btnManage);
-		}
-
+        if(Account.user != null) {
+            if (Account.user.getRoleType() == 1) {
+                btnManage.setOnClickListener(this);
+                ViewUtils.setVisible(btnManage);
+            }
+        }
 	}
 
 	@Override

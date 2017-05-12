@@ -187,12 +187,12 @@ public class PromotionAcitcityFragment extends BaseFragment implements ResponseS
             if (pageIndex == 1) {
                 adapter.clear();
                 adapter.notifyDataSetChanged();
-                if(Account.user.getRoleType()== Constants.USER_TYPE_SALESMAN)
-                {
-                    loadingView.onDataEmpty("店铺还没有活动呢，提醒老板发布活动吧。\n或者您可以去自定义文章推广您的文章", R.drawable.img_default_tired);
-                }else
-                {
-                    loadingView.onDataEmpty("店铺还没有活动呢，赶紧去商户后台发布活动吧", R.drawable.img_default_tired);
+                if(Account.user != null) {
+                    if (Account.user.getRoleType() == Constants.USER_TYPE_SALESMAN) {
+                        loadingView.onDataEmpty("店铺还没有活动呢，提醒老板发布活动吧。\n或者您可以去自定义文章推广您的文章", R.drawable.img_default_tired);
+                    } else {
+                        loadingView.onDataEmpty("店铺还没有活动呢，赶紧去商户后台发布活动吧", R.drawable.img_default_tired);
+                    }
                 }
                 showCollegeCourse();
             } else {

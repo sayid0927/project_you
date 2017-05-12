@@ -140,11 +140,11 @@ public class ProductCommissionDetailAct extends  BasicAct {
             holder.txtProductName.setText(cp.getName());
             holder.txtRemark.setText(cp.getRemark());
             ViewUtils.setTextPrice(holder.txtPrice, cp.getPrice());
-            if(Account.user.getRoleType()!=1)
-            {
-                holder.txtCommissionPrice.setText("佣金：￥" + StringUtil.getFormatPrice(cp.getCommission()));
+            if(Account.user != null) {
+                if (Account.user.getRoleType() != 1) {
+                    holder.txtCommissionPrice.setText("佣金：￥" + StringUtil.getFormatPrice(cp.getCommission()));
+                }
             }
-
             switch (cp.getStatus())
             {
                 case 1://正常
