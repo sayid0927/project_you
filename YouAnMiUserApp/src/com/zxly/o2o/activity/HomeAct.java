@@ -192,7 +192,7 @@ public class HomeAct extends BasicAct {
                         }
                         break;
 
-                    case R.id.btn_persionnalPage:
+                    case R.id.btn_persionnalPage:  //  我
                         fragmentContorler.showTab(3);
                         break;
 

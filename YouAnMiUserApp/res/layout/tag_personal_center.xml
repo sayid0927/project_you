@@ -311,10 +311,23 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="73.5dp"
+                android:layout_height="63.5dp"
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btn_user_mseeger"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_wdsc"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="我的消息"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/btn_user_collect"
@@ -355,6 +368,31 @@
                     android:textColor="@color/gray_333333"
                     android:textSize="13sp" />
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_baoxiudan"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="保修单"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray_dcdcdc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="63.5dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <RelativeLayout
                     android:id="@+id/btn_user_guarantees"
@@ -388,31 +426,6 @@
 
                 </RelativeLayout>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawablePadding="7dp"
-                    android:drawableTop="@drawable/icon_baoxiudan"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:text="保修单"
-                    android:textColor="@color/gray_333333"
-                    android:textSize="13sp"
-                    android:visibility="gone" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/gray_dcdcdc" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="73.5dp"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/btn_my_salesman"
@@ -442,19 +455,6 @@
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/btn_earn_commission"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawablePadding="7dp"
-                    android:drawableTop="@drawable/icon_yjjl"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:text="我要赚钱"
-                    android:textColor="@color/gray_333333"
-                    android:textSize="13sp" />
-
-                <TextView
                     android:id="@+id/btn_feedback"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -469,6 +469,34 @@
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/btn_earn_commission"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_yjjl"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="我要赚钱"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray_dcdcdc" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="63.5dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
                     android:id="@+id/btn_setting"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -478,6 +506,58 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="设置"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_promotion"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="推广人"
+                    android:visibility="invisible"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_yjjl"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="我要赚钱"
+                    android:visibility="invisible"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_yjfk"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="用户意见"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_setting"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="设置"
+                    android:visibility="invisible"
                     android:textColor="@color/gray_333333"
                     android:textSize="13sp" />
 

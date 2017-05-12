@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.easemob.easeui.EaseConstant;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.activity.DiscountListAct;
+import com.zxly.o2o.activity.EaseHXMainAct;
 import com.zxly.o2o.activity.FeedbackAct;
 import com.zxly.o2o.activity.HomeAct;
 import com.zxly.o2o.activity.InsuranceListAct;
@@ -22,7 +23,6 @@ import com.zxly.o2o.activity.PromotionDetailAct;
 import com.zxly.o2o.activity.RefundmentListActivity;
 import com.zxly.o2o.activity.SettingAct;
 import com.zxly.o2o.activity.ShopCartAct;
-import com.zxly.o2o.activity.ShowDefineGetuiAct;
 import com.zxly.o2o.activity.UserCollectedAct;
 import com.zxly.o2o.activity.UserTopicAct;
 import com.zxly.o2o.config.Config;
@@ -174,6 +174,7 @@ public class PersonalCenterFragment extends BaseFragment implements
         findViewById(R.id.btn_feedback).setOnClickListener(this);
         findViewById(R.id.btn_setting).setOnClickListener(this);
         findViewById(R.id.btn_ddyh).setOnClickListener(this);
+        findViewById(R.id.btn_user_mseeger).setOnClickListener(this);
 
         txtNickName = (TextView) findViewById(R.id.txt_user_nickname);
         txtUserName = (TextView) findViewById(R.id.txt_user_name);
@@ -187,6 +188,8 @@ public class PersonalCenterFragment extends BaseFragment implements
         if (Account.hasLogin()) {
             Intent intent;
             switch (v.getId()) {
+
+
                 case R.id.view_title:
                     break;
                 case R.id.btn_user_shoppingcart:
@@ -222,6 +225,15 @@ public class PersonalCenterFragment extends BaseFragment implements
                     UserCollectedAct.start(curAct);
                     UMengAgent.onEvent(curAct, UMengAgent.personal_home_collect);
                     break;
+                case R.id.btn_user_mseeger:
+
+                    Intent intente = new Intent(curAct, EaseHXMainAct.class);
+                    startActivity(intente);
+
+                   // EaseHXMainAct.start(curAct);
+                    break;
+
+
                 case R.id.btn_user_topic:
                     UserTopicAct.start(curAct);
                     UMengAgent.onEvent(curAct, UMengAgent.personal_home_topic);

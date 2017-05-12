@@ -704,6 +704,12 @@
             android:screenOrientation="portrait">
         </activity>
 
+
+        <activity
+            android:name="com.zxly.o2o.activity.EaseHXMainAct"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity
             android:name="com.zxly.o2o.activity.ShowDefineGetuiAct"
             android:label="@string/app_name"
