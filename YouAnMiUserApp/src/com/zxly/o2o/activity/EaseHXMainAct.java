@@ -1,12 +1,13 @@
 package com.zxly.o2o.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 
 import com.easemob.chatuidemo.HXHelper;
 import com.easemob.chatuidemo.db.InviteMessgeDao;
@@ -16,10 +17,10 @@ import com.easemob.chatuidemo.ui.ContactListFragment;
 import com.easemob.chatuidemo.ui.ConversationListFragment;
 import com.easemob.chatuidemo.utils.EaseCallBack;
 import com.easemob.easeui.EaseConstant;
+import com.easemob.easeui.widget.EaseTitleBar;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.utils.TabEntity;
-import com.flyco.tablayout.utils.ViewFindUtils;
 import com.zxly.o2o.o2o_user.R;
 import com.zxly.o2o.util.ViewUtils;
 
@@ -29,7 +30,11 @@ import java.util.ArrayList;
  * Created on 2017/5/11.
  */
 
-public class EaseHXMainAct  extends  EaseBaseAct{
+public class EaseHXMainAct  extends BasicAct{
+
+
+    protected EaseTitleBar titleBar;
+    protected InputMethodManager inputMethodManager;
 
     private String[] titles;
 
@@ -43,7 +48,7 @@ public class EaseHXMainAct  extends  EaseBaseAct{
     private ContactListFragment contactListFragment;
     private ConversationListFragment conversationListFragment;
     protected EaseCallBack newMsgCallBack;
-
+//
     public void setNewMsgCallBack(EaseCallBack callBack){
         newMsgCallBack=callBack;
     }
@@ -70,27 +75,32 @@ public class EaseHXMainAct  extends  EaseBaseAct{
 //    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-
-        Log.e("TAG","1111");
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.ease_tab_layout);
-
+        inputMethodManager = (InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        titleBar = (EaseTitleBar) this.findViewById(R.id.title_bar);
+        hideSoftKeyboard();
+        initView();
+        setUpView();
     }
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.ease_tab_layout;
-    }
-
-    public void refreshContainFragment(){
-        if(contactListFragment!=null&&conversationListFragment!=null) {
-            contactListFragment.refresh();
-            conversationListFragment.refresh();
+    protected void hideSoftKeyboard() {
+        if (this.getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
+            if (this.getCurrentFocus() != null)
+                inputMethodManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
 
-    @Override
+//    public void refreshContainFragment(){
+//        if(contactListFragment!=null&&conversationListFragment!=null) {
+//            contactListFragment.refresh();
+//            conversationListFragment.refresh();
+//        }
+//    }
+//
+
     protected void initView() {
         contactListFragment=new ContactListFragment();
         contactListFragment.setCallBack(easeCallBack);
@@ -111,7 +121,9 @@ public class EaseHXMainAct  extends  EaseBaseAct{
 
         decorView = this.getWindow().getDecorView();
         /** indicator圆角色块 */
-        tls = ViewFindUtils.find(decorView, R.id.ease_tl_tabs);
+        tls= (CommonTabLayout) this.findViewById(R.id.ease_tl_tabs);
+//        tls = ViewFindUtils.find(decorView, R.id.easehx_tl_tabs);
+//        tls= (CommonTabLayout) decorView.findViewById(R.id.easehx_tl_tabs);
         tls.setTabData(tabs, this, R.id.fl_change, fragments);
         if(EaseConstant.shopID < 0){
             tls.setVisibility(View.GONE);
@@ -119,7 +131,7 @@ public class EaseHXMainAct  extends  EaseBaseAct{
     }
 
 
-    @Override
+
     protected void setUpView() {
         inviteMessgeDao = new InviteMessgeDao(this);
         userDao = new UserDao(this);
@@ -194,7 +206,6 @@ public class EaseHXMainAct  extends  EaseBaseAct{
         super.onDestroy();
 
     }
-
 
 
     public static void start(Activity curAct) {

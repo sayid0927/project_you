@@ -227,10 +227,7 @@ public class PersonalCenterFragment extends BaseFragment implements
                     break;
                 case R.id.btn_user_mseeger:
 
-                    Intent intente = new Intent(curAct, EaseHXMainAct.class);
-                    startActivity(intente);
-
-                   // EaseHXMainAct.start(curAct);
+                    EaseHXMainAct.start(curAct);
                     break;
 
 

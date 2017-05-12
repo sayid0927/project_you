@@ -707,6 +707,7 @@
 
         <activity
             android:name="com.zxly.o2o.activity.EaseHXMainAct"
+            android:windowSoftInputMode="adjustUnspecified|stateAlwaysHidden"
             android:screenOrientation="portrait">
         </activity>
 
