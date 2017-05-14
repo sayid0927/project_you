@@ -194,6 +194,7 @@ public class HomeAct extends BasicAct {
 
                     case R.id.btn_persionnalPage:  //  我
                         fragmentContorler.showTab(3);
+
                         break;
 
                     default:
@@ -447,4 +448,10 @@ public class HomeAct extends BasicAct {
         });
         return easeHXMainFragment;
     }
+
+
+
+
+
+
 }

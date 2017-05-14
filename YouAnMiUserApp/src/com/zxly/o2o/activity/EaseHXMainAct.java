@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -72,38 +71,15 @@ public class EaseHXMainAct  extends BasicAct{
 
     protected ArrayList<Fragment> fragments = new ArrayList<Fragment>();
 
-
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        return inflater.inflate(R.layout.ease_tab_layout, container, false);
-//    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ease_tab_layout);
         inputMethodManager = (InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE);
         titleBar = (EaseTitleBar) this.findViewById(R.id.title_bar);
-        hideSoftKeyboard();
         initView();
         setUpView();
     }
-
-    protected void hideSoftKeyboard() {
-        if (this.getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
-            if (this.getCurrentFocus() != null)
-                inputMethodManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
-        }
-    }
-
-//    public void refreshContainFragment(){
-//        if(contactListFragment!=null&&conversationListFragment!=null) {
-//            contactListFragment.refresh();
-//            conversationListFragment.refresh();
-//        }
-//    }
-//
 
     protected void initView() {
         contactListFragment=new ContactListFragment();
@@ -126,8 +102,6 @@ public class EaseHXMainAct  extends BasicAct{
         decorView = this.getWindow().getDecorView();
         /** indicator圆角色块 */
         tls= (CommonTabLayout) this.findViewById(R.id.ease_tl_tabs);
-//        tls = ViewFindUtils.find(decorView, R.id.easehx_tl_tabs);
-//        tls= (CommonTabLayout) decorView.findViewById(R.id.easehx_tl_tabs);
         tls.setTabData(tabs, this, R.id.fl_change, fragments);
         if(EaseConstant.shopID < 0){
             tls.setVisibility(View.GONE);

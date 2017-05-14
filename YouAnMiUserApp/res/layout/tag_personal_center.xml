@@ -278,7 +278,7 @@
                         android:layout_marginLeft="-15dp"
                         android:layout_marginTop="-6dp"
                         android:layout_toRightOf="@+id/txt_user_daishouhuo"
-                        android:background="@drawable/circle"
+                        android:background="@drawable/meg_circle"
                         android:gravity="center"
                         android:paddingLeft="4.5dp"
                         android:paddingRight="4.5dp"
@@ -322,10 +322,10 @@
 
                 <RelativeLayout
                     android:id="@+id/btn_user_mseeger"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="0.15">
 
                     <TextView
                         android:id="@+id/tex_user_mseeger"
@@ -350,7 +350,7 @@
                         android:gravity="center"
                         android:textSize="10sp"
                         android:layout_toRightOf="@+id/tex_user_mseeger"
-                        android:background="@drawable/ease_unread_count_bg"/>
+                        android:background="@drawable/meg_circle"/>
 
                 </RelativeLayout>
 

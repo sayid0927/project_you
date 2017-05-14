@@ -2,11 +2,17 @@ package com.zxly.o2o.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.easemob.easeui.EaseConstant;
+import com.easemob.easeui.model.GeTuiConversation;
+import com.easemob.easeui.request.GetuiTypeDataRequest;
+import com.easemob.easeui.request.HXNormalRequest;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.activity.DiscountListAct;
 import com.zxly.o2o.activity.EaseHXMainAct;
@@ -35,6 +41,7 @@ import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.DesityUtil;
 import com.zxly.o2o.util.FragmentTabHandler;
 import com.zxly.o2o.util.PreferUtil;
+import com.zxly.o2o.util.PreferenceData;
 import com.zxly.o2o.util.StringUtil;
 import com.zxly.o2o.util.UMengAgent;
 import com.zxly.o2o.util.ViewUtils;
@@ -44,8 +51,10 @@ import com.zxly.o2o.view.ObservableScrollView;
 import com.zxly.o2o.view.OnScrollChangedCallback;
 import com.zxly.o2o.view.RedPoint;
 
+import java.util.List;
+
 public class PersonalCenterFragment extends BaseFragment implements
-        OnClickListener, OnScrollChangedCallback {
+        OnClickListener, OnScrollChangedCallback{
     private CircleImageView imgUserHead;
     private View btnUserInfo, viewUserInfo;
     private TextView txtUserName;
@@ -62,6 +71,17 @@ public class PersonalCenterFragment extends BaseFragment implements
     private View viewTitle;
     private int scrollHeight, screenHeight;
     private  RedPoint redPoint;
+    private Handler myHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 1:
+                    redPoint.showRedPointNum(getActivity());
+                    break;
+            }
+        }
+    };
 
     @Override
     public void onResume() {
@@ -70,6 +90,7 @@ public class PersonalCenterFragment extends BaseFragment implements
         if (3 == fragmentTabHandler.getCurrentTab()) {
             refreshUI();
         }
+        getGetuiMsgCount();
     }
 
     public void refreshUI() {
@@ -183,12 +204,11 @@ public class PersonalCenterFragment extends BaseFragment implements
         txtUserBalance = (TextView) findViewById(R.id.txt_user_balance);
         txtDaifukuan = (TextView) findViewById(R.id.txt_daifukuan_count);
         txtDaishouhuo = (TextView) findViewById(R.id.txt_daishouhuo_count);
-
-
         redPoint = (RedPoint) findViewById(R.id.view_redPoint);
-        redPoint.showRedPoint();
 
     }
+
+
 
     @Override
     public void onClick(View v) {
@@ -310,4 +330,33 @@ public class PersonalCenterFragment extends BaseFragment implements
         float alpha = (float) t / scrollHeight;
         viewTitle.setAlpha(alpha);
     }
+
+    private void getGetuiMsgCount() {
+        final GetuiTypeDataRequest getuiTypeDataRequest=new GetuiTypeDataRequest(EaseConstant.shopID);
+        getuiTypeDataRequest.start();
+        getuiTypeDataRequest.setOnResponseStateListener(new HXNormalRequest.ResponseStateListener() {
+
+            @Override
+            public void onOK() {
+               List<GeTuiConversation> conversationList=getuiTypeDataRequest.emConversationList;
+                Log.e("TAG",conversationList.toString());
+                int netDataUnread=0;
+                if(conversationList.size()!=0){
+                    for (int i = 0; i< conversationList.size(); i++){
+                        if(conversationList.get(i).getNumber()!=0){
+                            netDataUnread =+ conversationList.get(i).getNumber();
+                        }
+                    }
+                }
+               PreferenceData.setMessageNumValue(getActivity(),netDataUnread);
+               myHandler.sendEmptyMessage(1);
+            }
+
+            @Override
+            public void onFail(int code) {
+
+            }
+        });
+    }
+
 }
