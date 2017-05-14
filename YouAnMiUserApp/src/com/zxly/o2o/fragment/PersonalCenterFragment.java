@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import com.easemob.chatuidemo.HXApplication;
 import com.easemob.chatuidemo.utils.PreferenceManager;
 import com.easemob.easeui.EaseConstant;
 import com.easemob.easeui.model.GeTuiConversation;
@@ -358,6 +359,7 @@ public class PersonalCenterFragment extends BaseFragment implements
                         }
                     }
                 }
+               HXApplication.getInstance().setGetuiMsgList(getuiTypeDataRequest.emConversationList);
                PreferenceData.setMessageNumValue(getActivity(),netDataUnread);
                myHandler.sendEmptyMessage(1);
             }
@@ -368,5 +370,4 @@ public class PersonalCenterFragment extends BaseFragment implements
             }
         });
     }
-
 }
