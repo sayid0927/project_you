@@ -448,10 +448,4 @@ public class HomeAct extends BasicAct {
         });
         return easeHXMainFragment;
     }
-
-
-
-
-
-
 }

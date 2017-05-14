@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import com.easemob.chatuidemo.utils.PreferenceManager;
 import com.easemob.easeui.EaseConstant;
 import com.easemob.easeui.model.GeTuiConversation;
 import com.easemob.easeui.request.GetuiTypeDataRequest;
@@ -32,6 +33,7 @@ import com.zxly.o2o.activity.ShopCartAct;
 import com.zxly.o2o.activity.UserCollectedAct;
 import com.zxly.o2o.activity.UserTopicAct;
 import com.zxly.o2o.config.Config;
+import com.zxly.o2o.controller.AppController;
 import com.zxly.o2o.model.UserOrder;
 import com.zxly.o2o.o2o_user.R;
 import com.zxly.o2o.request.BaseRequest;
@@ -90,7 +92,16 @@ public class PersonalCenterFragment extends BaseFragment implements
         if (3 == fragmentTabHandler.getCurrentTab()) {
             refreshUI();
         }
-        getGetuiMsgCount();
+
+        if (Account.user != null) {
+            Log.e("reload contact", "reload contact...");
+            PreferenceManager.getInstance().setMistiming(System.currentTimeMillis());
+            AppController.getInstance().checkIsNeedUpdateContact(false);
+            getGetuiMsgCount();
+        }else {
+            PreferenceData.setMessageNumValue(getActivity(),0);
+            myHandler.sendEmptyMessage(1);
+        }
     }
 
     public void refreshUI() {
@@ -339,7 +350,6 @@ public class PersonalCenterFragment extends BaseFragment implements
             @Override
             public void onOK() {
                List<GeTuiConversation> conversationList=getuiTypeDataRequest.emConversationList;
-                Log.e("TAG",conversationList.toString());
                 int netDataUnread=0;
                 if(conversationList.size()!=0){
                     for (int i = 0; i< conversationList.size(); i++){
