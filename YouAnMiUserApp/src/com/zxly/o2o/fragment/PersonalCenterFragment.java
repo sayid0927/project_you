@@ -359,7 +359,7 @@ public class PersonalCenterFragment extends BaseFragment implements
                         }
                     }
                 }
-               HXApplication.getInstance().setGetuiMsgList(getuiTypeDataRequest.emConversationList);
+               HXApplication.getInstance().setGetuiMsgList(conversationList);
                PreferenceData.setMessageNumValue(getActivity(),netDataUnread);
                myHandler.sendEmptyMessage(1);
             }
