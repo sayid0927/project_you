@@ -355,7 +355,8 @@ public class PersonalCenterFragment extends BaseFragment implements
                 if(conversationList.size()!=0){
                     for (int i = 0; i< conversationList.size(); i++){
                         if(conversationList.get(i).getNumber()!=0){
-                            netDataUnread =+ conversationList.get(i).getNumber();
+                            int a= conversationList.get(i).getNumber();
+                            netDataUnread += conversationList.get(i).getNumber();
                         }
                     }
                 }

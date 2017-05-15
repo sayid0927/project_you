@@ -16,7 +16,7 @@
             android:layout_centerInParent="true"
             android:ellipsize="end"
             android:maxLength="18"
-            android:text="逛店"
+            android:text="看文"
             android:textColor="@color/white"
             android:textSize="@dimen/main_tab_title_text_size" />
 
