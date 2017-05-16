@@ -115,8 +115,6 @@ public class EaseHXMainAct  extends BasicAct{
         inviteMessgeDao = new InviteMessgeDao(this);
         userDao = new UserDao(this);
 
-
-
         // 这个fragment只显示好友和群组的聊天记录
         // chatHistoryFragment = new ChatHistoryFragment();
         // 显示所有人消息记录的fragment

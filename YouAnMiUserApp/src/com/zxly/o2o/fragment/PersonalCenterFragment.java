@@ -8,9 +8,17 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.easemob.EMConnectionListener;
+import com.easemob.EMError;
+import com.easemob.EMEventListener;
+import com.easemob.EMNotifierEvent;
+import com.easemob.chat.EMChat;
+import com.easemob.chat.EMChatManager;
+import com.easemob.chat.EMMessage;
 import com.easemob.chatuidemo.HXApplication;
-import com.easemob.chatuidemo.utils.PreferenceManager;
+import com.easemob.chatuidemo.HXHelper;
 import com.easemob.easeui.EaseConstant;
 import com.easemob.easeui.model.GeTuiConversation;
 import com.easemob.easeui.request.GetuiTypeDataRequest;
@@ -34,7 +42,6 @@ import com.zxly.o2o.activity.ShopCartAct;
 import com.zxly.o2o.activity.UserCollectedAct;
 import com.zxly.o2o.activity.UserTopicAct;
 import com.zxly.o2o.config.Config;
-import com.zxly.o2o.controller.AppController;
 import com.zxly.o2o.model.UserOrder;
 import com.zxly.o2o.o2o_user.R;
 import com.zxly.o2o.request.BaseRequest;
@@ -57,7 +64,7 @@ import com.zxly.o2o.view.RedPoint;
 import java.util.List;
 
 public class PersonalCenterFragment extends BaseFragment implements
-        OnClickListener, OnScrollChangedCallback{
+        OnClickListener, OnScrollChangedCallback,EMEventListener {
     private CircleImageView imgUserHead;
     private View btnUserInfo, viewUserInfo;
     private TextView txtUserName;
@@ -95,11 +102,12 @@ public class PersonalCenterFragment extends BaseFragment implements
         }
 
         if (Account.user != null) {
-            Log.e("reload contact", "reload contact...");
-            PreferenceManager.getInstance().setMistiming(System.currentTimeMillis());
-            AppController.getInstance().checkIsNeedUpdateContact(false);
+//            Log.e("reload contact", "reload contact...");
+//            PreferenceManager.getInstance().setMistiming(System.currentTimeMillis());
+//            AppController.getInstance().checkIsNeedUpdateContact(false);
             getGetuiMsgCount();
         }else {
+            redPoint.showRedPoint();
             PreferenceData.setMessageNumValue(getActivity(),0);
             myHandler.sendEmptyMessage(1);
         }
@@ -179,6 +187,9 @@ public class PersonalCenterFragment extends BaseFragment implements
 
     @Override
     protected void initView() {
+        EMChatManager.getInstance().registerEventListener(this);
+        EMChat.getInstance().setAppInited();
+        EMChatManager.getInstance().addConnectionListener(connectionListener);
         curAct = getActivity();
         loadingView = (LoadingView) findViewById(R.id.view_loading);
         scrollView = (ObservableScrollView) findViewById(R.id.scroll_view);
@@ -217,7 +228,7 @@ public class PersonalCenterFragment extends BaseFragment implements
         txtDaifukuan = (TextView) findViewById(R.id.txt_daifukuan_count);
         txtDaishouhuo = (TextView) findViewById(R.id.txt_daishouhuo_count);
         redPoint = (RedPoint) findViewById(R.id.view_redPoint);
-
+     //   getGetuiMsgCount();
     }
 
 
@@ -355,7 +366,6 @@ public class PersonalCenterFragment extends BaseFragment implements
                 if(conversationList.size()!=0){
                     for (int i = 0; i< conversationList.size(); i++){
                         if(conversationList.get(i).getNumber()!=0){
-                            int a= conversationList.get(i).getNumber();
                             netDataUnread += conversationList.get(i).getNumber();
                         }
                     }
@@ -371,4 +381,50 @@ public class PersonalCenterFragment extends BaseFragment implements
             }
         });
     }
+
+    @Override
+    public void onEvent(EMNotifierEvent event) {
+
+        switch (event.getEvent()) {
+            case EventNewMessage: {  // 普通消息
+                EMMessage message = (EMMessage) event.getData();
+                HXHelper.getInstance().getNotifier().onNewMsg(message);  // 提示新消息
+
+                Toast.makeText(getActivity()," 来消息 ",Toast.LENGTH_SHORT).show();
+      //          refreshUI();
+                break;
+            }
+
+            case EventOfflineMessage: {
+        //        refreshUI();
+                break;
+            }
+
+            case EventConversationListChanged: {
+          //      refreshUI();
+                break;
+            }
+
+            default:
+                break;
+        }
+
+    }
+
+    protected EMConnectionListener connectionListener = new EMConnectionListener() {
+
+        @Override
+        public void onDisconnected(int error) {
+            if (error == EMError.USER_REMOVED || error == EMError.CONNECTION_CONFLICT) {
+            Log.e("TAG","connectionListener  == error ");
+            } else {
+                Log.e("TAG","connectionListener  == OK ");
+            }
+        }
+
+        @Override
+        public void onConnected() {
+            Log.e("TAG","connectionListener  == OOOO ");
+        }
+    };
 }
