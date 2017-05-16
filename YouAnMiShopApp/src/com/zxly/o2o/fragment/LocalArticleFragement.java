@@ -166,10 +166,12 @@ public class LocalArticleFragement extends BaseFragment implements PullToRefresh
                                     callBack.onCall();
                                     hasCall = true;
                                 }
-                                if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
-                                    loadingView.onDataEmpty("本地热文还没有文章呢，立即到商户后台发布文章吧", R.drawable.img_default_tired);
-                                } else {
-                                    loadingView.onDataEmpty("本地热文还没有文章呢，提醒老板发布文章吧。\n或者您可以去自定义文章推广您的文章~", R.drawable.img_default_tired);
+                                if(Account.user != null) {
+                                    if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
+                                        loadingView.onDataEmpty("本地热文还没有文章呢，立即到商户后台发布文章吧", R.drawable.img_default_tired);
+                                    } else {
+                                        loadingView.onDataEmpty("本地热文还没有文章呢，提醒老板发布文章吧。\n或者您可以去自定义文章推广您的文章~", R.drawable.img_default_tired);
+                                    }
                                 }
                                 break;
                             case 2://平台文章

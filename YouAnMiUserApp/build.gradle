@@ -65,7 +65,7 @@ afterEvaluate {
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "23.0.2"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.zxly.o2o.o2o_user"

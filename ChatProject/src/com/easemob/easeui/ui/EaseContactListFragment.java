@@ -13,25 +13,17 @@
  */
 package com.easemob.easeui.ui;
 
-import java.util.ArrayList;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,24 +31,22 @@ import com.easemob.EMConnectionListener;
 import com.easemob.EMError;
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMContactManager;
-import com.easemob.chatuidemo.HXApplication;
 import com.easemob.chatuidemo.HXHelper;
 import com.easemob.chatuidemo.HXModel;
 import com.easemob.chatuidemo.R;
 import com.easemob.chatuidemo.utils.EaseCallBack;
 import com.easemob.chatuidemo.utils.PreferenceManager;
-import com.easemob.easeui.AppException;
 import com.easemob.easeui.EaseConstant;
 import com.easemob.easeui.adapter.EaseContactAdapter;
 import com.easemob.easeui.domain.EaseUser;
 import com.easemob.easeui.domain.EaseYAMUser;
-import com.easemob.easeui.utils.EaseCommonUtils;
 import com.easemob.easeui.utils.GsonParser;
 import com.easemob.easeui.widget.EaseContactList;
 import com.easemob.easeui.widget.EaseMyFlipperView;
 import com.easemob.easeui.widget.easepullrefresh.EasePullToRefreshListView;
 import com.easemob.exceptions.EaseMobException;
-import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
 
 /**
  * 联系人列表页
@@ -126,7 +116,7 @@ public class EaseContactListFragment extends EaseBaseFragment {
 
         //        HXHelper.getInstance().getBlackList();
 
-        setFlipper();
+       setFlipper();
 
 
         //init list

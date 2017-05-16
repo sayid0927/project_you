@@ -20,14 +20,14 @@ public class HistoryStatisticsRequest extends BaseRequest {
     private List<TaskInfo> taskInfos=new ArrayList<TaskInfo>();
     public HistoryStatisticsRequest(String date) {
         addParams("shopId", Account.user.getShopId());
-        if(Account.user.getRoleType()!= Constants.USER_TYPE_ADMIN)
-        {
-            addParams("userId",Account.user.getId());
+        if (Account.user != null) {
+            if (Account.user.getRoleType() != Constants.USER_TYPE_ADMIN) {
+                addParams("userId", Account.user.getId());
+            }
+
+            addParams("date", date);
         }
-
-        addParams("date",date);
     }
-
     @Override
     protected void fire(String data) throws AppException {
         try {

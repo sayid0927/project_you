@@ -45,11 +45,12 @@ public class AllCustomerFragment extends TagBaseViewPageFragment implements View
         btn_tuiguang.setOnClickListener(this);
         btn_fans = (RadioButton) findViewById(R.id.btn_fans);
         btn_menbers = (RadioButton) findViewById(R.id.btn_menbers);
-        if (Account.user!=null&&Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
-            ViewUtils.setVisible(btn_tuiguang);
-        }else{
-            ViewUtils.setGone(btn_tuiguang);
-        }
+
+            if (Account.user != null && Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
+                ViewUtils.setVisible(btn_tuiguang);
+            } else
+                ViewUtils.setGone(btn_tuiguang);
+
         btn_fans.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

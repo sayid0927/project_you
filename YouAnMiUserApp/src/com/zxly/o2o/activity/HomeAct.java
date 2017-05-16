@@ -157,8 +157,10 @@ public class HomeAct extends BasicAct {
         redPoint = (RedPoint) findViewById(R.id.view_redPoint);
         fragments.add(HomeFragment.newInstance(homeUrl));
 //      fragments.add(new CircleMainPageFragment());
+//        fragments.add(new DiscoveryFragment());
         fragments.add(new DiscoveryFragment());
-        fragments.add(initHXMainFragment());
+        fragments.add(new DiscoveryFragment());
+//        fragments.add(initHXMainFragment());
         fragments.add(new PersonalCenterFragment());
         rgs = (FlowRadioGroup) findViewById(R.id.main_act_radio_group);
         fragmentContorler = new FragmentTabHandler(this, fragments, R.id.main_act_tabcontent);
@@ -180,20 +182,23 @@ public class HomeAct extends BasicAct {
 
                     //消息界面
                     case R.id.btn_messagePage:
-                        easeHXMainFragment.refreshContainFragment();  //刷新fragment数据
-                        fragmentContorler.showTab(2);
-                        if (Account.user != null && (HXHelper.getInstance().getYAMContactList().size() ==
-                                0 || System.currentTimeMillis()
-                                - PreferenceManager.getInstance().getMistiming() >
-                                (1000 * 60 * 5))) {
-                            Log.e("reload contact", "reload contact...");
-                            PreferenceManager.getInstance().setMistiming(System.currentTimeMillis());
-                            AppController.getInstance().checkIsNeedUpdateContact(false);
-                        }
+
+                        fragmentContorler.showTab(1);
+//                        easeHXMainFragment.refreshContainFragment();  //刷新fragment数据
+//                        fragmentContorler.showTab(2);
+//                        if (Account.user != null && (HXHelper.getInstance().getYAMContactList().size() ==
+//                                0 || System.currentTimeMillis()
+//                                - PreferenceManager.getInstance().getMistiming() >
+//                                (1000 * 60 * 5))) {
+//                            Log.e("reload contact", "reload contact...");
+//                            PreferenceManager.getInstance().setMistiming(System.currentTimeMillis());
+//                            AppController.getInstance().checkIsNeedUpdateContact(false);
+//                        }
                         break;
 
-                    case R.id.btn_persionnalPage:
+                    case R.id.btn_persionnalPage:  //  我
                         fragmentContorler.showTab(3);
+
                         break;
 
                     default:
@@ -275,7 +280,6 @@ public class HomeAct extends BasicAct {
             conflictBuilder.create().dismiss();
             conflictBuilder = null;
         }
-
         HXHelper.getInstance().cleanReceivedListeners();
 
     }
@@ -448,5 +452,4 @@ public class HomeAct extends BasicAct {
         });
         return easeHXMainFragment;
     }
-
 }

@@ -13,7 +13,6 @@
  */
 package com.easemob.chatuidemo.ui;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.text.Editable;
@@ -26,7 +25,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -241,7 +239,6 @@ public class ContactListFragment extends EaseContactListFragment implements OnCl
                         isCanAct=true;
                         refresh();
                     }
-
                 }
             }
         });

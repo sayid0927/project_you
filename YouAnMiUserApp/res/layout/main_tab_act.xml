@@ -44,12 +44,10 @@
             android:id="@+id/btn_discoveryPage"
             style="@style/main_tab_bottom"
             android:drawableTop="@drawable/btn_discoverypage_selector"
-
-            android:text="逛店"/>
+            android:text="看文"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -59,24 +57,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:drawableTop="@drawable/btn_messagepage_selector"
+                android:drawableTop="@drawable/btn_discoverypage_selector"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="消息"/>
+                android:text="逛店"/>
 
-            <com.zxly.o2o.view.RedPoint
-                android:id="@+id/view_redPoint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="-30dp"
-                android:layout_marginTop="3dp"
-                red:redIsShowText="true"
-                android:gravity="center"
-                android:textSize="10sp"
-                android:layout_toRightOf="@+id/btn_messagePage"
-                android:background="@drawable/ease_unread_count_bg"
+            <!--<com.zxly.o2o.view.RedPoint-->
+                <!--android:id="@+id/view_redPoint"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="-30dp"-->
+                <!--android:layout_marginTop="3dp"-->
+                <!--red:redIsShowText="true"-->
+                <!--android:gravity="center"-->
+                <!--android:textSize="10sp"-->
+                <!--android:layout_toRightOf="@+id/btn_messagePage"-->
+                <!--android:background="@drawable/ease_unread_count_bg"-->
 
-                />
+                <!--/>-->
         </RelativeLayout>
 
 

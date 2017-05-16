@@ -12,23 +12,28 @@ import com.easemob.chatuidemo.HXHelper;
 import com.easemob.chatuidemo.utils.HXNewMsgCallBack;
 import com.zxly.o2o.controller.AppController;
 import com.zxly.o2o.o2o_user.R;
+import com.zxly.o2o.util.PreferenceData;
 
 /**
  * Created by Administrator on 2015/7/31.
  */
 public class RedPoint extends TextView {
     private boolean isShowText;
+    private  Context myContext;
 
     public RedPoint(Context context) {
         this(context, null);
+        this.myContext=context;
     }
 
     public RedPoint(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
+        this.myContext=context;
     }
 
     public RedPoint(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        this.myContext=context;
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.redPoint);
         isShowText = a.getBoolean(R.styleable.redPoint_redIsShowText, false);
         a.recycle();
@@ -55,6 +60,18 @@ public class RedPoint extends TextView {
             cleanRedPoint();
         }
     }
+
+    public void showRedPointNum(Context context){
+       int megNum= PreferenceData.getMessageNumValue(context);
+        if (megNum> 0) {
+            if (isShowText) {
+                this.setText(String.valueOf(megNum> 99 ? 99 + "+" : megNum));
+            }
+            this.setVisibility(View.VISIBLE);
+        }else
+            cleanRedPoint();
+    }
+
 
 
     HXNewMsgCallBack newMsgReceivedListener = new HXNewMsgCallBack() {

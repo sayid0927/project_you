@@ -164,21 +164,23 @@ public class MainActivity extends BasicAct {
         fragments.add(allCustomerFragmentNew);
 //        fragments.add(initHXMainFragment());
 //        fragments.add(PromotionFragment.newInstance());
-        if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
-            fragments.add(new ManageFragment());
-            ViewUtils.setText(btnManageOrPromotion, "管理");
+        if(Account.user != null) {
+            if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
+                fragments.add(new ManageFragment());
+                ViewUtils.setText(btnManageOrPromotion, "管理");
 
-            Drawable drawable = getResources().getDrawable(R.drawable.btn_tab_manage_selector);
-            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            btnManageOrPromotion.setCompoundDrawables(null, drawable, null, null);
-        } else {
-            fragments.add(PromotionFragment.newInstance());
+                Drawable drawable = getResources().getDrawable(R.drawable.btn_tab_manage_selector);
+                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                btnManageOrPromotion.setCompoundDrawables(null, drawable, null, null);
+            } else {
+                fragments.add(PromotionFragment.newInstance());
 //            fragments.add(TaskTargetListFragment.newInstance());
-            ViewUtils.setText(btnManageOrPromotion, "找客");
-            UmengUtil.onEvent(this,"home_find_click",null);
-            Drawable drawable = getResources().getDrawable(R.drawable.btn_tab_promotion_selector);
-            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            btnManageOrPromotion.setCompoundDrawables(null, drawable, null, null);
+                ViewUtils.setText(btnManageOrPromotion, "找客");
+                UmengUtil.onEvent(this, "home_find_click", null);
+                Drawable drawable = getResources().getDrawable(R.drawable.btn_tab_promotion_selector);
+                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                btnManageOrPromotion.setCompoundDrawables(null, drawable, null, null);
+            }
         }
         fragments.add(new MakeMoneyFragment());
         personalCenterFragment = new PersonalCenterFragment();

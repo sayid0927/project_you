@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:red="http://schemas.android.com/apk/res-auto"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_eeeeee"
@@ -276,7 +278,7 @@
                         android:layout_marginLeft="-15dp"
                         android:layout_marginTop="-6dp"
                         android:layout_toRightOf="@+id/txt_user_daishouhuo"
-                        android:background="@drawable/circle"
+                        android:background="@drawable/meg_circle"
                         android:gravity="center"
                         android:paddingLeft="4.5dp"
                         android:paddingRight="4.5dp"
@@ -311,10 +313,46 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="73.5dp"
+                android:layout_height="63.5dp"
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
+
+
+
+                <RelativeLayout
+                    android:id="@+id/btn_user_mseeger"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.15">
+
+                    <TextView
+                        android:id="@+id/tex_user_mseeger"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="8dp"
+                        android:drawableTop="@drawable/icon_wdsc"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="我的消息"
+                        android:textColor="@color/gray_333333"
+                        android:textSize="13sp" />
+
+
+                    <com.zxly.o2o.view.RedPoint
+                        android:id="@+id/view_redPoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="-30dp"
+                        android:layout_marginTop="3dp"
+                        red:redIsShowText="true"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:layout_toRightOf="@+id/tex_user_mseeger"
+                        android:background="@drawable/meg_circle"/>
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/btn_user_collect"
@@ -355,6 +393,31 @@
                     android:textColor="@color/gray_333333"
                     android:textSize="13sp" />
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_baoxiudan"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="保修单"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray_dcdcdc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="63.5dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <RelativeLayout
                     android:id="@+id/btn_user_guarantees"
@@ -388,31 +451,6 @@
 
                 </RelativeLayout>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawablePadding="7dp"
-                    android:drawableTop="@drawable/icon_baoxiudan"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:text="保修单"
-                    android:textColor="@color/gray_333333"
-                    android:textSize="13sp"
-                    android:visibility="gone" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/gray_dcdcdc" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="73.5dp"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/btn_my_salesman"
@@ -442,19 +480,6 @@
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/btn_earn_commission"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawablePadding="7dp"
-                    android:drawableTop="@drawable/icon_yjjl"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:text="我要赚钱"
-                    android:textColor="@color/gray_333333"
-                    android:textSize="13sp" />
-
-                <TextView
                     android:id="@+id/btn_feedback"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -469,6 +494,34 @@
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/btn_earn_commission"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_yjjl"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="我要赚钱"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray_dcdcdc" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="63.5dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
                     android:id="@+id/btn_setting"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -478,6 +531,58 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="设置"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_promotion"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="推广人"
+                    android:visibility="invisible"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_yjjl"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="我要赚钱"
+                    android:visibility="invisible"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_yjfk"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="用户意见"
+                    android:textColor="@color/gray_333333"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="7dp"
+                    android:drawableTop="@drawable/icon_setting"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="设置"
+                    android:visibility="invisible"
                     android:textColor="@color/gray_333333"
                     android:textSize="13sp" />
 

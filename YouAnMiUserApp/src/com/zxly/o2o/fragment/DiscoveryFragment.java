@@ -193,8 +193,4 @@ public class DiscoveryFragment extends BaseFragment implements OnClickListener {
 		tabs.setTabBackground(R.color.transparent);
 		tabs.initTabStyles();
 	}
-
-
-
-
 }

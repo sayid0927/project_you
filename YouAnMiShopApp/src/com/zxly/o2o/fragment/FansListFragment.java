@@ -147,85 +147,87 @@ public class FansListFragment extends BaseFragment implements ExpandableListView
      */
     public void showDefaultView(int fansCount) {
         //处理无粉丝与有粉丝第一次进入的情况时显示默认图层
-        if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
-            if (fansCount == 0) {
-                if (PreferUtil.getInstance().getIsFirstOpenFans()) {
-                    layout_nodata_admin.setVisibility(View.VISIBLE);
-                    showCollegeCourse();
-                    layout_nodata_admin.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            layout_nodata_admin.setVisibility(View.GONE);
-                            if (collegeCourseView != null) {
-                                collegeCourseView.setVisibility(View.GONE);
+        if (Account.user != null) {
+            if (Account.user.getRoleType() == Constants.USER_TYPE_ADMIN) {
+                if (fansCount == 0) {
+                    if (PreferUtil.getInstance().getIsFirstOpenFans()) {
+                        layout_nodata_admin.setVisibility(View.VISIBLE);
+                        showCollegeCourse();
+                        layout_nodata_admin.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                layout_nodata_admin.setVisibility(View.GONE);
+                                if (collegeCourseView != null) {
+                                    collegeCourseView.setVisibility(View.GONE);
+                                }
                             }
-                        }
-                    });
-                }
+                        });
+                    }
 
-            } else {
-                //有粉丝但是是第一次进入该页面
-                if (PreferUtil.getInstance().getIsFirstOpenFans()) {
-                    iv_nodata_admin.setBackgroundResource(R.drawable.icon_nodata_brand);
-                    layout_nodata_admin.setVisibility(View.VISIBLE);
-                    showCollegeCourse();
-                    layout_nodata_admin.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            layout_nodata_admin.setVisibility(View.GONE);
-                            if (collegeCourseView != null) {
-                                collegeCourseView.setVisibility(View.GONE);
-                            }
-                        }
-                    });
                 } else {
-                    layout_nodata_admin.setVisibility(View.GONE);
-                    if (collegeCourseView != null) {
-                        collegeCourseView.setVisibility(View.GONE);
+                    //有粉丝但是是第一次进入该页面
+                    if (PreferUtil.getInstance().getIsFirstOpenFans()) {
+                        iv_nodata_admin.setBackgroundResource(R.drawable.icon_nodata_brand);
+                        layout_nodata_admin.setVisibility(View.VISIBLE);
+                        showCollegeCourse();
+                        layout_nodata_admin.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                layout_nodata_admin.setVisibility(View.GONE);
+                                if (collegeCourseView != null) {
+                                    collegeCourseView.setVisibility(View.GONE);
+                                }
+                            }
+                        });
+                    } else {
+                        layout_nodata_admin.setVisibility(View.GONE);
+                        if (collegeCourseView != null) {
+                            collegeCourseView.setVisibility(View.GONE);
+                        }
                     }
                 }
-            }
-        } else {
+            } else {
 //            if (collegeCourseView == null) {
 //                collegeCourseView = new CollegeCourseView(getActivity(), 1);
 //            }
-            getLessonId();
-            if (fansCount == 0) {
-                if (PreferUtil.getInstance().getIsFirstOpenFans()) {
-                    layout_nodata_salesman.setVisibility(View.VISIBLE);
-                    layout_nodata_salesman.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            layout_nodata_salesman.setVisibility(View.GONE);
-                        }
-                    });
+                getLessonId();
+                if (fansCount == 0) {
+                    if (PreferUtil.getInstance().getIsFirstOpenFans()) {
+                        layout_nodata_salesman.setVisibility(View.VISIBLE);
+                        layout_nodata_salesman.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                layout_nodata_salesman.setVisibility(View.GONE);
+                            }
+                        });
+                    }
+
+                } else {
+                    //有粉丝但是是第一次进入该页面
+                    if (PreferUtil.getInstance().getIsFirstOpenFans()) {
+//                    btn_gonext.setBackgroundResource(R.drawable.icon_nodata_brand);
+                        iv_salsman.setBackgroundResource(R.drawable.icon_nodata_brand);
+                        layout_nodata_salesman.setVisibility(View.VISIBLE);
+                        layout_nodata_salesman.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                layout_nodata_salesman.setVisibility(View.GONE);
+                            }
+                        });
+                    } else {
+                        layout_nodata_salesman.setVisibility(View.GONE);
+                    }
                 }
 
-            } else {
-                //有粉丝但是是第一次进入该页面
-                if (PreferUtil.getInstance().getIsFirstOpenFans()) {
-//                    btn_gonext.setBackgroundResource(R.drawable.icon_nodata_brand);
-                    iv_salsman.setBackgroundResource(R.drawable.icon_nodata_brand);
-                    layout_nodata_salesman.setVisibility(View.VISIBLE);
-                    layout_nodata_salesman.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            layout_nodata_salesman.setVisibility(View.GONE);
-                        }
-                    });
-                } else {
-                    layout_nodata_salesman.setVisibility(View.GONE);
-                }
+                btn_gonext.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        YamCollegeDetailAct.start(getActivity(), lessonId);
+                    }
+                });
             }
 
-            btn_gonext.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    YamCollegeDetailAct.start(getActivity(), lessonId);
-                }
-            });
         }
-
     }
 
     private void getLessonId() {

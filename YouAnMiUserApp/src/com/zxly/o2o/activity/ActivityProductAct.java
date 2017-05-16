@@ -58,6 +58,7 @@ import java.util.List;
 public class ActivityProductAct extends BasicAct implements OnSelChangeListener, OnClickListener, OnRefreshListener {
 
 
+
     private SpinnerView turnType;
     private SpinnerView turnBrand;
     private SpinnerView turnSort;

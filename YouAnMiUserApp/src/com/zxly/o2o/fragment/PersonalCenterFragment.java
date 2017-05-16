@@ -2,13 +2,30 @@ package com.zxly.o2o.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.easemob.EMConnectionListener;
+import com.easemob.EMError;
+import com.easemob.EMEventListener;
+import com.easemob.EMNotifierEvent;
+import com.easemob.chat.EMChat;
+import com.easemob.chat.EMChatManager;
+import com.easemob.chat.EMMessage;
+import com.easemob.chatuidemo.HXApplication;
+import com.easemob.chatuidemo.HXHelper;
 import com.easemob.easeui.EaseConstant;
+import com.easemob.easeui.model.GeTuiConversation;
+import com.easemob.easeui.request.GetuiTypeDataRequest;
+import com.easemob.easeui.request.HXNormalRequest;
 import com.zxly.o2o.account.Account;
 import com.zxly.o2o.activity.DiscountListAct;
+import com.zxly.o2o.activity.EaseHXMainAct;
 import com.zxly.o2o.activity.FeedbackAct;
 import com.zxly.o2o.activity.HomeAct;
 import com.zxly.o2o.activity.InsuranceListAct;
@@ -22,7 +39,6 @@ import com.zxly.o2o.activity.PromotionDetailAct;
 import com.zxly.o2o.activity.RefundmentListActivity;
 import com.zxly.o2o.activity.SettingAct;
 import com.zxly.o2o.activity.ShopCartAct;
-import com.zxly.o2o.activity.ShowDefineGetuiAct;
 import com.zxly.o2o.activity.UserCollectedAct;
 import com.zxly.o2o.activity.UserTopicAct;
 import com.zxly.o2o.config.Config;
@@ -35,6 +51,7 @@ import com.zxly.o2o.util.Constants;
 import com.zxly.o2o.util.DesityUtil;
 import com.zxly.o2o.util.FragmentTabHandler;
 import com.zxly.o2o.util.PreferUtil;
+import com.zxly.o2o.util.PreferenceData;
 import com.zxly.o2o.util.StringUtil;
 import com.zxly.o2o.util.UMengAgent;
 import com.zxly.o2o.util.ViewUtils;
@@ -42,9 +59,12 @@ import com.zxly.o2o.view.CircleImageView;
 import com.zxly.o2o.view.LoadingView;
 import com.zxly.o2o.view.ObservableScrollView;
 import com.zxly.o2o.view.OnScrollChangedCallback;
+import com.zxly.o2o.view.RedPoint;
+
+import java.util.List;
 
 public class PersonalCenterFragment extends BaseFragment implements
-        OnClickListener, OnScrollChangedCallback {
+        OnClickListener, OnScrollChangedCallback,EMEventListener {
     private CircleImageView imgUserHead;
     private View btnUserInfo, viewUserInfo;
     private TextView txtUserName;
@@ -60,6 +80,18 @@ public class PersonalCenterFragment extends BaseFragment implements
     private ObservableScrollView scrollView;
     private View viewTitle;
     private int scrollHeight, screenHeight;
+    private  RedPoint redPoint;
+    private Handler myHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 1:
+                    redPoint.showRedPointNum(getActivity());
+                    break;
+            }
+        }
+    };
 
     @Override
     public void onResume() {
@@ -67,6 +99,17 @@ public class PersonalCenterFragment extends BaseFragment implements
         fragmentTabHandler = ((HomeAct) getActivity()).fragmentContorler;
         if (3 == fragmentTabHandler.getCurrentTab()) {
             refreshUI();
+        }
+
+        if (Account.user != null) {
+//            Log.e("reload contact", "reload contact...");
+//            PreferenceManager.getInstance().setMistiming(System.currentTimeMillis());
+//            AppController.getInstance().checkIsNeedUpdateContact(false);
+            getGetuiMsgCount();
+        }else {
+            redPoint.showRedPoint();
+            PreferenceData.setMessageNumValue(getActivity(),0);
+            myHandler.sendEmptyMessage(1);
         }
     }
 
@@ -144,6 +187,9 @@ public class PersonalCenterFragment extends BaseFragment implements
 
     @Override
     protected void initView() {
+        EMChatManager.getInstance().registerEventListener(this);
+        EMChat.getInstance().setAppInited();
+        EMChatManager.getInstance().addConnectionListener(connectionListener);
         curAct = getActivity();
         loadingView = (LoadingView) findViewById(R.id.view_loading);
         scrollView = (ObservableScrollView) findViewById(R.id.scroll_view);
@@ -174,19 +220,26 @@ public class PersonalCenterFragment extends BaseFragment implements
         findViewById(R.id.btn_feedback).setOnClickListener(this);
         findViewById(R.id.btn_setting).setOnClickListener(this);
         findViewById(R.id.btn_ddyh).setOnClickListener(this);
+        findViewById(R.id.btn_user_mseeger).setOnClickListener(this);
 
         txtNickName = (TextView) findViewById(R.id.txt_user_nickname);
         txtUserName = (TextView) findViewById(R.id.txt_user_name);
         txtUserBalance = (TextView) findViewById(R.id.txt_user_balance);
         txtDaifukuan = (TextView) findViewById(R.id.txt_daifukuan_count);
         txtDaishouhuo = (TextView) findViewById(R.id.txt_daishouhuo_count);
+        redPoint = (RedPoint) findViewById(R.id.view_redPoint);
+     //   getGetuiMsgCount();
     }
+
+
 
     @Override
     public void onClick(View v) {
         if (Account.hasLogin()) {
             Intent intent;
             switch (v.getId()) {
+
+
                 case R.id.view_title:
                     break;
                 case R.id.btn_user_shoppingcart:
@@ -222,6 +275,12 @@ public class PersonalCenterFragment extends BaseFragment implements
                     UserCollectedAct.start(curAct);
                     UMengAgent.onEvent(curAct, UMengAgent.personal_home_collect);
                     break;
+                case R.id.btn_user_mseeger:
+
+                    EaseHXMainAct.start(curAct);
+                    break;
+
+
                 case R.id.btn_user_topic:
                     UserTopicAct.start(curAct);
                     UMengAgent.onEvent(curAct, UMengAgent.personal_home_topic);
@@ -294,4 +353,78 @@ public class PersonalCenterFragment extends BaseFragment implements
         float alpha = (float) t / scrollHeight;
         viewTitle.setAlpha(alpha);
     }
+
+    private void getGetuiMsgCount() {
+        final GetuiTypeDataRequest getuiTypeDataRequest=new GetuiTypeDataRequest(EaseConstant.shopID);
+        getuiTypeDataRequest.start();
+        getuiTypeDataRequest.setOnResponseStateListener(new HXNormalRequest.ResponseStateListener() {
+
+            @Override
+            public void onOK() {
+               List<GeTuiConversation> conversationList=getuiTypeDataRequest.emConversationList;
+                int netDataUnread=0;
+                if(conversationList.size()!=0){
+                    for (int i = 0; i< conversationList.size(); i++){
+                        if(conversationList.get(i).getNumber()!=0){
+                            netDataUnread += conversationList.get(i).getNumber();
+                        }
+                    }
+                }
+               HXApplication.getInstance().setGetuiMsgList(conversationList);
+               PreferenceData.setMessageNumValue(getActivity(),netDataUnread);
+               myHandler.sendEmptyMessage(1);
+            }
+
+            @Override
+            public void onFail(int code) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onEvent(EMNotifierEvent event) {
+
+        switch (event.getEvent()) {
+            case EventNewMessage: {  // 普通消息
+                EMMessage message = (EMMessage) event.getData();
+                HXHelper.getInstance().getNotifier().onNewMsg(message);  // 提示新消息
+
+                Toast.makeText(getActivity()," 来消息 ",Toast.LENGTH_SHORT).show();
+      //          refreshUI();
+                break;
+            }
+
+            case EventOfflineMessage: {
+        //        refreshUI();
+                break;
+            }
+
+            case EventConversationListChanged: {
+          //      refreshUI();
+                break;
+            }
+
+            default:
+                break;
+        }
+
+    }
+
+    protected EMConnectionListener connectionListener = new EMConnectionListener() {
+
+        @Override
+        public void onDisconnected(int error) {
+            if (error == EMError.USER_REMOVED || error == EMError.CONNECTION_CONFLICT) {
+            Log.e("TAG","connectionListener  == error ");
+            } else {
+                Log.e("TAG","connectionListener  == OK ");
+            }
+        }
+
+        @Override
+        public void onConnected() {
+            Log.e("TAG","connectionListener  == OOOO ");
+        }
+    };
 }
