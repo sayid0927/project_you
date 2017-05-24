@@ -74,6 +74,8 @@ public class StoreArticelAdapter extends ObjectAdapter implements View.OnClickLi
                     shareInfo.setTitle(hb.article.getTitle());
                     shareInfo.setUrl(hb.article.getUrl().replace("isShare=0", "isShare=1"));
 //                    shareInfo.setIconUrl(hb.article.getHeadUrl());
+
+
                     shareInfo.setIconUrl(new String(Base64.decode(hb.article.getShareImageUrl().getBytes(), Base64.DEFAULT)));
                     H5DetailAct.start(H5DetailAct.TYPE_DEFAULT,
                             AppController.getInstance().getTopAct(),
@@ -200,6 +202,16 @@ public class StoreArticelAdapter extends ObjectAdapter implements View.OnClickLi
             shareDesc = desc;
         }
         String shareUrl = article.getUrl();
+
+       int index= isChinese(shareUrl);
+        if(index!=000){
+
+        shareUrl= shareUrl.substring(0,index);
+
+        }
+      // shareUrl="http://pxqd.youanmi.com/share/shop-app-article-detail/index.html?shopId=840&userId=61119&isShare=0&id=269075&articleFrom=2&u=aHR0cHM6Ly9zaGFyZS55b3Vhbm1pLmNvbS8&shareImage=aHR0cDovL2NkbmltZzMueW91YW5taS5jb20veWFtL00wMC81Ni9CRi9lRXhMS2xrYXY1cUFBN1NXQUFBYnptenJybUEyNi5KUEVH&title";
+
+
         dialog.show(shareTitle, shareDesc, shareUrl.replace("isShare=0", "isShare=1"), shareImageUrl, new ShareListener() {
             @Override
             public void onComplete(Object var1) {
@@ -222,7 +234,26 @@ public class StoreArticelAdapter extends ObjectAdapter implements View.OnClickLi
             }
         });
     }
+    // 判断一个字符串是否含有中文
+    public int isChinese(String str) {
+        if (str == null)
+            return 000;
+        int i=0;
+        for (char c : str.toCharArray()) {
+            if (isChinese(c)) {
+                return i;// 有一个中文字符就返回
+            }else {
+                i++;
+                continue;
+            }
+        }
+        return 000;
+    }
 
+    // 判断一个字符是否是中文
+    public boolean isChinese(char c) {
+        return c >= 0x4E00 && c <= 0x9FA5;// 根据字节码判断
+    }
 
     class ViewHolder {
         StoreArticle article;

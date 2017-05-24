@@ -35,25 +35,40 @@ public class GetMenberInfoRequest extends BaseRequest{
 
     @Override
     protected void fire(String data) throws AppException {
+
+        if(data==null||data.length()==0){
+            return;
+        }
         try {
             JSONArray jsonArray = new JSONArray(data);
             int length = jsonArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                MenberInfoModel menberInfo = new MenberInfoModel();
-                menberInfo.setHeadUrl(jsonObject.optString("headUrl"));
-                menberInfo.setId(jsonObject.optLong("id"));
-                menberInfo.setIsBuyOnline(jsonObject.optInt("isBuyOnline"));
-                menberInfo.setIsNewBehavior(jsonObject.optInt("isNewBehavior"));
-                menberInfo.setLastBehaviorTime(jsonObject.optLong("lastBehaviorTime"));
-                menberInfo.setLastPhoneTime(jsonObject.optLong("lastPhoneTime"));
-                menberInfo.setLastSmsTime(jsonObject.optLong("lastSmsTime"));
-                menberInfo.setMobilePhone(jsonObject.optString("mobilePhone"));
-                menberInfo.setNickname(jsonObject.optString("nickname"));
-                menberInfo.setRemarkName(jsonObject.optString("remarkName"));
-                menberInfo.setUserName(jsonObject.optString("userName"));
-                menberInfoModelList.add(menberInfo);
-            }
+                for (int i = 0; i < length; i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    MenberInfoModel menberInfo = new MenberInfoModel();
+                    if(jsonObject.has("headUrl"))
+                    menberInfo.setHeadUrl(jsonObject.optString("headUrl"));
+                    if(jsonObject.has("id"))
+                    menberInfo.setId(jsonObject.optLong("id"));
+                    if(jsonObject.has("isBuyOnline"))
+                    menberInfo.setIsBuyOnline(jsonObject.optInt("isBuyOnline"));
+                    if(jsonObject.has("isNewBehavior"))
+                    menberInfo.setIsNewBehavior(jsonObject.optInt("isNewBehavior"));
+                    if(jsonObject.has("lastBehaviorTime"))
+                    menberInfo.setLastBehaviorTime(jsonObject.optLong("lastBehaviorTime"));
+                    if(jsonObject.has("lastPhoneTime"))
+                    menberInfo.setLastPhoneTime(jsonObject.optLong("lastPhoneTime"));
+                    if(jsonObject.has("lastSmsTime"))
+                    menberInfo.setLastSmsTime(jsonObject.optLong("lastSmsTime"));
+                    if(jsonObject.has("mobilePhone"))
+                    menberInfo.setMobilePhone(jsonObject.optString("mobilePhone"));
+                    if(jsonObject.has("nickname"))
+                    menberInfo.setNickname(jsonObject.optString("nickname"));
+                    if(jsonObject.has("remarkName"))
+                    menberInfo.setRemarkName(jsonObject.optString("remarkName"));
+                    if(jsonObject.has("userName"))
+                    menberInfo.setUserName(jsonObject.optString("userName"));
+                    menberInfoModelList.add(menberInfo);
+                }
         } catch (JSONException e) {
             e.printStackTrace();
         }

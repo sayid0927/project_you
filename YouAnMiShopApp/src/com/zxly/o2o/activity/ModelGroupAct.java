@@ -411,14 +411,14 @@ public class ModelGroupAct extends BasicAct implements PullToRefreshBase.OnRefre
                 //目的：由于后台存在调组功能，所以当调岗然后又处于此页面时 检查两个人数是否相同
                 //不同就更新组的人数为最新 以实际获取的会员人数为准
                 if (MenberGroupModel.getMemberCount() != size) {
-                    ViewUtils.showToast("该会员列表已刷新");
+                //    ViewUtils.showToast("该会员列表已刷新");
                     closeAllGroup(fansInfoList.size());
                     MenberGroupModel.setMemberCount(size);
                     //当该组人数全在后台调走后  那么就重新刷新组信息（也就是删除该组）
-                    if (size == 0) {
-                        loadGroupData(true);
-                        return;
-                    }
+//                    if (size == 0) {
+//                        loadGroupData(true);
+//                        return;
+//                    }
                 }
                 if (empty) {
                     //如果是空  那么在适配器中根据groupName  来判断点击组名时  推送 字样不显示

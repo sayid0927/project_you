@@ -348,7 +348,7 @@ public class MenberListFragment extends BaseFragment implements PullToRefreshBas
                 //不同就更新组的人数为最新 以实际获取的会员人数为准
 
                 if (menberGroupModel.getMemberCount() != size) {
-                    ViewUtils.showToast("该会员列表已刷新");
+                //    ViewUtils.showToast("该会员列表已刷新");
                     closeAllGroup(fansInfoList.size());
                     menberGroupModel.setMemberCount(size);
                     //当该组人数全在后台调走后  那么就重新刷新组信息（也就是删除该组）
@@ -377,7 +377,7 @@ public class MenberListFragment extends BaseFragment implements PullToRefreshBas
 
             @Override
             public void onFail(int code) {
-
+                      Log.e("TAG","VVVVVVVVVV");
             }
         });
         getMenberInfoRequest.start();

@@ -151,7 +151,16 @@ public class CustomArticleAdapter extends ObjectAdapter implements View.OnClickL
                     desc = ("【"+article.getUserAppName()+"】"+desc);
                 }
                 String shareImageUrl=new String(android.util.Base64.decode(article.getShareImageUrl().getBytes(), android.util.Base64.DEFAULT));
-                dialog.show(_title,desc,article.getUrl().replace("isShare=0","isShare=1"), shareImageUrl, new ShareListener() {
+
+               String  url= article.getUrl();
+
+                int index= isChinese(url);
+                if(index!=000){
+                    url= url.substring(0,index);
+                }
+
+
+                dialog.show(_title,desc,url.replace("isShare=0","isShare=1"), shareImageUrl, new ShareListener() {
                     @Override
                     public void onComplete(Object var1) {
                         if(isDelItem){
@@ -213,6 +222,27 @@ public class CustomArticleAdapter extends ObjectAdapter implements View.OnClickL
 
     }
 
+
+    // 判断一个字符串是否含有中文
+    public int isChinese(String str) {
+        if (str == null)
+            return 000;
+        int i=0;
+        for (char c : str.toCharArray()) {
+            if (isChinese(c)) {
+                return i;// 有一个中文字符就返回
+            }else {
+                i++;
+                continue;
+            }
+        }
+        return 000;
+    }
+
+    // 判断一个字符是否是中文
+    public boolean isChinese(char c) {
+        return c >= 0x4E00 && c <= 0x9FA5;// 根据字节码判断
+    }
 
     static class ViewHolder {
         SlideDelete slideDelete;

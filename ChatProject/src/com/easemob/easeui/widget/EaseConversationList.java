@@ -124,7 +124,7 @@ public class EaseConversationList extends ListView {
      * 获取所有会话
      *
      * @param
-     * @return +
+     * @return
      */
     public List<EMConversation> loadConversationsWithRecentChat() {
         // 获取所有会话，包括陌生人
@@ -229,7 +229,7 @@ public class EaseConversationList extends ListView {
     }
 
     public void refresh(EaseCallBack callBack) {
-        //        conversationList = loadConversationsWithRecentChat();
+        //conversationList = loadConversationsWithRecentChat();
         this.callBack = callBack;
         handler.sendEmptyMessage(MSG_REFRESH_ADAPTER_DATA);
     }
@@ -237,6 +237,4 @@ public class EaseConversationList extends ListView {
     public void filter(CharSequence str) {
         adapter.getFilter().filter(str);
     }
-
-
 }

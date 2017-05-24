@@ -322,6 +322,8 @@ public class H5CustomArticleDetailFragment extends BaseFragment implements  View
 
                 //分享地址为空保存并且分享，不为空直接分享
                 if(shareUrl==null){
+
+
                     saveContent(new CallBack() {
                         @Override
                         public void onCall() {
@@ -345,6 +347,14 @@ public class H5CustomArticleDetailFragment extends BaseFragment implements  View
                             if(!TextUtils.isEmpty(userAppName)){
                                 desc = ("【"+userAppName+"】"+desc);
                             }
+
+                            int index= isChinese(shareUrl);
+                            if(index!=000){
+                                shareUrl= shareUrl.substring(0,index);
+                            }
+
+
+
                             shareDialog.show(shareTitle,desc, shareUrl.replace("isShare=0","isShare=1"), shareImageUrl, new ShareListener() {
                                 @Override
                                 public void onComplete(Object var1) {
@@ -360,6 +370,10 @@ public class H5CustomArticleDetailFragment extends BaseFragment implements  View
                         }
                     });
                 }else {
+                    int index= isChinese(shareUrl);
+                    if(index!=000){
+                        shareUrl= shareUrl.substring(0,index);
+                    }
                     if(TextUtils.isEmpty(desc)){
                         shareDialog.show(desc,shareUrl.replace("isShare=0","isShare=1"),shareImageUrl,null);
                     }else {
@@ -542,6 +556,26 @@ public class H5CustomArticleDetailFragment extends BaseFragment implements  View
         public void onOK();
 
         public void onFail();
+    }
+
+    public int isChinese(String str) {
+        if (str == null)
+            return 000;
+        int i=0;
+        for (char c : str.toCharArray()) {
+            if (isChinese(c)) {
+                return i;// 有一个中文字符就返回
+            }else {
+                i++;
+                continue;
+            }
+        }
+        return 000;
+    }
+
+    // 判断一个字符是否是中文
+    public boolean isChinese(char c) {
+        return c >= 0x4E00 && c <= 0x9FA5;// 根据字节码判断
     }
 
 
