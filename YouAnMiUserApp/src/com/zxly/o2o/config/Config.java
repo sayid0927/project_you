@@ -91,7 +91,7 @@ public class Config {
 
     public static void init(Context ctx) {
         LoadProperty();
-        dataBaseUrl = getConfig("data_base_url").trim();
+        dataBaseUrl = getConfig("data_base_url");
         displayMetrics = EaseUI.displayMetrics;
         densityDpi = displayMetrics.densityDpi;
         scaleRate = (float) densityDpi / (float) DisplayMetrics.DENSITY_MEDIUM;
