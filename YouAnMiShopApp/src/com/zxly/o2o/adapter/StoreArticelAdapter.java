@@ -199,6 +199,7 @@ public class StoreArticelAdapter extends ObjectAdapter implements View.OnClickLi
         } else {
             shareDesc = desc;
         }
+
         String shareUrl = article.getUrl();
         dialog.show(shareTitle, shareDesc, shareUrl.replace("isShare=0", "isShare=1"), shareImageUrl, new ShareListener() {
             @Override
