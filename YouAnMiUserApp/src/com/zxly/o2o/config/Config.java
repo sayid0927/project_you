@@ -136,8 +136,8 @@ public class Config {
     public static void LoadProperty() {
         prop = new Properties();
         try {
-            prop.load(AppController.getInstance().getResources()
-                    .openRawResource(R.raw.config));
+//             prop.load(AppController.getInstance().getResources()
+//                     .openRawResource(R.raw.config));
         } catch (Exception e) {
             e.printStackTrace();
         }
